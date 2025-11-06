@@ -1,0 +1,744 @@
+:root {
+  --font-heading: 'Big Caslon', serif;
+  --font-body: 'Futura Md BT', 'Futura', sans-serif;
+}
+
+/* CSS for section section:welcome */
+.welcome-section {
+  padding-top: 115px; /* (Frame Y: -943) - (Title Y: -828) */
+  padding-bottom: 119px; /* (Image Y: -591) - (Subtitle Y: -705 + Height: 65) */
+  text-align: center;
+  background-color: white;
+  color: var(--color-text-primary);
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 66px; /* (Subtitle Y: -705) - (Title Y: -828 + Height: 57) */
+}
+
+.title-border {
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 98px;
+  z-index: 1;
+}
+
+/* Retourner l'image title-border horizontalement pour certaines sections */
+.title-border-flipped {
+  transform: translate(-50%, -50%) scaleX(-1);
+}
+
+.main-title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-heading);
+  
+  font-size: 52px;
+  line-height: 1.25; /* 57.5px */
+  color: black;
+  margin-left: 45px;
+}
+
+/* Ajouter de l'espace à droite pour les titres avec title-border retournée */
+.title-border-flipped-wrapper .main-title {
+  margin-right: 45px;
+}
+
+.main-title .highlight {
+  color:rgb(197, 150, 79);
+}
+
+.subtitle {
+  font-size: 24px;
+  line-height: 1.2; /* 28.77px */
+  max-width: 805px;
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.subtitle strong {
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+
+  .title-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .title-border {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+  }
+
+  .main-title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+}
+
+/* CSS for section section:experience */
+.experience-section {
+  width: 100%;
+  height: 80vh;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-background-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 785px;
+  padding: 0 20px;
+  text-align: center;
+  color: var(--color-text-inverse);
+  margin-top: 50px; /* Descend the hero-content */
+  position: relative;
+  z-index: 11;
+}
+
+.hero-text {
+  font-size: 24px;
+  line-height: 1.25; /* 30px */
+  margin: 0 0 24px 0; /* Increased margin for better spacing */
+  font-family: var(--font-body);
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #B78F62;
+  color: var(--color-text-inverse);
+  font-size: 19px;
+  line-height: 1.2; /* 22.77px */
+  padding: 14px 32px;
+  text-decoration: none;
+  border-radius: 20px 0px 20px 0px;
+  transition: background-color 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+  font-family: var(--font-body);
+}
+
+.hero-button:hover {
+  background-color: #6b4f35; /* Couleur beaucoup plus foncée au hover */
+}
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding-top: 40px;
+    justify-content: center; /* Center vertically on smaller screens */
+  }
+
+  .hero-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .hero-button {
+    font-size: 16px;
+    padding: 12px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+   .hero-overlay {
+    padding-top: 20px;
+  }
+  .hero-text {
+    font-size: 16px;
+  }
+}
+
+/* CSS for section section:hero */
+.hero-container {
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Overlay sombre pour assombrir la vidéo de fond */
+  .hero-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay sombre de 40% */
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  main section {
+    position: relative;
+    z-index: 1;
+  }
+
+  main h2 {
+    color: #ffffff !important;
+  }
+
+  .hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .hero-header,
+  .hero-main,
+  .hero-footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header styles - maintenant géré par Tailwind dans le HTML, on garde seulement les styles de base */
+  .hero-header {
+    /* Styles de base - les classes Tailwind gèrent le responsive */
+    background: none;
+    position: relative;
+  }
+
+  .menu-cluster {
+    /* Base styles - responsive géré par Tailwind */
+  }
+
+  .menu-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+  }
+
+  .lang-switcher {
+    color: #ffffff;
+  }
+  
+  .lang-switcher a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .lang-active {
+    font-weight: 500;
+  }
+
+  .logo-link {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Centrer le logo horizontalement dans le header */
+  header.fixed > div.flex.justify-center,
+  .hero-header > div.flex.justify-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+
+
+  .header-nav {
+    /* Responsive géré par Tailwind flex-col sm:flex-row */
+  }
+
+  .btn-wrapper {
+    position: relative;
+  }
+
+  .btn-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .header-nav .btn-wrapper {
+    min-width: fit-content;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-nav .btn-wrapper:first-child {
+    min-width: 200px; /* Assez large pour "Réserver une suite" */
+  }
+  
+  /* Ajuster le padding du texte pour qu'il soit bien contenu dans l'image */
+  .header-nav .btn-wrapper:first-child .btn-text {
+    white-space: nowrap;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .btn-text {
+    /* Font size responsive géré par Tailwind text-sm md:text-base */
+    letter-spacing: 0.625px;
+    font-family: var(--font-body);
+  }
+
+  .booking-form {
+    position: absolute;
+    top: 504px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 42px;
+  }
+
+  .form-field-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 38px;
+    cursor: pointer;
+  }
+  
+  .form-field-wrapper.date-field {
+    cursor: pointer;
+  }
+
+  .form-field-wrapper .field-bg {
+    position: absolute;
+    inset: 0;
+    width: 120%;
+    height: 120%;
+    z-index: -1;
+  }
+
+  .form-field-wrapper:nth-child(1) { width: 257px; }
+  .form-field-wrapper:nth-child(2) { width: 258px; }
+  .form-field-wrapper:nth-child(3) { width: 258px; justify-content: space-between; }
+
+  .field-label {
+    font-size: 28px;
+    letter-spacing: 1.3125px;
+    line-height: 1;
+    font-family: var(--font-body);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .guest-field .field-label {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .date-field .field-label {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .field-label .label-text {
+    font-size: 28px;
+    display: inline;
+  }
+
+  .field-label .date-value {
+    font-size: 18px;
+    margin-top: 0;
+    opacity: 0.9;
+    min-height: 20px;
+    display: none;
+    font-family: var(--font-body);
+    letter-spacing: 1.3125px;
+    line-height: 1;
+  }
+
+  .field-label .date-value[style*="display: inline"] {
+    display: inline !important;
+  }
+
+  /* Affichage de la date sélectionnée - remplacer le label-text */
+  .date-field .field-label .date-value {
+    position: relative;
+    top: 0;
+  }
+
+  /* Quand une date est sélectionnée, afficher la date au même niveau que le label-text */
+  .date-field .field-label .label-text[style*="display: none"] ~ .date-value {
+    display: inline !important;
+    font-size: 18px;
+    margin-top: 0;
+  }
+
+  .field-label .guest-value {
+    display: inline;
+    opacity: 1;
+    font-size: 28px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  /* Quand une valeur est affichée, masquer le label-text */
+  .field-label .label-text[style*="display: none"] + .guest-value,
+  .field-label .date-value[style*="display: inline"] {
+    display: inline !important;
+  }
+
+  /* Cacher les inputs natifs mais les garder accessibles */
+  .date-input,
+  .guest-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .date-input {
+    left: 0;
+    top: 0;
+  }
+
+  .guest-input {
+    left: 0;
+    width: 80%;
+  }
+
+  .guest-stepper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: -24px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .guest-stepper img {
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .guest-stepper img:hover {
+    opacity: 0.7;
+  }
+
+  .guest-stepper img:active {
+    opacity: 0.5;
+  }
+
+  .search-button {
+    font-family: var(--font-body);
+    font-size: 28px;
+    letter-spacing: 1.3125px;
+    color: #ffffff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    white-space: nowrap;
+  }
+
+  .hero-footer {
+    position: absolute;
+    bottom: 30px;
+    right: 56px;
+  }
+
+  .contact-btn {
+    min-width: 240px; /* Assez large pour "Nous Contactez" */
+    width: fit-content;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .contact-btn .btn-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: contain;
+    pointer-events: none;
+  }
+  
+  .contact-btn .btn-text {
+    font-size: 22px;
+    letter-spacing: 0.85px;
+    white-space: nowrap;
+    padding-left: 28px;
+    padding-right: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 1280px) {
+    .hero-container {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1280 / 848;
+      min-height: 600px;
+    }
+    .hero-header, .booking-form, .hero-footer {
+      position: static;
+    }
+    /* Le responsive du header est géré par les classes Tailwind dans le HTML */
+    .booking-form {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 15px;
+      width: 90%;
+      margin: 20px auto;
+    }
+    .search-button, .field-label {
+      font-size: 20px;
+    }
+    .guest-stepper, .search-button {
+      margin-left: 0;
+      justify-content: center;
+    }
+    .hero-footer {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 30px;
+    }
+  }
+
+  
+  @media (max-width: 1024px) {
+    .hero-container {
+      height: 100vh;
+      min-height: 600px;
+    }
+    /* Le responsive du header est géré par les classes Tailwind */
+    .hero-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .booking-form {
+      padding: 20px;
+      gap: 20px;
+      width: 90%;
+    }
+    .field-label {
+      font-size: 24px;
+    }
+    .search-button {
+      font-size: 24px;
+    }
+    .hero-footer {
+      padding: 20px;
+    }
+    .contact-btn .btn-text {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      height: 100vh;
+      min-height: 500px;
+    }
+    /* Le responsive du header est géré par les classes Tailwind */
+    /* Masquer les liens "Réserver une suite" et "Réserver un espace" en responsive */
+    .header-nav .btn-wrapper {
+      display: none !important;
+    }
+    /* Sur mobile, le logo reste centré dans son conteneur */
+    header.fixed > div.flex.justify-center,
+    .hero-header > div.flex.justify-center {
+      position: static;
+      transform: none;
+      left: auto;
+    }
+    .hero-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .booking-form {
+      gap: 25px;
+      width: 95%;
+      margin-top: 50px;
+      margin-left: 310px;
+    }
+    .field-label {
+      font-size: 20px;
+    }
+    .search-button {
+      font-size: 20px;
+    }
+    .hero-footer {
+      padding: 15px;
+    }
+    .contact-btn .btn-text {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-container {
+      height: 100vh;
+      min-height: 400px;
+    }
+    /* Le responsive du header est géré par les classes Tailwind (hidden md:inline-block pour nav) */
+    .hero-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .booking-form {
+      padding: 10px;
+      gap: 8px;
+      width: 98%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .form-field-wrapper {
+      height: 30px;
+      padding: 0 15px;
+      text-align: center;
+    }
+    .form-field-wrapper:nth-child(1) { width: 200px; }
+    .form-field-wrapper:nth-child(2) { width: 200px; }
+    .form-field-wrapper:nth-child(3) { width: 200px; }
+    .field-label {
+      font-size: 16px;
+    }
+    .search-button {
+      font-size: 16px;
+      margin-left: 10px;
+      text-align: center;
+    }
+    .hero-footer {
+      padding: 10px;
+    }
+    .contact-btn {
+      width: 200px;
+      height: 35px;
+    }
+    .contact-btn .btn-text {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .hero-container {
+      height: 100vh;
+      min-height: 350px;
+    }
+    /* Le responsive du header est géré par les classes Tailwind */
+    .hero-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .booking-form {
+      padding: 8px;
+      gap: 6px;
+      width: 99%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .form-field-wrapper {
+      height: 25px;
+      padding: 0 10px;
+      text-align: center;
+    }
+    .form-field-wrapper:nth-child(1) { width: 150px; }
+    .form-field-wrapper:nth-child(2) { width: 150px; }
+    .form-field-wrapper:nth-child(3) { width: 150px; }
+    .field-label {
+      font-size: 14px;
+    }
+    .search-button {
+      font-size: 14px;
+      margin-left: 8px;
+      text-align: center;
+    }
+    .hero-footer {
+      padding: 8px;
+    }
+    .contact-btn {
+      width: 150px;
+      height: 30px;
+    }
+    .contact-btn .btn-text {
+      font-size: 14px;
+    }
+  }
+  

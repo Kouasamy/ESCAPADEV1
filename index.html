@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<title>Accueil ESCAPADE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Libre+Bodoni:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/footer.css">
+  
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Image Optimizer pour améliorer les performances -->
+  <script src="js/image-optimizer.js" defer></script>
+ 
+</head>
+<body class="font-[Futura_Md_BT] text-white">
+<section id="hero">
+  <div class="hero-container">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="video/PAYSAGE.mp4" type="video/mp4">
+    </video>
+    <header class="hero-header fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4">
+      <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
+        <!-- Bouton burger -->
+        <button class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
+          <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12" fetchpriority="high" width="32" height="32">
+          <span class="text-sm md:text-base" data-translate="menu">MENU</span>
+        </button>
+        <!-- Sélecteur de langue -->
+        <div class="lang-switcher flex items-center gap-2 md:gap-3">
+          <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+          <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" fetchpriority="high" width="16" height="16">
+          <a href="#" class="text-sm md:text-base">EN</a>
+        </div>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex justify-center w-full md:w-auto">
+        <a href="index.html" class="logo-link">
+          <img src="images/568_819.svg" alt="ESCAPADE Logo" class="w-[120px] md:w-[150px]" fetchpriority="high" width="150" height="150">
+        </a>
+      </div>
+
+      <!-- Navigation principale -->
+      <nav class="header-nav flex flex-col sm:flex-row items-center gap-3 md:gap-6 text-center">
+        <!--merged image-->
+        <a href="page_suite.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
+          <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+          <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
+        </a>
+        <!--merged image-->
+        <a href="page_evenementiel.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
+          <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+          <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="hero-main">
+      <form class="booking-form">
+        <!--merged image-->
+        <div class="form-field-wrapper date-field" data-field="arrival">
+          <img src="images/568_842.svg" alt="" class="field-bg">
+          <input type="date" id="arrival" name="arrival" class="date-input" min="" required>
+          <label for="arrival" class="field-label" data-translate="arrival">
+            <span class="label-text">Arrivée</span>
+            <span class="date-value"></span>
+          </label>
+          <img src="images/568_843.svg" alt="dropdown arrow" class="field-arrow">
+        </div>
+        <!--merged image-->
+        <div class="form-field-wrapper date-field" data-field="departure">
+          <img src="images/568_844.svg" alt="" class="field-bg">
+          <input type="date" id="departure" name="departure" class="date-input" min="" required>
+          <label for="departure" class="field-label" data-translate="departure">
+            <span class="label-text">Départ</span>
+            <span class="date-value"></span>
+          </label>
+          <img src="images/568_934.svg" alt="dropdown arrow" class="field-arrow">
+        </div>
+        <!--merged image-->
+        <div class="form-field-wrapper guest-field">
+          <img src="images/568_938.svg" alt="" class="field-bg">
+          <label for="guests" class="field-label" id="guest-label" data-translate="guests">
+            <span class="label-text">Invités</span>
+            <span class="guest-value" style="display: none;">1</span>
+          </label>
+          <div class="guest-stepper">
+            <img src="images/568_943.svg" alt="minus" class="guest-minus" id="guest-minus">
+            <img src="images/568_944.svg" alt="plus" class="guest-plus" id="guest-plus">
+          </div>
+          <input type="number" id="guests" name="guests" class="guest-input" value="1" min="0" max="20" required>
+        </div>
+        <button type="submit" class="search-button" data-translate="findSuite">Trouver une suite</button>
+      </form>
+    </main>
+
+    <footer class="hero-footer">
+      <!--merged image-->
+      <a href="#contact" class="btn-wrapper contact-btn">
+        <img src="images/568_840.svg" alt="" class="btn-bg">
+        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
+      </a>
+    </footer>
+  </div>
+</section>
+
+
+
+<!-- MENU BURGER (plein écran) -->
+<section id="menu-section">
+  <div class="menu-container is-hidden" id="menuOverlay">
+    <header class="menu-header">
+      <a href="#" class="menu-close-button">
+        <img src="Menu/images/542_446.svg" alt="Close Icon">
+        <span data-translate="close">FERMER</span>
+      </a>
+      <div class="menu-lang-switcher">
+        <a href="#" class="active">FR</a>
+        <img src="Menu/images/542_445.svg" alt="Language separator">
+        <a href="#">EN</a>
+      </div>
+    </header>
+
+    <!--merged image-->
+    <a href="index.html" class="menu-logo">
+      <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
+      <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
+      <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
+    </a>
+
+    <main class="menu-content">
+      <nav class="menu-nav">
+        <ul>
+          <li>
+            <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
+              <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
+              <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
+            </a>
+          </li>
+          <li>
+            <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
+              <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
+            </a>
+          </li>
+          <li>
+            <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
+              <span class="nav-text" data-translate="event">ÉVÉNEMENTIEL</span>
+            </a>
+          </li>
+          <li>
+            <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
+              <span class="nav-text" data-translate="about">A PROPOS</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="image-showcase">
+        <img src="Menu/images/542_461.svg" class="deco-corner-top" alt="Decorative corner">
+        <div class="image-container">
+          <img src="Menu/images/IMG_1341.jpg" alt="Hotel exterior at night">
+          <img class="image-transition-layer" alt="transition layer" />
+        </div>
+        <img src="Menu/images/542_458.svg" class="deco-corner-bottom" alt="Decorative corner">
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- CSS pour le menu -->
+<link rel="stylesheet" href="Menu/global.css">
+<style id="menu-styles">
+/* CSS for section section:menu */
+.menu-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: var(--text-color);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 280ms ease, transform 280ms ease;
+    will-change: opacity, transform;
+    z-index: 50;
+  }
+
+  .menu-container.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+  .menu-container.is-closing {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  .menu-header {
+    position: absolute;
+    top: 49px;
+    left: 65px;
+    right: 65px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+    z-index: 10;
+  }
+
+  .menu-close-button,
+  .menu-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .menu-close-button img {
+    transition: transform 280ms ease, opacity 280ms ease;
+    will-change: transform, opacity;
+    cursor: pointer;
+  }
+  .menu-close-button img.is-closing {
+    transform: rotate(90deg) scale(0.9);
+    opacity: 0.6;
+  }
+  
+  .menu-lang-switcher {
+    gap: 11px;
+  }
+
+  .menu-lang-switcher .active {
+    text-decoration: underline;
+  }
+
+  .menu-logo {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 159.11px;
+    height: 148.23px;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .logo-part {
+    position: absolute;
+  }
+
+  .menu-content {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100%;
+  }
+
+  .menu-nav {
+    padding-top: 286px;
+    padding-left: 88px;
+  }
+
+  .menu-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+  }
+
+  .nav-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: contain;
+  }
+
+  .nav-text {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-sans);
+    font-size: 32px;
+    font-weight: 400;
+    padding-left: 162px; /* Center text inside the pill shape */
+    padding-right: 40px; /* Espace à droite pour éviter le débordement */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  .nav-line {
+    position: absolute;
+    left: 89px; /* 45px (from figma) - 88px (nav padding) */
+    top: 24px; /* 310px (from figma) - 286px (nav top) */
+    opacity: 0;
+    transform: translateX(-8px) scaleX(0.9);
+    transform-origin: left center;
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  .nav-item:hover .nav-line {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+
+  .nav-item:hover {
+    transform: translateX(12px);
+  }
+
+  .image-showcase {
+    position: relative;
+    padding-top: 247px;
+  }
+
+  /* Staggered entrance for menu items */
+  .menu-nav li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .menu-nav li:nth-child(1) { animation-delay: 60ms; }
+  .menu-nav li:nth-child(2) { animation-delay: 120ms; }
+  .menu-nav li:nth-child(3) { animation-delay: 180ms; }
+  .menu-nav li:nth-child(4) { animation-delay: 240ms; }
+  .menu-nav li:nth-child(5) { animation-delay: 300ms; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .image-container {
+    width: 800px;
+    height: 458px;
+    border-radius: 85px 0 85px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+    contain: paint;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Crossfade layer for smooth image transitions */
+  .image-transition-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 420ms ease, transform 420ms ease;
+    will-change: opacity, transform;
+    pointer-events: none;
+  }
+
+  .image-transition-layer.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .deco-corner-top {
+    position: absolute;
+    top: 193px;
+    right: 219px; /* Tout en haut à droite de l'image */
+    z-index: 6;
+    transform: rotate(-0.38deg);
+  }
+
+  .deco-corner-bottom {
+    position: absolute;
+    top: calc(247px + 458px - 80px); /* Monter un peu plus */
+    left: -61px; /* Position encore plus à gauche */
+    z-index: 6;
+    transform: rotate(0.38deg);
+  }
+
+  @media (max-width: 1280px) {
+    .menu-container {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      border-radius: 0;
+    }
+    .menu-content {
+      grid-template-columns: 1fr;
+      padding: 150px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-header {
+      left: 20px;
+      right: 20px;
+      top: 30px;
+      justify-content: space-between;
+      gap: 0;
+    }
+    .menu-close-button {
+      font-size: 14px;
+      gap: 12px;
+    }
+    .menu-close-button img {
+      width: 20px;
+      height: 20px;
+    }
+    .menu-lang-switcher {
+      font-size: 14px;
+      gap: 8px;
+    }
+    .menu-lang-switcher img {
+      width: 12px;
+      height: 12px;
+    }
+    .menu-logo {
+      left: 50%;
+      transform: translateX(-50%) scale(0.75);
+      top: 30px;
+      width: 120px;
+      height: 112px;
+    }
+    .menu-nav {
+      padding: 0;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .menu-nav ul {
+      align-items: center;
+      width: 100%;
+    }
+    .nav-item {
+      justify-content: center;
+    }
+    .nav-text {
+      padding-left: 0;
+      text-align: center;
+    }
+    .nav-line {
+      display: none;
+    }
+    .image-showcase {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .image-container {
+      width: 100%;
+      max-width: 658.19px;
+      height: auto;
+      aspect-ratio: 658.19 / 429;
+    }
+    .deco-corner-top {
+      top: 150px;
+      right: 50px;
+    }
+    .deco-corner-bottom {
+      top: 200px;
+      left: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .menu-header {
+      top: 20px;
+      left: 15px;
+      right: 15px;
+      justify-content: space-between;
+      gap: 0;
+    }
+    .menu-close-button {
+      font-size: 12px;
+      gap: 8px;
+    }
+    .menu-close-button img {
+      width: 16px;
+      height: 16px;
+    }
+    .menu-lang-switcher {
+      font-size: 12px;
+      gap: 6px;
+    }
+    .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
+    }
+    .menu-logo {
+      top: 80px;
+      transform: translateX(-50%) scale(0.6);
+      width: 96px;
+      height: 89px;
+    }
+    .menu-content {
+      padding-top: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-text {
+      font-size: 24px;
+      padding-left: 0;
+      text-align: center;
+    }
+    .nav-item {
+      height: 40px;
+      justify-content: center;
+    }
+  }
+  </style>
+
+<style>
+  /* Force la visibilité de la vidéo loungeVideo */
+  /*#loungeVideo {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    background-color: transparent !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+  }*/
+</style>
+
+<!-- SCRIPT pour le menu -->
+<script src="Menu/global.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.menu-button');
+    const menuContainer = document.querySelector('.menu-container');
+    const closeButton = document.querySelector('.menu-close-button');
+
+    if (menuButton && menuContainer) {
+      menuButton.addEventListener('click', () => {
+        menuContainer.classList.remove('is-hidden');
+        menuContainer.style.pointerEvents = 'auto';
+      });
+    }
+
+    if (closeButton && menuContainer) {
+      closeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        menuContainer.classList.add('is-closing');
+        setTimeout(() => {
+          menuContainer.classList.remove('is-closing');
+          menuContainer.classList.add('is-hidden');
+          menuContainer.style.pointerEvents = 'none';
+        }, 300);
+      });
+    }
+  });
+</script>
+
+
+    <!-- Animation simple -->
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.98); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fadeIn { animation: fadeIn 0.4s ease-out; }
+
+      /* Header and contact button animations */
+      .scroll-hide {
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      header.scroll-hide {
+        transform: translateY(-100%);
+      }
+
+      #contactFab.scroll-hide {
+        transform: translateY(100%);
+      }
+
+      header, #contactFab {
+        transition: all 0.3s ease;
+      }
+    </style>
+
+    
+
+<section id="welcome" class="welcome-section">
+  <div class="page-container">
+    <div class="welcome-content">
+      <div class="title-wrapper">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border" loading="lazy" decoding="async">
+        <h1 class="main-title  ">
+          <span data-translate="welcomeTo">Bienvenue à</span> <span class="highlight " data-translate="escapade">l'Escapade</span>
+        </h1>
+      </div>
+      <p class="subtitle text-black">
+        <span data-translate="welcomeText">L'Escapade Hôtel, <strong>depuis mai 2025</strong>. Venez découvrir un refuge élégant posé <strong>en bordure de lagune</strong> à <strong>Assinie</strong>.</span>
+      </p>
+    </div>
+  </div>
+</section>
+<section id="experience" class="experience-section">
+  <div class="hero-container">
+    <img src="images/84de7f7d308b1b83b0a4d8b249a4b7efb711cf16.png" alt="View of the hotel with palm trees and a central walkway" class="hero-background-image" loading="lazy" decoding="async">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <p class="hero-text" data-translate="experienceText">Ici, le temps s'étire et les sens s'éveillent. Entre nature apaisante et raffinement discret, votre voyage commence là où le luxe rencontre la quiétude. Érigé sur 3,5 hectares, le domaine abrite 22 suites juniors et seniors au design épuré, pensées pour offrir confort, intimité et sérénité à chaque hôte. À L'Escapade, chaque instant devient une invitation au lâcher-prise</p>
+        <a href="page_suite.html" class="hero-button" data-translate="learnMore">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <section class="relative bg-white text-black flex flex-col items-center justify-center py-24 px-6 md:px-12 overflow-hidden">
+
+    <!-- découverte -->
+    <div class="text-center mb-12">
+      <p class="font-[Big_Caslon] text-[28px] md:text-[40px] mb-4 font-medium mb-2" data-translate="discover">Découvrez</p>
+     <div class="title-wrapper">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border" loading="lazy" decoding="async">
+        <h1 class="main-title  ">
+         Nos Chambres<span class="highlight ">& Suites</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Grille d'images avec encadrement décoratif -->
+    <div class="relative py-8">
+      <!-- Éléments décoratifs aux extrémités - agrandis -->
+      <img src="media/510_6.svg" alt="Decorative element" class="absolute -top-12 -right-16 w-32 h-32 z-10 opacity-90" loading="lazy" decoding="async" width="128" height="128" />
+      <img src="media/510_8.svg" alt="Decorative element" class="deco-element-bottom" style="position: absolute; bottom: 40px; left: -64px; width: 128px; height: 128px; z-index: 10; opacity: 0.9;" loading="lazy" decoding="async" width="128" height="128" />
+      
+      <!-- Conteneur sans bordure -->
+      <div class="relative">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+
+      <!-- Suite Junior -->
+      <div class="flex flex-col items-center">
+        <div class="w-[270px] h-[235px] bg-[url('img/3.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Junior</p>
+        <div class="w-[110px] border-t border-black my-2"></div>
+        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+      </div>
+
+      <!-- Suite Sénior VIP -->
+      <div class="flex flex-col items-center">
+        <div class="w-[283px] h-[235px] bg-[url('img/4.jpg')] bg-cover bg-center rounded-[55px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Sénior VIP</p>
+        <div class="w-[140px] border-t border-black my-2"></div>
+        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+      </div>
+
+      <!-- Suite Sénior -->
+      <div class="flex flex-col items-center">
+        <div class="w-[275px] h-[235px] bg-[url('img/5.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Sénior</p>
+        <div class="w-[110px] border-t border-black my-2"></div>
+        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+      </div>
+
+      <!-- Suite Junior VIP -->
+      <div class="flex flex-col items-center">
+        <div class="w-[273px] h-[235px] bg-[url('img/6.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Junior VIP</p>
+        <div class="w-[140px] border-t border-black my-2"></div>
+        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicateurs ellipses -->
+    <div class="flex gap-2 justify-center">
+      <!-- 12 points -->
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+    </div>
+
+  </section>
+ 
+
+  <div class="w-full h-[650px] bg-cover bg-center opacity-90 -z-10 bg-[url('img/8.jpg')]"></div>
+
+     <!-- SECTION RESTAURANT -->
+    <section class="relative w-full py-10 px-6 md:px-16 overflow-hidden text-black bg-white">
+
+      <div class="text-center mb-12">
+      <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5" data-translate="discover">Découvrez</p>
+      <div class="title-wrapper title-border-flipped-wrapper">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-flipped">
+        <h1 class="main-title">
+         <span data-translate="ourRestaurant">Notre <span class="highlight"> Restaurant</span></span>
+        </h1>
+      </div>
+      </div>
+    </div>-
+      
+     
+
+      <!-- Contenu principal -->
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24">
+
+        <!-- Texte -->
+        <div class="max-w-md text-right">
+          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px]">
+            <span data-translate="restaurantText">Le restaurant de L'Escapade est une adresse bistronomique où se rencontrent goût, 
+            générosité et élégance pour offrir une expérience culinaire inoubliable.</span>
+          </p>
+
+          <!-- Bouton -->
+          <a href="restaurant.html"
+             class="inline-block mt-8 bg-[#B78F62] text-white font-[Futura_Md_BT] text-[18px] px-8 py-3 rounded-[20px_0px] hover:bg-[#cfa47b] transition-all duration-300">
+             <span data-translate="discoverRestaurant">Découvrir le restaurant</span>
+          </a>
+        </div>
+
+        <!-- Image + légende alignée à droite sous l'image -->
+        <div class="relative w-[90vw] max-w-[750px]">
+          <img src="img/7.jpg" alt="Restaurant L'Escapade"
+               class="w-full h-auto rounded-[112px_0px_108px] shadow-lg hover:scale-105 transition-transform duration-500" />
+               <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
+               <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
+          <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[14px] md:text-[15px]">Restaurant L'Escapade</p>
+        </div>
+
+      </div>
+
+    </section>
+
+      <!-- SECTION LOUNGE -->
+    <section class="relative bg-[#F8DAAB]">
+       
+      <div class="text-center mb-12">
+      <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5 text-black">Découvrez</p>
+      <div class="title-wrapper">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
+        <h1 class="main-title  ">
+         Notre <span class="highlight "> Lounge</span>
+        </h1>
+      </div>
+      </div>
+      <div class="flex bg-[#F8DAAB] flex-col lg:flex-row items-center justify-evenly gap-16 px-6 md:px-16 py-24 relative" style="overflow: visible;">
+
+            <!-- Image principale (gauche) -->
+            <div class="relative w-full max-w-[450px]" style="z-index: 10; position: relative;">
+              <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" 
+                style="position: relative; z-index: 10; display: block; opacity: 1 !important; visibility: visible !important; background-color: transparent !important;" 
+                aria-label="Cocktail exotique"
+                playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="auto">
+                <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la lecture vidéo.
+              </video>
+
+            </div>
+
+            <!-- Texte (droite) -->
+            <div class="max-w-md lg:max-w-lg text-left text-black relative">
+              
+
+
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8">
+                Dans une atmosphère où le luxe rencontre la sérénité, le Lounge vous invite à un moment d’exception.
+                Entre lumière tamisée, notes subtiles et service attentif, chaque instant devient une expérience unique —
+                un art de vivre à savourer pleinement.
+              </p>
+
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-10">
+                Une ambiance citadine à Assinie. Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire :
+                un lieu pensé pour se détendre, se retrouver et profiter d’instants simples dans un cadre raffiné.
+              </p>
+
+              
+                <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" />
+                <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" />
+            </div>
+
+      </div>
+    </section>
+
+
+     <section class="relative bg-[#F8DAAB]  flex flex-col-reverse lg:flex-row items-center justify-between px-6 md:px-16 py-24 overflow-hidden">
+
+      <!-- Texte à droite -->
+      <div class="max-w-md lg:max-w-lg text-right text-black">
+        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8">
+          Une ambiance citadine à Assinie.<br>
+          Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire : 
+          un lieu pensé pour se détendre, se retrouver et profiter d’instants simples 
+          dans un cadre raffiné.
+        </p>
+
+        <!-- Bouton -->
+        <a href="page_suite.html"
+           class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[18px] px-8 py-3 rounded-[20px_0px]
+                  hover:bg-[#cfa47b] transition-all duration-300">
+           En savoir plus
+        </a>
+      </div>
+
+      <!-- Image ou bloc décoratif à gauche -->
+      <div class="relative w-full max-w-[750px] mt-16 lg:mt-0">
+        <div class="relative h-[620px]">
+          <img src="img/10.jpg" alt="Lounge – Espace détente"
+               class="w-full h-full object-cover rounded-[70px_0px] shadow-lg hover:scale-105 transition-transform duration-700" />
+
+          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" />
+          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" />
+        </div>
+        
+        <!-- Signature sous l'image alignée à droite -->
+        <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[15px]">Lounge L'Escapade</p>
+      
+      </div>
+
+    </section>
+
+    <section id="faq" class="py-20 px-6 md:px-16 bg-white text-black">
+  <div class="max-w-5xl mx-auto">
+    <!-- Titre -->
+    <div class="text-center mb-12 text-black">
+      <div class="title-wrapper title-border-flipped-wrapper">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-flipped">
+        <h1 class="main-title">
+          <span>Questions</span> <span class="highlight">fréquentes</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid gap-6">
+      <!-- FAQ item (répéter pour chaque question) -->
+      <div>
+        <button
+          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          aria-expanded="false"
+          aria-controls="faq1"
+          id="faq1-btn"
+        >
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
+        </button>
+        <div id="faq1" role="region" aria-labelledby="faq1-btn" class="faq-panel px-6 pb-6 hidden">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <button
+          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          aria-expanded="false"
+          aria-controls="faq2"
+          id="faq2-btn"
+        >
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
+        </button>
+        <div id="faq2" role="region" aria-labelledby="faq2-btn" class="faq-panel px-6 pb-6 hidden">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <button
+          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          aria-expanded="false"
+          aria-controls="faq3"
+          id="faq3-btn"
+        >
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
+        </button>
+        <div id="faq3" role="region" aria-labelledby="faq3-btn" class="faq-panel px-6 pb-6 hidden">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <button
+          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          aria-expanded="false"
+          aria-controls="faq4"
+          id="faq4-btn"
+        >
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
+        </button>
+        <div id="faq4" role="region" aria-labelledby="faq4-btn" class="faq-panel px-6 pb-6 hidden">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small script to handle toggles (one open at a time) -->
+  <script>
+    (function () {
+      const toggles = document.querySelectorAll('.faq-toggle');
+
+      function closeAll() {
+        document.querySelectorAll('.faq-panel').forEach(panel => panel.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+          btn.setAttribute('aria-expanded', 'false');
+          const icon = btn.querySelector('.faq-icon');
+          if (icon) icon.style.transform = '';
+        });
+      }
+
+      toggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          const panel = document.getElementById(btn.getAttribute('aria-controls'));
+
+          if (!panel) return;
+
+          if (expanded) {
+            panel.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.querySelector('.faq-icon').style.transform = '';
+          } else {
+            // close others (optional: comment this out to allow multiple open)
+            closeAll();
+
+            panel.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+            btn.querySelector('.faq-icon').style.transform = 'rotate(-45.71deg)';
+            // optional: smooth scroll into view
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+
+        // keyboard support
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      });
+    })();
+  </script>
+   </section>
+
+  <section id="footer-section">
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <img src="images/527e11cd0fcc42350d0710d865057dc9385bcebf.png" alt="L'ESCAPADE Logo" class="footer-logo">
+          <div class="footer-grid">
+            <div class="footer-menu">
+              <!--merged image-->
+              <div class="footer-title-wrapper">
+                <img src="images/427_66.svg" alt="" class="footer-title-bg">
+                <h3 class="footer-title">MENU</h3>
+              </div>
+              <nav>
+                <ul>
+                  <li><a href="page_suite.html">Chambre & Suites</a></li>
+                  <li><a href="restaurant.html">Restaurant</a></li>
+                  <li><a href="lounge.html">Lounge</a></li>
+                  <li><a href="page_evenementiel.html">Évènementiel</a></li>
+                  <li><a href="apropos.html">À propos</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="footer-contact-form" id="contact">
+              <!--merged image-->
+              <div class="footer-title-wrapper">
+                <img src="images/427_67.svg" alt="" class="footer-title-bg">
+                <h3 class="footer-title">CONTACT</h3>
+              </div>
+              <form>
+                <div class="form-group"><input type="text" placeholder="Nom"></div>
+                <div class="form-group"><input type="text" placeholder="Prénom"></div>
+                <div class="form-group"><input type="email" placeholder="Adresse e-mail"></div>
+                <div class="form-group"><input type="tel" placeholder="Numéro de téléphone"></div>
+                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3"></textarea></div>
+                <button type="submit" class="btn-submit">Envoyer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-contact-info">
+          <div class="contact-item">
+            <img src="images/427_62.svg" alt="Phone Icon">
+            <span>+225 07-16-70-00-00</span>
+          </div>
+          <div class="separator"></div>
+          <div class="contact-item">
+            <img src="images/427_56.svg" alt="Email Icon">
+            <a href="mailto:contact@escapadehotel.com">contact@escapadehotel.com</a>
+          </div>
+          <div class="separator"></div>
+          <div class="contact-item">
+            <img src="images/427_50.svg" alt="Location Icon">
+            <span>Assinie, Km 12, Côte d'Ivoire</span>
+          </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+          <a href="#">Termes & Conditions</a>
+          <span>©2025 – Tout droit réserver par l'Escapade.</span>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+  
+  <!-- Scripts de traduction et animations -->
+  <script src="js/translations.js"></script>
+  <script src="js/gsap-animations.js"></script>
+  <!-- Script pour le formulaire de réservation -->
+  <script src="js/booking-form.js"></script>
+</body>
+</html>

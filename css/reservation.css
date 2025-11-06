@@ -1,0 +1,466 @@
+
+/* CSS for section section:header */
+.progress-header {
+    background-color: #ffffff;
+  
+  }
+
+  .progress-header__container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 13px 40px 34px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .progress-header__logo {
+    position: absolute;
+    left: -109px;
+  }
+
+  .progress-header__logo img {
+    display: block;
+    height: 59px;
+    width: 67px;
+  }
+
+  .progress-steps {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .progress-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+  }
+
+  .progress-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+
+  .progress-arrow__icon {
+    width: 96px;
+    height: 30px;
+  }
+
+  .progress-step__icon-wrapper {
+    height: 24px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-step__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .progress-step__label {
+    font-family: var(--font-secondary);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.39px;
+    color: #000000;
+    white-space: nowrap;
+  }
+
+  
+  @media (max-width: 1024px) {
+    .progress-header__container {
+      padding: 8px 15px 15px;
+      justify-content: center;
+    }
+
+    .progress-header__logo {
+      display: none;
+    }
+
+    .progress-header__nav {
+      margin-top: 0;
+      width: 100%;
+    }
+
+    .progress-steps {
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .progress-arrow__icon {
+      width: 40px;
+      height: 28px;
+    }
+
+    .progress-step__icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .progress-step__label {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .progress-header__container {
+      flex-direction: column;
+      gap: 8px;
+      padding: 6px 12px 12px;
+    }
+
+    .progress-header__logo {
+      display: none;
+    }
+
+    .progress-header__nav {
+      width: 100%;
+      overflow-x: auto;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      margin-top: 0;
+    }
+    
+    .progress-header__nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .progress-steps {
+      justify-content: center;
+      padding: 0 10px 10px; /* Add padding for scroll visibility */
+      gap: 8px;
+    }
+    
+    .progress-step {
+        flex-shrink: 0;
+    }
+
+    .progress-arrow__icon {
+      width: 35px;
+      height: 24px;
+    }
+
+    .progress-step__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .progress-step__label {
+      font-size: 10px;
+    }
+  }
+
+/* CSS for section section:booking-info */
+.booking-info-section {
+    padding-top: 103px;
+    padding-bottom: 92px;
+  }
+
+  .section-title {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 31px;
+    text-align: center;
+    margin: 0 0 19px 0;
+  }
+
+  .summary-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-light-gray);
+    padding: 30px 40px;
+    max-width: 630px;
+    margin: 0 auto;
+  }
+
+  .summary-content {
+    font-family: var(--font-secondary);
+  }
+
+  .nights-summary {
+    font-size: 24px;
+    margin: 0 0 21px 0;
+  }
+
+  .details-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+  }
+
+  .detail-item, .guests-summary {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .arrow-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  @media (max-width: 768px) {
+    .booking-info-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+    .summary-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    .summary-content {
+        text-align: center;
+    }
+  }
+
+/* CSS for section section:suites */
+.suites-section {
+    padding-bottom: 37px;
+  }
+  .suite-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 148px 42px;
+  }
+  .suite-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .suite-card-full {
+    grid-column: 1 / -1;
+    max-width: 582px;
+    justify-self: center;
+  }
+  .suite-image {
+    width: 100%;
+    height: 388px;
+    object-fit: cover;
+    border-radius: 85px 0px 85px 0px;
+  }
+  .suite-content {
+    padding: 0 7px;
+  }
+  .suite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+  .suite-title {
+    font-family: var(--font-primary);
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.1;
+  }
+  .suite-price {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    margin: 0;
+    text-align: right;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .suite-divider {
+    width: 100%;
+    height: auto;
+    margin: 16px 0;
+    display: block;
+  }
+  .suite-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .suite-amenities {
+    display: flex;
+    gap: 20px;
+  }
+  .amenity-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .amenity-icon {
+    height: 30px;
+  }
+  .tv-icon {
+      height: 29px;
+      width: 42px;
+  }
+  .amenity-icon-merged {
+    position: relative;
+    width: 42px;
+    height: 31px;
+  }
+  .amenity-label {
+    font-family: var(--font-primary);
+    font-size: 14px;
+  }
+  .suite-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .details-link {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    color: var(--color-text);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+  }
+
+  .details-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    background-image: url('images/324_579.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 1px;
+  }
+  .text-gold {
+    color: var(--color-gold);
+  }
+
+  @media (max-width: 1200px) {
+    .suite-grid {
+        gap: 100px 30px;
+    }
+    .suite-header, .suite-details, .suite-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .suite-price {
+        text-align: left;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .suite-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .suite-details {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .suite-footer {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .suite-price {
+      text-align: right;
+      order: 2;
+    }
+    
+    .suite-amenities {
+      order: 1;
+    }
+    
+    .details-link {
+      order: 1;
+    }
+    
+    .btn {
+      order: 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .suite-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .suite-title {
+        font-size: 22px;
+    }
+    
+    .suite-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    .suite-details {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .suite-footer {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .suite-price {
+      text-align: right;
+      order: 2;
+      font-size: 14px;
+    }
+    
+    .suite-amenities {
+      order: 1;
+    }
+    
+    .details-link {
+      order: 1;
+      font-size: 14px;
+    }
+    
+    .btn {
+      order: 2;
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  }
+
+/* CSS for section section:navigation */
+.navigation-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .navigation-section .container {
+        text-align: center;
+    }
+  

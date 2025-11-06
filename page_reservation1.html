@@ -1,0 +1,132 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escapade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body class=" text-white overflow-x-hidden font-[Futura]"><section id="reservation" class="relative h-[800px] w-full overflow-hidden">
+  <!-- Image de fond -->
+  <img src="img/42.jpg" alt="Vue aérienne L’Escapade"
+       class="absolute inset-0 w-full h-full object-cover" />
+
+  <!-- Overlay sombre -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+
+
+  <!-- Barre de progression (étapes) -->
+  <div class="absolute top-0 left-0 w-full bg-white ">
+    <section id="progress-bar">
+  <header class="progress-header">
+    <div class="progress-header__container">
+      <a href="index.html" class="progress-header__logo" aria-label="Homepage">
+        <img src="images/427_501.svg" alt="L'escapade Logo">
+      </a>
+      <nav class="progress-header__nav" aria-label="Checkout Progress">
+        <ol class="progress-steps">
+          <li class="progress-step is-complete">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 1 Completed">
+            </div>
+            <span class="progress-step__label">Date</span>
+          </li>
+          <li class="progress-arrow">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+          </li>
+          <li class="progress-step is-active">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/324_442.svg" alt="Step 2: Current Step">
+            </div>
+            <span class="progress-step__label">Catégorie</span>
+          </li>
+          <li class="progress-arrow">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+          </li>
+          <li class="progress-step">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/324_445.svg" alt="Step 3">
+            </div>
+            <span class="progress-step__label">Details & confirmation</span>
+          </li>
+          <li class="progress-arrow">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+          </li>
+          <li class="progress-step">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/324_447.svg" alt="Step 4">
+            </div>
+            <span class="progress-step__label">Paiement</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+</section>
+  </div>
+
+  <section id="reservation-date" class="absolute bottom-[-40px] left-0 right-0 py-32  px-6 md:px-16 overflow-hidden md:mt-10">
+
+  <!-- Conteneur principal -->
+  <div class="max-w-xl  mt-32 mx-auto bg-[#BB996B]/90 rounded-[0_70px] p-10 md:p-16 text-white shadow-lg backdrop-blur-sm text-center">
+
+    <!-- Titre -->
+    <h2 class="font-[Big_Caslon] text-[32px] md:text-[38px] tracking-[0.04em] mb-10">Réservez votre séjour</h2>
+
+    <!-- Formulaire -->
+    <form class="space-y-10">
+
+      <!-- Dates -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="text-left">
+          <label class="block text-[22px] font-[Futura_Md_BT] mb-2">Arrivée</label>
+          <input type="date" class="w-full bg-transparent border-b border-white/90 text-white text-[18px] focus:outline-none pb-2">
+        </div>
+        <div class="text-left">
+          <label class="block text-[22px] font-[Futura_Md_BT] mb-2">Départ</label>
+          <input type="date" class="w-full bg-transparent border-b border-white/90 text-white text-[18px] focus:outline-none pb-2">
+        </div>
+      </div>
+
+      <!-- Invités -->
+      <div class="text-left">
+        <label class="block text-[22px] font-[Futura_Md_BT] mb-2">Invités</label>
+        <input type="number" min="1" max="10" value="1" class="w-full bg-transparent border-b border-white/90 text-white text-[18px] focus:outline-none pb-2">
+      </div>
+
+      <!-- Bouton -->
+      <div class="pt-6">
+        <a href="reservation1.html" class="inline-block bg-[#673800] text-white font-[Futura_Md_BT] text-[19px] px-10 py-3 rounded-[20px_0px] hover:bg-[#8c5a29] transition duration-300 text-center">
+          Suivant
+        </a>
+      </div>
+    </form>
+  </div>
+
+</section>
+
+</section>
+<script>
+  // Guests control logic (increment/decrement through preset labels)
+  (function(){
+    const dec = document.getElementById('guests-decrease');
+    const inc = document.getElementById('guests-increase');
+    const display = document.getElementById('guests-display');
+    const hidden = document.getElementById('guests');
+    if (!dec || !inc || !display || !hidden) return;
+    const options = ['1 Adulte','2 Adultes','2 Adultes + 1 Enfant','Famille (4 personnes)'];
+    let idx = 0;
+    function update(){
+      display.textContent = options[idx];
+      hidden.value = options[idx];
+    }
+    dec.addEventListener('click', ()=>{ idx = Math.max(0, idx-1); update(); });
+    inc.addEventListener('click', ()=>{ idx = Math.min(options.length-1, idx+1); update(); });
+    update();
+  })();
+</script>
+</body>
+</html> 

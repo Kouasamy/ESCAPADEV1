@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escapade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/style1.css">
+    <style>
+      /* Reveal animation for plats - support direction and configurable timing via JS */
+    .reveal { opacity: 0; transform: scale(0.98); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { transform: translateY(24px) scale(0.98); }
+    .reveal.left { transform: translateX(-24px) scale(0.98); }
+    .reveal.right { transform: translateX(24px) scale(0.98); }
+    .reveal.show { opacity: 1; transform: translateX(0) translateY(0) scale(1); }
+    /* Small hover polish for plat images */
+    .reveal img { transition: transform .35s ease, opacity .35s ease; }
+    .reveal:hover img { transform: translateY(-6px) scale(1.02); }
+  </style>
+  <!-- Image Optimizer pour améliorer les performances -->
+  <script src="js/image-optimizer.js" defer></script>
+</head>
+<body class=" text-white overflow-x-hidden font-[Futura_Md_BT]">
+
+ <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
+  <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
+    <!-- Bouton burger -->
+    <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
+      <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12">
+      <span class="text-sm md:text-base">MENU</span>
+    </button>
+
+    <!-- Sélecteur de langue -->
+    <div class="lang-switcher flex items-center gap-2 md:gap-3">
+      <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+      <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
+      <a href="#" class="text-sm md:text-base">EN</a>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="flex justify-center w-full md:w-auto">
+    <a href="index.html">
+      <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" />
+    </a>
+  </div>
+
+  <!-- Navigation principale -->
+  <nav class="header-nav flex flex-col sm:flex-row items-center gap-3 md:gap-6 text-center">
+    <!--merged image-->
+    <a href="page_suite.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
+      <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+      <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2">Réserver une suite</span>
+    </a>
+    <!--merged image-->
+    <a href="page_evenementiel.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
+      <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+      <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2">Réserver un espace</span>
+    </a>
+  </nav>
+</header>
+
+<!-- MENU BURGER (plein écran) -->
+<section id="menu-section">
+  <div class="menu-container is-hidden" id="menuOverlay">
+    <header class="menu-header">
+      <a href="#" class="menu-close-button">
+        <img src="Menu/images/542_446.svg" alt="Close Icon">
+        <span>FERMER</span>
+      </a>
+      <div class="menu-lang-switcher">
+        <a href="#" class="active">FR</a>
+        <img src="Menu/images/542_445.svg" alt="Language separator">
+        <a href="#">EN</a>
+      </div>
+    </header>
+
+    <!--merged image-->
+    <a href="index.html" class="menu-logo">
+      <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
+      <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
+      <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
+    </a>
+
+    <main class="menu-content">
+      <nav class="menu-nav">
+        <ul>
+          <li>
+            <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
+              <span class="nav-text">CHAMBRES & SUITE</span>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
+              <span class="nav-text">LE RESTAURANT</span>
+            </a>
+          </li>
+          <li>
+            <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
+              <span class="nav-text">LE LOUNGE</span>
+            </a>
+          </li>
+          <li>
+            <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
+              <span class="nav-text">ÉVÉNEMENTIEL</span>
+            </a>
+          </li>
+          <li>
+            <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
+              <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
+              <span class="nav-text">A PROPOS</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="image-showcase">
+        <img src="Menu/images/542_461.svg" class="deco-corner-top" alt="Decorative corner">
+        <div class="image-container">
+          <img src="Menu/images/IMG_1341.jpg" alt="Hotel exterior at night">
+          <img class="image-transition-layer" alt="transition layer" />
+        </div>
+        <img src="Menu/images/542_458.svg" class="deco-corner-bottom" alt="Decorative corner">
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- CSS pour le menu -->
+<link rel="stylesheet" href="Menu/global.css">
+<style id="menu-styles">
+/* CSS for section section:menu */
+.menu-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: var(--text-color);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 280ms ease, transform 280ms ease;
+    will-change: opacity, transform;
+    z-index: 50;
+  }
+
+  .menu-container.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+  .menu-container.is-closing {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  .menu-header {
+    position: absolute;
+    top: 49px;
+    left: 65px;
+    right: 65px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+    z-index: 10;
+  }
+
+  .menu-close-button,
+  .menu-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .menu-close-button img {
+    transition: transform 280ms ease, opacity 280ms ease;
+    will-change: transform, opacity;
+    cursor: pointer;
+  }
+  .menu-close-button img.is-closing {
+    transform: rotate(90deg) scale(0.9);
+    opacity: 0.6;
+  }
+  
+  .menu-lang-switcher {
+    gap: 11px;
+  }
+
+  .menu-lang-switcher .active {
+    text-decoration: underline;
+  }
+
+  .menu-logo {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 159.11px;
+    height: 148.23px;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .logo-part {
+    position: absolute;
+  }
+
+  .menu-content {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100%;
+  }
+
+  .menu-nav {
+    padding-top: 286px;
+    padding-left: 88px;
+  }
+
+  .menu-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+  }
+
+  .nav-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: contain;
+  }
+
+  .nav-text {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-sans);
+    font-size: 32px;
+    font-weight: 400;
+    padding-left: 162px; /* Center text inside the pill shape */
+    padding-right: 40px; /* Espace à droite pour éviter le débordement */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  .nav-line {
+    position: absolute;
+    left: 89px; /* 45px (from figma) - 88px (nav padding) */
+    top: 24px; /* 310px (from figma) - 286px (nav top) */
+    opacity: 0;
+    transform: translateX(-8px) scaleX(0.9);
+    transform-origin: left center;
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  .nav-item:hover .nav-line {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+
+  .nav-item:hover {
+    transform: translateX(12px);
+  }
+
+  .image-showcase {
+    position: relative;
+    padding-top: 247px;
+  }
+
+  /* Staggered entrance for menu items */
+  .menu-nav li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .menu-nav li:nth-child(1) { animation-delay: 60ms; }
+  .menu-nav li:nth-child(2) { animation-delay: 120ms; }
+  .menu-nav li:nth-child(3) { animation-delay: 180ms; }
+  .menu-nav li:nth-child(4) { animation-delay: 240ms; }
+  .menu-nav li:nth-child(5) { animation-delay: 300ms; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .image-container {
+    width: 800px;
+    height: 458px;
+    border-radius: 85px 0 85px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+    contain: paint;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Crossfade layer for smooth image transitions */
+  .image-transition-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 420ms ease, transform 420ms ease;
+    will-change: opacity, transform;
+    pointer-events: none;
+  }
+
+  .image-transition-layer.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .deco-corner-top {
+    position: absolute;
+    top: 193px;
+    right: 219px; /* Tout en haut à droite de l'image */
+    z-index: 6;
+    transform: rotate(-0.38deg);
+  }
+
+  .deco-corner-bottom {
+    position: absolute;
+    top: calc(247px + 458px - 80px); /* Monter un peu plus */
+    left: -61px; /* Position encore plus à gauche */
+    z-index: 6;
+    transform: rotate(0.38deg);
+  }
+
+  @media (max-width: 1280px) {
+    .menu-container {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      border-radius: 0;
+    }
+    .menu-content {
+      grid-template-columns: 1fr;
+      padding: 150px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-header {
+      left: 20px;
+      right: 20px;
+      top: 30px;
+      justify-content: space-between;
+      gap: 0;
+    }
+    .menu-close-button {
+      font-size: 14px;
+      gap: 12px;
+    }
+    .menu-close-button img {
+      width: 20px;
+      height: 20px;
+    }
+    .menu-lang-switcher {
+      font-size: 14px;
+      gap: 8px;
+    }
+    .menu-lang-switcher img {
+      width: 12px;
+      height: 12px;
+    }
+    .menu-logo {
+      left: 50%;
+      transform: translateX(-50%) scale(0.75);
+      top: 30px;
+      width: 120px;
+      height: 112px;
+    }
+    .menu-nav {
+      padding: 0;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .menu-nav ul {
+      align-items: center;
+      width: 100%;
+    }
+    .nav-item {
+      justify-content: center;
+    }
+    .nav-text {
+      padding-left: 0;
+      text-align: center;
+    }
+    .nav-line {
+      display: none;
+    }
+    .image-showcase {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .image-container {
+      width: 100%;
+      max-width: 658.19px;
+      height: auto;
+      aspect-ratio: 658.19 / 429;
+    }
+    .deco-corner-top {
+      top: 150px;
+      right: 50px;
+    }
+    .deco-corner-bottom {
+      top: 200px;
+      left: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .menu-header {
+      top: 20px;
+      left: 15px;
+      right: 15px;
+      justify-content: space-between;
+      gap: 0;
+    }
+    .menu-close-button {
+      font-size: 12px;
+      gap: 8px;
+    }
+    .menu-close-button img {
+      width: 16px;
+      height: 16px;
+    }
+    .menu-lang-switcher {
+      font-size: 12px;
+      gap: 6px;
+    }
+    .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
+    }
+    .menu-logo {
+      top: 80px;
+      transform: translateX(-50%) scale(0.6);
+      width: 96px;
+      height: 89px;
+    }
+    .menu-content {
+      padding-top: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-text {
+      font-size: 24px;
+      padding-left: 0;
+      text-align: center;
+    }
+    .nav-item {
+      height: 40px;
+      justify-content: center;
+    }
+  }
+</style>
+
+<!-- SCRIPT pour le menu -->
+<script src="Menu/global.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('openMenu');
+    const menuContainer = document.querySelector('.menu-container');
+    const closeButton = document.querySelector('.menu-close-button');
+
+    if (menuButton && menuContainer) {
+      menuButton.addEventListener('click', () => {
+        menuContainer.classList.remove('is-hidden');
+        menuContainer.style.pointerEvents = 'auto';
+      });
+    }
+
+    if (closeButton && menuContainer) {
+      closeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        menuContainer.classList.add('is-closing');
+        setTimeout(() => {
+          menuContainer.classList.remove('is-closing');
+          menuContainer.classList.add('is-hidden');
+          menuContainer.style.pointerEvents = 'none';
+        }, 300);
+      });
+    }
+  });
+</script>
+
+
+    <!-- Animation simple -->
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.98); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fadeIn { animation: fadeIn 0.4s ease-out; }
+
+      /* Header and contact button animations */
+      .scroll-hide {
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      header.scroll-hide {
+        transform: translateY(-100%);
+      }
+
+      #contactFab.scroll-hide {
+        transform: translateY(100%);
+      }
+
+      header, #contactFab {
+        transition: all 0.3s ease;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('header');
+        const contactBtn = document.getElementById('contactFab');
+        let lastScroll = window.scrollY;
+
+        // Vérifie si on a scrollé plus de 100px
+        function checkScroll() {
+          const currentScroll = window.scrollY;
+          
+          if (currentScroll > lastScroll && currentScroll > 100) {
+            // On scroll vers le bas
+            header.classList.add('scroll-hide');
+            contactBtn.classList.add('scroll-hide');
+          } else {
+            // On scroll vers le haut
+            header.classList.remove('scroll-hide');
+            contactBtn.classList.remove('scroll-hide');
+          }
+          
+          lastScroll = currentScroll;
+        }
+
+        // Ajoute l'événement scroll avec throttling
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              checkScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      });
+    </script>
+
+
+  <!-- Section ESCAPADE -->
+  <section class="relative w-full h-screen overflow-hidden">
+
+    <!-- Image de fond : ESCAPADE 1 (derrière tout le contenu pour éviter qu'elle masque la suite au scroll) -->
+    <div class="absolute inset-0 bg-[url('img/19.jpg')] bg-cover bg-center filter drop-shadow-md -z-10"></div>
+
+    <!-- Overlay sombre (au-dessus de l'image mais sous le contenu) -->
+    <div class="absolute inset-0 bg-black/40 z-0"></div>
+
+    <!-- CONTENU PRINCIPAL -->
+    <div class="relative z-10 flex flex-col items-center justify-center text-center h-full space-y-6">
+      
+
+
+      <h1 class="text-7xl text-white font-[Big_Caslon]">RESTAURANT</h1>
+      <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
+      <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
+         <div class="btn-wrapper contact-btn">
+        <img src="images/568_840.svg" alt="" class="btn-bg">
+        <span class="btn-text">Nous Contactez</span>
+      </div>
+      </a>
+    </div>
+
+  </section>
+
+
+
+  <section id="restaurant" class="bg-white py-24 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto space-y-16">
+
+    <!-- Titre -->
+
+    <div class="text-center mb-16">
+         <div class="title-wrapper ">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
+        <h1 class="main-title  ">
+         RESTAURANT <span class="highlight "> L' ESCAPADE</span>
+        </h1>
+      </div>
+    </div>
+   
+
+    <!-- Section haute : Texte + image -->
+    <div class="flex flex-col md:flex-row items-center gap-12">
+
+      <!-- Texte à gauche -->
+      <div class="w-full md:w-1/2 text-right md:text-right space-y-6">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+          Ouvert de <strong>7h30 à 22h30</strong>, le restaurant L’Escapade accueille ses hôtes tout au long de la journée.
+          La carte invite à un voyage savoureux entre <strong>Méditerranée</strong> et <strong>Côte d’Ivoire</strong>.
+          Chaque plat incarne un brassage culturel raffiné, mêlant recettes ancestrales ivoiriennes et
+          techniques contemporaines du monde.
+        </p>
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+          Poissons frais, fruits de mer, crustacés et spécialités locales se déclinent avec
+          créativité et authenticité pour une expérience culinaire inoubliable.
+        </p>
+      </div>
+
+      <!-- Image à droite -->
+      <div class="relative w-full md:w-1/2">
+        <img src="img/7.jpg" alt="Salle du restaurant L’Escapade"
+          class="w-full h-[480px] object-cover rounded-[70px_0]" />
+         <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" />
+          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" />
+
+      </div>
+    </div>
+
+    <!-- Section basse : Image + texte -->
+    <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+
+      <!-- Texte à droite -->
+      <div class="w-full md:w-1/2 space-y-6 text-[#000000]">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px]">
+          Le restaurant de L’Escapade est une adresse bistronomique où se rencontrent goût, générosité
+          et élégance pour offrir une expérience culinaire inoubliable.
+        </p>
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px]">
+          Dans un décor alliant charme local et raffinement contemporain, chaque repas se vit
+          comme une véritable escapade sensorielle.
+        </p>
+      </div>
+
+      <!-- Image à gauche -->
+      <div class="relative w-full md:w-1/2">
+        <img src="img/20.jpg" alt="Cuisine du restaurant L’Escapade"
+          class="w-full h-[800px] object-cover rounded-[0_70px]" />
+         <img src="media/314_45.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -left-10 w-20 h-24" />
+          <img src="media/314_41.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -right-10 w-20 h-20" />
+
+    </div>
+  </div>
+</section>
+
+<section id="chef" class="bg-white py-24 px-6 md:px-16 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto space-y-20">
+
+    <div class="title-wrapper relative right-0 lg:right-[-200px]">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border    ">
+        <h1 class="main-title  "> 
+         NOTRE CHEF & <span class="highlight "> SES SPÉCIALITÉS</span>
+        </h1>
+      </div>
+    <!-- Bloc 1 : Image du chef à gauche + texte à droite -->
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <!-- Image -->
+      <div class="relative w-full md:w-1/2">
+        <img src="img/21.jpg" alt="Chef du restaurant L’Escapade"
+          class="w-full h-[800px] object-cover rounded-[0_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" />
+        <img src="media/314_45.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -left-10 w-20 h-24" />
+          <img src="media/314_41.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -right-10 w-20 h-20" />
+
+      </div>
+
+      <!-- Texte -->
+      <div class="w-full md:w-1/2 space-y-6">
+        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+        </p>
+        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]">
+          Le chef sublime les produits locaux par un savoir-faire d’exception, entre tradition ivoirienne
+          et gastronomie internationale.
+        </p>
+        <p class="text-[#78552A] font-[Futura_Md_BT] text-[14px] uppercase tracking-[0.04em]">
+          Le nom du Chef...
+        </p>
+      </div>
+    </div>
+
+    <!-- Bloc 2 : Image à droite + texte à gauche -->
+    <div class="flex flex-col md:flex-row-reverse md:gap-20 items-center gap-12 mt-12">
+      <!-- Image -->
+      <div class="relative w-full md:w-1/2">
+        <video src="video/CHEF.mp4" alt="Chef L’Escapade en cuisine"
+          class="w-full h-[700px] object-cover rounded-[70px_0] shadow-[0_8px_30px_rgba(0,0,0,0.1)]"  autoplay  muted />
+      
+      </div>
+
+      <!-- Texte -->
+      <div class="w-full md:w-1/2 text-right space-y-6">
+        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000] relative">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem   <br> accusantiumdoloremque laudantium,
+          totam rem aperiam, <br> eaque ipsa quae ab illo inventore veritatis.  Entre  passion et <br> précision, chaque plat devient une œuvre
+           d’art, alliant <br> créativité et
+          respect du produit.
+
+          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" />
+          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" />
+        </p>
+   
+        <!-- Bouton -->
+        <div class="pt-4 ">
+          <a href="#menu"
+             class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] mt-9    text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375] hover:-translate-y-1 active:scale-95">
+            Voir notre menu
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section id="plats" class="bg-[#F8DAAB] py-24 px-6 md:px-16 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Titre -->
+    <div class="text-center mb-16">
+      <div class="title-wrapper">
+        <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
+        <h1 class="main-title  ">
+         NOS <span class="highlight "> PLATS</span>
+        </h1>
+      </div>
+      
+    </div>
+
+    <!-- Grille des plats (paginée, 4 par page) -->
+    <div class="overflow-hidden">
+  <div class="plats-track flex w-[200%] transition-transform duration-700">
+
+  <!-- Page 1 (items 1-4) -->
+  <div class="plats-page w-1/2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
+          <!-- Plat 1 -->
+          <div class="space-y-4 text-center reveal">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="img/23.jpg" alt="Plat 1" class="w-[300px] h-[450px] object-cover" />
+            </div>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 1</p>
+          </div>
+
+          <!-- Plat 2 -->
+          <div class="space-y-4 text-center reveal">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="img/24.jpg" alt="Plat 2" class="w-[300px] h-[450px] object-cover" />
+            </div>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 2</p>
+          </div>
+
+          <!-- Plat 3 -->
+          <div class="space-y-4 text-center reveal">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="img/25.jpg" alt="Plat 3" class="w-[300px] h-[450px] object-cover" />
+            </div>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 3</p>
+          </div>
+
+          <!-- Plat 4 -->
+          <div class="space-y-4 text-center reveal">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="img/26.jpg" alt="Plat 4" class="w-[300px] h-[450px] object-cover" />
+            </div>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 4</p>
+          </div>
+        </div>
+
+  <!-- Page 2 (items 5-6 + placeholders) -->
+  <div class="plats-page w-1/2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
+          <!-- Plat 5 -->
+          <div class="space-y-4 text-center reveal">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="img/27.jpg" alt="Plat 5" class="w-[300px] h-[450px] object-cover" />
+            </div>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 5</p>
+          </div>
+
+          <!-- Plat 6 -->
+          <div class="space-y-4 text-center reveal">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="img/28.jpg" alt="Plat 6" class="w-[300px] h-[450px] object-cover" />
+            </div>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 6</p>
+          </div>
+
+          <!-- Placeholder (empty) to keep grid balanced -->
+          <div class="hidden lg:block"></div>
+          <div class="hidden lg:block"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicateurs de pagination (utilise la ligne décorative) -->
+    <div class="flex justify-center gap-3 mt-16" id="plats-dots">
+      <button class="w-3 h-3 rounded-full bg-[#2A2626]/50 page-dot" data-index="0" aria-label="Page 1"></button>
+      <button class="w-3 h-3 rounded-full bg-[#2A2626]/50 page-dot" data-index="1" aria-label="Page 2"></button>
+    </div>
+
+  </div>
+
+  <!-- Décor vectoriel -->
+  
+</section>
+
+
+
+    <!-- FOOTER -->
+  <section id="footer-section">
+  <footer class="site-footer text-white ">
+      <div class="container">
+        <div class="footer-top">
+          <img src="images/527e11cd0fcc42350d0710d865057dc9385bcebf.png" alt="L'ESCAPADE Logo" class="footer-logo">
+          <div class="footer-grid">
+            <div class="footer-menu">
+              <!--merged image-->
+              <div class="footer-title-wrapper">
+                <img src="images/427_66.svg" alt="" class="footer-title-bg">
+                <h3 class="footer-title">MENU</h3>
+              </div>
+              <nav>
+                <ul>
+                  <li><a href="page_suite.html">Chambre & Suites</a></li>
+                  <li><a href="restaurant.html">Restaurant</a></li>
+                  <li><a href="lounge.html">Lounge</a></li>
+                  <li><a href="page_evenementiel.html">Évènementiel</a></li>
+                  <li><a href="apropos.html">À propos</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="footer-contact-form" id="contact">
+              <!--merged image-->
+              <div class="footer-title-wrapper">
+                <img src="images/427_67.svg" alt="" class="footer-title-bg">
+                <h3 class="footer-title">CONTACT</h3>
+              </div>
+              <form>
+                <div class="form-group"><input type="text" placeholder="Nom"></div>
+                <div class="form-group"><input type="text" placeholder="Prénom"></div>
+                <div class="form-group"><input type="email" placeholder="Adresse e-mail"></div>
+                <div class="form-group"><input type="tel" placeholder="Numéro de téléphone"></div>
+                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3"></textarea></div>
+                <button type="submit" class="btn-submit">Envoyer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-contact-info">
+          <div class="contact-item">
+            <img src="images/427_62.svg" alt="Phone Icon">
+            <span>+225 07-16-70-00-00</span>
+          </div>
+          <div class="separator"></div>
+          <div class="contact-item">
+            <img src="images/427_56.svg" alt="Email Icon">
+            <a href="mailto:contact@escapadehotel.com">contact@escapadehotel.com</a>
+          </div>
+          <div class="separator"></div>
+          <div class="contact-item">
+            <img src="images/427_50.svg" alt="Location Icon">
+            <span>Assinie, Km 12, Côte d'Ivoire</span>
+          </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+          <a href="#">Termes & Conditions</a>
+          <span>©2025 – Tout droit réserver par l'Escapade.</span>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+
+     <script>
+     // Reveal config: change direction to 'up' | 'left' | 'right', adjust stagger (ms) and duration (ms)
+     const revealConfig = {
+       direction: 'left', // 'up' | 'left' | 'right'
+       stagger: 120,      // ms between each item's appearance
+       duration: 600      // animation duration in ms
+     };
+
+     document.addEventListener('DOMContentLoaded', () => {
+       const reveals = Array.from(document.querySelectorAll('.reveal'));
+       if (!reveals.length) return;
+
+       // Ensure each reveal has a directional class (can be overridden per-element by adding reveal-left/right/up in markup)
+       reveals.forEach(el => {
+         if (!el.classList.contains('reveal-left') && !el.classList.contains('reveal-right') && !el.classList.contains('reveal-up')) {
+           el.classList.add(`reveal-${revealConfig.direction}`);
+         }
+         // set the transition duration from config
+         el.style.transitionDuration = revealConfig.duration + 'ms';
+       });
+
+       const io = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+           if (entry.isIntersecting) {
+             const idx = reveals.indexOf(entry.target);
+             setTimeout(() => entry.target.classList.add('show'), idx * revealConfig.stagger);
+             observer.unobserve(entry.target);
+           }
+         });
+       }, { threshold: 0.12 });
+
+       reveals.forEach(r => io.observe(r));
+     });
+   </script>
+  
+  <script>
+    // Pagination for plats: shows 4 items per page and animates pages
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.plats-track');
+      const pages = Array.from(document.querySelectorAll('.plats-page'));
+      const dots = Array.from(document.querySelectorAll('#plats-dots .page-dot'));
+      if (!track || !pages.length || !dots.length) return;
+
+      let current = 0;
+      function updateDots() {
+        dots.forEach((d, i) => {
+          if (i === current) {
+            d.classList.remove('bg-[#2A2626]/50');
+            d.classList.add('bg-[#2A2626]');
+            d.style.width = '12px'; d.style.height = '12px';
+          } else {
+            d.classList.remove('bg-[#2A2626]');
+            d.classList.add('bg-[#2A2626]/50');
+            d.style.width = '12px'; d.style.height = '12px';
+          }
+        });
+      }
+
+      function showPage(index) {
+        if (index < 0 || index >= pages.length) return;
+        current = index;
+        // track width is pages.length * 100% (e.g. 200%), so each page is (100/pages.length)% of track
+        const step = 100 / pages.length; // percent relative to track width
+        const percent = index * step;
+        track.style.transform = `translateX(-${percent}%)`;
+        updateDots();
+
+        // remove show on all reveals then stagger-show for current page
+        document.querySelectorAll('.plats-page .reveal').forEach(el => el.classList.remove('show'));
+        const items = pages[index].querySelectorAll('.reveal');
+        items.forEach((it, idx) => setTimeout(() => it.classList.add('show'), idx * 80));
+      }
+
+      // attach dot handlers
+      dots.forEach(d => d.addEventListener('click', () => showPage(Number(d.dataset.index))));
+
+      // init
+      showPage(0);
+      
+      // --- Swipe / drag support (touch + pointer) ---
+      const container = track.parentElement;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      const threshold = 50; // px required to trigger a page change
+
+      function setTrackTranslate(dxPx) {
+        const containerWidth = container.clientWidth || window.innerWidth;
+        const shiftPercent = (dxPx / containerWidth) * 100;
+        track.style.transform = `translateX(-${current * 100 - shiftPercent}%)`;
+      }
+
+      // Touch events
+      container.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) return;
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        track.style.transition = 'none';
+      }, { passive: true });
+
+      container.addEventListener('touchmove', (e) => {
+        if (!isDrivingOrTouching()) return;
+        currentX = e.touches[0].clientX;
+        const dx = currentX - startX;
+        setTrackTranslate(dx);
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition = '';
+        const dx = (currentX || startX) - startX;
+        // use last touch if available
+        const lastX = currentX || startX;
+        const delta = lastX - startX;
+        if (Math.abs(delta) > threshold) {
+          if (delta < 0) showPage(Math.min(pages.length - 1, current + 1));
+          else showPage(Math.max(0, current - 1));
+        } else {
+          showPage(current); // snap back
+        }
+        startX = currentX = 0;
+      });
+
+      // Pointer / mouse support for desktop dragging
+      let pointerId = null;
+      function isDrivingOrTouching() { return isDragging || pointerId !== null; }
+
+      container.addEventListener('pointerdown', (e) => {
+        // only left button
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        pointerId = e.pointerId;
+        isDragging = true;
+        startX = e.clientX;
+        track.setPointerCapture && track.setPointerCapture(pointerId);
+        track.style.transition = 'none';
+      });
+
+      container.addEventListener('pointermove', (e) => {
+        if (!isDragging || e.pointerId !== pointerId) return;
+        currentX = e.clientX;
+        const dx = currentX - startX;
+        setTrackTranslate(dx);
+      });
+
+      container.addEventListener('pointerup', (e) => {
+        if (!isDragging || e.pointerId !== pointerId) return;
+        isDragging = false;
+        pointerId = null;
+        track.style.transition = '';
+        const delta = (currentX || startX) - startX;
+        if (Math.abs(delta) > threshold) {
+          if (delta < 0) showPage(Math.min(pages.length - 1, current + 1));
+          else showPage(Math.max(0, current - 1));
+        } else {
+          showPage(current);
+        }
+        startX = currentX = 0;
+      });
+    });
+  </script>
+
+</body>
+</html>

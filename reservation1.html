@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Page Réservation - Étape 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reservation1.css">
+  
+</head>
+<body>
+<section id="progress-bar">
+  <header class="progress-header">
+    <div class="progress-header__container">
+      <a href="index.html" class="progress-header__logo" aria-label="Homepage">
+        <img src="images/427_501.svg" alt="L'escapade Logo">
+      </a>
+      <nav class="progress-header__nav" aria-label="Checkout Progress">
+        <ol class="progress-steps">
+          <li class="progress-step is-complete">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 1 Completed">
+            </div>
+            <span class="progress-step__label">Date</span>
+          </li>
+          <li class="progress-arrow">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+          </li>
+          <li class="progress-step is-active">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/324_442.svg" alt="Step 2: Current Step">
+            </div>
+            <span class="progress-step__label">Catégorie</span>
+          </li>
+          <li class="progress-arrow">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+          </li>
+          <li class="progress-step">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/324_445.svg" alt="Step 3">
+            </div>
+            <span class="progress-step__label">Details & confirmation</span>
+          </li>
+          <li class="progress-arrow">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+          </li>
+          <li class="progress-step">
+            <div class="progress-step__icon-wrapper">
+              <img class="progress-step__icon" src="images/324_447.svg" alt="Step 4">
+            </div>
+            <span class="progress-step__label">Paiement</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+</section>
+<section id="booking-info" class="booking-info-section">
+  <div class="container">
+    <h1 class="section-title">Sélectionnez une catégorie de suite</h1>
+    <div class="summary-card">
+      <div class="summary-content">
+        <p class="nights-summary">Nuits sélectionnées 3</p>
+        <div class="details-group">
+          <span class="detail-item">Lun. 20/10/2025</span>
+          <img src="images/324_672.svg" alt="arrow icon" class="arrow-icon">
+          <span class="detail-item">Mer. 22/10/2025</span>
+        </div>
+        <p class="guests-summary">Invités : 5</p>
+      </div>
+      <a href="page_reservation1.html" class="btn btn-primary">Modifier</a>
+    </div>
+  </div>
+</section>
+<section id="suites" class="suites-section">
+  <div class="container">
+    <div class="suite-grid">
+      
+      <article class="suite-card">
+        <img src="images/fed713276c2b8f97b67e33b6a240df722bb83d82.png" alt="SUITES JUNIOR" class="suite-image">
+        <div class="suite-content">
+          <div class="suite-header">
+            <h2 class="suite-title">SUITES JUNIOR</h2>
+            <p class="suite-price">250 000 FCFA - Week-end</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-details">
+            <div class="suite-amenities">
+              <div class="amenity-item">
+                <img src="images/324_691.svg" alt="Area icon" class="amenity-icon">
+                <span class="amenity-label">70 m²</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/324_582.svg" alt="Pool icon" class="amenity-icon">
+                <span class="amenity-label">Piscine</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon">
+                <span class="amenity-label">TV</span>
+              </div>
+            </div>
+            <p class="suite-price">200 000 FCFA - Semaine</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-footer">
+            <a href="#" class="details-link">Voir les détails</a>
+            <a href="#" class="btn btn-primary">Sélectionner</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="suite-card">
+        <img src="images/4e8bd77d88ebb1c9f445970808bcf56230320041.png" alt="SUITES SÉNIOR" class="suite-image">
+        <div class="suite-content">
+          <div class="suite-header">
+            <h2 class="suite-title">SUITES SÉNIOR</h2>
+            <p class="suite-price">350 000 FCFA - Week-end</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-details">
+            <div class="suite-amenities">
+              <div class="amenity-item">
+                <!--merged image-->
+                <div class="amenity-icon-merged">
+                  <img src="images/324_583.svg" alt="Area icon part" style="position: absolute; top: 3px; left: 10px;">
+                  <img src="images/324_587.svg" alt="Area icon part" style="position: absolute; top: 6px; left: 6px;">
+                  <img src="images/324_589.svg" alt="Area icon part" style="position: absolute; top: 9.9px; left: 41.9px;">
+                  <img src="images/324_591.svg" alt="Area icon part" style="position: absolute; top: 29.9px; left: 23px;">
+                </div>
+                <span class="amenity-label">70 m²</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/324_586.svg" alt="Pool icon" class="amenity-icon">
+                <span class="amenity-label">Piscine</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon">
+                <span class="amenity-label">TV</span>
+              </div>
+            </div>
+            <p class="suite-price">280 000 FCFA - Semaine</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-footer">
+            <a href="#" class="details-link">Voir la suite</a>
+            <a href="#" class="btn btn-primary">Sélectionner</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="suite-card">
+        <img src="images/3b4e8398b539c12a5e9d6d121050234f86cac4ac.png" alt="SUITES JUNIOR VIP" class="suite-image">
+        <div class="suite-content">
+          <div class="suite-header">
+            <h2 class="suite-title">SUITES JUNIOR <span class="text-gold">VIP</span></h2>
+            <p class="suite-price">650 000 FCFA - Week-end ( 2 Suites )</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-details">
+            <div class="suite-amenities">
+              <div class="amenity-item">
+                <img src="images/324_692.svg" alt="Area icon" class="amenity-icon">
+                <span class="amenity-label">70 m²</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/324_618.svg" alt="Pool icon" class="amenity-icon">
+                <span class="amenity-label">Piscine</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon">
+                <span class="amenity-label">TV</span>
+              </div>
+            </div>
+            <p class="suite-price">520 000 FCFA - Semaine ( 2 Suites )</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-footer">
+            <a href="#" class="details-link">Voir les détails</a>
+            <a href="#" class="btn btn-primary">Sélectionner</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="suite-card">
+        <img src="images/e78dbceb7563fdf0b3c09d33c0fadf81c889de18.png" alt="SUITES SÉNIOR VIP" class="suite-image">
+        <div class="suite-content">
+          <div class="suite-header">
+            <h2 class="suite-title">SUITES SÉNIOR <span class="text-gold">VIP</span></h2>
+            <p class="suite-price">400 000 FCFA -Week-end</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-details">
+            <div class="suite-amenities">
+              <div class="amenity-item">
+                <!--merged image-->
+                <div class="amenity-icon-merged">
+                    <img src="images/324_616.svg" alt="Area icon part" style="position: absolute; top: 2px; left: 4px;">
+                    <img src="images/324_621.svg" alt="Area icon part" style="position: absolute; top: 5px; left: 0px;">
+                    <img src="images/324_623.svg" alt="Area icon part" style="position: absolute; top: 2.99px; left: 44.96px;">
+                    <img src="images/324_625.svg" alt="Area icon part" style="position: absolute; top: 22.98px; left: 26.01px;">
+                </div>
+                <span class="amenity-label">70 m²</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/324_620.svg" alt="Pool icon" class="amenity-icon">
+                <span class="amenity-label">Piscine</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon">
+                <span class="amenity-label">TV</span>
+              </div>
+            </div>
+            <p class="suite-price">320 000 FCFA - Semaine</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-footer">
+            <a href="#" class="details-link">Voir la suite</a>
+            <a href="#" class="btn btn-primary">Sélectionner</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="suite-card suite-card-full">
+        <img src="images/4e8bd77d88ebb1c9f445970808bcf56230320041.png" alt="SUITES JUNIOR + SALON" class="suite-image">
+        <div class="suite-content">
+          <div class="suite-header">
+            <h2 class="suite-title">SUITES JUNIOR + SALON</h2>
+            <p class="suite-price">300 000 FCFA - Week-end</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-details">
+            <div class="suite-amenities">
+              <div class="amenity-item">
+                <!--merged image-->
+                <div class="amenity-icon-merged">
+                    <img src="images/324_643.svg" alt="Area icon part" style="position: absolute; top: 0px; left: 1px;">
+                    <img src="images/324_646.svg" alt="Area icon part" style="position: absolute; top: 3px; left: -3px;">
+                    <img src="images/324_647.svg" alt="Area icon part" style="position: absolute; top: 6.99px; left: 32.96px;">
+                    <img src="images/324_648.svg" alt="Area icon part" style="position: absolute; top: 26.98px; left: 14.01px;">
+                </div>
+                <span class="amenity-label">70 m²</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/324_645.svg" alt="Pool icon" class="amenity-icon">
+                <span class="amenity-label">Piscine</span>
+              </div>
+              <div class="amenity-item">
+                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon">
+                <span class="amenity-label">TV</span>
+              </div>
+            </div>
+            <p class="suite-price">240 000 FCFA - Semaine</p>
+          </div>
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <div class="suite-footer">
+            <a href="#" class="details-link">Voir la suite</a>
+            <a href="#" class="btn btn-primary">Sélectionner</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<section id="navigation" class="navigation-section">
+    <div class="container">
+        <a href="reservation3.html" class="btn btn-dark">Suivant</a>
+    </div>
+</section>
+</body>
+</html>

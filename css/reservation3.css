@@ -1,0 +1,419 @@
+ 
+/* CSS for section section:confirmation */
+  .confirmation-section .container {
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 59px;
+  }
+
+  .main-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 31px;
+    color: var(--color-text-dark);
+    margin: 0;
+    text-align: center;
+  }
+
+  .card-wrapper {
+    position: relative;
+    width: 920px;
+    max-width: 100%;
+  }
+
+  .decorative-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .line-top-right {
+    position: absolute;
+    top: -50px;
+    right: -55px;
+    transform: rotate(-0.26deg);
+  }
+
+  .line-bottom-left {
+    position: absolute;
+    bottom: -50px;
+    left: -45px;
+    transform: rotate(0.26deg);
+  }
+
+  .confirmation-card {
+    display: flex;
+    background-color: var(--color-card-bg);
+    border-radius: 110px 0px 110px 0px;
+    width: 100%;
+    min-height: 413px;
+    overflow: hidden;
+  }
+
+  .card-image-container {
+    flex-shrink: 0;
+    width: 407px;
+    padding: 54px 0 88px 37px;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 85px 0px 85px 0px;
+    display: block;
+  }
+
+  .card-details {
+    flex-grow: 1;
+    padding: 74px 40px 40px 31px;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text-light);
+  }
+
+  .details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 15px;
+  }
+
+  .suite-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .suite-quantity {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  .booking-dates {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .date {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .date-arrow {
+    width: 25px;
+    height: 25px;
+    transform: rotate(-90deg);
+  }
+
+  .guest-count {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0 0 79px 0;
+  }
+
+  .total-price {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0 0 39px 0;
+    line-height: 1.2;
+  }
+
+  .next-button {
+    background-color: var(--color-button-bg);
+    color: var(--color-text-light);
+    font-size: 19px;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 0;
+    width: 148px;
+    border-radius: 20px 0px 20px 0px;
+    align-self: flex-end;
+    margin-right: 70px;
+    transition: background-color 0.3s ease;
+  }
+  .next-button:hover {
+    background-color: #8a4a00;
+  }
+  /* CSS for section section:header */
+.progress-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+  }
+
+  .progress-header__container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 13px 40px 34px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .progress-header__logo {
+    position: absolute;
+    left: -109px;
+  }
+
+  .progress-header__logo img {
+    display: block;
+    height: 59px;
+    width: 67px;
+  }
+
+  .progress-steps {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .progress-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+  }
+
+  .progress-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+
+  .progress-arrow__icon {
+    width: 96px;
+    height: 30px;
+  }
+
+  .progress-step__icon-wrapper {
+    height: 24px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-step__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .progress-step__label {
+    font-family: var(--font-secondary);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.39px;
+    color: #000000;
+    white-space: nowrap;
+  }
+
+  
+  @media (max-width: 1024px) {
+    .progress-header__container {
+      padding: 8px 15px 15px;
+      justify-content: center;
+    }
+
+    .progress-header__logo {
+      display: none;
+    }
+
+    .progress-header__nav {
+      margin-top: 0;
+      width: 100%;
+    }
+
+    .progress-steps {
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .progress-arrow__icon {
+      width: 40px;
+      height: 28px;
+    }
+
+    .progress-step__icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .progress-step__label {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .progress-header__container {
+      flex-direction: column;
+      gap: 8px;
+      padding: 6px 12px 12px;
+    }
+
+    .progress-header__logo {
+      display: none;
+    }
+
+    .progress-header__nav {
+      width: 100%;
+      overflow-x: auto;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      margin-top: 0;
+    }
+    
+    .progress-header__nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .progress-steps {
+      justify-content: center;
+      padding: 0 10px 10px; /* Add padding for scroll visibility */
+      gap: 8px;
+    }
+    
+    .progress-step {
+        flex-shrink: 0;
+    }
+
+    .progress-arrow__icon {
+      width: 35px;
+      height: 24px;
+    }
+
+    .progress-step__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .progress-step__label {
+      font-size: 10px;
+    }
+  }
+
+
+  @media (max-width: 960px) {
+    .card-wrapper {
+      width: 100%;
+      padding: 0 20px;
+    }
+    .confirmation-card {
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+      padding: 30px;
+      border-radius: 50px;
+    }
+    .card-image-container {
+      width: 100%;
+      max-width: 407px;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+    .card-image {
+      border-radius: 40px;
+    }
+    .card-details {
+      padding: 0;
+      width: 100%;
+      max-width: 407px;
+      align-items: center;
+      text-align: center;
+    }
+    .details-header {
+      flex-direction: column;
+      align-items: center;
+    }
+    .guest-count {
+      margin-bottom: 40px;
+    }
+    .total-price {
+      margin-bottom: 30px;
+    }
+    .next-button {
+      align-self: center;
+      margin-right: 0;
+    }
+    .decorative-lines {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 1rem;
+    }
+    .confirmation-section .container {
+      gap: 30px;
+    }
+    .main-title {
+      font-size: 24px;
+    }
+    .suite-title,
+    .suite-quantity,
+    .total-price {
+      font-size: 22px;
+    }
+    .next-button {
+      width: 100%;
+    }
+  }
+ 
+  :root {
+  --color-background: #ffffff;
+  --color-card-bg: rgba(183, 143, 98, 0.77);
+  --color-button-bg: #673800;
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.confirmation-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
