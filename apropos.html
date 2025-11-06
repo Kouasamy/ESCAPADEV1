@@ -43,11 +43,14 @@
       transform: translateY(-6px) scale(1.02);
     }
   </style>
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
 </head>
 
-<body class=" text-white overflow-x-hidden font-[Futura_Md_BT]">
+<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
 
   <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
     <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
@@ -719,7 +722,7 @@
       <div class="text-center">
         <div class="title-wrapper">
           <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
-          <h1 class="main-title  ">
+          <h1 class="main-title  " data-translate="aPropos">
             A PROPOS
           </h1>
         </div>
@@ -742,20 +745,20 @@
 
         <!-- Texte descriptif -->
         <div class="w-full md:w-1/2 space-y-6">
-          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-            <strong>L’Escapade Hôtel, depuis mai 2025.</strong> Venez découvrir un refuge élégant posé en bordure de
-            lagune à Assinie. Ici, le temps s’étire et les sens s’éveillent. Entre nature apaisante et raffinement
+          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="aproposText1">
+            <strong>L'Escapade Hôtel, depuis mai 2025.</strong> Venez découvrir un refuge élégant posé en bordure de
+            lagune à Assinie. Ici, le temps s'étire et les sens s'éveillent. Entre nature apaisante et raffinement
             discret,
             votre voyage commence là où le luxe rencontre la quiétude.
           </p>
 
-          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="aproposText2">
             Érigé sur <strong>3,5 hectares</strong>, le domaine abrite 22 suites juniors et seniors au design épuré,
             pensées pour offrir confort, intimité et sérénité à chaque hôte.
           </p>
 
-          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-            À L’Escapade, chaque instant devient une invitation au lâcher-prise.
+          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="aproposText3">
+            À L'Escapade, chaque instant devient une invitation au lâcher-prise.
           </p>
         </div>
       </div>
@@ -777,13 +780,8 @@
     <!-- Texte superposé -->
     <div class="relative z-10 max-w-5xl mx-auto text-center px-6">
       <p class="font-[Futura_Md_BT] text-[24px] md:text-[28px] leading-[34px] md:leading-[38px] text-white mt-6">
-        Situé au kilomètre 12, L'Escapade vous ouvre ses portes à Assinie, station balnéaire emblématique de la Côte
-        d'Ivoire. <br>  
-        À seulement 90km d'Abidjan, ce village paisible s'étend entre la lagune Aby et l'Océan Atlantique, offrant un
-        décor naturel d'exception. Autrefois terres de pêcheurs, Assinie s'est transformée en une destination
-        internationale, accueillant chaque année un nombre croissant de visiteurs en quête de calme et d'authenticité.
-        Avec sa plage de sable fin longue de 30 kilomètres, ses cocotiers, ses lagunes paisibles et sa douceur de vivre,
-        Assinie est une invitation à l'évasion.
+        <span data-translate="evenementielText3">Situé au kilomètre 12, L'Escapade vous ouvre ses portes à Assinie, station balnéaire emblématique de la Côte d'Ivoire.</span> <br>  
+        <span data-translate="aproposText4">À seulement 90km d'Abidjan, ce village paisible s'étend entre la lagune Aby et l'Océan Atlantique, offrant un décor naturel d'exception. Autrefois terres de pêcheurs, Assinie s'est transformée en une destination internationale, accueillant chaque année un nombre croissant de visiteurs en quête de calme et d'authenticité. Avec sa plage de sable fin longue de 30 kilomètres, ses cocotiers, ses lagunes paisibles et sa douceur de vivre, Assinie est une invitation à l'évasion.</span>
       </p>
     </div>
   </div>
@@ -854,6 +852,11 @@
       </div>
     </footer>
   </section>
+  
+  <!-- Script de traduction -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Scripts GSAP pour animations smooth scroll -->
+  <script src="js/gsap-animations.js"></script>
 </body>
-
 </html>

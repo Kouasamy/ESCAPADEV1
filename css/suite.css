@@ -33,14 +33,14 @@
     margin-top: 20px;
   }
   .suite-title {
-    font-family: var(--font-primary);
+    font-family: 'Big Caslon', serif;
     font-size: 32px;
     font-weight: 500;
     margin: 0;
     line-height: 1.1;
   }
   .suite-price {
-    font-family: var(--font-secondary);
+    font-family: 'Futura Md BT', 'Futura', sans-serif;
     font-size: 16px;
     margin: 0;
     text-align: right;
@@ -81,7 +81,7 @@
     height: 31px;
   }
   .amenity-label {
-    font-family: var(--font-primary);
+    font-family: 'Big Caslon', serif;
     font-size: 14px;
   }
   .suite-footer {
@@ -90,25 +90,28 @@
     align-items: center;
   }
   .details-link {
-    font-family: var(--font-primary);
+    font-family: 'Futura Md BT', 'Futura', sans-serif;
     font-size: 16px;
     color: var(--color-text);
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    gap: 1px;
   }
 
   .details-link::after {
     content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    background-image: url('images/324_579.svg');
+    display: block;
+    width: 88%;
+    height: auto;
+    background-image: url('../images/324_637.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 1px;
+    min-height: 1px;
+    margin: 0 auto;
   }
   .text-gold {
     color: var(--color-gold);

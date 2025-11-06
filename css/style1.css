@@ -3,6 +3,62 @@
   --font-body: 'Futura Md BT', 'Futura', sans-serif;
 }
 
+/* Polices globales - uniquement Big Caslon et Futura Md BT */
+* {
+  font-family: 'Futura Md BT', 'Futura', sans-serif;
+}
+
+/* Tous les titres utilisent Big Caslon */
+h1, h2, h3, h4, h5, h6,
+.main-title,
+.title,
+[class*="title"],
+.font-heading {
+  font-family: 'Big Caslon', serif !important;
+}
+
+/* Assurer que les spans à l'intérieur des titres utilisent Big Caslon */
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
+.main-title span {
+  font-family: 'Big Caslon', serif !important;
+}
+
+/* Tous les paragraphes et textes utilisent Futura Md BT */
+p, span, a, li, td, th, label, input, textarea, button,
+.font-body,
+[class*="font-[Futura"],
+[class*="font-[Futura_Md_BT"] {
+  font-family: 'Futura Md BT', 'Futura', sans-serif !important;
+}
+
+/* Classes Tailwind font-[Big_Caslon] -> Big Caslon */
+[class*="font-[Big_Caslon"] {
+  font-family: 'Big Caslon', serif !important;
+}
+
+/* Classes Tailwind font-[Futura_Md_BT] -> Futura Md BT */
+[class*="font-[Futura_Md_BT"] {
+  font-family: 'Futura Md BT', 'Futura', sans-serif !important;
+}
+
+/* Classes Tailwind font-[Futura] -> Futura Md BT */
+[class*="font-[Futura"] {
+  font-family: 'Futura Md BT', 'Futura', sans-serif !important;
+}
+
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 /* CSS for section section:welcome */
 .welcome-section {
   padding-top: 115px; /* (Frame Y: -943) - (Title Y: -828) */
@@ -90,11 +146,69 @@
   }
 
   .main-title {
-    font-size: 36px;
+    font-size: 32px;
+    margin-left: 25px;
   }
 
   .subtitle {
     font-size: 18px;
+  }
+}
+
+/* Responsive pour tablettes et petits écrans */
+@media (max-width: 640px) {
+  .title-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .title-border {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: auto !important;
+  }
+
+  .main-title {
+    font-size: 28px !important;
+    margin-left: 20px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Responsive pour téléphones */
+@media (max-width: 480px) {
+  .title-wrapper {
+    margin-bottom: 25px;
+  }
+
+  .title-border {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+  }
+
+  .main-title {
+    font-size: 22px !important;
+    margin-left: 15px !important;
+    line-height: 1.15 !important;
+  }
+}
+
+/* Responsive pour très petits téléphones */
+@media (max-width: 360px) {
+  .title-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .title-border {
+    width: 100% !important;
+    max-width: 240px !important;
+    height: auto !important;
+  }
+
+  .main-title {
+    font-size: 20px !important;
+    margin-left: 12px !important;
+    line-height: 1.1 !important;
   }
 }
 
@@ -259,7 +373,7 @@
     background: none;
     border: none;
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Futura Md BT', 'Futura', sans-serif;
     cursor: pointer;
   }
 
@@ -537,6 +651,43 @@
     padding-right: 28px;
     position: relative;
     z-index: 1;
+  }
+
+  /* --- Hover polish for header contact button and nav links (site-wide) --- */
+  header.fixed .contact-btn,
+  .hero-header .contact-btn,
+  header.fixed .header-nav a,
+  .hero-header .header-nav a {
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+
+  header.fixed .contact-btn:hover,
+  .hero-header .contact-btn:hover,
+  header.fixed .header-nav a:hover,
+  .hero-header .header-nav a:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+  }
+
+  /* Ensure the floating contact anchor (#contactFab) also animates on hover */
+  #contactFab,
+  #contactFab .contact-btn {
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  #contactFab:hover .contact-btn {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+  }
+
+  /* Hover animation for hero-footer contact button */
+  .hero-footer .btn-wrapper,
+  .hero-footer .contact-btn {
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  .hero-footer .btn-wrapper:hover,
+  .hero-footer .contact-btn:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
   }
 
   @media (max-width: 1280px) {

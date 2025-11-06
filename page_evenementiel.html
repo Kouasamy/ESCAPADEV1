@@ -19,10 +19,13 @@
     .reveal img { transition: transform .35s ease, opacity .35s ease; }
     .reveal:hover img { transform: translateY(-6px) scale(1.02); }
   </style>
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
 </head>
-<body class=" text-white overflow-x-hidden font-[Futura_Md_BT]">
+<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
 
 <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
   <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
@@ -642,7 +645,7 @@
       <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
         <h1 class="main-title  ">
-         EVENEMENTIEL <span class="highlight "> L’ESCAPADE</span>
+         <span data-translate="evenementielTitle">EVENEMENTIEL</span> <span class="highlight " data-translate="evenementielSubtitle">L'ESCAPADE</span>
         </h1>
       </div>
       
@@ -652,9 +655,9 @@
     <div class="flex flex-col md:flex-row items-center gap-12">
       <!-- Texte -->
       <div class="w-full md:w-1/2 text-right space-y-6">
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-          L’Escapade est la scène idéale pour célébrer les grands moments de la vie. Mariages au bord de l’eau,
-          anniversaires, retraites en petit comité ou grandes célébrations réunissant jusqu’à 2 000 invités :
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="evenementielText1">
+          L'Escapade est la scène idéale pour célébrer les grands moments de la vie. Mariages au bord de l'eau,
+          anniversaires, retraites en petit comité ou grandes célébrations réunissant jusqu'à 2 000 invités :
           chaque événement trouve ici son écrin.
         </p>
       </div>
@@ -672,7 +675,7 @@
     <div class="flex flex-col md:flex-row-reverse items-center gap-12 mt-12">
       <!-- Texte -->
       <div class="w-full md:w-1/2 space-y-6">
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="evenementielText2">
           Un salon dédié aux séminaires, team building et rencontres professionnelles.
         </p>
       </div>
@@ -701,16 +704,16 @@
 
      <!-- Texte superposé -->
       <div class="relative z-10 max-w-5xl mx-auto text-center px-6"
-      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white">
+      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white" data-translate="evenementielText4">
         À L'Escapade, élégance et nature se rejoignent pour offrir un cadre où se créent les souvenirs les plus précieux
         et où naissent les plus belles inspirations.
       </p>
-      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white mt-6">
+      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white mt-6" data-translate="evenementielText5">
         Profitez pleinement de votre événement, nous nous occupons du reste. De la mise en place à la décoration, en
         passant par la restauration, l'animation et même l'hébergement des invités, notre équipe coordonne chaque détail
         avec soin et flexibilité.
       </p>
-      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white mt-6">
+      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white mt-6" data-translate="evenementielText6">
         Vous pouvez choisir vos propres prestataires, ou confier l'ensemble à notre organisation pour une prestation
         clé en main, toujours adaptée à vos envies.
       </p>
@@ -783,6 +786,11 @@
       </div>
     </footer>
   </section>
-
-  </body>
+  
+  <!-- Script de traduction -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Scripts GSAP pour animations smooth scroll -->
+  <script src="js/gsap-animations.js"></script>
+</body>
 </html>

@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
 <title>ESCAPADE</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Libre+Bodoni:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/suite.css">
+  
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
  
 </head>
-<body class="font-[Futura_Md_BT] ">
+<body style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
   <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
     <!-- Bouton burger -->
@@ -615,12 +615,12 @@
       
 
 
-      <h1 class="text-7xl text-white font-[Big_Caslon]">CHAMBRES & SUITES</h1>
+      <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="chambresSuites">CHAMBRES & SUITES</h1>
       <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
       <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
          <div class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg">
-        <span class="btn-text">Nous Contactez</span>
+        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
       </div>
       </a>
     </div>
@@ -663,7 +663,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="suite_junior.html" class="details-link">Voir les détails</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
            
           </div>
         </div>
@@ -702,7 +702,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="page_suite.html" class="details-link">Voir la suite</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             
           </div>
         </div>
@@ -735,7 +735,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="suite_junior.html" class="details-link">Voir les détails</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
            
           </div>
         </div>
@@ -774,7 +774,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="page_suite.html" class="details-link">Voir la suite</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             
           </div>
         </div>
@@ -840,8 +840,8 @@
 
       
       
-      <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] relative">
-          Le confort d’un appartement privé mêlant ouverture  et harmonie, <br>
+      <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] relative" data-translate="suitesText1">
+          Le confort d'un appartement privé mêlant ouverture  et harmonie, <br>
         Nos suites allant  de <b>70 m² à 85 m²</b> allient  design contemporain,<br>
         matières naturelles  et inspirations  locales. 
         Lumineuses et raffinées <br>, elles  révèlent un luxe  authentique 
@@ -874,9 +874,9 @@
      
     
      
-      <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-right md:text-left relative">
-            Le confort d’un appartement privé mêlant ouverture et   harmonie, <br> créent un  cadre reposant et élégant.
-        Ici,   chaque détail  célèbre l’art de vivre : le bois,  la lumière, la douceur  des tissus,
+      <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-right md:text-left relative" data-translate="suitesText2">
+            Le confort d'un appartement privé mêlant ouverture et   harmonie, <br> créent un  cadre reposant et élégant.
+        Ici,   chaque détail  célèbre l'art de vivre : le bois,  la lumière, la douceur  des tissus,
         la sérénité des  <br> volumes. Un équilibre parfait  entre nature et élégance.
 
          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" />
@@ -885,7 +885,7 @@
        <!-- Bouton -->  
       <div class="">
         <a href="page_suite.html#contact"
-          class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#caa57f] mt-10">
+          class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#caa57f] mt-10" data-translate="reserverMaintenant">
           Réserver maintenant
         </a>
       </div>
@@ -958,5 +958,11 @@
       </div>
     </footer>
   </section>
+  
+  <!-- Script de traduction -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Scripts GSAP pour animations smooth scroll -->
+  <script src="js/gsap-animations.js"></script>
 </body>
 </html>

@@ -139,13 +139,15 @@
               img.src = img.dataset.src;
               img.removeAttribute('data-src');
             }
-            // Retirer le lazy loading une fois l'image chargée
-            img.removeAttribute('loading');
+            // Précharger les images adjacentes dans les sliders
+            if (img.closest('.plats-slider-track')) {
+              preloadAdjacentSliderImages(img);
+            }
             observer.unobserve(img);
           }
         });
       }, {
-        rootMargin: '50px' // Commencer à charger 50px avant que l'image soit visible
+        rootMargin: '100px' // Commencer à charger 100px avant que l'image soit visible pour plus de fluidité
       });
 
       // Observer toutes les images avec lazy loading
@@ -153,6 +155,31 @@
         imageObserver.observe(img);
       });
     }
+  }
+
+  /**
+   * Précharge les images adjacentes dans un slider pour un scroll fluide
+   */
+  function preloadAdjacentSliderImages(currentImg) {
+    const sliderTrack = currentImg.closest('.plats-slider-track');
+    if (!sliderTrack) return;
+
+    const allImages = Array.from(sliderTrack.querySelectorAll('img[loading="lazy"]'));
+    const currentIndex = allImages.indexOf(currentImg);
+
+    // Précharger l'image suivante et précédente
+    [currentIndex - 1, currentIndex + 1].forEach(index => {
+      if (index >= 0 && index < allImages.length) {
+        const adjacentImg = allImages[index];
+        if (adjacentImg.dataset.src) {
+          adjacentImg.src = adjacentImg.dataset.src;
+          adjacentImg.removeAttribute('data-src');
+        }
+        // Forcer le chargement en créant une nouvelle image
+        const preloadImg = new Image();
+        preloadImg.src = adjacentImg.src;
+      }
+    });
   }
 
   /**

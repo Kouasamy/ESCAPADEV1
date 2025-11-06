@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
 <title>Accueil ESCAPADE</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Libre+Bodoni:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
   
@@ -21,7 +17,7 @@
   <script src="js/image-optimizer.js" defer></script>
  
 </head>
-<body class="font-[Futura_Md_BT] text-white">
+<body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
 <section id="hero">
   <div class="hero-container">
     <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
@@ -564,6 +560,18 @@
   </style>
 
 <style>
+  /* Scroll hide/show animation for the hero header on the homepage */
+  .scroll-hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .hero-header.scroll-hide {
+    transform: translateY(-100%);
+  }
+</style>
+
+<style>
   /* Force la visibilité de la vidéo loungeVideo */
   /*#loungeVideo {
     opacity: 1 !important;
@@ -673,7 +681,7 @@
      <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border" loading="lazy" decoding="async">
         <h1 class="main-title  ">
-         Nos Chambres<span class="highlight ">& Suites</span>
+         <span data-translate="nosChambresSuites">Nos Chambres</span><span class="highlight " data-translate="suites">& Suites</span>
         </h1>
       </div>
     </div>
@@ -691,33 +699,33 @@
       <!-- Suite Junior -->
       <div class="flex flex-col items-center">
         <div class="w-[270px] h-[235px] bg-[url('img/3.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Junior</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suitesJunior">Suites Junior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
-        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="voirChambre">Voir la chambre</a>
       </div>
 
       <!-- Suite Sénior VIP -->
       <div class="flex flex-col items-center">
         <div class="w-[283px] h-[235px] bg-[url('img/4.jpg')] bg-cover bg-center rounded-[55px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Sénior VIP</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suitesSeniorVIP">Suites Sénior VIP</p>
         <div class="w-[140px] border-t border-black my-2"></div>
-        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="voirChambre">Voir la chambre</a>
       </div>
 
       <!-- Suite Sénior -->
       <div class="flex flex-col items-center">
         <div class="w-[275px] h-[235px] bg-[url('img/5.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Sénior</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suitesSenior">Suites Sénior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
-        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="voirChambre">Voir la chambre</a>
       </div>
 
       <!-- Suite Junior VIP -->
       <div class="flex flex-col items-center">
         <div class="w-[273px] h-[235px] bg-[url('img/6.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Junior VIP</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suitesJuniorVIP">Suites Junior VIP</p>
         <div class="w-[140px] border-t border-black my-2"></div>
-        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="voirChambre">Voir la chambre</a>
       </div>
         </div>
       </div>
@@ -784,7 +792,7 @@
                class="w-full h-auto rounded-[112px_0px_108px] shadow-lg hover:scale-105 transition-transform duration-500" />
                <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
                <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
-          <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[14px] md:text-[15px]">Restaurant L'Escapade</p>
+          <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[14px] md:text-[15px]" data-translate="restaurantEscapade">Restaurant L'Escapade</p>
         </div>
 
       </div>
@@ -795,11 +803,11 @@
     <section class="relative bg-[#F8DAAB]">
        
       <div class="text-center mb-12">
-      <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5 text-black">Découvrez</p>
+      <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5 text-black" data-translate="discover">Découvrez</p>
       <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
         <h1 class="main-title  ">
-         Notre <span class="highlight "> Lounge</span>
+         <span data-translate="notreLounge">Notre</span> <span class="highlight " data-translate="loungeTitle">Lounge</span>
         </h1>
       </div>
       </div>
@@ -822,15 +830,15 @@
               
 
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8">
-                Dans une atmosphère où le luxe rencontre la sérénité, le Lounge vous invite à un moment d’exception.
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8" data-translate="loungeText4">
+                Dans une atmosphère où le luxe rencontre la sérénité, le Lounge vous invite à un moment d'exception.
                 Entre lumière tamisée, notes subtiles et service attentif, chaque instant devient une expérience unique —
                 un art de vivre à savourer pleinement.
               </p>
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-10">
-                Une ambiance citadine à Assinie. Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire :
-                un lieu pensé pour se détendre, se retrouver et profiter d’instants simples dans un cadre raffiné.
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-10" data-translate="loungeText1">
+                Une ambiance citadine à Assinie. Le lounge de L'Escapade marie l'élégance urbaine et la douceur balnéaire :
+                un lieu pensé pour se détendre, se retrouver et profiter d'instants simples dans un cadre raffiné.
               </p>
 
               
@@ -846,10 +854,10 @@
 
       <!-- Texte à droite -->
       <div class="max-w-md lg:max-w-lg text-right text-black">
-        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8">
+        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8" data-translate="loungeText1">
           Une ambiance citadine à Assinie.<br>
-          Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire : 
-          un lieu pensé pour se détendre, se retrouver et profiter d’instants simples 
+          Le lounge de L'Escapade marie l'élégance urbaine et la douceur balnéaire : 
+          un lieu pensé pour se détendre, se retrouver et profiter d'instants simples 
           dans un cadre raffiné.
         </p>
 
@@ -872,7 +880,7 @@
         </div>
         
         <!-- Signature sous l'image alignée à droite -->
-        <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[15px]">Lounge L'Escapade</p>
+        <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[15px]" data-translate="loungeEscapade">Lounge L'Escapade</p>
       
       </div>
 
@@ -1009,6 +1017,35 @@
         });
       });
     })();
+  </script>
+  
+  <!-- Scroll behavior: hide hero header when scrolling down, show when scrolling up -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.hero-header');
+      let lastScroll = window.scrollY;
+
+      function checkScroll() {
+        const currentScroll = window.scrollY;
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          header && header.classList.add('scroll-hide');
+        } else {
+          header && header.classList.remove('scroll-hide');
+        }
+        lastScroll = currentScroll;
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            checkScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    });
   </script>
    </section>
 

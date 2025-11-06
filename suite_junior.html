@@ -8,10 +8,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
 </head>
-<body class=" text-white overflow-x-hidden font-[Futura_Md_BT]">
+<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
 
  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
   <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
@@ -609,12 +612,12 @@
       
 
 
-      <h1 class="text-7xl text-white font-[Big_Caslon]">SUITE JUNIOR</h1>
+      <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="suiteJunior">SUITE JUNIOR</h1>
       <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
       <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
          <div class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg">
-        <span class="btn-text">Nous Contactez</span>
+        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
       </div>
       </a>
     </div>
@@ -626,7 +629,7 @@
       <div class="details-wrapper flex flex-col md:flex-row items-center gap-16">
         <div class="details-text-content w-full md:w-1/2 space-y-6 text-[#000000]">
           <h2 class="details-title font-[Big_Caslon] text-[48px] md:text-[58px] leading-[70px]">
-            La suite <span class="highlight text-[#B78F62]">junior</span>
+            <span data-translate="laSuite">La suite</span> <span class="highlight text-[#B78F62]" data-translate="junior">junior</span>
           </h2>
           
           <div class="features flex items-center gap-8 mt-6">
@@ -636,15 +639,15 @@
             </div>
             <div class="feature-item flex items-center gap-2">
               <img src="images/272_1551.svg" alt="Pool icon" class="feature-icon w-8 h-8" />
-              <p class="feature-label font-[Big_Caslon] text-[14px]">Piscine</p>
+              <p class="feature-label font-[Big_Caslon] text-[14px]" data-translate="piscine">Piscine</p>
             </div>
             <div class="feature-item flex items-center gap-2">
               <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="feature-icon tv-icon w-8 h-8" />
-              <p class="feature-label font-[Big_Caslon] text-[14px]">TV</p>
+              <p class="feature-label font-[Big_Caslon] text-[14px]" data-translate="tv">TV</p>
             </div>
           </div>
 
-          <p class="details-description font-[Futura_Md_BT] text-[22px] leading-[28px] max-w-md">
+          <p class="details-description font-[Futura_Md_BT] text-[22px] leading-[28px] max-w-md" data-translate="suiteJuniorText">
             Avec ses 70 m², la Suite Junior allie design contemporain, matières naturelles 
             et inspirations locales. Lumineuse et raffinée, elle révèle un luxe authentique 
             dans sa plus grande simplicité.
@@ -653,20 +656,20 @@
           <ul class="details-list mt-8 space-y-2 text-[15px] font-[Futura_Md_BT]">
             <li class="flex items-center gap-3">
               <img src="images/272_1778.svg" alt="bullet point" class="w-4 h-4" />
-              Capacité : 2 adultes + 2 enfants
+              <span data-translate="capacite">Capacité : 2 adultes + 2 enfants</span>
             </li>
             <li class="flex items-center gap-3">
               <img src="images/272_1776.svg" alt="bullet point" class="w-4 h-4" />
-              Tarif semaine : 200 000 FCFA
+              <span data-translate="tarifSemaine">Tarif semaine : 200 000 FCFA</span>
             </li>
             <li class="flex items-center gap-3">
               <img src="images/279_1796.svg" alt="bullet point" class="w-4 h-4" />
-              Tarif week-end : 250 000 FCFA
+              <span data-translate="tarifWeekend">Tarif week-end : 250 000 FCFA</span>
             </li>
           </ul>
 
           <div class="pt-6">
-            <a href="page_suite.html" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]">
+            <a href="page_suite.html" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]" data-translate="reserverMaintenant">
               Réserver maintenant
             </a>
           </div>
@@ -837,5 +840,11 @@
           });
         });
     </script>
+  
+  <!-- Script de traduction -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Scripts GSAP pour animations smooth scroll -->
+  <script src="js/gsap-animations.js"></script>
 </body>
 </html>
