@@ -11,51 +11,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/reservation1.css">
-   <style>
-.counter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #b78f62; /* couleur or doux */
-  color: white;
-  border-radius: 30px;
-  padding: 6px 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.counter-btn {
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: white;
-  font-size: 20px;
-  line-height: 1;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.counter-btn:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-.counter-number {
-  font-size: 16px;
-  font-weight: 600;
-  min-width: 20px;
-  text-align: center;
-}
-</style>
-
+  
 </head>
 <body>
 <section id="progress-bar">
   <header class="progress-header">
     <div class="progress-header__container">
-      <a href="#" class="progress-header__logo" aria-label="Homepage">
+      <a href="index.html" class="progress-header__logo" aria-label="Homepage">
         <img src="images/427_501.svg" alt="L'escapade Logo">
       </a>
       <nav class="progress-header__nav" aria-label="Checkout Progress">
@@ -111,7 +73,7 @@
         </div>
         <p class="guests-summary">Invités : 5</p>
       </div>
-      <a href="#" class="btn btn-primary">Modifier</a>
+      <a href="page_reservation1.html" class="btn btn-primary">Modifier</a>
     </div>
   </div>
 </section>
@@ -307,69 +269,8 @@
 </section>
 <section id="navigation" class="navigation-section">
     <div class="container">
-        <a href="#" class="btn btn-dark">Suivant</a>
+        <a href="reservation3.html" class="btn btn-dark">Suivant</a>
     </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.suite-card .btn-primary');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // Si le bouton n'a pas encore été transformé
-      if (!button.classList.contains('selected')) {
-        button.classList.add('selected');
-
-        // Créer le conteneur du compteur
-        const counter = document.createElement('div');
-        counter.classList.add('counter');
-
-        // Bouton -
-        const minus = document.createElement('button');
-        minus.textContent = '−';
-        minus.classList.add('counter-btn', 'minus');
-
-        // Nombre
-        const number = document.createElement('span');
-        number.textContent = '1';
-        number.classList.add('counter-number');
-
-        // Bouton +
-        const plus = document.createElement('button');
-        plus.textContent = '+';
-        plus.classList.add('counter-btn', 'plus');
-
-        // Ajout des éléments
-        counter.appendChild(minus);
-        counter.appendChild(number);
-        counter.appendChild(plus);
-
-        // Remplacer le bouton d'origine
-        button.replaceWith(counter);
-
-        // Événements du compteur
-        plus.addEventListener('click', () => {
-          number.textContent = parseInt(number.textContent) + 1;
-        });
-
-        minus.addEventListener('click', () => {
-          let value = parseInt(number.textContent);
-          if (value > 1) {
-            number.textContent = value - 1;
-          } else {
-            // Si on retombe à 0, on remet le bouton d'origine
-            counter.replaceWith(button);
-            button.classList.remove('selected');
-          }
-        });
-      }
-    });
-  });
-});
-</script>
-
 </body>
 </html>

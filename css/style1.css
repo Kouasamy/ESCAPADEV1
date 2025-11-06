@@ -19,7 +19,8 @@ h1, h2, h3, h4, h5, h6,
 
 /* Assurer que les spans à l'intérieur des titres utilisent Big Caslon */
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
-.main-title span {
+.main-title span,
+.title span {
   font-family: 'Big Caslon', serif !important;
 }
 
