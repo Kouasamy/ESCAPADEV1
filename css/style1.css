@@ -47,6 +47,30 @@ p, span, a, li, td, th, label, input, textarea, button,
   font-family: 'Futura Md BT', 'Futura', sans-serif !important;
 }
 
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: none;
+}
+
+.full-bleed-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (min-width: 1024px) {
+  .full-bleed-image {
+    object-fit: cover;
+  }
+}
+
 /* Prevent horizontal scroll globally */
 html, body {
   overflow-x: hidden;
@@ -147,7 +171,7 @@ html, body {
   }
 
   .main-title {
-    font-size: 32px;
+    font-size: 31px;
     margin-left: 25px;
   }
 
@@ -188,7 +212,7 @@ html, body {
   }
 
   .main-title {
-    font-size: 22px !important;
+    font-size: 18px !important;
     margin-left: 15px !important;
     line-height: 1.15 !important;
   }
@@ -366,10 +390,6 @@ html, body {
     position: relative;
   }
 
-  .menu-cluster {
-    /* Base styles - responsive géré par Tailwind */
-  }
-
   .menu-button {
     background: none;
     border: none;
@@ -409,10 +429,6 @@ html, body {
   }
 
 
-
-  .header-nav {
-    /* Responsive géré par Tailwind flex-col sm:flex-row */
-  }
 
   .btn-wrapper {
     position: relative;

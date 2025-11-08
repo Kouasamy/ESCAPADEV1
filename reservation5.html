@@ -5,41 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/reservation3.css">
 </head>
-<body class=" text-black" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
+<body>
+  <section id="progress-bar">
+    <header class="progress-header">
+      <div class="progress-header__container">
+        <a href="index.html" class="progress-header__logo" aria-label="Homepage">
+          <img src="images/427_501.svg" alt="L'escapade Logo">
+        </a>
+        <nav class="progress-header__nav" aria-label="Checkout Progress">
+          <ol class="progress-steps">
+            <li class="progress-step is-complete">
+              <div class="progress-step__icon-wrapper">
+                <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 1 Completed">
+              </div>
+              <span class="progress-step__label">Date</span>
+            </li>
+            <li class="progress-arrow">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            </li>
+            <li class="progress-step is-complete">
+              <div class="progress-step__icon-wrapper">
+                <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 2 Completed">
+              </div>
+              <span class="progress-step__label">Catégorie</span>
+            </li>
+            <li class="progress-arrow">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            </li>
+            <li class="progress-step is-complete">
+              <div class="progress-step__icon-wrapper">
+                <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 3 Completed">
+              </div>
+              <span class="progress-step__label">Details & confirmation</span>
+            </li>
+            <li class="progress-arrow">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            </li>
+            <li class="progress-step is-complete">
+              <div class="progress-step__icon-wrapper">
+                <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 4 Completed">
+              </div>
+              <span class="progress-step__label">Paiement</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </header>
+  </section>
+
     <section id="success" class="relative bg-white text-black py-8 px-6 md:px-16 overflow-hidden">
 
-  <!-- Barre d’étape -->
-  <div class="w-full bg-white py-6 border-b border-black mb-20">
-    <div class="max-w-5xl mx-auto flex items-center justify-center gap-3 text-xs md:text-sm font-[Futura_Md_BT]">
-      <div class="flex items-center gap-2">
-        <div class="w-6 h-6 border border-black rounded-full bg-[#B78F62]"></div>
-        <span>Date</span>
-      </div>
-      <div class="w-20 h-[1px] bg-black"></div>
-      <div class="flex items-center gap-2">
-        <div class="w-6 h-6 border border-black rounded-full bg-[#B78F62]"></div>
-        <span>Catégorie</span>
-      </div>
-      <div class="w-20 h-[1px] bg-black"></div>
-      <div class="flex items-center gap-2">
-        <div class="w-6 h-6 border border-black rounded-full bg-[#B78F62]"></div>
-        <span>Détails & Confirmation</span>
-      </div>
-      <div class="w-20 h-[1px] bg-black"></div>
-      <div class="flex items-center gap-2">
-        <div class="w-6 h-6 border border-black rounded-full bg-[#B78F62] flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="white">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-        </div>
-        <span>Paiement</span>
-      </div>
-    </div>
-  </div>
-
   <!-- Bloc central -->
-  <div class="max-w-4xl mx-auto bg-[#DFDFDF] rounded-[0_140px] p-12 md:p-20 text-center shadow-lg relative overflow-hidden">
+  <div class="max-w-4xl mx-auto bg-[#DFDFDF] rounded-[0_140px] p-12 md:p-20 text-center shadow-lg relative overflow-hidden mt-16">
     
     <!-- Icône succès -->
     <div class="flex justify-center mb-8">

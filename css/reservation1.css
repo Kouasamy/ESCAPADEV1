@@ -1,6 +1,6 @@
- :root {
-  --font-primary: 'Playfair Display', serif; /* Original: Big Caslon */
-  --font-secondary: 'Lato', sans-serif; /* Original: Futura Md BT */
+:root {
+  --font-primary: 'Big Caslon', serif;
+  --font-secondary: 'Futura Md BT', 'Futura', sans-serif;
   --color-text: #000000;
   --color-gold: #b78f62;
   --color-dark-gold: #673800;
@@ -18,6 +18,26 @@ body {
   font-family: var(--font-secondary);
   color: var(--color-text);
   background-color: var(--color-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+}
+
+p, a, li, td, th, label, input, textarea, button {
+  font-family: var(--font-secondary);
+}
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  font-family: var(--font-primary);
+}
+
+[class*="font-[Big_Caslon"] {
+  font-family: var(--font-primary) !important;
+}
+
+[class*="font-[Futura_Md_BT"] {
+  font-family: var(--font-secondary) !important;
 }
 
 .container {
@@ -372,7 +392,7 @@ body {
     height: 31px;
   }
   .amenity-label {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-size: 14px;
   }
   .suite-footer {
@@ -381,25 +401,28 @@ body {
     align-items: center;
   }
   .details-link {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-size: 16px;
     color: var(--color-text);
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    gap: 1px;
   }
 
   .details-link::after {
     content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    background-image: url('images/324_579.svg');
+    display: block;
+    width: 88%;
+    height: auto;
+    background-image: url('../images/324_637.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 1px;
+    min-height: 1px;
+    margin: 0 auto;
   }
   .text-gold {
     color: var(--color-gold);

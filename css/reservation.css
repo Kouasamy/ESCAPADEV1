@@ -1,4 +1,41 @@
 
+:root {
+  --font-primary: 'Big Caslon', serif;
+  --font-secondary: 'Futura Md BT', 'Futura', sans-serif;
+  --color-text: #000000;
+  --color-gold: #b78f62;
+  --color-dark-gold: #673800;
+  --color-white: #ffffff;
+  --color-light-gray: #ebebeb;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-secondary);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+}
+
+p, a, li, td, th, label, input, textarea, button {
+  font-family: var(--font-secondary);
+}
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  font-family: var(--font-primary);
+}
+
+[class*="font-[Big_Caslon"] {
+  font-family: var(--font-primary) !important;
+}
+
+[class*="font-[Futura_Md_BT"] {
+  font-family: var(--font-secondary) !important;
+}
+
 /* CSS for section section:header */
 .progress-header {
     background-color: #ffffff;
@@ -315,7 +352,7 @@
     height: 31px;
   }
   .amenity-label {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-size: 14px;
   }
   .suite-footer {
@@ -324,7 +361,7 @@
     align-items: center;
   }
   .details-link {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-size: 16px;
     color: var(--color-text);
     text-decoration: none;

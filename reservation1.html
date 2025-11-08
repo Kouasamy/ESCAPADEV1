@@ -6,18 +6,48 @@
 
 
 <title>Page Réservation - Étape 2</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/reservation1.css">
-  
+   <style>
+.counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 3;
+}
+
+.counter img {
+  cursor: pointer;
+  transition: opacity 0.2s;
+  filter: brightness(0);
+  width: 20px;
+  height: 20px;
+}
+
+.counter img:hover {
+  opacity: 0.7;
+}
+
+.counter img:active {
+  opacity: 0.5;
+}
+
+.counter-number {
+  font-size: 28px;
+  font-weight: 500;
+  min-width: 20px;
+  text-align: center;
+  color: var(--color-text, #000);
+}
+</style>
+
 </head>
 <body>
 <section id="progress-bar">
   <header class="progress-header">
     <div class="progress-header__container">
-      <a href="index.html" class="progress-header__logo" aria-label="Homepage">
+      <a href="#" class="progress-header__logo" aria-label="Homepage">
         <img src="images/427_501.svg" alt="L'escapade Logo">
       </a>
       <nav class="progress-header__nav" aria-label="Checkout Progress">
@@ -73,7 +103,7 @@
         </div>
         <p class="guests-summary">Invités : 5</p>
       </div>
-      <a href="page_reservation1.html" class="btn btn-primary">Modifier</a>
+      <a href="#" class="btn btn-primary">Modifier</a>
     </div>
   </div>
 </section>
@@ -108,7 +138,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="#" class="details-link">Voir les détails</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
           </div>
         </div>
@@ -147,7 +177,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="#" class="details-link">Voir la suite</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
           </div>
         </div>
@@ -180,7 +210,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="#" class="details-link">Voir les détails</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
           </div>
         </div>
@@ -219,7 +249,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="#" class="details-link">Voir la suite</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
           </div>
         </div>
@@ -258,7 +288,7 @@
           </div>
           <img src="images/324_579.svg" alt="Divider" class="suite-divider">
           <div class="suite-footer">
-            <a href="#" class="details-link">Voir la suite</a>
+            <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
           </div>
         </div>
@@ -272,5 +302,68 @@
         <a href="reservation3.html" class="btn btn-dark">Suivant</a>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.suite-card .btn-primary');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Si le bouton n'a pas encore été transformé
+      if (!button.classList.contains('selected')) {
+        button.classList.add('selected');
+
+        // Créer le conteneur du compteur (similaire à guest-stepper)
+        const counter = document.createElement('div');
+        counter.classList.add('counter', 'guest-stepper');
+
+        // Image moins
+        const minusImg = document.createElement('img');
+        minusImg.src = 'images/568_943.svg';
+        minusImg.alt = 'minus';
+        minusImg.classList.add('guest-minus');
+
+        // Nombre (au milieu)
+        const number = document.createElement('span');
+        number.textContent = '1';
+        number.classList.add('counter-number', 'guest-value');
+
+        // Image plus
+        const plusImg = document.createElement('img');
+        plusImg.src = 'images/568_944.svg';
+        plusImg.alt = 'plus';
+        plusImg.classList.add('guest-plus');
+
+        // Ajout des éléments dans l'ordre: moins, nombre, plus
+        counter.appendChild(minusImg);
+        counter.appendChild(number);
+        counter.appendChild(plusImg);
+
+        // Remplacer le bouton d'origine
+        button.replaceWith(counter);
+
+        // Événements du compteur
+        plusImg.addEventListener('click', () => {
+          number.textContent = parseInt(number.textContent) + 1;
+        });
+
+        minusImg.addEventListener('click', () => {
+          let value = parseInt(number.textContent);
+          if (value > 1) {
+            number.textContent = value - 1;
+          } else {
+            // Si on retombe à 1, on remet le bouton d'origine
+            counter.replaceWith(button);
+            button.classList.remove('selected');
+          }
+        });
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
