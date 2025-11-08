@@ -12,10 +12,20 @@
       font-size: 18px;
     }
     input::placeholder,
-    textarea::placeholder {
-      color: white;
-      opacity: 1;
-      font-size: 18px;
+    textarea::placeholder,
+    input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder,
+    input:-ms-input-placeholder,
+    textarea:-ms-input-placeholder,
+    input::-ms-input-placeholder,
+    textarea::-ms-input-placeholder,
+    input::-moz-placeholder,
+    textarea::-moz-placeholder {
+      color: #ffffff !important;
+      opacity: 1 !important;
+      font-size: 20px;
+      font-family: 'Big Caslon', serif;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -77,30 +87,30 @@
       <img src="media/510_6.svg" alt="Decorative element" class="absolute -top-12 -left-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
       <!-- Image décorative en bas à droite -->
       <img src="media/510_8.svg" alt="Decorative element" class="absolute -bottom-12 -right-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
-      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] shadow-lg space-y-10 relative" style="min-height: 374px;">
+      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] space-y-10 relative" style="min-height: 374px;">
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="space-y-6">
           <div>
-            <input id="prenom" type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Prénom*">
+            <input id="prenom" type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Prénom*">
           </div>
           <div>
-            <input id="email" type="email" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="E-mail*">
+            <input id="email" type="email" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="E-mail*">
           </div>
           <div>
-            <input id="nationalite" type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Nationalité">
+            <input id="nationalite" type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Nationalité">
           </div>
         </div>
 
         <div class="space-y-6">
           <div>
-            <input id="nom" type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Nom de famille*">
+            <input id="nom" type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Nom de famille*">
           </div>
           <div>
-            <input id="telephone" type="tel" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Téléphone*">
+            <input id="telephone" type="tel" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Téléphone*">
           </div>
           <div>
-            <textarea id="message" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2 resize-none" placeholder="Message ou Demandes spéciales"></textarea>
+            <textarea id="message" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2 resize-none" placeholder="Message ou Demandes spéciales"></textarea>
           </div>
         </div>
       </div>
@@ -116,44 +126,44 @@
       <img src="media/510_6.svg" alt="Decorative element" class="absolute -top-12 -left-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
       <!-- Image décorative en bas à droite -->
       <img src="media/510_8.svg" alt="Decorative element" class="absolute -bottom-12 -right-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
-      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] shadow-lg space-y-12 relative" style="min-height: 600px;">
+      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] space-y-12 relative" style="min-height: 600px;">
       
       <!-- Logos de cartes -->
-      <div class="flex items-center justify-center gap-6 mb-6 mx-auto bg-white rounded-md" style="width: 324px; height: 94px;">
-        <img src="images/visa.png" alt="Visa" class="w-16 h-10 object-contain p-1">
-        <img src="images/Wave.svg " alt="MasterCard" class="w-16 h-10 object-contain p-1">
+      <div class="flex items-center justify-center gap-8 mb-8 mx-auto bg-white rounded-md" style="width: 360px; height: 110px;">
+        <img src="images/visa.png" alt="Visa" class="w-20 h-12 object-contain p-1.5">
+        <img src="images/Wave.svg " alt="MasterCard" class="w-20 h-12 object-contain p-1.5">
       </div>
 
       <!-- Formulaire carte -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="space-y-6">
           <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Numéro de carte*">
+            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Numéro de carte*">
           </div>
           <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Nom sur la carte*">
+            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Nom sur la carte*">
           </div>
         </div>
 
         <div class="space-y-6">
           <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="Expiration (MM/YY)*">
+            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Expiration (MM/YY)*">
           </div>
           <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white focus:outline-none pb-2" placeholder="CVV*">
+            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="CVV*">
           </div>
         </div>
       </div>
 
       <!-- Total -->
       <div class="flex flex-col md:flex-row items-center justify-between pt-8">
-        <p class="font-[Futura_Md_BT] text-[22px]">Vous allez payer :</p>
-        <p class="font-[Futura_Md_BT] text-[28px]">840 000 FCFA</p>
+        <p class="font-[Futura_Md_BT] text-[30px]">Vous allez payer :</p>
+        <p class="font-[Futura_Md_BT] text-[30px]">840 000 FCFA</p>
       </div>
 
       <!-- Bouton valider -->
       <div class="text-center pt-10">
-        <a href="reservation5.html" class="inline-block bg-[#673800] text-white font-[Futura_Md_BT] text-[19px] px-10 py-3 rounded-[20px_0px] hover:bg-[#835622] transition duration-300">
+        <a href="reservation5.html" class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-10 py-3 rounded-[20px_0px] hover:bg-[#835622] transition duration-300">
           Valider le paiement
         </a>
       </div>
