@@ -690,7 +690,7 @@
   <section class="relative w-full h-screen overflow-hidden">
 
     <!-- Image de fond : ESCAPADE 1 (derrière tout le contenu pour éviter qu'elle masque la suite au scroll) -->
-    <div class="absolute inset-0 bg-[url('img/42.jpg')] bg-cover bg-center filter drop-shadow-md -z-10"></div>
+    <div class="absolute inset-0 bg-cover bg-center filter drop-shadow-md -z-10 lazy-bg" data-bg="img/42.jpg" data-bg-priority="high"></div>
 
     <!-- Overlay sombre (au-dessus de l'image mais sous le contenu) -->
     <div class="absolute inset-0 bg-black/40 z-0"></div>
@@ -860,5 +860,6 @@
   
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js"></script>
+  <script src="js/background-loader.js" defer></script>
 </body>
 </html>

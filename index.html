@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,10 @@
   
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
+  <script src="js/background-loader.js" defer></script>
  
 </head>
-<body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
+<body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home">
 <section id="hero">
   <div class="hero-container">
     <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
@@ -32,9 +33,9 @@
         </button>
         <!-- Sélecteur de langue -->
         <div class="lang-switcher flex items-center gap-2 md:gap-3">
-          <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+          <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
           <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" fetchpriority="high" width="16" height="16">
-          <a href="#" class="text-sm md:text-base">EN</a>
+          <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
         </div>
       </div>
 
@@ -115,14 +116,14 @@
 <section id="menu-section">
   <div class="menu-container is-hidden" id="menuOverlay">
     <header class="menu-header">
-      <a href="#" class="menu-close-button">
+        <a href="#" class="menu-close-button">
         <img src="Menu/images/542_446.svg" alt="Close Icon">
         <span data-translate="close">FERMER</span>
       </a>
       <div class="menu-lang-switcher">
-        <a href="#" class="active">FR</a>
+        <a href="#" class="active" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
-        <a href="#">EN</a>
+        <a href="#" data-lang="en">EN</a>
       </div>
     </header>
 
@@ -648,12 +649,12 @@
     <div class="welcome-content">
       <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border" loading="lazy" decoding="async">
-        <h1 class="main-title  ">
-          <span data-translate="welcomeTo">Bienvenue à</span> <span class="highlight " data-translate="escapade">l'Escapade</span>
+        <h1 class="main-title">
+          <span data-translate="welcomeTo">Bienvenue à</span> <span class="highlight" data-translate="escapade">l'Escapade</span>
         </h1>
       </div>
-      <p class="subtitle text-black">
-        <span data-translate="welcomeText">L'Escapade Hôtel, <strong>depuis mai 2025</strong>. Venez découvrir un refuge élégant posé <strong>en bordure de lagune</strong> à <strong>Assinie</strong>.</span>
+      <p class="subtitle text-black" data-translate="welcomeText">
+        L'Escapade Hôtel, <strong>depuis mai 2025</strong>. Venez découvrir un refuge élégant posé <strong>en bordure de lagune</strong> à <strong>Assinie</strong>.
       </p>
     </div>
   </div>
@@ -663,7 +664,7 @@
     <img src="images/84de7f7d308b1b83b0a4d8b249a4b7efb711cf16.png" alt="View of the hotel with palm trees and a central walkway" class="hero-background-image" loading="lazy" decoding="async">
     <div class="hero-overlay">
       <div class="hero-content">
-        <p class="hero-text" data-translate="experienceText">Ici, le temps s'étire et les sens s'éveillent. Entre nature apaisante et raffinement discret, votre voyage commence là où le luxe rencontre la quiétude. Érigé sur 3,5 hectares, le domaine abrite 22 suites juniors et seniors au design épuré, pensées pour offrir confort, intimité et sérénité à chaque hôte. À L'Escapade, chaque instant devient une invitation au lâcher-prise</p>
+        <p class="hero-text" data-translate="experienceText">Ici, le temps s'étire et les sens s'éveillent. Entre nature apaisante et raffinement discret, votre voyage commence là où le luxe rencontre la quiétude. Érigé sur 3,5 hectares, le domaine abrite 22 suites juniors et seniors au design épuré, pensées pour offrir confort, intimité et sérénité à chaque hôte. À L'Escapade, chaque instant devient une invitation au lâcher-prise.</p>
         <a href="page_suite.html" class="hero-button" data-translate="learnMore">En savoir plus</a>
       </div>
     </div>
@@ -680,7 +681,7 @@
       <p class="font-[Big_Caslon] text-[28px] md:text-[40px] mb-4 font-medium mb-2" data-translate="discover">Découvrez</p>
      <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border" loading="lazy" decoding="async">
-        <h1 class="main-title  ">
+        <h1 class="main-title" data-translate="discoverSuitesTitle">
          Nos Chambres<span class="highlight ">& Suites</span>
         </h1>
       </div>
@@ -698,34 +699,34 @@
 
       <!-- Suite Junior -->
       <div class="flex flex-col items-center">
-        <div class="w-[270px] h-[235px] bg-[url('img/3.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Junior</p>
+        <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg" data-bg="img/3.jpg"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteJuniorTitle">Suites Junior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
-        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
 
       <!-- Suite Sénior VIP -->
       <div class="flex flex-col items-center">
-        <div class="w-[283px] h-[235px] bg-[url('img/4.jpg')] bg-cover bg-center rounded-[55px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Sénior VIP</p>
+        <div class="w-[283px] h-[235px] bg-cover bg-center rounded-[55px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg" data-bg="img/4.jpg"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorVipTitle">Suites Sénior VIP</p>
         <div class="w-[140px] border-t border-black my-2"></div>
-        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
 
       <!-- Suite Sénior -->
       <div class="flex flex-col items-center">
-        <div class="w-[275px] h-[235px] bg-[url('img/5.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Sénior</p>
+        <div class="w-[275px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg" data-bg="img/5.jpg"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorTitle">Suites Sénior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
-        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
 
       <!-- Suite Junior VIP -->
       <div class="flex flex-col items-center">
-        <div class="w-[273px] h-[235px] bg-[url('img/6.jpg')] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Suites Junior VIP</p>
+        <div class="w-[273px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg" data-bg="img/6.jpg"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteJuniorVipTitle">Suites Junior VIP</p>
         <div class="w-[140px] border-t border-black my-2"></div>
-        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline">Voir la chambre</a>
+        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
         </div>
       </div>
@@ -751,7 +752,7 @@
   </section>
  
 
-  <div class="w-full h-[650px] bg-cover bg-center opacity-90 -z-10 bg-[url('img/8.jpg')]"></div>
+  <div class="w-full h-[650px] bg-cover bg-center opacity-90 -z-10 lazy-bg" data-bg="img/8.jpg" data-bg-priority="high"></div>
 
      <!-- SECTION RESTAURANT -->
     <section class="relative w-full py-10 px-6 md:px-16 overflow-hidden text-black bg-white">
@@ -760,8 +761,8 @@
       <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5" data-translate="discover">Découvrez</p>
       <div class="title-wrapper title-border-flipped-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-flipped">
-        <h1 class="main-title">
-         <span data-translate="ourRestaurant">Notre <span class="highlight"> Restaurant</span></span>
+        <h1 class="main-title" data-translate="discoverRestaurantTitle">
+         <span>Notre <span class="highlight"> Restaurant</span></span>
         </h1>
       </div>
       </div>
@@ -774,9 +775,9 @@
 
         <!-- Texte -->
         <div class="max-w-md text-right">
-          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px]">
-            <span data-translate="restaurantText">Le restaurant de L'Escapade est une adresse bistronomique où se rencontrent goût, 
-            générosité et élégance pour offrir une expérience culinaire inoubliable.</span>
+          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px]" data-translate="restaurantText">
+            Le restaurant de L'Escapade est une adresse bistronomique où se rencontrent goût, 
+            générosité et élégance pour offrir une expérience culinaire inoubliable.
           </p>
 
           <!-- Bouton -->
@@ -803,10 +804,10 @@
     <section class="relative bg-[#F8DAAB]">
        
       <div class="text-center mb-12">
-      <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5 text-black">Découvrez</p>
+      <p class="font-[Big_Caslon] text-[28px] md:text-[32px] font-medium mb-5 text-black" data-translate="discover">Découvrez</p>
       <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
-        <h1 class="main-title  ">
+        <h1 class="main-title" data-translate="loungeDiscoverTitle">
          Notre <span class="highlight "> Lounge</span>
         </h1>
       </div>
@@ -830,13 +831,13 @@
               
 
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8">
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8" data-translate="loungeParagraph1">
                 Dans une atmosphère où le luxe rencontre la sérénité, le Lounge vous invite à un moment d’exception.
                 Entre lumière tamisée, notes subtiles et service attentif, chaque instant devient une expérience unique —
                 un art de vivre à savourer pleinement.
               </p>
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-10">
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-10" data-translate="loungeParagraph2">
                 Une ambiance citadine à Assinie. Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire :
                 un lieu pensé pour se détendre, se retrouver et profiter d’instants simples dans un cadre raffiné.
               </p>
@@ -854,7 +855,7 @@
 
       <!-- Texte à droite -->
       <div class="max-w-md lg:max-w-lg text-right text-black">
-        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8">
+        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8" data-translate="loungeParagraph3">
           Une ambiance citadine à Assinie.<br>
           Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire : 
           un lieu pensé pour se détendre, se retrouver et profiter d’instants simples 
@@ -864,7 +865,7 @@
         <!-- Bouton -->
         <a href="page_suite.html"
            class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[18px] px-8 py-3 rounded-[20px_0px]
-                  hover:bg-[#cfa47b] transition-all duration-300">
+                  hover:bg-[#cfa47b] transition-all duration-300" data-translate="loungeCta">
            En savoir plus
         </a>
       </div>
@@ -892,7 +893,7 @@
     <div class="text-center mb-12 text-black">
       <div class="title-wrapper title-border-flipped-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-flipped">
-        <h1 class="main-title">
+        <h1 class="main-title" data-translate="faqTitle">
           <span>Questions</span> <span class="highlight">fréquentes</span>
         </h1>
       </div>
@@ -908,11 +909,11 @@
           aria-controls="faq1"
           id="faq1-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
         </button>
         <div id="faq1" role="region" aria-labelledby="faq1-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer1">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
           </p>
         </div>
@@ -925,11 +926,11 @@
           aria-controls="faq2"
           id="faq2-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
         </button>
         <div id="faq2" role="region" aria-labelledby="faq2-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer2">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
           </p>
         </div>
@@ -942,11 +943,11 @@
           aria-controls="faq3"
           id="faq3-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
         </button>
         <div id="faq3" role="region" aria-labelledby="faq3-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer3">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
           </p>
         </div>
@@ -959,11 +960,11 @@
           aria-controls="faq4"
           id="faq4-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" />
         </button>
         <div id="faq4" role="region" aria-labelledby="faq4-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700">
+          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer4">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
           </p>
         </div>
@@ -1059,15 +1060,15 @@
               <!--merged image-->
               <div class="footer-title-wrapper">
                 <img src="images/427_66.svg" alt="" class="footer-title-bg">
-                <h3 class="footer-title">MENU</h3>
+                <h3 class="footer-title" data-translate="footerMenu">MENU</h3>
               </div>
               <nav>
                 <ul>
-                  <li><a href="page_suite.html">Chambre & Suites</a></li>
-                  <li><a href="restaurant.html">Restaurant</a></li>
-                  <li><a href="lounge.html">Lounge</a></li>
-                  <li><a href="page_evenementiel.html">Évènementiel</a></li>
-                  <li><a href="apropos.html">À propos</a></li>
+                  <li><a href="page_suite.html" data-translate="footerMenuRooms">Chambre & Suites</a></li>
+                  <li><a href="restaurant.html" data-translate="footerMenuRestaurant">Restaurant</a></li>
+                  <li><a href="lounge.html" data-translate="footerMenuLounge">Lounge</a></li>
+                  <li><a href="page_evenementiel.html" data-translate="footerMenuEvents">Évènementiel</a></li>
+                  <li><a href="apropos.html" data-translate="footerMenuAbout">À propos</a></li>
                 </ul>
               </nav>
             </div>
@@ -1075,15 +1076,15 @@
               <!--merged image-->
               <div class="footer-title-wrapper">
                 <img src="images/427_67.svg" alt="" class="footer-title-bg">
-                <h3 class="footer-title">CONTACT</h3>
+                <h3 class="footer-title" data-translate="footerContact">CONTACT</h3>
               </div>
               <form>
-                <div class="form-group"><input type="text" placeholder="Nom"></div>
-                <div class="form-group"><input type="text" placeholder="Prénom"></div>
-                <div class="form-group"><input type="email" placeholder="Adresse e-mail"></div>
-                <div class="form-group"><input type="tel" placeholder="Numéro de téléphone"></div>
-                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3"></textarea></div>
-                <button type="submit" class="btn-submit">Envoyer</button>
+                <div class="form-group"><input type="text" placeholder="Nom" data-translate="footerPlaceholderName" data-translate-attr="placeholder"></div>
+                <div class="form-group"><input type="text" placeholder="Prénom" data-translate="footerPlaceholderFirstName" data-translate-attr="placeholder"></div>
+                <div class="form-group"><input type="email" placeholder="Adresse e-mail" data-translate="footerPlaceholderEmail" data-translate-attr="placeholder"></div>
+                <div class="form-group"><input type="tel" placeholder="Numéro de téléphone" data-translate="footerPlaceholderPhone" data-translate-attr="placeholder"></div>
+                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3" data-translate="footerPlaceholderMessage" data-translate-attr="placeholder"></textarea></div>
+                <button type="submit" class="btn-submit" data-translate="footerSubmit">Envoyer</button>
               </form>
             </div>
           </div>
@@ -1101,14 +1102,14 @@
           <div class="separator"></div>
           <div class="contact-item">
             <img src="images/427_50.svg" alt="Location Icon">
-            <span>Assinie, Km 12, Côte d'Ivoire</span>
+            <span data-translate="footerAddress">Assinie, Km 12, Côte d'Ivoire</span>
           </div>
         </div>
         <hr class="footer-divider">
         <div class="footer-bottom">
-          <a href="#">Termes & Conditions</a>
-          <span>©2025 – Tout droit réserver par l'Escapade.</span>
-          <a href="#">Politique de confidentialité</a>
+          <a href="#" data-translate="footerTerms">Termes & Conditions</a>
+          <span data-translate="footerRights">©2025 – Tout droit réserver par l'Escapade.</span>
+          <a href="#" data-translate="footerPrivacy">Politique de confidentialité</a>
         </div>
       </div>
     </footer>

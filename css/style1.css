@@ -71,6 +71,18 @@ p, span, a, li, td, th, label, input, textarea, button,
   }
 }
 
+.lazy-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.04);
+  transition: background-image 320ms ease, background-color 320ms ease;
+}
+
+.lazy-bg.lazy-bg-loaded {
+  background-color: transparent;
+}
+
 /* Prevent horizontal scroll globally */
 html, body {
   overflow-x: hidden;

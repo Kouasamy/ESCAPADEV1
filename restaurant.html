@@ -188,21 +188,21 @@
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
 </head>
-<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
+<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="restaurant">
 
  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
   <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
     <!-- Bouton burger -->
     <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
       <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12">
-      <span class="text-sm md:text-base">MENU</span>
+      <span class="text-sm md:text-base" data-translate="menu">MENU</span>
     </button>
 
     <!-- Sélecteur de langue -->
     <div class="lang-switcher flex items-center gap-2 md:gap-3">
-      <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+      <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
       <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
-      <a href="#" class="text-sm md:text-base">EN</a>
+      <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
     </div>
   </div>
 
@@ -218,12 +218,12 @@
     <!--merged image-->
     <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
       <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
-      <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2">Réserver une suite</span>
+      <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
     </a>
     <!--merged image-->
     <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
       <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
-      <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2">Réserver un espace</span>
+      <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
     </a>
   </nav>
 </header>
@@ -234,12 +234,12 @@
     <header class="menu-header">
       <a href="#" class="menu-close-button">
         <img src="Menu/images/542_446.svg" alt="Close Icon">
-        <span>FERMER</span>
+        <span data-translate="close">FERMER</span>
       </a>
       <div class="menu-lang-switcher">
-        <a href="#" class="active">FR</a>
+        <a href="#" class="active" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
-        <a href="#">EN</a>
+        <a href="#" data-lang="en">EN</a>
       </div>
     </header>
 
@@ -257,35 +257,35 @@
             <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
-              <span class="nav-text">CHAMBRES & SUITE</span>
+              <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
             </a>
           </li>
           <li>
             <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
-              <span class="nav-text">LE RESTAURANT</span>
+              <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
             </a>
           </li>
           <li>
             <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
-              <span class="nav-text">LE LOUNGE</span>
+              <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
             </a>
           </li>
           <li>
             <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
-              <span class="nav-text">ÉVÉNEMENTIEL</span>
+              <span class="nav-text" data-translate="event">ÉVÉNEMENTIEL</span>
             </a>
           </li>
           <li>
             <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
-              <span class="nav-text">A PROPOS</span>
+              <span class="nav-text" data-translate="about">A PROPOS</span>
             </a>
           </li>
         </ul>
@@ -776,7 +776,7 @@
   <section class="relative w-full h-screen overflow-hidden">
 
     <!-- Image de fond : ESCAPADE 1 (derrière tout le contenu pour éviter qu'elle masque la suite au scroll) -->
-    <div class="absolute inset-0 bg-[url('img/19.jpg')] bg-cover bg-center filter drop-shadow-md -z-10"></div>
+    <div class="absolute inset-0 bg-cover bg-center filter drop-shadow-md -z-10 lazy-bg" data-bg="img/19.jpg" data-bg-priority="high"></div>
 
     <!-- Overlay sombre (au-dessus de l'image mais sous le contenu) -->
     <div class="absolute inset-0 bg-black/40 z-0"></div>
@@ -786,12 +786,12 @@
       
 
 
-      <h1 class="text-7xl text-white font-[Big_Caslon]">RESTAURANT</h1>
+      <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="restaurantHeroTitle">RESTAURANT</h1>
       <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
-      <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
+      <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter" data-translate="contactAria" data-translate-attr="aria-label">
          <div class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg">
-        <span class="btn-text">Nous Contactez</span>
+        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
       </div>
       </a>
     </div>
@@ -808,7 +808,7 @@
     <div class="text-center mb-16">
          <div class="title-wrapper ">
         <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
-        <h1 class="main-title  ">
+        <h1 class="main-title" data-translate="restaurantSectionTitle">
          RESTAURANT <span class="highlight "> L' ESCAPADE</span>
         </h1>
       </div>
@@ -820,13 +820,13 @@
 
       <!-- Texte à gauche -->
       <div class="w-full md:w-1/2 text-right md:text-right space-y-6">
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="restaurantIntroHours">
           Ouvert de <strong>7h30 à 22h30</strong>, le restaurant L’Escapade accueille ses hôtes tout au long de la journée.
           La carte invite à un voyage savoureux entre <strong>Méditerranée</strong> et <strong>Côte d’Ivoire</strong>.
           Chaque plat incarne un brassage culturel raffiné, mêlant recettes ancestrales ivoiriennes et
           techniques contemporaines du monde.
         </p>
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]" data-translate="restaurantIntroFresh">
           Poissons frais, fruits de mer, crustacés et spécialités locales se déclinent avec
           créativité et authenticité pour une expérience culinaire inoubliable.
         </p>
@@ -847,11 +847,11 @@
 
       <!-- Texte à droite -->
       <div class="w-full md:w-1/2 space-y-6 text-[#000000]">
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px]">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px]" data-translate="restaurantBistronomic">
           Le restaurant de L’Escapade est une adresse bistronomique où se rencontrent goût, générosité
           et élégance pour offrir une expérience culinaire inoubliable.
         </p>
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px]">
+        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px]" data-translate="restaurantDecor">
           Dans un décor alliant charme local et raffinement contemporain, chaque repas se vit
           comme une véritable escapade sensorielle.
         </p>
@@ -873,7 +873,7 @@
 
     <div class="title-wrapper relative right-0 lg:right-[-200px]">
         <img src="images/574_538.png" alt="Decorative border" class="title-border    ">
-        <h1 class="main-title  "> 
+        <h1 class="main-title" data-translate="restaurantChefTitle"> 
          NOTRE CHEF & <span class="highlight "> SES SPÉCIALITÉS</span>
         </h1>
       </div>
@@ -890,15 +890,15 @@
 
       <!-- Texte -->
       <div class="w-full md:w-1/2 space-y-6">
-        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]">
+        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]" data-translate="restaurantChefIntro">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
           totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
         </p>
-        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]">
+        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]" data-translate="restaurantChefCraft">
           Le chef sublime les produits locaux par un savoir-faire d’exception, entre tradition ivoirienne
           et gastronomie internationale.
         </p>
-        <p class="text-[#78552A] font-[Futura_Md_BT] text-[14px] uppercase tracking-[0.04em]">
+        <p class="text-[#78552A] font-[Futura_Md_BT] text-[14px] uppercase tracking-[0.04em]" data-translate="restaurantChefName">
           Le nom du Chef...
         </p>
       </div>
@@ -916,7 +916,7 @@
 
       <!-- Texte -->
       <div class="w-full md:w-1/2 text-right space-y-6">
-        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000] relative">
+        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000] relative" data-translate="restaurantChefPassion">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem   <br> accusantiumdoloremque laudantium,
           totam rem aperiam, <br> eaque ipsa quae ab illo inventore veritatis.  Entre  passion et <br> précision, chaque plat devient une œuvre
            d’art, alliant <br> créativité et
@@ -929,7 +929,7 @@
         <!-- Bouton -->
         <div class="pt-4 ">
           <a href="#menu"
-             class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] mt-9    text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375] hover:-translate-y-1 active:scale-95">
+             class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] mt-9    text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375] hover:-translate-y-1 active:scale-95" data-translate="restaurantViewMenu">
             Voir notre menu
           </a>
         </div>
@@ -947,7 +947,7 @@
     <div class="text-center mb-16">
       <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
-        <h1 class="main-title  ">
+        <h1 class="main-title" data-translate="restaurantDishesTitle">
          NOS <span class="highlight "> PLATS</span>
         </h1>
       </div>
@@ -963,7 +963,7 @@
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               <img src="img/23.jpg" alt="Plat 1" class="plats-slide-img" loading="eager" fetchpriority="high" width="301" height="451" decoding="async" />
             </div>
-            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 1</p>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]" data-translate="restaurantDish1">Plat 1</p>
           </div>
 
           <!-- Plat 2 -->
@@ -971,7 +971,7 @@
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               <img src="img/24.jpg" alt="Plat 2" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
             </div>
-            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 2</p>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]" data-translate="restaurantDish2">Plat 2</p>
           </div>
 
           <!-- Plat 3 -->
@@ -979,7 +979,7 @@
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               <img src="img/25.jpg" alt="Plat 3" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
             </div>
-            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 3</p>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]" data-translate="restaurantDish3">Plat 3</p>
           </div>
 
           <!-- Plat 4 -->
@@ -987,7 +987,7 @@
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               <img src="img/26.jpg" alt="Plat 4" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
             </div>
-            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 4</p>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]" data-translate="restaurantDish4">Plat 4</p>
           </div>
 
           <!-- Plat 5 -->
@@ -995,7 +995,7 @@
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               <img src="img/27.jpg" alt="Plat 5" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
             </div>
-            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 5</p>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]" data-translate="restaurantDish5">Plat 5</p>
           </div>
 
           <!-- Plat 6 -->
@@ -1003,7 +1003,7 @@
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               <img src="img/28.jpg" alt="Plat 6" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
             </div>
-            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]">Plat 6</p>
+            <p class="font-[Futura_Md_BT] text-[22px] text-[#000000]" data-translate="restaurantDish6">Plat 6</p>
           </div>
         </div>
       </div>
@@ -1033,15 +1033,15 @@
               <!--merged image-->
               <div class="footer-title-wrapper">
                 <img src="images/427_66.svg" alt="" class="footer-title-bg">
-                <h3 class="footer-title">MENU</h3>
+                <h3 class="footer-title" data-translate="footerMenu">MENU</h3>
               </div>
               <nav>
                 <ul>
-                  <li><a href="page_suite.html">Chambre & Suites</a></li>
-                  <li><a href="restaurant.html">Restaurant</a></li>
-                  <li><a href="lounge.html">Lounge</a></li>
-                  <li><a href="page_evenementiel.html">Évènementiel</a></li>
-                  <li><a href="apropos.html">À propos</a></li>
+                  <li><a href="page_suite.html" data-translate="footerMenuRooms">Chambre & Suites</a></li>
+                  <li><a href="restaurant.html" data-translate="footerMenuRestaurant">Restaurant</a></li>
+                  <li><a href="lounge.html" data-translate="footerMenuLounge">Lounge</a></li>
+                  <li><a href="page_evenementiel.html" data-translate="footerMenuEvents">Évènementiel</a></li>
+                  <li><a href="apropos.html" data-translate="footerMenuAbout">À propos</a></li>
                 </ul>
               </nav>
             </div>
@@ -1049,15 +1049,15 @@
               <!--merged image-->
               <div class="footer-title-wrapper">
                 <img src="images/427_67.svg" alt="" class="footer-title-bg">
-                <h3 class="footer-title">CONTACT</h3>
+                <h3 class="footer-title" data-translate="footerContact">CONTACT</h3>
               </div>
               <form>
-                <div class="form-group"><input type="text" placeholder="Nom"></div>
-                <div class="form-group"><input type="text" placeholder="Prénom"></div>
-                <div class="form-group"><input type="email" placeholder="Adresse e-mail"></div>
-                <div class="form-group"><input type="tel" placeholder="Numéro de téléphone"></div>
-                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3"></textarea></div>
-                <button type="submit" class="btn-submit">Envoyer</button>
+                <div class="form-group"><input type="text" placeholder="Nom" data-translate="footerPlaceholderName" data-translate-attr="placeholder"></div>
+                <div class="form-group"><input type="text" placeholder="Prénom" data-translate="footerPlaceholderFirstName" data-translate-attr="placeholder"></div>
+                <div class="form-group"><input type="email" placeholder="Adresse e-mail" data-translate="footerPlaceholderEmail" data-translate-attr="placeholder"></div>
+                <div class="form-group"><input type="tel" placeholder="Numéro de téléphone" data-translate="footerPlaceholderPhone" data-translate-attr="placeholder"></div>
+                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3" data-translate="footerPlaceholderMessage" data-translate-attr="placeholder"></textarea></div>
+                <button type="submit" class="btn-submit" data-translate="footerSubmit">Envoyer</button>
               </form>
             </div>
           </div>
@@ -1075,14 +1075,14 @@
           <div class="separator"></div>
           <div class="contact-item">
             <img src="images/427_50.svg" alt="Location Icon">
-            <span>Assinie, Km 12, Côte d'Ivoire</span>
+            <span data-translate="footerAddress">Assinie, Km 12, Côte d'Ivoire</span>
           </div>
         </div>
         <hr class="footer-divider">
         <div class="footer-bottom">
-          <a href="#">Termes & Conditions</a>
-          <span>©2025 – Tout droit réserver par l'Escapade.</span>
-          <a href="#">Politique de confidentialité</a>
+          <a href="#" data-translate="footerTerms">Termes & Conditions</a>
+          <span data-translate="footerRights">©2025 – Tout droit réserver par l'Escapade.</span>
+          <a href="#" data-translate="footerPrivacy">Politique de confidentialité</a>
         </div>
       </div>
     </footer>
@@ -1442,5 +1442,7 @@
   
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js"></script>
+  <script src="js/background-loader.js" defer></script>
+  <script src="js/translations.js"></script>
 </body>
 </html>
