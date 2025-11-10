@@ -32,6 +32,25 @@ p, span, a, li, td, th, label, input, textarea, button,
   font-family: 'Futura Md BT', 'Futura', sans-serif !important;
 }
 
+/* Réduction de la taille du texte des paragraphes */
+p {
+  font-size: 0.9em; /* Réduction de 10% de la taille par défaut */
+  line-height: 1.5;
+}
+
+/* Ajustement pour les paragraphes avec des tailles spécifiques dans le HTML */
+p.text-sm {
+  font-size: 0.875rem;
+}
+
+p.text-base {
+  font-size: 0.9375rem; /* Légèrement réduit */
+}
+
+p.text-lg {
+  font-size: 1rem;
+}
+
 /* Classes Tailwind font-[Big_Caslon] -> Big Caslon */
 [class*="font-[Big_Caslon"] {
   font-family: 'Big Caslon', serif !important;
@@ -155,7 +174,7 @@ html, body {
 }
 
 .subtitle {
-  font-size: 24px;
+  font-size: 21.6px; /* Réduction de 10% (24px * 0.9) */
   line-height: 1.2; /* 28.77px */
   max-width: 805px;
   margin: 0;
@@ -390,7 +409,7 @@ html, body {
   .restaurant-section .restaurant-text p,
   .lounge-text p,
   .lounge-gallery-text p {
-    font-size: 16px;
+    font-size: 14.4px; /* Réduction de 10% (16px * 0.9) */
     line-height: 1.6;
   }
   .lounge-media #loungeVideo {
@@ -504,7 +523,7 @@ html, body {
   }
 
   .subtitle {
-    font-size: 18px;
+    font-size: 16.2px; /* Réduction de 10% (18px * 0.9) */
   }
 }
 
@@ -610,7 +629,7 @@ html, body {
 }
 
 .hero-text {
-  font-size: 24px;
+  font-size: 21.6px; /* Réduction de 10% (24px * 0.9) */
   line-height: 1.25; /* 30px */
   margin: 0 0 24px 0; /* Increased margin for better spacing */
   font-family: var(--font-body);
@@ -642,7 +661,7 @@ html, body {
   }
 
   .hero-text {
-    font-size: 18px;
+    font-size: 16.2px; /* Réduction de 10% (18px * 0.9) */
     margin-bottom: 20px;
   }
 
@@ -657,7 +676,7 @@ html, body {
     padding-top: 20px;
   }
   .hero-text {
-    font-size: 16px;
+    font-size: 14.4px; /* Réduction de 10% (16px * 0.9) */
   }
 }
 
@@ -718,12 +737,31 @@ html, body {
     position: relative;
   }
 
+  /* Espacement entre le menu et le lang-switcher */
+  .menu-cluster {
+    justify-content: flex-start !important; /* Changer de justify-between à flex-start pour permettre l'espacement */
+    gap: 2.5rem; /* Espace entre le menu-button et le lang-switcher */
+  }
+
+  @media (max-width: 768px) {
+    .menu-cluster {
+      gap: 2rem; /* Espace réduit sur tablette */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .menu-cluster {
+      gap: 1.5rem; /* Espace encore plus réduit sur mobile */
+    }
+  }
+
   .menu-button {
     background: none;
     border: none;
     color: #ffffff;
     font-family: 'Futura Md BT', 'Futura', sans-serif;
     cursor: pointer;
+    margin-right: 0 !important; /* Retirer la marge car on utilise gap maintenant */
   }
 
   .lang-switcher {
