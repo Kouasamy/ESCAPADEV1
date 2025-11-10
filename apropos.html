@@ -50,7 +50,7 @@
   <script src="js/image-optimizer.js" defer></script>
 </head>
 
-<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;">
+<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="about">
 
   <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
     <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
@@ -687,7 +687,7 @@
   </script>
 
   <!-- Section ESCAPADE -->
-  <section class="relative w-full h-screen overflow-hidden">
+  <section class="relative w-full h-screen overflow-hidden" data-hero="about">
 
     <!-- Image de fond : ESCAPADE 1 (derrière tout le contenu pour éviter qu'elle masque la suite au scroll) -->
     <div class="absolute inset-0 bg-cover bg-center filter drop-shadow-md -z-10 lazy-bg" data-bg="img/42.jpg" data-bg-priority="high"></div>
@@ -861,5 +861,6 @@
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js"></script>
   <script src="js/background-loader.js" defer></script>
+  <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>
