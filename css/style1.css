@@ -805,6 +805,8 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
+  contain: layout style paint; /* Optimisation CSS containment */
+  transform: translateZ(0); /* Acceleration GPU */
 }
 
 .hero-background-image {
@@ -992,6 +994,10 @@ html, body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    will-change: auto;
+    transform: translateZ(0); /* Acceleration GPU */
+    backface-visibility: hidden; /* Optimisation performance */
+    -webkit-backface-visibility: hidden;
   }
 
   .hero-header,

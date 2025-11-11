@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>Page Réservation - Étape 2</title>
-<link rel="stylesheet" href="css/reservation1.css">
+  <title>Page Réservation - Étape 2</title>
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  
+  <!-- Meta tags pour le cache et les performances -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Chargement des CSS critiques en premier -->
+  <link rel="stylesheet" href="css/reservation1.css">
    <style>
 .counter {
   display: inline-flex;
@@ -48,7 +57,7 @@
   <header class="progress-header">
     <div class="progress-header__container">
       <a href="#" class="progress-header__logo" aria-label="Homepage">
-        <img src="images/427_501.svg" alt="L'escapade Logo">
+        <img src="images/427_501.svg" alt="L'escapade Logo" loading="lazy">
       </a>
       <nav class="progress-header__nav" aria-label="Checkout Progress">
         <ol class="progress-steps">
@@ -59,7 +68,7 @@
             <span class="progress-step__label">Date</span>
           </li>
           <li class="progress-arrow">
-            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
           </li>
           <li class="progress-step is-active">
             <div class="progress-step__icon-wrapper">
@@ -68,7 +77,7 @@
             <span class="progress-step__label">Catégorie</span>
           </li>
           <li class="progress-arrow">
-            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
           </li>
           <li class="progress-step">
             <div class="progress-step__icon-wrapper">
@@ -77,7 +86,7 @@
             <span class="progress-step__label">Details & confirmation</span>
           </li>
           <li class="progress-arrow">
-            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
           </li>
           <li class="progress-step">
             <div class="progress-step__icon-wrapper">
@@ -98,7 +107,7 @@
         <p class="nights-summary">Nuits sélectionnées 3</p>
         <div class="details-group">
           <span class="detail-item">Lun. 20/10/2025</span>
-          <img src="images/324_672.svg" alt="arrow icon" class="arrow-icon">
+          <img src="images/324_672.svg" alt="arrow icon" class="arrow-icon" loading="lazy">
           <span class="detail-item">Mer. 22/10/2025</span>
         </div>
         <p class="guests-summary">Invités : 5</p>
@@ -112,31 +121,31 @@
     <div class="suite-grid">
       
       <article class="suite-card">
-        <img src="images/fed713276c2b8f97b67e33b6a240df722bb83d82.png" alt="SUITES JUNIOR" class="suite-image">
+        <img src="images/fed713276c2b8f97b67e33b6a240df722bb83d82.png" alt="SUITES JUNIOR" class="suite-image" loading="lazy" decoding="async">
         <div class="suite-content">
           <div class="suite-header">
             <h2 class="suite-title">SUITES JUNIOR</h2>
             <p class="suite-price">250 000 FCFA - Week-end</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-details">
             <div class="suite-amenities">
               <div class="amenity-item">
-                <img src="images/324_691.svg" alt="Area icon" class="amenity-icon">
+                <img src="images/324_691.svg" alt="Area icon" class="amenity-icon" loading="lazy">
                 <span class="amenity-label">70 m²</span>
               </div>
               <div class="amenity-item">
-                <img src="images/324_582.svg" alt="Pool icon" class="amenity-icon">
+                <img src="images/324_582.svg" alt="Pool icon" class="amenity-icon" loading="lazy">
                 <span class="amenity-label">Piscine</span>
               </div>
               <div class="amenity-item">
-                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon">
+                <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="amenity-icon tv-icon" loading="lazy" decoding="async">
                 <span class="amenity-label">TV</span>
               </div>
             </div>
             <p class="suite-price">200 000 FCFA - Semaine</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-footer">
             <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
@@ -145,13 +154,13 @@
       </article>
 
       <article class="suite-card">
-        <img src="images/4e8bd77d88ebb1c9f445970808bcf56230320041.png" alt="SUITES SÉNIOR" class="suite-image">
+        <img src="images/4e8bd77d88ebb1c9f445970808bcf56230320041.png" alt="SUITES SÉNIOR" class="suite-image" loading="lazy" decoding="async">
         <div class="suite-content">
           <div class="suite-header">
             <h2 class="suite-title">SUITES SÉNIOR</h2>
             <p class="suite-price">350 000 FCFA - Week-end</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-details">
             <div class="suite-amenities">
               <div class="amenity-item">
@@ -175,7 +184,7 @@
             </div>
             <p class="suite-price">280 000 FCFA - Semaine</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-footer">
             <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
@@ -184,13 +193,13 @@
       </article>
 
       <article class="suite-card">
-        <img src="images/3b4e8398b539c12a5e9d6d121050234f86cac4ac.png" alt="SUITES JUNIOR VIP" class="suite-image">
+        <img src="images/3b4e8398b539c12a5e9d6d121050234f86cac4ac.png" alt="SUITES JUNIOR VIP" class="suite-image" loading="lazy" decoding="async">
         <div class="suite-content">
           <div class="suite-header">
             <h2 class="suite-title">SUITES JUNIOR <span class="text-gold">VIP</span></h2>
             <p class="suite-price">650 000 FCFA - Week-end ( 2 Suites )</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-details">
             <div class="suite-amenities">
               <div class="amenity-item">
@@ -208,7 +217,7 @@
             </div>
             <p class="suite-price">520 000 FCFA - Semaine ( 2 Suites )</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-footer">
             <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
@@ -217,13 +226,13 @@
       </article>
 
       <article class="suite-card">
-        <img src="images/e78dbceb7563fdf0b3c09d33c0fadf81c889de18.png" alt="SUITES SÉNIOR VIP" class="suite-image">
+        <img src="images/e78dbceb7563fdf0b3c09d33c0fadf81c889de18.png" alt="SUITES SÉNIOR VIP" class="suite-image" loading="lazy" decoding="async">
         <div class="suite-content">
           <div class="suite-header">
             <h2 class="suite-title">SUITES SÉNIOR <span class="text-gold">VIP</span></h2>
             <p class="suite-price">400 000 FCFA -Week-end</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-details">
             <div class="suite-amenities">
               <div class="amenity-item">
@@ -247,7 +256,7 @@
             </div>
             <p class="suite-price">320 000 FCFA - Semaine</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-footer">
             <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
@@ -256,13 +265,13 @@
       </article>
 
       <article class="suite-card suite-card-full">
-        <img src="images/4e8bd77d88ebb1c9f445970808bcf56230320041.png" alt="SUITES JUNIOR + SALON" class="suite-image">
+        <img src="images/4e8bd77d88ebb1c9f445970808bcf56230320041.png" alt="SUITES JUNIOR + SALON" class="suite-image" loading="lazy" decoding="async">
         <div class="suite-content">
           <div class="suite-header">
             <h2 class="suite-title">SUITES JUNIOR + SALON</h2>
             <p class="suite-price">300 000 FCFA - Week-end</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-details">
             <div class="suite-amenities">
               <div class="amenity-item">
@@ -286,7 +295,7 @@
             </div>
             <p class="suite-price">240 000 FCFA - Semaine</p>
           </div>
-          <img src="images/324_579.svg" alt="Divider" class="suite-divider">
+          <img src="images/324_579.svg" alt="Divider" class="suite-divider" loading="lazy">
           <div class="suite-footer">
             <a href="suite_junior.html" class="details-link">Voir la suite</a>
             <a href="#" class="btn btn-primary">Sélectionner</a>
@@ -364,7 +373,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-<link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- CSS responsive - chargé en bas -->
+  <link rel="stylesheet" href="css/responsive.css">
 
 </body>
 </html>

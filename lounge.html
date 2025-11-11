@@ -4,8 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Meta tags pour le cache et les performances -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
+  
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
     <style>
@@ -836,7 +848,7 @@
        <!-- Image -->
       <div class="relative w-full md:w-1/2">
         <video id="loungeVideo" class="w-full h-[800px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" aria-label="Cocktail exotique"
-          playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="auto">
+          playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="metadata" controls="false" loading="lazy">
           <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
           Votre navigateur ne prend pas en charge la lecture vidéo.
         </video>
@@ -871,7 +883,7 @@
          <!-- Image -->
       <div class="relative w-full md:w-1/2">
         <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" aria-label="Cocktail exotique"
-          playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="auto">
+          playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="metadata" controls="false" loading="lazy">
           <source src="video/COCKTAIL 1.mp4" type="video/mp4" />
           Votre navigateur ne prend pas en charge la lecture vidéo.
         </video>    
@@ -909,7 +921,7 @@
             <!-- Image -->
       <div class="relative w-full md:w-1/2">
         <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" aria-label="Cocktails signature"
-          playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="auto">
+          playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="metadata" controls="false" loading="lazy">
           <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
           Votre navigateur ne prend pas en charge la lecture vidéo.
         </video>
@@ -1419,9 +1431,19 @@
   </script>
   
   
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- GSAP pour animations - chargé en bas de page avec defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js"></script>
+  <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
+  <script src="js/translations.js" defer></script>
+  
+  <!-- CSS responsive - chargé en bas -->
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

@@ -5,10 +5,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Meta tags pour le cache et les performances -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
+  
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  
+  <!-- Image Optimizer pour améliorer les performances -->
+  <script src="js/image-optimizer.js" defer></script>
+  <script src="js/background-loader.js" defer></script>
   <style>
     /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal {
@@ -858,9 +874,18 @@
     </footer>
   </section>
   
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- GSAP pour animations - chargé en bas de page avec defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js"></script>
-  <script src="js/background-loader.js" defer></script>
+  <script src="js/gsap-animations.js" defer></script>
+  <script src="js/translations.js" defer></script>
+  
+  <!-- CSS responsive - chargé en bas -->
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

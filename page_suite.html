@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-<title>ESCAPADE</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>ESCAPADE</title>
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Meta tags pour le cache et les performances -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/suite.css">
   
-  <!-- GSAP pour animations luxueuses -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  
-  <!-- Image Optimizer pour améliorer les performances -->
+  <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
- 
 </head>
 <body style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="suite-list">
  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
@@ -830,7 +836,7 @@
 
     <!-- Image 1 -->
     <div class="relative w-full md:w-1/2">
-      <video autoplay muted loop class="w-full h-[900px] object-cover rounded-[0_70px]">
+      <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[0_70px]">
         <source src="video/CHAMBRE 2.mp4" type="video/mp4">
       </video>
     </div>
@@ -864,7 +870,7 @@
 
     <!-- Image 2 -->
     <div class="relative w-full md:w-1/2">
-      <video autoplay muted loop class="w-full h-[900px] object-cover rounded-[70px_0]">
+      <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[70px_0]">
         <source src="video/PISCINE.mp4" type="video/mp4">
       </video>
     </div>
@@ -959,8 +965,18 @@
     </footer>
   </section>
   
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- GSAP pour animations - chargé en bas de page avec defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js"></script>
+  <script src="js/gsap-animations.js" defer></script>
+  <script src="js/translations.js" defer></script>
+  
+  <!-- CSS responsive - chargé en bas -->
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

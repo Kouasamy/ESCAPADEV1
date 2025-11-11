@@ -4,7 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  
+  <!-- Meta tags pour le cache et les performances -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/reservation3.css">
   <style>
     body {
@@ -182,7 +191,7 @@
     <header class="progress-header">
       <div class="progress-header__container">
         <a href="index.html" class="progress-header__logo" aria-label="Homepage">
-          <img src="images/427_501.svg" alt="L'escapade Logo">
+          <img src="images/427_501.svg" alt="L'escapade Logo" loading="lazy">
         </a>
         <nav class="progress-header__nav" aria-label="Checkout Progress">
           <ol class="progress-steps">
@@ -193,7 +202,7 @@
               <span class="progress-step__label">Date</span>
             </li>
             <li class="progress-arrow">
-              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
             </li>
             <li class="progress-step is-complete">
               <div class="progress-step__icon-wrapper">
@@ -202,7 +211,7 @@
               <span class="progress-step__label">Catégorie</span>
             </li>
             <li class="progress-arrow">
-              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
             </li>
             <li class="progress-step is-complete">
               <div class="progress-step__icon-wrapper">
@@ -211,7 +220,7 @@
               <span class="progress-step__label">Details & confirmation</span>
             </li>
             <li class="progress-arrow">
-              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
             </li>
             <li class="progress-step is-complete">
               <div class="progress-step__icon-wrapper">
@@ -259,6 +268,11 @@
   </div>
 
 </section>
-<link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- CSS responsive - chargé en bas -->
+  <link rel="stylesheet" href="css/responsive.css">
 </body> 
 </html>

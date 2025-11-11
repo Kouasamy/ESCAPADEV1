@@ -5,14 +5,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  
+  <!-- Meta tags pour le cache et les performances -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/reservation.css">
 </head>
 <body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="reservation-step1">
 <section id="reservation" class="relative h-[800px] w-full overflow-hidden">
   <!-- Image de fond -->
-  <img src="img/42.jpg" alt="Vue aérienne L’Escapade"
-       class="absolute inset-0 w-full h-full object-cover" />
+  <img src="img/42.jpg" alt="Vue aérienne L'Escapade"
+       class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
 
   <!-- Overlay sombre -->
   <div class="absolute inset-0 bg-black/40"></div>
@@ -25,7 +34,7 @@
   <header class="progress-header">
     <div class="progress-header__container">
       <a href="index.html" class="progress-header__logo" aria-label="Homepage">
-        <img src="images/427_501.svg" alt="L'escapade Logo">
+        <img src="images/427_501.svg" alt="L'escapade Logo" loading="lazy">
       </a>
       <nav class="progress-header__nav" aria-label="Checkout Progress">
         <ol class="progress-steps">
@@ -36,7 +45,7 @@
             <span class="progress-step__label">Date</span>
           </li>
           <li class="progress-arrow">
-            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
           </li>
           <li class="progress-step is-active">
             <div class="progress-step__icon-wrapper">
@@ -45,7 +54,7 @@
             <span class="progress-step__label">Catégorie</span>
           </li>
           <li class="progress-arrow">
-            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
           </li>
           <li class="progress-step">
             <div class="progress-step__icon-wrapper">
@@ -54,7 +63,7 @@
             <span class="progress-step__label">Details & confirmation</span>
           </li>
           <li class="progress-arrow">
-            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
+            <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
           </li>
           <li class="progress-step">
             <div class="progress-step__icon-wrapper">
@@ -75,10 +84,10 @@
   <div class="max-w-xl mt-32 mx-auto bg-[#BB996B]/90 rounded-[0_70px] p-10 md:p-16 text-white shadow-lg backdrop-blur-sm text-center relative">
 
     <!-- Image décorative en haut à gauche -->
-    <img src="images/Group234.png" alt="" class="absolute -top-12 -left-12 md:-top-16 md:-left-16 z-10 w-24 h-24 md:w-32 md:h-32">
+    <img src="images/Group234.png" alt="" class="absolute -top-12 -left-12 md:-top-16 md:-left-16 z-10 w-24 h-24 md:w-32 md:h-32" loading="lazy" decoding="async">
 
     <!-- Image décorative en bas à droite -->
-    <img src="images/Group175.png" alt="" class="absolute -bottom-12 -right-12 md:-bottom-16 md:-right-16 z-10 w-24 h-24 md:w-32 md:h-32">
+    <img src="images/Group175.png" alt="" class="absolute -bottom-12 -right-12 md:-bottom-16 md:-right-16 z-10 w-24 h-24 md:w-32 md:h-32" loading="lazy" decoding="async">
 
     <!-- Formulaire -->
     <form class="space-y-10 flex flex-col items-center">
@@ -87,7 +96,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         <!-- Arrivée -->
         <div class="form-field-wrapper date-field flex justify-center" data-field="arrival">
-          <img src="images/305_711.png" alt="" class="field-bg date-field-bg">
+          <img src="images/305_711.png" alt="" class="field-bg date-field-bg" loading="lazy">
           <input type="date" id="arrival" name="arrival" class="date-input" min="" required>
           <label for="arrival" class="field-label">
             <span class="label-text">Arrivée</span>
@@ -96,7 +105,7 @@
         </div>
         <!-- Départ -->
         <div class="form-field-wrapper date-field flex justify-center" data-field="departure">
-          <img src="images/305_711.png" alt="" class="field-bg date-field-bg">
+          <img src="images/305_711.png" alt="" class="field-bg date-field-bg" loading="lazy">
           <input type="date" id="departure" name="departure" class="date-input" min="" required>
           <label for="departure" class="field-label">
             <span class="label-text">Départ</span>
@@ -114,8 +123,8 @@
             <span class="guest-value" style="display: none;">1</span>
           </label>
           <div class="guest-stepper">
-            <img src="images/568_943.svg" alt="minus" class="guest-minus" id="guest-minus">
-            <img src="images/568_944.svg" alt="plus" class="guest-plus" id="guest-plus">
+            <img src="images/568_943.svg" alt="minus" class="guest-minus" id="guest-minus" loading="lazy">
+            <img src="images/568_944.svg" alt="plus" class="guest-plus" id="guest-plus" loading="lazy">
           </div>
           <input type="number" id="guests" name="guests" class="guest-input" value="1" min="0" max="20" required>
         </div>
@@ -364,6 +373,11 @@
   }
 
 </style>
-<link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- CSS responsive - chargé en bas -->
+  <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html> 
