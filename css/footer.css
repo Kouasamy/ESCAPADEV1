@@ -137,6 +137,13 @@
     text-align: center;
 }
 
+@media (max-width: 992px) {
+    .btn-submit {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .footer-contact-form form {
     display: flex;
     flex-direction: column;
