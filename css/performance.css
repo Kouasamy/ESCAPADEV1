@@ -45,6 +45,36 @@ video {
   -webkit-transform: translateZ(0);
 }
 
+/* Cacher les contrôles des vidéos */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+/* S'assurer que les contrôles ne sont jamais affichés */
+video:not([controls]) {
+  /* Les vidéos sans attribut controls ne doivent pas afficher de contrôles */
+}
+
+video[autoplay] {
+  /* Les vidéos en autoplay ne doivent pas avoir de contrôles */
+}
+
 /* Vidéo chargée - transition fluide */
 video.video-loaded {
   opacity: 1;

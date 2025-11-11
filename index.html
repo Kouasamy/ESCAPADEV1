@@ -36,7 +36,7 @@
 <body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home">
 <section id="hero">
   <div class="hero-container">
-    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" fetchpriority="high">
+    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" fetchpriority="high">
       <source src="video/PAYSAGE.mp4" type="video/mp4">
     </video>
     <header class="hero-header fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4">
@@ -1055,7 +1055,7 @@
               <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" 
                 style="position: relative; z-index: 10; display: block; opacity: 1 !important; visibility: visible !important; background-color: transparent !important;" 
                 aria-label="Cocktail exotique"
-                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" loading="lazy">
+                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" loading="lazy">
                 <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
                 Votre navigateur ne prend pas en charge la lecture vidéo.
               </video>
@@ -1384,6 +1384,7 @@
         heroVideo.setAttribute('webkit-playsinline', '');
         heroVideo.setAttribute('x5-playsinline', '');
         heroVideo.setAttribute('fetchpriority', 'high');
+        heroVideo.removeAttribute('controls'); // S'assurer qu'aucun contrôle n'est affiché
         
         // Précharger immédiatement les métadonnées puis charger progressivement
         heroVideo.load();
@@ -1444,6 +1445,7 @@
           lazyVideos.forEach(video => {
             video.muted = true;
             video.setAttribute('playsinline', '');
+            video.removeAttribute('controls'); // S'assurer qu'aucun contrôle n'est affiché
             video.load();
             video.play().catch(() => {});
           });
@@ -1458,6 +1460,7 @@
               video.setAttribute('playsinline', '');
               video.setAttribute('webkit-playsinline', '');
               video.setAttribute('x5-playsinline', '');
+              video.removeAttribute('controls'); // S'assurer qu'aucun contrôle n'est affiché
               video.load();
               video.play()
                 .then(() => {
