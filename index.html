@@ -21,7 +21,7 @@
 <body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home">
 <section id="hero">
   <div class="hero-container">
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" controls="false">
       <source src="video/PAYSAGE.mp4" type="video/mp4">
     </video>
     <header class="hero-header fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4">
@@ -241,16 +241,10 @@
     display: block;
     cursor: pointer;
     text-decoration: none;
-    position: relative;
   }
   
   .menu-header .menu-logo .logo-part {
     transform: scale(0.75);
-  }
-  
-  /* S'assurer que le conteneur logo est positionné relativement */
-  .menu-logo {
-    position: relative;
   }
   
 
@@ -314,36 +308,15 @@
       align-items: center;
     }
     
-    /* Logo centré horizontalement au responsive - 768px */
     .menu-header .menu-logo {
-      display: block !important;
+      display: block;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 96px;
-      height: 89px;
+      width: auto;
+      height: auto;
       z-index: 10;
-    }
-    
-    /* Centrer chaque logo-part: utilise left:50% puis translateX avec décalage depuis le centre */
-    /* Décalages: part1=0px, part2=+14.77px, part3=+12.07px */
-    .menu-header .menu-logo .logo-part:nth-child(1) {
-      left: 50% !important;
-      transform: translateX(-50%) scale(0.6) !important;
-      top: 0.35px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part:nth-child(2) {
-      left: 50% !important;
-      transform: translateX(calc(-50% + 14.77px)) scale(0.6) !important;
-      top: 2.35px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part:nth-child(3) {
-      left: 50% !important;
-      transform: translateX(calc(-50% + 12.07px)) scale(0.6) !important;
-      top: 46.62px !important;
     }
     
     .menu-header .menu-close-button {
@@ -355,6 +328,43 @@
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
+    }
+    
+    /* Centrer chaque logo-part horizontalement au responsive (768px) */
+    /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
+    /* Les logo-part doivent être centrés par rapport au conteneur */
+    /* Largeur max du logo = 157.75px, centre à 78.875px depuis la gauche originale */
+    
+    .menu-header .menu-logo .logo-part {
+      position: absolute;
+      transform-origin: center;
+    }
+    
+    /* Partie 1: left original = 0px, width = 157.75px */
+    /* Centre de la partie = 78.875px depuis la gauche du logo */
+    /* On centre par rapport au conteneur: left = 50% - (largeur_scalée / 2) */
+    .menu-header .menu-logo .logo-part:nth-child(1) {
+      left: calc(50% - (157.75px * 0.6 / 2)) !important;
+      top: 0.35px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Partie 2: left original = 33.41px, width = 120.47px */
+    /* Centre de la partie = 33.41 + 60.235 = 93.645px depuis la gauche du logo */
+    /* Décalage depuis le centre du logo (78.875px) = 93.645 - 78.875 = 14.77px */
+    .menu-header .menu-logo .logo-part:nth-child(2) {
+      left: calc(50% + (93.645px - 78.875px) * 0.6 - (120.47px * 0.6 / 2)) !important;
+      top: 2.35px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Partie 3: left original = 36.8px, width = 108.29px */
+    /* Centre de la partie = 36.8 + 54.145 = 90.945px depuis la gauche du logo */
+    /* Décalage depuis le centre du logo (78.875px) = 90.945 - 78.875 = 12.07px */
+    .menu-header .menu-logo .logo-part:nth-child(3) {
+      left: calc(50% + (90.945px - 78.875px) * 0.6 - (108.29px * 0.6 / 2)) !important;
+      top: 46.62px !important;
+      transform: scale(0.6) !important;
     }
     
     /* Logo en dehors du header (si présent) */
@@ -544,35 +554,16 @@
       padding: 0;
     }
     
-    /* Logo centré horizontalement au responsive - 1280px */
+    /* Logo centré horizontalement au responsive */
     .menu-header .menu-logo {
-      display: block !important;
+      display: block;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 96px;
-      height: 89px;
+      width: auto;
+      height: auto;
       z-index: 10;
-    }
-    
-    /* Centrer chaque logo-part au responsive 1280px */
-    .menu-header .menu-logo .logo-part:nth-child(1) {
-      left: 50% !important;
-      transform: translateX(-50%) scale(0.6) !important;
-      top: 0.35px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part:nth-child(2) {
-      left: 50% !important;
-      transform: translateX(calc(-50% + 14.77px)) scale(0.6) !important;
-      top: 2.35px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part:nth-child(3) {
-      left: 50% !important;
-      transform: translateX(calc(-50% + 12.07px)) scale(0.6) !important;
-      top: 46.62px !important;
     }
     
     .menu-header .menu-close-button {
@@ -584,6 +575,35 @@
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
+    }
+    
+    /* Centrer chaque logo-part horizontalement au responsive (1280px) */
+    /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
+    
+    .menu-header .menu-logo .logo-part {
+      position: absolute;
+      transform-origin: center;
+    }
+    
+    /* Partie 1: left original = 0px, width = 157.75px */
+    .menu-header .menu-logo .logo-part:nth-child(1) {
+      left: calc(50% - (157.75px * 0.6 / 2)) !important;
+      top: 0.35px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Partie 2: left original = 33.41px, width = 120.47px, centre à 93.645px */
+    .menu-header .menu-logo .logo-part:nth-child(2) {
+      left: calc(50% + (93.645px - 78.875px) * 0.6 - (120.47px * 0.6 / 2)) !important;
+      top: 2.35px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Partie 3: left original = 36.8px, width = 108.29px, centre à 90.945px */
+    .menu-header .menu-logo .logo-part:nth-child(3) {
+      left: calc(50% + (90.945px - 78.875px) * 0.6 - (108.29px * 0.6 / 2)) !important;
+      top: 46.62px !important;
+      transform: scale(0.6) !important;
     }
     .menu-close-button {
       font-size: 14px;
@@ -666,35 +686,15 @@
       padding: 0;
     }
     
-    /* Logo centré horizontalement au responsive - 480px */
     .menu-header .menu-logo {
-      display: block !important;
+      display: block;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 80px;
-      height: 75px;
+      width: auto;
+      height: auto;
       z-index: 10;
-    }
-    
-    /* Centrer chaque logo-part avec scale(0.5) */
-    .menu-header .menu-logo .logo-part:nth-child(1) {
-      left: 50% !important;
-      transform: translateX(-50%) scale(0.5) !important;
-      top: 0.35px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part:nth-child(2) {
-      left: 50% !important;
-      transform: translateX(calc(-50% + 14.77px)) scale(0.5) !important;
-      top: 2.35px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part:nth-child(3) {
-      left: 50% !important;
-      transform: translateX(calc(-50% + 12.07px)) scale(0.5) !important;
-      top: 46.62px !important;
     }
     
     .menu-header .menu-close-button {
@@ -706,6 +706,35 @@
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
+    }
+    
+    /* Centrer chaque logo-part horizontalement au responsive (480px) */
+    /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
+    
+    .menu-header .menu-logo .logo-part {
+      position: absolute;
+      transform-origin: center;
+    }
+    
+    /* Partie 1: left original = 0px, width = 157.75px */
+    .menu-header .menu-logo .logo-part:nth-child(1) {
+      left: calc(50% - (157.75px * 0.5 / 2)) !important;
+      top: 0.35px !important;
+      transform: scale(0.5) !important;
+    }
+    
+    /* Partie 2: left original = 33.41px, width = 120.47px, centre à 93.645px */
+    .menu-header .menu-logo .logo-part:nth-child(2) {
+      left: calc(50% + (93.645px - 78.875px) * 0.5 - (120.47px * 0.5 / 2)) !important;
+      top: 2.35px !important;
+      transform: scale(0.5) !important;
+    }
+    
+    /* Partie 3: left original = 36.8px, width = 108.29px, centre à 90.945px */
+    .menu-header .menu-logo .logo-part:nth-child(3) {
+      left: calc(50% + (90.945px - 78.875px) * 0.5 - (108.29px * 0.5 / 2)) !important;
+      top: 46.62px !important;
+      transform: scale(0.5) !important;
     }
     
     /* Logo en dehors du header (si présent) */
@@ -1011,7 +1040,7 @@
               <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" 
                 style="position: relative; z-index: 10; display: block; opacity: 1 !important; visibility: visible !important; background-color: transparent !important;" 
                 aria-label="Cocktail exotique"
-                playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="auto">
+                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" controls="false">
                 <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
                 Votre navigateur ne prend pas en charge la lecture vidéo.
               </video>
@@ -1313,5 +1342,60 @@
   <!-- Script pour le formulaire de réservation -->
   <script src="js/booking-form.js"></script>
   <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Script pour forcer l'autoplay des vidéos sur mobile -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fonction pour forcer la lecture des vidéos
+      function forceVideoPlay(video) {
+        if (video) {
+          video.muted = true;
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('x5-playsinline', '');
+          
+          const playPromise = video.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              // La vidéo a démarré avec succès
+              console.log('Vidéo en lecture:', video.id || video.className);
+            }).catch(error => {
+              // Tentative de lecture automatique échouée
+              console.log('Tentative de lecture automatique échouée, nouvelle tentative...');
+              // Réessayer après un court délai
+              setTimeout(() => {
+                video.play().catch(err => {
+                  console.log('Impossible de lire la vidéo automatiquement:', err);
+                });
+              }, 500);
+            });
+          }
+        }
+      }
+      
+      // Appliquer à toutes les vidéos
+      const videos = document.querySelectorAll('video');
+      videos.forEach(video => {
+        forceVideoPlay(video);
+        
+        // Réessayer si la vidéo est mise en pause (certains navigateurs mobiles)
+        video.addEventListener('pause', function() {
+          if (this.hasAttribute('autoplay')) {
+            setTimeout(() => {
+              this.play().catch(() => {});
+            }, 100);
+          }
+        });
+        
+        // Réessayer lors du changement de visibilité de la page
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden && video.hasAttribute('autoplay')) {
+            forceVideoPlay(video);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
