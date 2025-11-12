@@ -4,26 +4,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  
-  <!-- Preconnect pour améliorer les performances des CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
-  <!-- Meta tags pour le cache et les performances -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#ffffff">
-  
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  
-  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
-  
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
-  <script src="js/background-loader.js" defer></script>
+  
+  <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Script pour supprimer complètement les contrôles vidéo -->
+  <script src="js/remove-video-controls.js"></script>
+  
+  <!-- Script inline minimal pour appliquer la langue immédiatement -->
+  <script>
+    (function() {
+      const STORAGE_KEY = 'escapade-lang';
+      const FALLBACK_LANG = 'fr';
+      const stored = window.localStorage?.getItem(STORAGE_KEY);
+      const lang = (stored && (stored === 'fr' || stored === 'en')) ? stored : FALLBACK_LANG;
+      if (document.documentElement) {
+        document.documentElement.lang = lang;
+      }
+    })();
+  </script>
 </head>
 <body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="suite-junior">
 
@@ -37,9 +45,9 @@
 
     <!-- Sélecteur de langue -->
     <div class="lang-switcher flex items-center gap-2 md:gap-3">
-      <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+      <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
       <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
-      <a href="#" class="text-sm md:text-base">EN</a>
+      <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
     </div>
   </div>
 
@@ -74,9 +82,9 @@
         <span>FERMER</span>
       </a>
       <div class="menu-lang-switcher">
-        <a href="#" class="active">FR</a>
+        <a href="#" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
-        <a href="#">EN</a>
+        <a href="#" data-lang="en">EN</a>
       </div>
     </header>
 
@@ -569,6 +577,61 @@
       header, #contactFab {
         transition: all 0.3s ease;
       }
+
+      /* Styles pour le slider de galerie */
+      .gallery-slider-wrapper {
+        max-width: 100%;
+      }
+
+      .gallery-slider-container {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .gallery-slider-track {
+        display: flex;
+        will-change: transform;
+      }
+
+      .gallery-slide {
+        flex-shrink: 0;
+      }
+
+      .gallery-slide img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .gallery-dot {
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        padding: 0;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-dot:hover {
+        transform: scale(1.2);
+      }
+
+      .gallery-dot.active {
+        transform: scale(1.3);
+      }
+
+      /* Responsive pour le slider */
+      @media (max-width: 768px) {
+        .gallery-slide img {
+          height: 280px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-slide img {
+          height: 240px;
+        }
+      }
     </style>
 
     <script>
@@ -698,21 +761,25 @@
       </div>
        <div class="gallery-section mt-28">
           <div class="container mx-auto my-10">
-            <div class="gallery-grid grid grid-cols-3 gap-4 ">
-              <div class="relative rounded-[40px_0] overflow-hidden">
-                <img src="img/12.jpg" alt="Intérieur de la Suite Junior" class="w-full h-[280px] object-cover">
+            <div class="gallery-slider-wrapper relative">
+              <div class="gallery-slider-container relative rounded-[40px_0] overflow-hidden" style="max-width: 100%; margin: 0 auto;">
+                <div class="gallery-slider-track flex transition-transform duration-500 ease-in-out" style="width: 300%;">
+                  <div class="gallery-slide flex-shrink-0" style="width: 33.333%;">
+                    <img src="img/12.jpg" alt="Intérieur de la Suite Junior" class="w-full h-[280px] md:h-[400px] object-cover">
+                  </div>
+                  <div class="gallery-slide flex-shrink-0" style="width: 33.333%;">
+                    <img src="img/13.jpg" alt="Vue extérieure de la Suite Junior" class="w-full h-[280px] md:h-[400px] object-cover">
+                  </div>
+                  <div class="gallery-slide flex-shrink-0" style="width: 33.333%;">
+                    <img src="img/14.jpg" alt="Vue piscine de la Suite Junior" class="w-full h-[280px] md:h-[400px] object-cover">
+                  </div>
+                </div>
               </div>
-              <div class="relative rounded-[40px_0] overflow-hidden">
-                <img src="img/13.jpg" alt="Vue extérieure de la Suite Junior" class="w-full h-[280px] object-cover">
+              <div class="flex justify-center gap-3 mt-4 gallery-dots">
+                <button class="gallery-dot w-2 h-2 bg-gray-400 rounded-full transition-all duration-300 active" data-slide="0" aria-label="Slide 1"></button>
+                <button class="gallery-dot w-2 h-2 bg-gray-400/50 rounded-full transition-all duration-300" data-slide="1" aria-label="Slide 2"></button>
+                <button class="gallery-dot w-2 h-2 bg-gray-400/50 rounded-full transition-all duration-300" data-slide="2" aria-label="Slide 3"></button>
               </div>
-              <div class="relative rounded-[40px_0] overflow-hidden">
-                <img src="img/14.jpg" alt="Vue piscine de la Suite Junior" class="w-full h-[280px] object-cover">
-              </div>
-            </div>
-            <div class="flex justify-center gap-3 mt-4">
-              <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
-              <span class="w-2 h-2 bg-gray-400/50 rounded-full"></span>
-              <span class="w-2 h-2 bg-gray-400/50 rounded-full"></span>
             </div>
           </div>
         </div>
@@ -786,40 +853,39 @@
     </footer>
   </section>
 
-    <!-- Script pour la galerie d'images -->
+    <!-- Script pour le slider de la galerie d'images -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-          // Configuration de la galerie
-          const galleryImages = [
-            { src: 'img/12.jpg', alt: 'Intérieur de la Suite Junior' },
-            { src: 'img/13.jpg', alt: 'Vue extérieure de la Suite Junior' },
-            { src: 'img/14.jpg', alt: 'Vue piscine de la Suite Junior' }
-          ];
-          const galleryContainer = document.querySelector('.gallery-grid');
-          const dots = document.querySelectorAll('.gallery-dots button');
+          const sliderTrack = document.querySelector('.gallery-slider-track');
+          const dots = document.querySelectorAll('.gallery-dot');
           let currentIndex = 0;
           let interval;
+          const totalSlides = 3;
 
-          // Fonction pour mettre à jour l'état actif des points
-          function updateDots() {
-            dots.forEach((dot, index) => {
-              if (index === currentIndex) {
-                dot.classList.remove('bg-[#B78F62]/50');
-                dot.classList.add('bg-[#B78F62]');
+          // Fonction pour aller à un slide spécifique
+          function goToSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            
+            currentIndex = index;
+            const translateX = -(currentIndex * 33.333);
+            sliderTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // Mettre à jour les indicateurs
+            dots.forEach((dot, i) => {
+              if (i === currentIndex) {
+                dot.classList.remove('bg-gray-400/50');
+                dot.classList.add('bg-gray-400');
+                dot.classList.add('active');
               } else {
-                dot.classList.remove('bg-[#B78F62]');
-                dot.classList.add('bg-[#B78F62]/50');
+                dot.classList.remove('bg-gray-400');
+                dot.classList.remove('active');
+                dot.classList.add('bg-gray-400/50');
               }
             });
           }
 
-          // Fonction pour changer de slide
-          function goToSlide(index) {
-            currentIndex = index;
-            updateDots();
-          }
-
-          // Gestionnaire de clic pour les points
+          // Gestionnaire de clic pour les points indicateurs
           dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
               goToSlide(index);
@@ -828,42 +894,63 @@
             });
           });
 
-          // Démarrer l'autoplay
+          // Fonction pour démarrer l'autoplay
           function startAutoplay() {
             interval = setInterval(() => {
-              currentIndex = (currentIndex + 1) % galleryImages.length;
-              goToSlide(currentIndex);
-            }, 5000);
+              goToSlide(currentIndex + 1);
+            }, 4000);
           }
 
-          // Initialiser la galerie
-          updateDots();
-          startAutoplay();
+          // Gestion du swipe tactile
+          let touchStartX = 0;
+          let touchEndX = 0;
+          const sliderWrapper = document.querySelector('.gallery-slider-container');
+
+          sliderWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          });
+
+          sliderWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          });
+
+          function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+              if (diff > 0) {
+                // Swipe gauche - slide suivant
+                goToSlide(currentIndex + 1);
+              } else {
+                // Swipe droite - slide précédent
+                goToSlide(currentIndex - 1);
+              }
+              clearInterval(interval);
+              startAutoplay();
+            }
+          }
 
           // Pause de l'autoplay au survol
-          galleryContainer.addEventListener('mouseenter', () => {
+          sliderWrapper.addEventListener('mouseenter', () => {
             clearInterval(interval);
           });
 
           // Reprise de l'autoplay à la sortie du survol
-          galleryContainer.addEventListener('mouseleave', () => {
+          sliderWrapper.addEventListener('mouseleave', () => {
             startAutoplay();
           });
+
+          // Initialiser le slider
+          goToSlide(0);
+          startAutoplay();
         });
     </script>
   
-  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
-  <script src="https://cdn.tailwindcss.com" async></script>
-  
-  <!-- GSAP pour animations - chargé en bas de page avec defer -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js" defer></script>
-  <script src="js/translations.js" defer></script>
-  
-  <!-- CSS responsive - chargé en bas -->
+  <script src="js/gsap-animations.js"></script>
+  <script src="js/background-loader.js" defer></script>
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

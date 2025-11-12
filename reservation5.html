@@ -4,16 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  
-  <!-- Preconnect pour améliorer les performances des CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-  
-  <!-- Meta tags pour le cache et les performances -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#ffffff">
-  
-  <!-- Chargement des CSS critiques en premier -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/reservation3.css">
   <style>
     body {
@@ -184,6 +175,49 @@
         font-size: 17px;
       }
     }
+
+    /* Réduction du border-radius pour les divs avec couleur de fond #DFDFDF */
+    div[class*="bg-[#DFDFDF]"],
+    .bg-\[#DFDFDF\],
+    .success-card {
+      border-radius: 0 140px 0 140px;
+    }
+
+    /* Tablette */
+    @media (max-width: 1024px) {
+      div[class*="bg-[#DFDFDF]"],
+      .bg-\[#DFDFDF\],
+      .success-card {
+        border-radius: 0 100px 0 100px;
+      }
+    }
+
+    /* Mobile - override les règles existantes */
+    @media (max-width: 768px) {
+      div[class*="bg-[#DFDFDF]"],
+      .bg-\[#DFDFDF\],
+      .success-card {
+        border-radius: 0 70px 0 70px !important;
+      }
+    }
+
+    /* Petit mobile - override les règles existantes */
+    @media (max-width: 480px) {
+      div[class*="bg-[#DFDFDF]"],
+      .bg-\[#DFDFDF\],
+      .success-card {
+        border-radius: 0 50px 0 50px !important;
+      }
+    }
+
+    /* Très petit mobile */
+    @media (max-width: 360px) {
+      div[class*="bg-[#DFDFDF]"],
+      .bg-\[#DFDFDF\],
+      .success-card {
+        border-radius: 0 50px 0 50px !important;
+      }
+    }
   </style>
 </head>
 <body data-page="reservation-step5">
@@ -191,7 +225,7 @@
     <header class="progress-header">
       <div class="progress-header__container">
         <a href="index.html" class="progress-header__logo" aria-label="Homepage">
-          <img src="images/427_501.svg" alt="L'escapade Logo" loading="lazy">
+          <img src="images/427_501.svg" alt="L'escapade Logo">
         </a>
         <nav class="progress-header__nav" aria-label="Checkout Progress">
           <ol class="progress-steps">
@@ -202,7 +236,7 @@
               <span class="progress-step__label">Date</span>
             </li>
             <li class="progress-arrow">
-              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
             </li>
             <li class="progress-step is-complete">
               <div class="progress-step__icon-wrapper">
@@ -211,7 +245,7 @@
               <span class="progress-step__label">Catégorie</span>
             </li>
             <li class="progress-arrow">
-              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
             </li>
             <li class="progress-step is-complete">
               <div class="progress-step__icon-wrapper">
@@ -220,7 +254,7 @@
               <span class="progress-step__label">Details & confirmation</span>
             </li>
             <li class="progress-arrow">
-              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon" loading="lazy">
+              <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
             </li>
             <li class="progress-step is-complete">
               <div class="progress-step__icon-wrapper">
@@ -268,11 +302,9 @@
   </div>
 
 </section>
-
-  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
-  <script src="https://cdn.tailwindcss.com" async></script>
-  
-  <!-- CSS responsive - chargé en bas -->
-  <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/responsive.css">
 </body> 
 </html>
+
+
+

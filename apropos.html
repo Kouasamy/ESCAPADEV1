@@ -5,26 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  
-  <!-- Preconnect pour améliorer les performances des CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
-  <!-- Meta tags pour le cache et les performances -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#ffffff">
-  
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  
-  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
-  
-  <!-- Image Optimizer pour améliorer les performances -->
-  <script src="js/image-optimizer.js" defer></script>
-  <script src="js/background-loader.js" defer></script>
   <style>
     /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal {
@@ -64,6 +48,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
+  
+  <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Script pour supprimer complètement les contrôles vidéo -->
+  <script src="js/remove-video-controls.js"></script>
+  
+  <!-- Script inline minimal pour appliquer la langue immédiatement -->
+  <script>
+    (function() {
+      const STORAGE_KEY = 'escapade-lang';
+      const FALLBACK_LANG = 'fr';
+      const stored = window.localStorage?.getItem(STORAGE_KEY);
+      const lang = (stored && (stored === 'fr' || stored === 'en')) ? stored : FALLBACK_LANG;
+      if (document.documentElement) {
+        document.documentElement.lang = lang;
+      }
+    })();
+  </script>
 </head>
 
 <body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="about">
@@ -79,9 +82,9 @@
 
       <!-- Sélecteur de langue -->
       <div class="lang-switcher flex items-center gap-2 md:gap-3">
-        <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+        <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
         <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" fetchpriority="high" width="16" height="16">
-        <a href="#" class="text-sm md:text-base">EN</a>
+        <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
       </div>
     </div>
 
@@ -117,24 +120,20 @@
       <header class="menu-header">
         <a href="#" class="menu-close-button">
           <img src="Menu/images/542_446.svg" alt="Close Icon">
-          <span>FERMER</span>
+          <span data-translate="close">FERMER</span>
+        </a>
+        <!--merged image-->
+        <a href="index.html" class="menu-logo">
+          <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
+          <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
+          <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
         </a>
         <div class="menu-lang-switcher">
-          <a href="#" class="active">FR</a>
+          <a href="#" data-lang="fr">FR</a>
           <img src="Menu/images/542_445.svg" alt="Language separator">
-          <a href="#">EN</a>
+          <a href="#" data-lang="en">EN</a>
         </div>
       </header>
-
-      <!--merged image-->
-      <a href="index.html" class="menu-logo">
-        <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part"
-          style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
-        <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part"
-          style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
-        <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part"
-          style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
-      </a>
 
       <main class="menu-content">
         <nav class="menu-nav">
@@ -143,35 +142,35 @@
               <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
                 <img src="Menu/images/542_575.svg" class="nav-line" alt="">
                 <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
-                <span class="nav-text">CHAMBRES & SUITE</span>
+                <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
               </a>
             </li>
             <li>
               <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
                 <img src="Menu/images/542_575.svg" class="nav-line" alt="">
                 <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
-                <span class="nav-text">LE RESTAURANT</span>
+                <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
               </a>
             </li>
             <li>
               <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
                 <img src="Menu/images/542_575.svg" class="nav-line" alt="">
                 <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
-                <span class="nav-text">LE LOUNGE</span>
+                <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
               </a>
             </li>
             <li>
               <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
                 <img src="Menu/images/542_575.svg" class="nav-line" alt="">
                 <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
-                <span class="nav-text">ÉVÉNEMENTIEL</span>
+                <span class="nav-text" data-translate="event">ÉVÉNEMENTIEL</span>
               </a>
             </li>
             <li>
               <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
                 <img src="Menu/images/542_575.svg" class="nav-line" alt="">
                 <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
-                <span class="nav-text">A PROPOS</span>
+                <span class="nav-text" data-translate="about">A PROPOS</span>
               </a>
             </li>
           </ul>
@@ -226,11 +225,30 @@
     left: 65px;
     right: 65px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 80px;
+    gap: 0;
     z-index: 10;
   }
+  
+  /* Sur desktop, positionner le logo dans le header de manière absolue en haut au centre */
+  .menu-header .menu-logo {
+    position: absolute;
+    top: -33px; /* Positionner au-dessus du header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 112px;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .menu-header .menu-logo .logo-part {
+    transform: scale(0.75);
+  }
+  
 
   .menu-close-button,
   .menu-lang-switcher {
@@ -262,19 +280,115 @@
     text-decoration: underline;
   }
 
-  .menu-logo {
+  /* Logo positionné absolument en dehors du header sur desktop */
+  .menu-logo:not(.menu-header .menu-logo) {
     position: absolute;
     top: 16px;
     left: 50%;
     transform: translateX(-50%);
-    width: 159.11px;
-    height: 148.23px;
+    width: 120px; /* Réduit de 159.11px */
+    height: 112px; /* Réduit de 148.23px */
     z-index: 10;
     display: block;
     cursor: pointer;
     text-decoration: none;
   }
-
+  
+  .menu-logo .logo-part {
+    transform: scale(0.75); /* Réduction globale de 25% pour toutes les parties du logo */
+  }
+  
+  @media (max-width: 768px) {
+    /* Logo centré horizontalement au responsive */
+    .menu-header {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+    
+    /* Centrer chaque logo-part horizontalement au responsive (768px) */
+    /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
+    /* Les logo-part doivent être centrés par rapport au conteneur */
+    /* Largeur max du logo = 157.75px, centre à 78.875px depuis la gauche originale */
+    
+    .menu-header .menu-logo .logo-part {
+      position: absolute;
+      transform-origin: center;
+    }
+    
+    /* Partie 1: left original = 0px, width = 157.75px */
+    /* Centre de la partie = 78.875px depuis la gauche du logo */
+    /* On centre par rapport au conteneur: left = 50% - (largeur_scalée / 2) */
+    .menu-header .menu-logo .logo-part:nth-child(1) {
+      left: calc(50% - (157.75px * 0.6 / 2)) !important;
+      top: 0.35px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Partie 2: left original = 33.41px, width = 120.47px */
+    /* Centre de la partie = 33.41 + 60.235 = 93.645px depuis la gauche du logo */
+    /* Décalage depuis le centre du logo (78.875px) = 93.645 - 78.875 = 14.77px */
+    .menu-header .menu-logo .logo-part:nth-child(2) {
+      left: calc(50% + (93.645px - 78.875px) * 0.6 - (120.47px * 0.6 / 2)) !important;
+      top: 2.35px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Partie 3: left original = 36.8px, width = 108.29px */
+    /* Centre de la partie = 36.8 + 54.145 = 90.945px depuis la gauche du logo */
+    /* Décalage depuis le centre du logo (78.875px) = 90.945 - 78.875 = 12.07px */
+    .menu-header .menu-logo .logo-part:nth-child(3) {
+      left: calc(50% + (90.945px - 78.875px) * 0.6 - (108.29px * 0.6 / 2)) !important;
+      top: 46.62px !important;
+      transform: scale(0.6) !important;
+    }
+    
+    /* Logo en dehors du header (si présent) */
+    .menu-logo:not(.menu-header .menu-logo) {
+      top: 30px;
+      width: 96px;
+      height: 89px;
+    }
+    .menu-logo:not(.menu-header .menu-logo) .logo-part {
+      transform: scale(0.6);
+    }
+  }
+  
   .logo-part {
     position: absolute;
   }
@@ -285,10 +399,7 @@
     height: 100%;
   }
 
-  .menu-nav {
-    padding-top: 286px;
-    padding-left: 88px;
-  }
+
 
   .menu-nav ul {
     display: flex;
@@ -332,14 +443,6 @@
     max-width: 100%;
   }
   
-  .menu-nav li:first-child .nav-text {
-    padding-left: 100px; /* Réduit pour pousser le texte "CHAMBRES & SUITE" à gauche */
-  }
-  
-  .menu-nav li:nth-child(2) .nav-text {
-    padding-left: 150px; /* Réduit pour pousser le texte "LE RESTAURANT" à gauche */
-  }
-  
   .nav-line {
     position: absolute;
     left: 89px; /* 45px (from figma) - 88px (nav padding) */
@@ -348,14 +451,6 @@
     transform: translateX(-8px) scaleX(0.9);
     transform-origin: left center;
     transition: opacity 220ms ease, transform 220ms ease;
-  }
-  
-  .menu-nav li:first-child .nav-line {
-    left: 35px; /* Poussé à gauche pour "CHAMBRES & SUITE" */
-  }
-  
-  .menu-nav li:nth-child(2) .nav-line {
-    left: 75px; /* Ajusté pour espacer avec le texte "LE RESTAURANT" */
   }
 
   .nav-item:hover .nav-line {
@@ -370,7 +465,6 @@
   .image-showcase {
     position: relative;
     padding-top: 247px;
-    margin-left: 120px;
   }
 
   /* Staggered entrance for menu items */
@@ -428,8 +522,8 @@
 
   .deco-corner-top {
     position: absolute;
-    top: 180px; /* Monté encore plus */
-    left: 721px; /* Poussé à gauche à l'extrémité de image-container */
+    top: 193px;
+    right: 219px; /* Tout en haut à droite de l'image */
     z-index: 6;
     transform: rotate(-0.38deg);
   }
@@ -462,81 +556,86 @@
       right: 20px;
       top: 30px;
       justify-content: space-between;
-      gap: 0;
-    }
-    .menu-close-button {
-      font-size: 14px;
-      gap: 12px;
-    }
-    .menu-close-button img {
-      width: 20px;
-      height: 20px;
-    }
-    .menu-lang-switcher {
-      font-size: 14px;
-      gap: 8px;
-    }
-    .menu-lang-switcher img {
-      width: 12px;
-      height: 12px;
-    }
-    .menu-logo {
-      left: 50%;
-      transform: translateX(-50%) scale(0.75);
-      top: 30px;
-      width: 120px;
-      height: 112px;
-    }
-    .menu-nav {
-      padding: 0;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .menu-nav ul {
       align-items: center;
-      width: 100%;
-    }
-    .nav-item {
-      justify-content: center;
-    }
-    .nav-text {
-      padding-left: 0;
-      text-align: center;
-    }
-    .nav-line {
-      display: none;
-    }
-    .image-showcase {
+      gap: 0;
+      position: relative;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      width: 100%;
     }
-    .image-container {
-      width: 100%;
-      max-width: 658.19px;
-      height: auto;
-      aspect-ratio: 658.19 / 429;
+    
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
     }
-    .deco-corner-top {
-      top: 150px;
-      right: 50px;
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
-    .deco-corner-bottom {
-      top: 200px;
-      left: 20px;
+    
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
     }
   }
-
+  
   @media (max-width: 480px) {
     .menu-header {
-      top: 20px;
+      position: relative;
+      top: 0;
       left: 15px;
       right: 15px;
       justify-content: space-between;
+      align-items: center;
       gap: 0;
+      position: relative;
+      padding: 0;
+    }
+    
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
     }
     .menu-close-button {
       font-size: 12px;
@@ -554,11 +653,91 @@
       width: 10px;
       height: 10px;
     }
+    .menu-content {
+      padding-top: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-text {
+      font-size: 24px;
+      padding-left: 0;
+      text-align: center;
+    }
+    .nav-item {
+      height: 40px;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .menu-header {
+      left: 20px;
+      right: 20px;
+      top: 30px;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .menu-header {
+      top: 20px;
+      left: 15px;
+      right: 15px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      padding: 0;
+    }
+    
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
     .menu-logo {
-      top: 80px;
-      transform: translateX(-50%) scale(0.6);
-      width: 96px;
-      height: 89px;
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+    .menu-close-button {
+      font-size: 12px;
+      gap: 8px;
+    }
+    .menu-close-button img {
+      width: 16px;
+      height: 16px;
+    }
+    .menu-lang-switcher {
+      font-size: 12px;
+      gap: 6px;
+    }
+    .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
     }
     .menu-content {
       padding-top: 220px;
@@ -583,7 +762,7 @@
   <script src="Menu/global.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const menuButton = document.getElementById('openMenu');
+      const menuButton = document.querySelector('.menu-button');
       const menuContainer = document.querySelector('.menu-container');
       const closeButton = document.querySelector('.menu-close-button');
 
@@ -608,22 +787,6 @@
     });
   </script>
 
-  <!-- SCRIPT -->
-  <script>
-    const openMenu = document.getElementById('openMenu');
-    const closeMenu = document.getElementById('closeMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    openMenu.addEventListener('click', () => {
-      menuOverlay.classList.remove('hidden');
-      menuOverlay.classList.add('flex');
-    });
-
-    closeMenu.addEventListener('click', () => {
-      menuOverlay.classList.add('hidden');
-      menuOverlay.classList.remove('flex');
-    });
-  </script>
 
 
   <!-- Animation simple -->
@@ -795,7 +958,7 @@
 
     <!-- Texte superposé -->
     <div class="relative z-10 max-w-5xl mx-auto text-center px-6">
-      <p class="font-[Futura_Md_BT] text-[24px] md:text-[28px] leading-[34px] md:leading-[38px] text-white mt-6">
+      <p class="font-[Futura_Md_BT] text-[16px] md:text-[18px] leading-[24px] md:leading-[28px] text-white mt-6">
         Situé au kilomètre 12, L'Escapade vous ouvre ses portes à Assinie, station balnéaire emblématique de la Côte
         d'Ivoire. <br>  
         À seulement 90km d'Abidjan, ce village paisible s'étend entre la lagune Aby et l'Océan Atlantique, offrant un
@@ -874,18 +1037,9 @@
     </footer>
   </section>
   
-  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
-  <script src="https://cdn.tailwindcss.com" async></script>
-  
-  <!-- GSAP pour animations - chargé en bas de page avec defer -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js" defer></script>
-  <script src="js/translations.js" defer></script>
-  
-  <!-- CSS responsive - chargé en bas -->
+  <script src="js/gsap-animations.js"></script>
+  <script src="js/background-loader.js" defer></script>
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

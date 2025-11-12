@@ -105,7 +105,7 @@
           'L’Escapade’s restaurant is a bistronomic destination where flavour, generosity, and elegance meet to deliver an unforgettable culinary experience.',
         restaurantDecor:
           'In a setting that combines local charm with contemporary refinement, every meal feels like a true sensory escape.',
-        restaurantChefTitle: 'OUR CHEF & <span class="highlight">SIGNATURE SPECIALTIES</span>',
+        restaurantChefTitle: 'OUR CHEF & <span class="highlight">SPECIALTIES</span>',
         restaurantChefIntro:
           'From field to plate, our chef transforms each ingredient with precision, drawing inspiration from Côte d’Ivoire and far beyond.',
         restaurantChefCraft:
@@ -249,9 +249,14 @@
     const lookup = buildLookup(lang);
     const isFrench = lang === 'fr';
 
-    document.documentElement.lang = lang;
+    // Définir la langue sur l'élément html immédiatement
+    if (document.documentElement) {
+      document.documentElement.lang = lang;
+    }
 
-    document.querySelectorAll('[data-translate]').forEach((el) => {
+    // Appliquer les traductions de manière optimisée
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach((el) => {
       const key = el.dataset.translate;
       if (!key) return;
 
@@ -285,7 +290,11 @@
       }
     });
 
+    // Synchroniser les lang-switcher
     syncActiveLanguage(lang);
+    
+    // Déclencher un événement personnalisé pour notifier le changement de langue
+    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
   }
 
   function syncActiveLanguage(lang) {
@@ -293,35 +302,159 @@
     langControls.forEach((control) => {
       const controlLang = control.dataset.lang;
       if (!controlLang) return;
+      
+      // Vérifier si le contrôle est dans un menu-lang-switcher
+      const isMenuLangSwitcher = control.closest('.menu-lang-switcher');
+      const isLangSwitcher = control.closest('.lang-switcher');
+      
       if (controlLang === lang) {
+        // Activer la langue
         control.classList.add('lang-active');
         control.setAttribute('aria-current', 'true');
+        
+        // Pour menu-lang-switcher, ajouter aussi la classe "active"
+        if (isMenuLangSwitcher) {
+          control.classList.add('active');
+        }
+        
+        // Pour lang-switcher, ajouter font-medium pour le style visuel
+        if (isLangSwitcher) {
+          control.classList.add('font-medium');
+        }
       } else {
-        control.classList.remove('lang-active');
+        // Désactiver la langue
+        control.classList.remove('lang-active', 'active', 'font-medium');
         control.removeAttribute('aria-current');
       }
     });
   }
 
   function handleSwitcherClicks() {
-    document.body.addEventListener('click', (event) => {
+    // Utiliser la délégation d'événements sur document pour capturer tous les clics
+    // Utiliser la phase de capture pour intercepter tôt et éviter les conflits
+    document.addEventListener('click', (event) => {
       const target = event.target.closest('[data-lang]');
       if (!target) return;
 
       const lang = target.dataset.lang;
       if (!lang || !SUPPORTED_LANGS.includes(lang)) return;
 
+      // Empêcher la navigation mais ne pas interférer avec le menu overlay
       event.preventDefault();
+      event.stopPropagation();
+      
+      // Sauvegarder et appliquer la langue instantanément
       persistLanguage(lang);
       applyTranslations(lang);
-    });
+      
+      // Forcer une nouvelle application pour s'assurer que tout est traduit
+      requestAnimationFrame(() => {
+        applyTranslations(lang);
+      });
+    }, true); // Utiliser la phase de capture pour intercepter tôt
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    ensureFrenchBaseline();
-    handleSwitcherClicks();
+  // Observer pour détecter les nouveaux éléments ajoutés dynamiquement
+  let translationObserver = null;
+  
+  function setupTranslationObserver() {
+    if (!window.MutationObserver) return;
+    
+    translationObserver = new MutationObserver((mutations) => {
+      let shouldReapply = false;
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length > 0) {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) { // Element node
+              if (node.hasAttribute && node.hasAttribute('data-translate')) {
+                shouldReapply = true;
+              } else if (node.querySelectorAll) {
+                const hasTranslations = node.querySelectorAll('[data-translate]').length > 0;
+                if (hasTranslations) shouldReapply = true;
+              }
+            }
+          });
+        }
+      });
+      
+      if (shouldReapply) {
+        const currentLang = getStoredLanguage();
+        applyTranslations(currentLang);
+      }
+    });
+    
+    // Observer les changements dans le body
+    if (document.body) {
+      translationObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+  }
+
+  // Appliquer la langue immédiatement, même avant DOMContentLoaded pour éviter le flash
+  function initTranslations() {
+    // Charger la langue sauvegardée immédiatement
     const lang = getStoredLanguage();
-    applyTranslations(lang);
-  });
+    
+    // Définir la langue sur l'élément html immédiatement
+    if (document.documentElement) {
+      document.documentElement.lang = lang;
+    }
+    
+    // Fonction pour appliquer les traductions de manière agressive
+    const applyNow = () => {
+      ensureFrenchBaseline();
+      handleSwitcherClicks();
+      
+      // Appliquer immédiatement
+      applyTranslations(lang);
+      
+      // Réappliquer plusieurs fois pour s'assurer que tout est traduit
+      // (certains éléments peuvent être ajoutés dynamiquement)
+      setTimeout(() => {
+        applyTranslations(lang);
+      }, 10);
+      
+      setTimeout(() => {
+        applyTranslations(lang);
+      }, 100);
+      
+      setTimeout(() => {
+        applyTranslations(lang);
+      }, 300);
+      
+      setupTranslationObserver();
+    };
+    
+    // Appliquer la langue dès que possible
+    if (document.readyState === 'loading') {
+      // Si le DOM est encore en cours de chargement, attendre DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', applyNow);
+      
+      // Mais aussi essayer d'appliquer dès que le body est disponible
+      if (document.body) {
+        applyNow();
+      } else {
+        // Observer l'apparition du body
+        const bodyObserver = new MutationObserver((mutations, obs) => {
+          if (document.body) {
+            applyNow();
+            obs.disconnect();
+          }
+        });
+        bodyObserver.observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+      }
+    } else {
+      // DOM déjà chargé
+      applyNow();
+    }
+  }
+
+  // Démarrer immédiatement
+  initTranslations();
 })();
 

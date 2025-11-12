@@ -20,6 +20,26 @@
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  
+  <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Script pour supprimer complètement les contrôles vidéo -->
+  <script src="js/remove-video-controls.js"></script>
+  
+  <!-- Script inline minimal pour appliquer la langue immédiatement -->
+  <script>
+    (function() {
+      const STORAGE_KEY = 'escapade-lang';
+      const FALLBACK_LANG = 'fr';
+      const stored = window.localStorage?.getItem(STORAGE_KEY);
+      const lang = (stored && (stored === 'fr' || stored === 'en')) ? stored : FALLBACK_LANG;
+      if (document.documentElement) {
+        document.documentElement.lang = lang;
+      }
+    })();
+  </script>
+  
     <style>
       /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal { opacity: 0; transform: scale(0.98); transition: opacity .6s ease, transform .6s ease; }
@@ -920,7 +940,7 @@
     <div class="flex flex-col md:flex-row-reverse md:gap-20 items-center gap-12 mt-12">
       <!-- Image -->
       <div class="relative w-full md:w-1/2">
-        <video class="w-full h-[700px] object-cover rounded-[70px_0] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" autoplay muted loop playsinline preload="metadata" loading="lazy">
+        <video class="w-full h-[700px] object-cover rounded-[70px_0] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
           <source src="video/CHEF.mp4" type="video/mp4" />
         </video>
       
@@ -1462,7 +1482,6 @@
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
-  <script src="js/translations.js" defer></script>
   
   <!-- CSS responsive - chargé en bas -->
   <link rel="stylesheet" href="css/responsive.css">

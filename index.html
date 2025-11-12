@@ -16,27 +16,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
   
-  <!-- Préchargement des ressources critiques pour un chargement ultra-rapide -->
-  <link rel="preload" href="images/568_819.svg" as="image" fetchpriority="high" />
-  <link rel="preload" href="images/568_939.svg" as="image" fetchpriority="high" />
-  <link rel="preload" href="css/style1.css" as="style" />
-  <link rel="preload" href="css/footer.css" as="style" />
-  
-  <!-- Chargement des CSS critiques en premier (inline pour réduire les requêtes) -->
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/performance.css">
   
-  <!-- Fast Loader - Chargement ultra-rapide et fluide (chargé en premier) -->
-  <script src="js/fast-loader.js"></script>
-  <!-- Image Optimizer pour améliorer les performances -->
+  <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/background-loader.js" defer></script>
+  
+  <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Script pour supprimer complètement les contrôles vidéo -->
+  <script src="js/remove-video-controls.js"></script>
+  
+  <!-- Script inline minimal pour appliquer la langue immédiatement -->
+  <script>
+    // Appliquer la langue dès que possible, avant même le chargement complet
+    (function() {
+      const STORAGE_KEY = 'escapade-lang';
+      const FALLBACK_LANG = 'fr';
+      const stored = window.localStorage?.getItem(STORAGE_KEY);
+      const lang = (stored && (stored === 'fr' || stored === 'en')) ? stored : FALLBACK_LANG;
+      
+      // Définir la langue sur l'élément html immédiatement
+      if (document.documentElement) {
+        document.documentElement.lang = lang;
+      }
+    })();
+  </script>
 </head>
 <body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home">
 <section id="hero">
   <div class="hero-container">
-    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" fetchpriority="high">
+    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
       <source src="video/PAYSAGE.mp4" type="video/mp4">
     </video>
     <header class="hero-header fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4">
@@ -65,12 +78,12 @@
       <nav class="header-nav flex flex-col sm:flex-row items-center gap-3 md:gap-6 text-center">
         <!--merged image-->
         <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
-          <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" fetchpriority="high" loading="eager">
+          <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
           <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
         </a>
         <!--merged image-->
         <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
-          <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" fetchpriority="high" loading="eager">
+          <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
           <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
         </a>
       </nav>
@@ -142,7 +155,7 @@
         <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
       </a>
       <div class="menu-lang-switcher">
-        <a href="#" class="active" data-lang="fr">FR</a>
+        <a href="#" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
         <a href="#" data-lang="en">EN</a>
       </div>
@@ -323,15 +336,24 @@
       align-items: center;
     }
     
-    .menu-header .menu-logo {
-      display: block;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-      z-index: 10;
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
     
     .menu-header .menu-close-button {
@@ -569,16 +591,24 @@
       padding: 0;
     }
     
-    /* Logo centré horizontalement au responsive */
-    .menu-header .menu-logo {
-      display: block;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-      z-index: 10;
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
     
     .menu-header .menu-close-button {
@@ -591,34 +621,50 @@
       justify-content: flex-end;
       margin-left: auto;
     }
-    
-    /* Centrer chaque logo-part horizontalement au responsive (1280px) */
-    /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
-    
-    .menu-header .menu-logo .logo-part {
-      position: absolute;
-      transform-origin: center;
+  }
+  
+  @media (max-width: 480px) {
+    .menu-header {
+      position: relative;
+      top: 0;
+      left: 15px;
+      right: 15px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      padding: 0;
     }
     
-    /* Partie 1: left original = 0px, width = 157.75px */
-    .menu-header .menu-logo .logo-part:nth-child(1) {
-      left: calc(50% - (157.75px * 0.6 / 2)) !important;
-      top: 0.35px !important;
-      transform: scale(0.6) !important;
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
     }
     
-    /* Partie 2: left original = 33.41px, width = 120.47px, centre à 93.645px */
-    .menu-header .menu-logo .logo-part:nth-child(2) {
-      left: calc(50% + (93.645px - 78.875px) * 0.6 - (120.47px * 0.6 / 2)) !important;
-      top: 2.35px !important;
-      transform: scale(0.6) !important;
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
     
-    /* Partie 3: left original = 36.8px, width = 108.29px, centre à 90.945px */
-    .menu-header .menu-logo .logo-part:nth-child(3) {
-      left: calc(50% + (90.945px - 78.875px) * 0.6 - (108.29px * 0.6 / 2)) !important;
-      top: 46.62px !important;
-      transform: scale(0.6) !important;
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
     }
     .menu-close-button {
       font-size: 14px;
@@ -701,15 +747,24 @@
       padding: 0;
     }
     
-    .menu-header .menu-logo {
-      display: block;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-      z-index: 10;
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
     
     .menu-header .menu-close-button {
@@ -721,45 +776,6 @@
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
-    }
-    
-    /* Centrer chaque logo-part horizontalement au responsive (480px) */
-    /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
-    
-    .menu-header .menu-logo .logo-part {
-      position: absolute;
-      transform-origin: center;
-    }
-    
-    /* Partie 1: left original = 0px, width = 157.75px */
-    .menu-header .menu-logo .logo-part:nth-child(1) {
-      left: calc(50% - (157.75px * 0.5 / 2)) !important;
-      top: 0.35px !important;
-      transform: scale(0.5) !important;
-    }
-    
-    /* Partie 2: left original = 33.41px, width = 120.47px, centre à 93.645px */
-    .menu-header .menu-logo .logo-part:nth-child(2) {
-      left: calc(50% + (93.645px - 78.875px) * 0.5 - (120.47px * 0.5 / 2)) !important;
-      top: 2.35px !important;
-      transform: scale(0.5) !important;
-    }
-    
-    /* Partie 3: left original = 36.8px, width = 108.29px, centre à 90.945px */
-    .menu-header .menu-logo .logo-part:nth-child(3) {
-      left: calc(50% + (90.945px - 78.875px) * 0.5 - (108.29px * 0.5 / 2)) !important;
-      top: 46.62px !important;
-      transform: scale(0.5) !important;
-    }
-    
-    /* Logo en dehors du header (si présent) */
-    .menu-logo:not(.menu-header .menu-logo) {
-      top: 80px;
-      width: 80px;
-      height: 75px;
-    }
-    .menu-logo:not(.menu-header .menu-logo) .logo-part {
-      transform: scale(0.5);
     }
     .menu-close-button {
       font-size: 12px;
@@ -1055,7 +1071,7 @@
               <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" 
                 style="position: relative; z-index: 10; display: block; opacity: 1 !important; visibility: visible !important; background-color: transparent !important;" 
                 aria-label="Cocktail exotique"
-                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" loading="lazy">
+                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
                 <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
                 Votre navigateur ne prend pas en charge la lecture vidéo.
               </video>
@@ -1362,159 +1378,65 @@
   <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
   
-  <!-- Scripts de traduction et animations -->
-  <script src="js/translations.js" defer></script>
+  <!-- Scripts d'animations -->
   <script src="js/gsap-animations.js" defer></script>
   <!-- Script pour le formulaire de réservation -->
   <script src="js/booking-form.js" defer></script>
   
-  <!-- Script optimisé pour le chargement rapide et fluide des vidéos -->
-  <script>
-    (function() {
-      'use strict';
-      
-      // Vidéo hero - chargement IMMÉDIAT et prioritaire pour fluidité maximale
-      function initHeroVideo() {
-        const heroVideo = document.querySelector('.hero-bg-video');
-        if (!heroVideo) return;
-        
-        // Configuration immédiate
-        heroVideo.muted = true;
-        heroVideo.setAttribute('playsinline', '');
-        heroVideo.setAttribute('webkit-playsinline', '');
-        heroVideo.setAttribute('x5-playsinline', '');
-        heroVideo.setAttribute('fetchpriority', 'high');
-        heroVideo.removeAttribute('controls'); // S'assurer qu'aucun contrôle n'est affiché
-        
-        // Précharger immédiatement les métadonnées puis charger progressivement
-        heroVideo.load();
-        
-        // Tentative de lecture immédiate dès que possible
-        const playVideo = () => {
-          const playPromise = heroVideo.play();
+  <!-- Script pour forcer l'autoplay des vidéos sur mobile - chargé après le chargement de la page -->
+  <script defer>
+    // Attendre que la page soit complètement chargée avant de charger les vidéos
+    window.addEventListener('load', function() {
+      // Fonction pour forcer la lecture des vidéos
+      function forceVideoPlay(video) {
+        if (video) {
+          video.muted = true;
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('x5-playsinline', '');
+          
+          // Charger la vidéo seulement maintenant
+          video.load();
+          
+          const playPromise = video.play();
+          
           if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                heroVideo.classList.add('video-loaded');
-                // Continuer à charger le reste de la vidéo en arrière-plan
-                heroVideo.addEventListener('progress', function() {
-                  if (heroVideo.buffered.length > 0 && heroVideo.buffered.end(0) > 5) {
-                    heroVideo.classList.add('video-buffered');
-                  }
-                }, { once: true });
-              })
-              .catch(error => {
-                // Réessayer avec délai progressif pour mobile
-                let retryCount = 0;
-                const maxRetries = 3;
-                const retryPlay = () => {
-                  if (retryCount < maxRetries) {
-                    retryCount++;
-                    setTimeout(() => {
-                      heroVideo.play()
-                        .then(() => {
-                          heroVideo.classList.add('video-loaded');
-                        })
-                        .catch(() => retryPlay());
-                    }, 200 * retryCount);
-                  }
-                };
-                retryPlay();
-              });
-          }
-        };
-        
-        // Lancer la lecture dès que possible
-        if (heroVideo.readyState >= 2) {
-          playVideo();
-        } else {
-          heroVideo.addEventListener('loadedmetadata', playVideo, { once: true });
-          heroVideo.addEventListener('canplay', playVideo, { once: true });
-          // Fallback: forcer après 300ms
-          setTimeout(playVideo, 300);
-        }
-      }
-      
-      // Vidéos non-critiques - chargement intelligent avec préchargement
-      function initLazyVideos() {
-        const lazyVideos = document.querySelectorAll('video[autoplay]:not(.hero-bg-video)');
-        if (lazyVideos.length === 0) return;
-        
-        if (!('IntersectionObserver' in window)) {
-          // Fallback : charger toutes les vidéos
-          lazyVideos.forEach(video => {
-            video.muted = true;
-            video.setAttribute('playsinline', '');
-            video.removeAttribute('controls'); // S'assurer qu'aucun contrôle n'est affiché
-            video.load();
-            video.play().catch(() => {});
-          });
-          return;
-        }
-        
-        const videoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const video = entry.target;
-              video.muted = true;
-              video.setAttribute('playsinline', '');
-              video.setAttribute('webkit-playsinline', '');
-              video.setAttribute('x5-playsinline', '');
-              video.removeAttribute('controls'); // S'assurer qu'aucun contrôle n'est affiché
-              video.load();
-              video.play()
-                .then(() => {
-                  video.classList.add('video-loaded');
-                })
-                .catch(() => {
-                  setTimeout(() => video.play().catch(() => {}), 300);
-                });
-              videoObserver.unobserve(video);
-            }
-          });
-        }, {
-          rootMargin: '300px', // Précharger 300px avant pour fluidité
-          threshold: 0.01
-        });
-        
-        lazyVideos.forEach(video => {
-          videoObserver.observe(video);
-        });
-      }
-      
-      // Gestion de la reprise de lecture
-      function setupVideoResume() {
-        document.addEventListener('visibilitychange', function() {
-          if (!document.hidden) {
-            document.querySelectorAll('video[autoplay]').forEach(video => {
-              if (video.paused) {
+            playPromise.then(() => {
+              // La vidéo a démarré avec succès
+            }).catch(error => {
+              // Tentative de lecture automatique échouée, réessayer après un délai
+              setTimeout(() => {
                 video.play().catch(() => {});
-              }
+              }, 500);
             });
           }
-        });
+        }
       }
       
-      // Initialisation ultra-rapide
-      if (document.readyState === 'loading') {
-        // Charger la vidéo hero immédiatement, même pendant le chargement du DOM
-        initHeroVideo();
-        
-        document.addEventListener('DOMContentLoaded', function() {
-          // Vidéos lazy après un court délai pour ne pas bloquer le rendu
-          requestAnimationFrame(() => {
-            setTimeout(initLazyVideos, 100);
+      // Appliquer à toutes les vidéos après un court délai pour laisser la page se charger
+      setTimeout(function() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+          forceVideoPlay(video);
+          
+          // Réessayer si la vidéo est mise en pause (certains navigateurs mobiles)
+          video.addEventListener('pause', function() {
+            if (this.hasAttribute('autoplay')) {
+              setTimeout(() => {
+                this.play().catch(() => {});
+              }, 100);
+            }
           });
-          setupVideoResume();
+          
+          // Réessayer lors du changement de visibilité de la page
+          document.addEventListener('visibilitychange', function() {
+            if (!document.hidden && video.hasAttribute('autoplay')) {
+              forceVideoPlay(video);
+            }
+          });
         });
-      } else {
-        initHeroVideo();
-        requestAnimationFrame(() => {
-          setTimeout(initLazyVideos, 100);
-        });
-        setupVideoResume();
-      }
-    })();
+      }, 300);
+    });
   </script>
 </body>
 </html>

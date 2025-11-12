@@ -4,20 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  
-  <!-- Preconnect pour améliorer les performances des CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
-  <!-- Meta tags pour le cache et les performances -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#ffffff">
-  
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  
-  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
     <style>
@@ -31,10 +19,30 @@
     .reveal img { transition: transform .35s ease, opacity .35s ease; }
     .reveal:hover img { transform: translateY(-6px) scale(1.02); }
   </style>
-  
+  <!-- GSAP pour animations luxueuses -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
-  <script src="js/background-loader.js" defer></script>
+  
+  <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Script pour supprimer complètement les contrôles vidéo -->
+  <script src="js/remove-video-controls.js"></script>
+  
+  <!-- Script inline minimal pour appliquer la langue immédiatement -->
+  <script>
+    (function() {
+      const STORAGE_KEY = 'escapade-lang';
+      const FALLBACK_LANG = 'fr';
+      const stored = window.localStorage?.getItem(STORAGE_KEY);
+      const lang = (stored && (stored === 'fr' || stored === 'en')) ? stored : FALLBACK_LANG;
+      if (document.documentElement) {
+        document.documentElement.lang = lang;
+      }
+    })();
+  </script>
 </head>
 <body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="events">
 
@@ -48,9 +56,9 @@
 
     <!-- Sélecteur de langue -->
     <div class="lang-switcher flex items-center gap-2 md:gap-3">
-      <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+      <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
       <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
-      <a href="#" class="text-sm md:text-base">EN</a>
+      <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
     </div>
   </div>
 
@@ -85,9 +93,9 @@
         <span>FERMER</span>
       </a>
       <div class="menu-lang-switcher">
-        <a href="#" class="active">FR</a>
+        <a href="#" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
-        <a href="#">EN</a>
+        <a href="#" data-lang="en">EN</a>
       </div>
     </header>
 
@@ -708,23 +716,23 @@
 <div class="relative w-full py-24 mb-9  overflow-hidden h-[750px]">
       <!-- Image de fond -->
       <div class="absolute inset-0">
-        <img src="img/40.jpg" alt="Événement à L'Escapade"
+        <img src="images/DJI_0290 1.png" alt="Événement à L'Escapade"
              class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black/40"></div>
+    
       </div>
 
      <!-- Texte superposé -->
-      <div class="relative z-10 max-w-5xl mx-auto text-center px-6"
-      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white">
+      <div class="relative z-10 max-w-5xl mx-auto text-center px-6">
+      <p class="font-[Futura_Md_BT] text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#956F40]">
         À L'Escapade, élégance et nature se rejoignent pour offrir un cadre où se créent les souvenirs les plus précieux
         et où naissent les plus belles inspirations.
       </p>
-      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white mt-6">
+      <p class="font-[Futura_Md_BT] text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#956F40] mt-6">
         Profitez pleinement de votre événement, nous nous occupons du reste. De la mise en place à la décoration, en
         passant par la restauration, l'animation et même l'hébergement des invités, notre équipe coordonne chaque détail
         avec soin et flexibilité.
       </p>
-      <p class="font-[Futura_Md_BT] text-[22px] md:text-[24px] leading-[30px] text-white mt-6">
+      <p class="font-[Futura_Md_BT] text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#956F40] mt-6">
         Vous pouvez choisir vos propres prestataires, ou confier l'ensemble à notre organisation pour une prestation
         clé en main, toujours adaptée à vos envies.
       </p>
@@ -798,18 +806,9 @@
     </footer>
   </section>
   
-  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
-  <script src="https://cdn.tailwindcss.com" async></script>
-  
-  <!-- GSAP pour animations - chargé en bas de page avec defer -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js" defer></script>
-  <script src="js/translations.js" defer></script>
-  
-  <!-- CSS responsive - chargé en bas -->
+  <script src="js/gsap-animations.js"></script>
+  <script src="js/background-loader.js" defer></script>
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

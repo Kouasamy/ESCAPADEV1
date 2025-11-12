@@ -23,6 +23,25 @@
   
   <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
+  
+  <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
+  <script src="js/translations.js"></script>
+  
+  <!-- Script pour supprimer complètement les contrôles vidéo -->
+  <script src="js/remove-video-controls.js"></script>
+  
+  <!-- Script inline minimal pour appliquer la langue immédiatement -->
+  <script>
+    (function() {
+      const STORAGE_KEY = 'escapade-lang';
+      const FALLBACK_LANG = 'fr';
+      const stored = window.localStorage?.getItem(STORAGE_KEY);
+      const lang = (stored && (stored === 'fr' || stored === 'en')) ? stored : FALLBACK_LANG;
+      if (document.documentElement) {
+        document.documentElement.lang = lang;
+      }
+    })();
+  </script>
 </head>
 <body style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="suite-list">
  <header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
@@ -35,9 +54,9 @@
 
     <!-- Sélecteur de langue -->
     <div class="lang-switcher flex items-center gap-2 md:gap-3">
-      <a href="#" class="lang-active text-sm md:text-base font-medium">FR</a>
+      <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
       <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
-      <a href="#" class="text-sm md:text-base">EN</a>
+      <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
     </div>
   </div>
 
@@ -72,9 +91,9 @@
         <span>FERMER</span>
       </a>
       <div class="menu-lang-switcher">
-        <a href="#" class="active">FR</a>
+        <a href="#" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
-        <a href="#">EN</a>
+        <a href="#" data-lang="en">EN</a>
       </div>
     </header>
 
@@ -836,7 +855,7 @@
 
     <!-- Image 1 -->
     <div class="relative w-full md:w-1/2">
-      <video autoplay muted loop playsinline preload="metadata" loading="lazy" class="w-full h-[900px] object-cover rounded-[0_70px]">
+      <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[0_70px]" controlslist="nodownload nofullscreen noremoteplayback">
         <source src="video/CHAMBRE 2.mp4" type="video/mp4">
       </video>
     </div>
@@ -870,7 +889,7 @@
 
     <!-- Image 2 -->
     <div class="relative w-full md:w-1/2">
-      <video autoplay muted loop playsinline preload="metadata" loading="lazy" class="w-full h-[900px] object-cover rounded-[70px_0]">
+      <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[70px_0]" controlslist="nodownload nofullscreen noremoteplayback">
         <source src="video/PISCINE.mp4" type="video/mp4">
       </video>
     </div>
@@ -974,7 +993,6 @@
   
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js" defer></script>
-  <script src="js/translations.js" defer></script>
   
   <!-- CSS responsive - chargé en bas -->
   <link rel="stylesheet" href="css/responsive.css">
