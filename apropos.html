@@ -9,6 +9,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  
+  <!-- Preload des images critiques pour améliorer les performances -->
+  <link rel="preload" as="image" href="img/42.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_840.svg">
+  <link rel="preload" as="image" href="images/574_538.png">
   <style>
     /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal {
@@ -76,14 +83,16 @@
       <!-- Bouton burger -->
       <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4"
         aria-label="Ouvrir le menu" title="Ouvrir le menu">
-        <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12" fetchpriority="high" width="32" height="32">
+        <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12" 
+          loading="eager" decoding="async" fetchpriority="high" width="32" height="32">
         <span class="text-sm md:text-base">MENU</span>
       </button>
 
       <!-- Sélecteur de langue -->
       <div class="lang-switcher flex items-center gap-2 md:gap-3">
         <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
-        <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" fetchpriority="high" width="16" height="16">
+        <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" 
+          loading="eager" decoding="async" fetchpriority="high" width="16" height="16">
         <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
       </div>
     </div>
@@ -91,7 +100,8 @@
     <!-- Logo -->
     <div class="flex justify-center w-full md:w-auto">
       <a href="index.html">
-        <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" fetchpriority="high" width="150" height="150" />
+        <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" 
+          loading="eager" decoding="async" fetchpriority="high" width="150" height="150" />
       </a>
     </div>
 
@@ -101,14 +111,16 @@
       <a href="page_reservation1.html"
         class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
         <img src="images/568_838.svg" alt=""
-          class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+          class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none"
+          loading="eager" decoding="async" fetchpriority="high">
         <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2">Réserver une suite</span>
       </a>
       <!--merged image-->
       <a href="page_reservation1.html"
         class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
         <img src="images/568_833.svg" alt=""
-          class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+          class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none"
+          loading="eager" decoding="async" fetchpriority="high">
         <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2">Réserver un espace</span>
       </a>
     </nav>
@@ -119,18 +131,26 @@
     <div class="menu-container is-hidden" id="menuOverlay">
       <header class="menu-header">
         <a href="#" class="menu-close-button">
-          <img src="Menu/images/542_446.svg" alt="Close Icon">
+          <img src="Menu/images/542_446.svg" alt="Close Icon" 
+          loading="eager" decoding="async" fetchpriority="high" width="24" height="24">
           <span data-translate="close">FERMER</span>
         </a>
         <!--merged image-->
         <a href="index.html" class="menu-logo">
-          <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
-          <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
-          <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
+          <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" 
+            style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;"
+            loading="lazy" decoding="async" fetchpriority="low" width="158" height="148">
+          <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" 
+            style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;"
+            loading="lazy" decoding="async" fetchpriority="low" width="120" height="130">
+          <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" 
+            style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;"
+            loading="lazy" decoding="async" fetchpriority="low" width="108" height="83">
         </a>
         <div class="menu-lang-switcher">
           <a href="#" data-lang="fr">FR</a>
-          <img src="Menu/images/542_445.svg" alt="Language separator">
+          <img src="Menu/images/542_445.svg" alt="Language separator" 
+            loading="eager" decoding="async" fetchpriority="high" width="3" height="8">
           <a href="#" data-lang="en">EN</a>
         </div>
       </header>
@@ -140,36 +160,36 @@
           <ul>
             <li>
               <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
-                <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-                <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
+                <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy" decoding="async" fetchpriority="low">
+                <img src="Menu/images/542_560.svg" class="nav-bg" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
               </a>
             </li>
             <li>
               <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
-                <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-                <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
+                <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy" decoding="async" fetchpriority="low">
+                <img src="Menu/images/542_467.svg" class="nav-bg" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
               </a>
             </li>
             <li>
               <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
-                <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-                <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
+                <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy" decoding="async" fetchpriority="low">
+                <img src="Menu/images/542_471.svg" class="nav-bg" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
               </a>
             </li>
             <li>
               <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
-                <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-                <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
+                <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy" decoding="async" fetchpriority="low">
+                <img src="Menu/images/542_564.svg" class="nav-bg" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <span class="nav-text" data-translate="event">ÉVÉNEMENTIEL</span>
               </a>
             </li>
             <li>
               <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
-                <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-                <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
+                <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy" decoding="async" fetchpriority="low">
+                <img src="Menu/images/542_567.svg" class="nav-bg" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <span class="nav-text" data-translate="about">A PROPOS</span>
               </a>
             </li>
@@ -177,12 +197,15 @@
         </nav>
 
         <div class="image-showcase">
-          <img src="Menu/images/542_461.svg" class="deco-corner-top" alt="Decorative corner">
+          <img src="Menu/images/542_461.svg" class="deco-corner-top" alt="Decorative corner" 
+            loading="lazy" decoding="async" fetchpriority="low">
           <div class="image-container">
-            <img src="Menu/images/IMG_1341.jpg" alt="Hotel exterior at night">
+            <img src="Menu/images/IMG_1341.jpg" alt="Hotel exterior at night" 
+            loading="lazy" decoding="async" fetchpriority="low">
             <img class="image-transition-layer" alt="transition layer" />
           </div>
-          <img src="Menu/images/542_458.svg" class="deco-corner-bottom" alt="Decorative corner">
+          <img src="Menu/images/542_458.svg" class="deco-corner-bottom" alt="Decorative corner" 
+            loading="lazy" decoding="async" fetchpriority="low">
         </div>
       </main>
     </div>
@@ -299,6 +322,10 @@
   }
   
   @media (max-width: 768px) {
+    .menu-nav {
+      padding-top: 0;
+      padding-left: 0;
+    }
     /* Logo centré horizontalement au responsive */
     .menu-header {
       position: relative;
@@ -400,6 +427,11 @@
   }
 
 
+
+  .menu-nav {
+    padding-top: 286px;
+    padding-left: 88px;
+  }
 
   .menu-nav ul {
     display: flex;
@@ -551,6 +583,10 @@
       align-items: center;
       justify-content: center;
     }
+    .menu-nav {
+      padding-top: 0;
+      padding-left: 0;
+    }
     .menu-header {
       left: 20px;
       right: 20px;
@@ -595,6 +631,10 @@
   }
   
   @media (max-width: 480px) {
+    .menu-nav {
+      padding-top: 0;
+      padding-left: 0;
+    }
     .menu-header {
       position: relative;
       top: 0;
@@ -672,6 +712,10 @@
   }
   
   @media (max-width: 768px) {
+    .menu-nav {
+      padding-top: 0;
+      padding-left: 0;
+    }
     .menu-header {
       left: 20px;
       right: 20px;
@@ -682,6 +726,10 @@
   }
   
   @media (max-width: 480px) {
+    .menu-nav {
+      padding-top: 0;
+      padding-left: 0;
+    }
     .menu-header {
       top: 20px;
       left: 15px;
@@ -884,7 +932,7 @@
       <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 "
         aria-label="Nous contacter">
         <div class="btn-wrapper contact-btn">
-          <img src="images/568_840.svg" alt="" class="btn-bg">
+          <img src="images/568_840.svg" alt="" class="btn-bg" loading="eager" decoding="async" fetchpriority="high">
           <span class="btn-text">Nous Contactez</span>
         </div>
       </a>
@@ -900,7 +948,8 @@
       <!-- Titre -->
       <div class="text-center">
         <div class="title-wrapper">
-          <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
+          <img src="images/574_538.png" alt="Decorative border" class="title-border" 
+            loading="lazy" decoding="async" fetchpriority="low">
           <h1 class="main-title  ">
             A PROPOS
           </h1>
@@ -913,12 +962,15 @@
         <!-- Image -->
         <div class="relative w-full md:w-1/2">
           <img src="img/41.jpg" alt="L'Escapade Assinie - Bord de lagune"
-            class="w-full h-[350px] md:h-[400px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" loading="lazy" decoding="async" />
+            class="w-full h-[350px] md:h-[400px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" 
+            loading="lazy" decoding="async" width="800" height="400" fetchpriority="low" />
           <!-- Décor Vector -->
           <img src="media/314_45.svg" alt="Decorative element"
-            class="deco-element deco-1 absolute -top-10 -left-10 w-20 h-24" loading="lazy" decoding="async" width="80" height="96" />
+            class="deco-element deco-1 absolute -top-10 -left-10 w-20 h-24" 
+            loading="lazy" decoding="async" width="80" height="96" fetchpriority="low" />
           <img src="media/314_41.svg" alt="Decorative element"
-            class="deco-element deco-2 absolute -bottom-10 -right-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
+            class="deco-element deco-2 absolute -bottom-10 -right-10 w-20 h-20" 
+            loading="lazy" decoding="async" width="80" height="80" fetchpriority="low" />
 
         </div>
 
@@ -953,7 +1005,9 @@
   <div class="relative w-full  py-24  overflow-hidden h-[750px]">
     <!-- Image de fond -->
     <div class="absolute inset-0">
-      <img src="images/DJI_0343 1.jpg" alt="Événement à L'Escapade" class="w-full h-full object-cover" />
+      <img src="images/DJI_0343 1.jpg" alt="Événement à L'Escapade" 
+        class="w-full h-full object-cover" 
+        loading="lazy" decoding="async" fetchpriority="low" />
     </div>
 
     <!-- Texte superposé -->
@@ -976,12 +1030,14 @@
     <footer class="site-footer text-white ">
       <div class="container">
         <div class="footer-top">
-          <img src="images/527e11cd0fcc42350d0710d865057dc9385bcebf.png" alt="L'ESCAPADE Logo" class="footer-logo">
+          <img src="images/527e11cd0fcc42350d0710d865057dc9385bcebf.png" alt="L'ESCAPADE Logo" class="footer-logo"
+            loading="lazy" decoding="async" fetchpriority="low">
           <div class="footer-grid">
             <div class="footer-menu">
               <!--merged image-->
               <div class="footer-title-wrapper">
-                <img src="images/427_66.svg" alt="" class="footer-title-bg">
+                <img src="images/427_66.svg" alt="" class="footer-title-bg"
+                  loading="lazy" decoding="async" fetchpriority="low">
                 <h3 class="footer-title">MENU</h3>
               </div>
               <nav>
@@ -997,7 +1053,8 @@
             <div class="footer-contact-form" id="contact">
               <!--merged image-->
               <div class="footer-title-wrapper">
-                <img src="images/427_67.svg" alt="" class="footer-title-bg">
+                <img src="images/427_67.svg" alt="" class="footer-title-bg"
+                  loading="lazy" decoding="async" fetchpriority="low">
                 <h3 class="footer-title">CONTACT</h3>
               </div>
               <form>
@@ -1013,17 +1070,20 @@
         </div>
         <div class="footer-contact-info">
           <div class="contact-item">
-            <img src="images/427_62.svg" alt="Phone Icon">
+            <img src="images/427_62.svg" alt="Phone Icon"
+              loading="lazy" decoding="async" fetchpriority="low" width="24" height="24">
             <span>+225 07-16-70-00-00</span>
           </div>
           <div class="separator"></div>
           <div class="contact-item">
-            <img src="images/427_56.svg" alt="Email Icon">
+            <img src="images/427_56.svg" alt="Email Icon"
+              loading="lazy" decoding="async" fetchpriority="low" width="24" height="24">
             <a href="mailto:contact@escapadehotel.com">contact@escapadehotel.com</a>
           </div>
           <div class="separator"></div>
           <div class="contact-item">
-            <img src="images/427_50.svg" alt="Location Icon">
+            <img src="images/427_50.svg" alt="Location Icon"
+              loading="lazy" decoding="async" fetchpriority="low" width="24" height="24">
             <span>Assinie, Km 12, Côte d'Ivoire</span>
           </div>
         </div>
@@ -1040,6 +1100,22 @@
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js"></script>
   <script src="js/background-loader.js" defer></script>
+  
+  <!-- Script pour optimiser le chargement des images du footer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Précharger les images du footer qui sont en bas de page
+      const footerImages = document.querySelectorAll('#footer-section img');
+      footerImages.forEach(img => {
+        if (img.src && !img.hasAttribute('loading')) {
+          img.setAttribute('loading', 'lazy');
+          img.setAttribute('decoding', 'async');
+          img.setAttribute('fetchpriority', 'low');
+        }
+      });
+    });
+  </script>
+  
   <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

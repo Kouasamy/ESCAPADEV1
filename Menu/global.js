@@ -9,15 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!baseImage || !transitionLayer || !navItems.length) return;
 
   const originalSrc = baseImage.getAttribute('src');
+  
+  // Précharger toutes les images du menu pour améliorer les performances
+  const preloadedImages = new Map();
+  navItems.forEach((item) => {
+    const hoverSrc = item.getAttribute('data-image');
+    if (!hoverSrc) return;
+    
+    // Précharger l'image en arrière-plan
+    const img = new Image();
+    img.src = hoverSrc;
+    preloadedImages.set(hoverSrc, img);
+  });
 
   navItems.forEach((item) => {
     const hoverSrc = item.getAttribute('data-image');
     if (!hoverSrc) return;
 
     item.addEventListener('mouseenter', () => {
-      // Prepare transition layer
-      transitionLayer.setAttribute('src', hoverSrc);
-      transitionLayer.classList.add('is-visible');
+      // L'image est déjà préchargée, on peut l'utiliser directement
+      const preloadedImg = preloadedImages.get(hoverSrc);
+      if (preloadedImg && preloadedImg.complete) {
+        transitionLayer.setAttribute('src', hoverSrc);
+        transitionLayer.classList.add('is-visible');
+      } else {
+        // Si pas encore chargée, on charge normalement
+        transitionLayer.setAttribute('src', hoverSrc);
+        transitionLayer.classList.add('is-visible');
+      }
     });
 
     item.addEventListener('mouseleave', () => {

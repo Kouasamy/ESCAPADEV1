@@ -229,7 +229,7 @@ html, body {
   left: 48%;
   transform: translate(-50%, -50%);
   width: 680px; /* Réduit de 800px à 680px */
-  height: 65px; /* Réduit de 76px à 65px */
+  height: 58px; /* Réduit de 76px à 65px */
   z-index: 1;
 }
 
@@ -258,7 +258,7 @@ html, body {
 #chef .title-border-flipped-wrapper .title-border-flipped {
   left: 55% !important; /* Position à 62% au lieu de 48% */
   width: 780px !important; /* Largeur augmentée de 680px à 780px */
-  height: 70px !important; /* Hauteur légèrement augmentée pour s'adapter */
+  height: 80px !important; /* Hauteur légèrement augmentée pour s'adapter */
 }
 
 #chef .title-border-flipped-wrapper .main-title {
