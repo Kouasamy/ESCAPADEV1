@@ -61,11 +61,11 @@ const initSmoothScroll = () => {
 // SCROLL ANIMATIONS
 // ============================================
 
-// Animation for text elements (fade in + slide up) - Optimized
+// Animation for text elements (fade in + slide up) - Optimized and Reduced
 const animateTextElements = () => {
-  // Limit to important text elements to reduce load
+  // Limit to critical text elements only to reduce load
   const textElements = document.querySelectorAll(
-    'h1, h2, .main-title, .subtitle, .hero-text, .suite-title'
+    '.main-title, .hero-text'
   );
   
   // Batch animations for better performance
@@ -78,23 +78,22 @@ const animateTextElements = () => {
     const rect = el.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
     
+    // Reduced animation - simpler and faster
     gsap.set(el, {
       opacity: 0,
-      y: 20,
-      willChange: 'opacity, transform'
+      willChange: 'opacity'
     });
     
     batch.push({
       element: el,
       animation: gsap.to(el, {
         opacity: 1,
-        y: 0,
-        duration: 1.4,
+        duration: 0.8, // Reduced from 1.4 to 0.8
         ease: 'power1.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 90%',
-          end: 'bottom 10%',
+          start: 'top 85%',
+          end: 'bottom 15%',
           toggleActions: 'play none none none',
           once: true,
           markers: false
@@ -111,11 +110,11 @@ const animateTextElements = () => {
   return batch;
 };
 
-// Animation for images (fade in + subtle scale) - Optimized
+// Animation for images - Disabled for performance, only critical images
 const animateImageElements = () => {
-  // Only animate larger images to reduce load
+  // Only animate hero/background images, skip others for performance
   const imageElements = document.querySelectorAll(
-    'img:not(.btn-bg):not(.field-bg):not(.nav-bg):not(.logo-part):not(.deco-element):not(.amenity-icon):not(.tv-icon):not([data-no-animate])'
+    '.hero-background-image'
   );
   
   const batch = [];
@@ -123,27 +122,22 @@ const animateImageElements = () => {
   imageElements.forEach((img) => {
     if (img.hasAttribute('data-animated')) return;
     
-    // Skip small images (icons, etc.) for performance
-    const rect = img.getBoundingClientRect();
-    if (rect.width < 100 || rect.height < 100) return;
-    
+    // Simplified animation - just opacity fade, no scale
     gsap.set(img, {
       opacity: 0,
-      scale: 0.97,
-      willChange: 'opacity, transform'
+      willChange: 'opacity'
     });
     
     batch.push({
       element: img,
       animation: gsap.to(img, {
         opacity: 1,
-        scale: 1,
-        duration: 1.6,
+        duration: 0.6, // Reduced from 1.6 to 0.6
         ease: 'power1.out',
         scrollTrigger: {
           trigger: img,
-          start: 'top 90%',
-          end: 'bottom 10%',
+          start: 'top 85%',
+          end: 'bottom 15%',
           toggleActions: 'play none none none',
           once: true,
           markers: false
@@ -160,42 +154,24 @@ const animateImageElements = () => {
   return batch;
 };
 
-// Animation for video elements (fade in) - Optimized
+// Animation for video elements - Disabled for performance
 const animateVideoElements = () => {
+  // Videos should play immediately without animation delays
+  // Animation disabled for better performance
   const videoElements = document.querySelectorAll('video');
   
   videoElements.forEach((video) => {
     if (video.hasAttribute('data-animated')) return;
-    
-    gsap.set(video, {
-      opacity: 0,
-      willChange: 'opacity'
-    });
-    
-    gsap.to(video, {
-      opacity: 1,
-      duration: 1.8,
-      ease: 'power1.out',
-      scrollTrigger: {
-        trigger: video,
-        start: 'top 90%',
-        end: 'bottom 10%',
-        toggleActions: 'play none none none',
-        once: true,
-        markers: false
-      },
-      onComplete: () => {
-        video.style.willChange = 'auto';
-      }
-    });
-    
+    // Set opacity to 1 immediately, no animation
+    video.style.opacity = '1';
     video.setAttribute('data-animated', 'true');
   });
 };
 
-// Animation for cards and sections (fade in + slide up) - Optimized
+// Animation for cards and sections - Disabled for performance
 const animateCardElements = () => {
-  // Only animate main sections and cards, not all sections
+  // Card animations disabled for better performance
+  // Elements will appear immediately
   const cardElements = document.querySelectorAll(
     '.suite-card, .welcome-content, .hero-content, .experience-section'
   );
@@ -203,109 +179,56 @@ const animateCardElements = () => {
   cardElements.forEach((card) => {
     if (card.hasAttribute('data-animated')) return;
     
-    const rect = card.getBoundingClientRect();
-    if (rect.width === 0 || rect.height === 0) return;
-    
-    gsap.set(card, {
-      opacity: 0,
-      y: 30,
-      willChange: 'opacity, transform'
-    });
-    
-    gsap.to(card, {
-      opacity: 1,
-      y: 0,
-      duration: 1.5,
-      ease: 'power1.out',
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 90%',
-        end: 'bottom 10%',
-        toggleActions: 'play none none none',
-        once: true,
-        markers: false
-      },
-      onComplete: () => {
-        card.style.willChange = 'auto';
-      }
-    });
-    
+    // No animation, just set visible immediately
+    card.style.opacity = '1';
     card.setAttribute('data-animated', 'true');
   });
 };
 
-// Stagger animation for grid items - Optimized
+// Stagger animation for grid items - Disabled for performance
 const animateGridItems = () => {
+  // Grid animations disabled for better performance
   const grids = document.querySelectorAll('.suite-grid, .grid');
   
   grids.forEach((grid) => {
     if (grid.hasAttribute('data-animated')) return;
     
-    const items = Array.from(grid.children).filter(item => {
-      const rect = item.getBoundingClientRect();
-      return rect.width > 0 && rect.height > 0;
-    });
+    const items = Array.from(grid.children);
     
-    if (items.length === 0) return;
-    
-    gsap.set(items, {
-      opacity: 0,
-      y: 20,
-      willChange: 'opacity, transform'
-    });
-    
-    gsap.to(items, {
-      opacity: 1,
-      y: 0,
-      duration: 1.3,
-      ease: 'power1.out',
-      stagger: {
-        amount: 0.4,
-        from: 'start'
-      },
-      scrollTrigger: {
-        trigger: grid,
-        start: 'top 90%',
-        end: 'bottom 10%',
-        toggleActions: 'play none none none',
-        once: true,
-        markers: false
-      },
-      onComplete: () => {
-        items.forEach(item => item.style.willChange = 'auto');
-      }
+    // No animation, just set visible immediately
+    items.forEach(item => {
+      item.style.opacity = '1';
     });
     
     grid.setAttribute('data-animated', 'true');
   });
 };
 
-// Initialize all animations - Optimized with requestAnimationFrame
+// Initialize all animations - Optimized and Reduced
 const initScrollAnimations = () => {
+  // Wait for GSAP to be loaded
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    // Retry after a short delay
+    setTimeout(initScrollAnimations, 100);
+    return;
+  }
+  
   // Use requestAnimationFrame for better performance
   requestAnimationFrame(() => {
-    // Stagger initialization to reduce initial load
-    setTimeout(() => {
-      animateTextElements();
-    }, 50);
+    // Reduced initialization - only critical animations
+    // Reduced delays for faster page rendering
+    animateTextElements();
+    animateImageElements();
+    animateVideoElements();
+    animateCardElements();
+    animateGridItems();
     
+    // Minimal refresh delay
     setTimeout(() => {
-      animateImageElements();
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
     }, 100);
-    
-    setTimeout(() => {
-      animateVideoElements();
-      animateCardElements();
-    }, 150);
-    
-    setTimeout(() => {
-      animateGridItems();
-    }, 200);
-    
-    // Refresh ScrollTrigger after all animations are set up
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 300);
   });
 };
 

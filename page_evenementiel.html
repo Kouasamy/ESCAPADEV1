@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="images/568_819.png">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
     <style>
@@ -30,6 +30,7 @@
   
   <!-- Script pour supprimer complètement les contrôles vidéo -->
   <script src="js/remove-video-controls.js"></script>
+  <script src="js/page-loader.js" defer></script>
   
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
@@ -45,43 +46,51 @@
   </script>
 </head>
 <body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="events">
+<div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Chargement">
+  <div class="loader-inner">
+    <span class="loader-ring" aria-hidden="true"></span>
+    <p class="loader-text">L'ESCAPADE</p>
+  </div>
+</div>
 
-<header class="fixed top-0 left-0 w-full flex flex-col md:flex-row justify-between items-start px-6 py-5 z-50 gap-4 ">
-  <div class="menu-cluster flex w-full md:w-auto justify-between items-center">
-    <!-- Bouton burger -->
-    <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
-      <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12">
-      <span class="text-sm md:text-base">MENU</span>
-    </button>
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="menu-cluster site-header__start">
+      <!-- Bouton burger -->
+      <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
+        <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12">
+        <span class="text-sm md:text-base">MENU</span>
+      </button>
 
-    <!-- Sélecteur de langue -->
-    <div class="lang-switcher flex items-center gap-2 md:gap-3">
-      <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
-      <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
-      <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
+      <!-- Sélecteur de langue -->
+      <div class="lang-switcher">
+        <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
+        <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
+        <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Logo -->
-  <div class="flex justify-center w-full md:w-auto">
-    <a href="index.html">
-      <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" />
-    </a>
-  </div>
+    <!-- Logo -->
+    <div class="site-header__logo">
+      <a href="index.html" class="logo-link">
+        <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" />
+      </a>
+    </div>
 
-  <!-- Navigation principale -->
-  <nav class="header-nav flex flex-col sm:flex-row items-center gap-3 md:gap-6 text-center">
-    <!--merged image-->
-    <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
-      <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
-      <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2">Réserver une suite</span>
-    </a>
-    <!--merged image-->
-    <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
-      <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
-      <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2">Réserver un espace</span>
-    </a>
-  </nav>
+    <!-- Navigation principale -->
+    <nav class="header-nav site-header__end">
+      <!--merged image-->
+      <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
+        <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+        <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2">Réserver une suite</span>
+      </a>
+      <!--merged image-->
+      <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
+        <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+        <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2">Réserver un espace</span>
+      </a>
+    </nav>
+  </div>
 </header>
 
 <!-- MENU BURGER (plein écran) -->
@@ -256,8 +265,9 @@
   }
 
   .menu-nav {
-    padding-top: 286px;
-    padding-left: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .menu-nav ul {
@@ -663,8 +673,8 @@
     <div class="text-center">
       <div class="title-wrapper">
         <img src="images/574_538.png" alt="Decorative border" class="title-border  ">
-        <h1 class="main-title  ">
-         EVENEMENTIEL <span class="highlight "> L’ESCAPADE</span>
+        <h1 class="main-title" style="margin-left: 80px;">
+         EVENEMENTIEL <span class="highlight "> L'ESCAPADE</span>
         </h1>
       </div>
       
@@ -694,9 +704,15 @@
     <div class="flex flex-col md:flex-row-reverse items-center gap-12 mt-12">
       <!-- Texte -->
       <div class="w-full md:w-1/2 space-y-6">
-        <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-          Un salon dédié aux séminaires, team building et rencontres professionnelles.
-        </p>
+        <div class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
+          <p>Nos espaces s'adaptent à toutes vos envies :</p>
+          <ul class="list-none space-y-2 mt-4">
+            <li>● une plage naturelle face à la lagune pour des cérémonies inoubliables,</li>
+            <li>● une piscine extérieure pour des soirées animées,</li>
+            <li>● un lounge et un restaurant raffinés pour des réceptions élégantes,</li>
+            <li>● un salon dédié aux séminaires, team building et rencontres professionnelles.</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Image -->

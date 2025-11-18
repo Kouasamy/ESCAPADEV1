@@ -220,13 +220,14 @@ html, body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-bottom: 66px; /* (Subtitle Y: -705) - (Title Y: -828 + Height: 57) */
 }
 
 .title-border {
   position: absolute;
-  top: 51%;
-  left: 48%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 680px; /* Réduit de 800px à 680px */
   height: 58px; /* Réduit de 76px à 65px */
@@ -242,16 +243,20 @@ html, body {
   position: relative;
   z-index: 2;
   font-family: var(--font-heading);
-  
   font-size: 44px; /* Réduit de 52px à 44px */
   line-height: 1.25;
   color: black;
-  margin-left: 38px; /* Réduit de 45px à 38px pour s'ajuster au texte réduit */
+  margin: 0;
+  padding: 0 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35em;
+  text-align: center;
 }
 
-/* Ajouter de l'espace à droite pour les titres avec title-border retournée */
-.title-border-flipped-wrapper .main-title {
-  margin-right: 38px; /* Réduit de 45px à 38px */
+.main-title span {
+  display: inline-block;
 }
 
 /* Styles spécifiques pour les sections NOTRE CHEF et Boissons & Cocktails */
@@ -366,15 +371,6 @@ html, body {
 }
 
 @media (max-width: 992px) {
-  /* Faire monter le logo au responsive */
-  .hero-header {
-    padding-top: 15px !important; /* Réduit le padding-top pour tablette */
-  }
-  
-  .hero-header > div.flex.justify-center .logo-link {
-    margin-top: -6px; /* Fait monter le logo légèrement */
-  }
-  
   .hero-main {
     padding: 22px 14px;
     min-height: calc(100vh - 170px);
@@ -390,6 +386,7 @@ html, body {
     max-width: 340px;
     width: 98%;
     margin: 0 auto !important;
+    margin-top: clamp(-32px, -6vw, -18px) !important;
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.25);
@@ -552,6 +549,7 @@ html, body {
   .booking-form {
     padding: 18px 20px;
     max-width: 340px;
+    margin-top: clamp(-44px, -10vw, -26px);
   }
   .form-field-wrapper {
     padding: 12px 16px;
@@ -629,6 +627,7 @@ html, body {
   }
   .booking-form {
     margin: 0 auto;
+    margin-top: clamp(-40px, -8vw, -22px);
     padding: 18px 20px;
     width: 98%;
     max-width: 340px;
@@ -1545,6 +1544,7 @@ video::-webkit-media-controls {
 .experience-section {
   width: 100%;
   height: 80vh;
+  overflow-y: hidden;
 }
 
 .hero-container {
@@ -1698,16 +1698,85 @@ video::-webkit-media-controls {
 }
 
 /* CSS for section section:hero */
+#hero {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .hero-container {
-    position: relative;
-    max-width: 100%;
+  position: relative;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-y: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 1024px) {
+  #hero,
+  #hero .hero-container {
+    min-height: 100vh;
     height: 100vh;
-    margin: 0 auto;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
   }
-  
+  #hero .hero-bg-video {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+
+/* Loader overlay */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(18, 18, 18, 0.96), rgba(6, 6, 6, 0.98));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.loader-ring {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  animation: loader-spin 0.9s linear infinite;
+}
+
+.loader-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
   /* Overlay sombre pour assombrir la vidéo de fond */
   .hero-container::after {
     content: '';
@@ -1747,41 +1816,69 @@ video::-webkit-media-controls {
     z-index: 1;
   }
 
-  /* Header styles - maintenant géré par Tailwind dans le HTML, on garde seulement les styles de base */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.65rem, 1vw + 0.45rem, 1.1rem) 0;
+    background: transparent;
+    border: none;
+    transition: padding 0.3s ease, transform 0.3s ease;
+  }
+
   .hero-header {
-    /* Styles de base - les classes Tailwind gèrent le responsive */
-    background: none;
-    position: relative;
+    background: transparent;
+    border-bottom: none;
   }
-  
-  /* Espacement entre le menu et le lang-switcher - maintenant dans le même conteneur */
+
+  .site-header__inner {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.85rem, 2vw, 2.5rem);
+    padding: 0 clamp(0.35rem, 1.5vw, 1.5rem);
+    z-index: 1;
+  }
+
+  .site-header__start,
+  .site-header__end {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.75rem, 1.8vw, 1.75rem);
+    width: auto;
+  }
+
+  .site-header__start {
+    flex: 1 1 0;
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+
+  .site-header__logo {
+    display: inline-flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .site-header__end {
+    flex: 1 1 0;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
   .menu-cluster {
-    justify-content: flex-start !important;
-    gap: 1.75rem !important; /* Espace modéré entre le menu-button et le lang-switcher */
-  }
-  
-  /* Sur desktop, espacement équilibré */
-  @media (min-width: 768px) {
-    .menu-cluster {
-      gap: 2rem !important; /* Espace confortable entre menu-button et lang-switcher sur desktop */
-    }
-    .hero-header {
-      gap: 1.5rem !important; /* Espace normal pour le reste du header */
-    }
-  }
-
-  @media (max-width: 768px) {
-    .menu-cluster {
-      justify-content: space-between !important; /* Menu-button à gauche, lang-switcher à droite au responsive */
-      gap: 0; /* Pas de gap fixe, on utilise space-between */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .menu-cluster {
-      justify-content: space-between !important; /* Menu-button à gauche, lang-switcher à droite au responsive */
-      gap: 0;
-    }
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
   }
 
   .menu-button {
@@ -1790,25 +1887,17 @@ video::-webkit-media-controls {
     color: #ffffff;
     font-family: 'Futura Md BT', 'Futura', sans-serif;
     cursor: pointer;
-    margin-right: 0 !important; /* Retirer la marge car on utilise gap maintenant */
   }
 
   .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.4rem, 1.2vw, 0.85rem);
     color: #ffffff;
   }
   
   .lang-switcher a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  
-  /* Lang-switcher au responsive, à droite du logo */
-  .lang-switcher-responsive {
-    color: #ffffff;
-  }
-  
-  .lang-switcher-responsive a {
-    color: #ffffff;
+    color: inherit;
     text-decoration: none;
   }
   
@@ -1817,20 +1906,89 @@ video::-webkit-media-controls {
   }
 
   .logo-link {
-    display: block;
+    display: inline-flex;
     margin: 0 auto;
   }
   
-  /* Centrer le logo horizontalement dans le header */
-  header.fixed > div.flex.justify-center,
-  .hero-header > div.flex.justify-center {
-    display: flex;
-    justify-content: center;
+  .header-nav {
+    display: inline-flex;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  @media (max-width: 1200px) {
+    .site-header {
+      padding: clamp(0.55rem, 2vw, 0.95rem) 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .site-header__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0;
+      z-index: 1;
+    }
+    .site-header__logo {
+      order: 0;
+      justify-content: center;
+    }
+    .site-header__start,
+    .site-header__end {
+      width: 100%;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .site-header__end,
+    .header-nav {
+      display: none !important;
+    }
+    .menu-cluster {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .menu-button {
+      margin-left: clamp(0.5rem, 4vw, 1.25rem);
+    }
+    .menu-cluster .lang-switcher {
+      width: auto;
+      justify-content: flex-end;
+      margin-right: clamp(0.5rem, 4vw, 1.25rem);
+    }
+    .lang-switcher {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      padding: clamp(0.5rem, 4vw, 0.8rem) 0;
+    }
+    .site-header__start {
+      justify-content: space-between;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .menu-cluster {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .menu-button {
+      justify-content: flex-start;
+    }
+    .lang-switcher {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .menu-cluster {
+      gap: 0.5rem;
+    }
   }
 
 
@@ -2076,17 +2234,13 @@ video::-webkit-media-controls {
   }
 
   /* --- Hover polish for header contact button and nav links (site-wide) --- */
-  header.fixed .contact-btn,
-  .hero-header .contact-btn,
-  header.fixed .header-nav a,
-  .hero-header .header-nav a {
+  .site-header .contact-btn,
+  .site-header .header-nav a {
     transition: box-shadow .25s ease, transform .25s ease;
   }
 
-  header.fixed .contact-btn:hover,
-  .hero-header .contact-btn:hover,
-  header.fixed .header-nav a:hover,
-  .hero-header .header-nav a:hover {
+  .site-header .contact-btn:hover,
+  .site-header .header-nav a:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
     transform: translateY(-1px);
   }
@@ -2117,15 +2271,6 @@ video::-webkit-media-controls {
       height: 80vh;
       min-height: 400px;
       width: 100%;
-    }
-    
-    /* Faire monter le logo au responsive */
-    .hero-header {
-      padding-top: 15px !important;
-    }
-    
-    .hero-header > div.flex.justify-center .logo-link {
-      margin-top: -5px;
     }
     
     .hero-header, .booking-form, .hero-footer {
@@ -2198,15 +2343,6 @@ video::-webkit-media-controls {
       min-height: 400px;
     }
     
-    /* Faire monter le logo au responsive */
-    .hero-header {
-      padding-top: 15px !important;
-    }
-    
-    .hero-header > div.flex.justify-center .logo-link {
-      margin-top: -6px;
-    }
-    
     /* Le responsive du header est géré par les classes Tailwind */
     .hero-main {
       padding: 22px 14px;
@@ -2263,26 +2399,8 @@ video::-webkit-media-controls {
       height: 80vh;
       min-height: 400px;
     }
-    /* Le responsive du header est géré par les classes Tailwind (hidden md:inline-block pour nav) */
-    /* Masquer les liens "Réserver une suite" et "Réserver un espace" en responsive */
     .header-nav .btn-wrapper {
       display: none !important;
-    }
-    /* Sur mobile, le logo reste centré dans son conteneur */
-    header.fixed > div.flex.justify-center,
-    .hero-header > div.flex.justify-center {
-      position: static;
-      transform: none;
-      left: auto;
-    }
-    
-    /* Faire monter le logo au responsive */
-    .hero-header {
-      padding-top: 12px !important; /* Réduit de py-5 (20px) à 12px */
-    }
-    
-    .hero-header > div.flex.justify-center .logo-link {
-      margin-top: -8px; /* Fait monter le logo */
     }
     .hero-main {
       display: flex !important;
@@ -2346,15 +2464,6 @@ video::-webkit-media-controls {
     /* Augmentation raisonnable des H1 pour mobile */
     .main-title {
       font-size: 16px !important;
-    }
-    
-    /* Faire monter le logo au responsive */
-    .hero-header {
-      padding-top: 10px !important; /* Réduit encore plus pour petits écrans */
-    }
-    
-    .hero-header > div.flex.justify-center .logo-link {
-      margin-top: -10px !important; /* Fait monter le logo encore plus */
     }
     
     /* Le responsive du header est géré par les classes Tailwind (hidden md:inline-block pour nav) */
