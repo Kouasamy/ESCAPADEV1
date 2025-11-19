@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
@@ -48,7 +48,7 @@
       <!-- Bouton burger -->
       <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
         <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12">
-        <span class="text-sm md:text-base">MENU</span>
+        <span class="text-sm md:text-base" data-translate="menu">MENU</span>
       </button>
 
       <!-- Sélecteur de langue -->
@@ -88,7 +88,7 @@
     <header class="menu-header">
       <a href="#" class="menu-close-button">
         <img src="Menu/images/542_446.svg" alt="Close Icon">
-        <span>FERMER</span>
+        <span data-translate="close">FERMER</span>
       </a>
       <div class="menu-lang-switcher">
         <a href="#" data-lang="fr">FR</a>
@@ -111,21 +111,21 @@
             <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
-              <span class="nav-text">CHAMBRES & SUITE</span>
+              <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
             </a>
           </li>
           <li>
             <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
-              <span class="nav-text">LE RESTAURANT</span>
+              <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
             </a>
           </li>
           <li>
             <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
-              <span class="nav-text">LE LOUNGE</span>
+              <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
             </a>
           </li>
           <li>
@@ -139,7 +139,7 @@
             <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
-              <span class="nav-text">A PROPOS</span>
+              <span class="nav-text" data-translate="about">A PROPOS</span>
             </a>
           </li>
         </ul>
@@ -723,12 +723,12 @@
       
 
 
-      <h1 class="text-7xl text-white font-[Big_Caslon]">SUITE JUNIOR <span class="text-gold">VIP</span></h1>
+      <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="suiteJuniorVipTitle">SUITE JUNIOR <span class="text-gold">VIP</span></h1>
       <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
       <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
          <div class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg">
-        <span class="btn-text">Nous Contactez</span>
+        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
       </div>
       </a>
     </div>
@@ -740,7 +740,7 @@
       <div class="details-wrapper flex flex-col md:flex-row items-center gap-16">
         <div class="details-text-content w-full md:w-1/2 space-y-6 text-[#000000]">
           <h2 class="details-title font-[Big_Caslon] text-[48px] md:text-[58px] leading-[70px]">
-            La suite <span class="highlight text-[#B78F62]">junior VIP</span>
+            <span data-translate="suiteJuniorVipSubtitle">La suite <span class="highlight text-[#B78F62]">junior VIP</span></span>
           </h2>
           
           <div class="features flex items-center gap-8 mt-6">
@@ -750,7 +750,7 @@
             </div>
             <div class="feature-item flex items-center gap-2">
               <img src="images/272_1551.svg" alt="Pool icon" class="feature-icon w-8 h-8" />
-              <p class="feature-label font-[Big_Caslon] text-[14px]">Piscine</p>
+              <p class="feature-label font-[Big_Caslon] text-[14px]" data-translate="pool">Piscine</p>
             </div>
             <div class="feature-item flex items-center gap-2">
               <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="feature-icon tv-icon w-8 h-8" />
@@ -758,7 +758,7 @@
             </div>
           </div>
 
-          <p class="details-description font-[Futura_Md_BT] text-[22px] leading-[28px] max-w-md">
+          <p class="details-description font-[Futura_Md_BT] text-[22px] leading-[28px] max-w-md" data-translate="suiteJuniorVipDescription">
             Avec ses 70 m², la Suite Junior VIP allie design contemporain, matières naturelles 
             et inspirations locales. Lumineuse et raffinée, elle révèle un luxe authentique 
             dans sa plus grande simplicité. Cette suite VIP offre un confort exceptionnel avec deux suites communicantes.
@@ -767,24 +767,24 @@
           <ul class="details-list mt-8 space-y-2 text-[15px] font-[Futura_Md_BT]">
             <li class="flex items-center gap-3">
               <img src="images/272_1778.svg" alt="bullet point" class="w-3 h-3" />
-              Capacité : 2 Suites communicantes
+              <span data-translate="suiteJuniorVipCapacity">Capacité : 2 Suites communicantes</span>
             </li>
             <li class="flex items-center gap-3">
               <img src="images/272_1776.svg" alt="bullet point" class="w-3 h-3" />
-              Tarif semaine : 520 000 FCFA (2 Suites)
+              <span data-translate="suiteJuniorVipWeekRate">Tarif semaine : 520 000 FCFA (2 Suites)</span>
             </li>
             <li class="flex items-center gap-3">
               <img src="images/279_1796.svg" alt="bullet point" class="w-3 h-3" />
-              Tarif week-end : 650 000 FCFA (2 Suites)
+              <span data-translate="suiteJuniorVipWeekendRate">Tarif week-end : 650 000 FCFA (2 Suites)</span>
             </li>
             <li class="flex items-center gap-3">
               <img src="images/272_1778.svg" alt="bullet point" class="w-3 h-3" />
-              Piscine privée
+              <span data-translate="privatePool">Piscine privée</span>
             </li>
           </ul>
 
           <div class="pt-6">
-            <a href="page_reservation1.html" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]">
+            <a href="page_reservation1.html" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]" data-translate="bookNow">
               Réserver maintenant
             </a>
           </div>

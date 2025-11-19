@@ -8,9 +8,22 @@
   'use strict';
 
   // Initialisation
-  document.addEventListener('DOMContentLoaded', function() {
+  function initialize() {
     initDateFields();
     initGuestCounter();
+  }
+
+  // Essayer plusieurs fois pour s'assurer que le DOM est prêt
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    // DOM déjà chargé
+    initialize();
+  }
+
+  // Réessayer après le chargement complet de la page
+  window.addEventListener('load', function() {
+    setTimeout(initGuestCounter, 100);
   });
 
   /**
@@ -188,85 +201,112 @@
 
   /**
    * Initialise le compteur d'invités
+   * Version simplifiée et robuste
    */
   function initGuestCounter() {
-    const guestInput = document.getElementById('guests');
-    const guestMinus = document.getElementById('guest-minus');
-    const guestPlus = document.getElementById('guest-plus');
-    const guestValueSpan = document.querySelector('.guest-value');
+    // Trouver tous les inputs guests sur la page
+    const guestInputs = document.querySelectorAll('input#guests');
     
-    if (!guestInput || !guestMinus || !guestPlus) return;
-
-    let guestCount = parseInt(guestInput.value) || 1;
-    const minGuests = parseInt(guestInput.getAttribute('min')) || 0;
-    const maxGuests = parseInt(guestInput.getAttribute('max')) || 20;
-
-    // Fonction pour mettre à jour l'affichage
-    function updateGuestDisplay() {
-      guestInput.value = guestCount;
-      const labelTextSpan = document.querySelector('#guest-label .label-text');
-      
-      // Afficher "Invités" seulement quand la valeur est 0, sinon afficher le nombre
-      if (guestCount === 0) {
-        // Afficher "Invités" et masquer le nombre
-        if (labelTextSpan) {
-          labelTextSpan.style.display = 'inline';
-        }
-        if (guestValueSpan) {
-          guestValueSpan.style.display = 'none';
-        }
-      } else {
-        // Afficher le nombre et masquer "Invités"
-        if (labelTextSpan) {
-          labelTextSpan.style.display = 'none';
-        }
-        if (guestValueSpan) {
-          guestValueSpan.textContent = guestCount;
-          guestValueSpan.style.display = 'inline';
-        }
-      }
-      
-      // Mettre à jour l'état des boutons
-      guestMinus.style.opacity = guestCount <= minGuests ? '0.5' : '1';
-      guestMinus.style.cursor = guestCount <= minGuests ? 'not-allowed' : 'pointer';
-      
-      guestPlus.style.opacity = guestCount >= maxGuests ? '0.5' : '1';
-      guestPlus.style.cursor = guestCount >= maxGuests ? 'not-allowed' : 'pointer';
+    if (!guestInputs || guestInputs.length === 0) {
+      return;
     }
 
-    // Bouton moins
-    guestMinus.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (guestCount > minGuests) {
-        guestCount--;
-        updateGuestDisplay();
-      }
-    });
+    guestInputs.forEach((guestInput) => {
+      // Trouver les éléments associés dans le même conteneur
+      const guestField = guestInput.closest('.guest-field') || guestInput.closest('.form-field-wrapper');
+      if (!guestField) return;
+      
+      const guestMinus = guestField.querySelector('.guest-minus') || document.getElementById('guest-minus');
+      const guestPlus = guestField.querySelector('.guest-plus') || document.getElementById('guest-plus');
+      const guestLabel = guestField.querySelector('#guest-label') || guestField.querySelector('.field-label');
+      const guestValueSpan = guestLabel ? guestLabel.querySelector('.guest-value') : null;
+      const labelTextSpan = guestLabel ? guestLabel.querySelector('.label-text') : null;
+      
+      if (!guestInput || !guestMinus || !guestPlus) return;
 
-    // Bouton plus
-    guestPlus.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (guestCount < maxGuests) {
-        guestCount++;
-        updateGuestDisplay();
-      }
-    });
+      // État initial
+      let guestCount = parseInt(guestInput.value) || 1;
+      const minGuests = parseInt(guestInput.getAttribute('min')) || 0;
+      const maxGuests = parseInt(guestInput.getAttribute('max')) || 20;
 
-    // Écouter les changements directs sur l'input
-    guestInput.addEventListener('change', function() {
-      const newValue = parseInt(this.value);
-      if (!isNaN(newValue) && newValue >= minGuests && newValue <= maxGuests) {
-        guestCount = newValue;
-        updateGuestDisplay();
-      } else {
-        this.value = guestCount;
-      }
-    });
+      // Supprimer d'abord les anciens listeners en clonant les éléments
+      const newMinus = guestMinus.cloneNode(true);
+      const newPlus = guestPlus.cloneNode(true);
+      guestMinus.parentNode.replaceChild(newMinus, guestMinus);
+      guestPlus.parentNode.replaceChild(newPlus, guestPlus);
 
-    // Initialiser l'affichage
-    updateGuestDisplay();
+      // Mettre à jour les références pour updateDisplay
+      const currentMinus = newMinus;
+      const currentPlus = newPlus;
+
+      // Redéfinir updateDisplay avec les nouvelles références
+      function updateDisplay() {
+        // Mettre à jour la valeur de l'input
+        guestInput.value = guestCount;
+        
+        // Mettre à jour l'affichage visuel
+        if (guestCount === 0) {
+          if (labelTextSpan) labelTextSpan.style.display = 'inline';
+          if (guestValueSpan) guestValueSpan.style.display = 'none';
+        } else {
+          if (labelTextSpan) labelTextSpan.style.display = 'none';
+          if (guestValueSpan) {
+            guestValueSpan.textContent = guestCount;
+            guestValueSpan.style.display = 'inline';
+          }
+        }
+        
+        // Mettre à jour l'état des boutons avec les nouvelles références
+        if (currentMinus) {
+          const disabled = guestCount <= minGuests;
+          currentMinus.style.opacity = disabled ? '0.5' : '1';
+          currentMinus.style.pointerEvents = disabled ? 'none' : 'auto';
+          currentMinus.style.cursor = disabled ? 'not-allowed' : 'pointer';
+        }
+        
+        if (currentPlus) {
+          const disabled = guestCount >= maxGuests;
+          currentPlus.style.opacity = disabled ? '0.5' : '1';
+          currentPlus.style.pointerEvents = disabled ? 'none' : 'auto';
+          currentPlus.style.cursor = disabled ? 'not-allowed' : 'pointer';
+        }
+      }
+
+      // Attacher les listeners sur les nouveaux éléments
+      currentMinus.addEventListener('click', function handler(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        if (guestCount > minGuests) {
+          guestCount--;
+          updateDisplay();
+        }
+      }, { capture: true });
+
+      currentPlus.addEventListener('click', function handler(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        if (guestCount < maxGuests) {
+          guestCount++;
+          updateDisplay();
+        }
+      }, { capture: true });
+
+      // Écouter les changements directs sur l'input
+      guestInput.addEventListener('change', function() {
+        const newValue = parseInt(this.value);
+        if (!isNaN(newValue) && newValue >= minGuests && newValue <= maxGuests) {
+          guestCount = newValue;
+          updateDisplay();
+        } else {
+          this.value = guestCount;
+        }
+      });
+
+      // Initialiser l'affichage
+      updateDisplay();
+    });
   }
 })();
 

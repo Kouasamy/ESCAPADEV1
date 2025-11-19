@@ -142,6 +142,76 @@
         reservationPayingLabel: 'You will pay:',
         reservationConfirmPayment: 'Confirm payment',
       },
+      lounge: {
+        loungeHeroTitle: 'LOUNGE',
+        loungeSectionTitle: 'LOUNGE <span class="highlight">L\'ESCAPADE</span>',
+        loungeParagraph1: 'An urban ambience in Assinie. L\'Escapade\'s lounge blends city elegance with coastal softness: a place designed to unwind, connect, and enjoy simple moments in a refined setting. An Abidjan-style lounge. Here, the convivial energy of the capital meets the serenity of the lagoon to offer a unique experience.',
+        loungeDrinksTitle: 'Drinks<span class="highlight"> & Refined Cocktails</span>',
+        loungeDrinksDescription: 'The taste of vacation, to be savored without moderation. Exotic cocktails, fresh fruit juices, selected wines, and refined spirits make up our menu, served with discreet and warm attention.',
+        loungeEveningDescription: 'When evening comes, the lanterns light up, the music softens, and the lounge transforms into a peaceful and welcoming place, conducive to exchanges and shared moments.',
+      },
+      suites: {
+        roomsSuitesHeroTitle: 'ROOMS & SUITES',
+        suiteJuniorSalonTitle: 'JUNIOR SUITE + LIVING ROOM',
+        suiteJuniorSalonSubtitle: 'The <span class="highlight text-[#B78F62]">junior + living room</span> suite',
+        suiteJuniorSalonDescription: 'With its 70 m², the Junior + Living Room Suite combines contemporary design, natural materials and local inspiration. Bright and refined, it reveals authentic luxury in its greatest simplicity. This suite features a spacious living room for added comfort.',
+        suiteCapacity: 'Capacity: 2 adults + 2 children',
+        suiteWeekRate: 'Weekly rate: 240,000 FCFA',
+        suiteWeekendRate: 'Weekend rate: 300,000 FCFA',
+        pool: 'Pool',
+        bookNow: 'Book now',
+        viewSuite: 'View the suite',
+        suiteJuniorTitle: 'JUNIOR SUITE',
+        suiteSeniorTitle: 'SENIOR SUITE',
+        suiteJuniorVipTitle: 'JUNIOR SUITE <span class="text-gold">VIP</span>',
+        suiteSeniorVipTitle: 'SENIOR SUITE <span class="text-gold">VIP</span>',
+        suiteVillaFamilialeTitle: 'FAMILY VILLA',
+        suiteWeekend: 'Weekend',
+        suiteWeek: 'Week',
+        suiteComfortText: 'The comfort of a private apartment blending openness and harmony, creating a restful and elegant setting. Here, every detail celebrates the art of living: wood, light, the softness of fabrics, the serenity of volumes. A perfect balance between nature and elegance.',
+        suiteJuniorSubtitle: 'The <span class="highlight text-[#B78F62]">junior</span> suite',
+        suiteJuniorDescription: 'With its 70 m², the Junior Suite combines contemporary design, natural materials and local inspiration. Bright and refined, it reveals authentic luxury in its greatest simplicity.',
+        suiteJuniorWeekRate: 'Weekly rate: 200,000 FCFA',
+        suiteJuniorWeekendRate: 'Weekend rate: 250,000 FCFA',
+        suiteSeniorSubtitle: 'The <span class="highlight text-[#B78F62]">senior</span> suite',
+        suiteSeniorDescription: 'With an area of 85.91 m², the Senior Suite offers spacious volumes reminiscent of the comfort of a private apartment. Its distinct interiors, blending openness and harmony, create a restful and elegant setting.',
+        suiteSeniorCapacity: 'Total capacity (2 Junior VIP Suites): 4 adults + 4 children',
+        suiteSeniorWeekRate: 'Weekly rate: 280,000 FCFA',
+        suiteSeniorWeekendRate: 'Weekend rate: 350,000 FCFA',
+        suiteJuniorVipSubtitle: 'The <span class="highlight text-[#B78F62]">junior VIP</span> suite',
+        suiteJuniorVipDescription: 'With its 70 m², the Junior VIP Suite combines contemporary design, natural materials and local inspiration. Bright and refined, it reveals authentic luxury in its greatest simplicity. This VIP suite offers exceptional comfort with two connecting suites.',
+        suiteJuniorVipCapacity: 'Capacity: 2 Connecting suites',
+        suiteJuniorVipWeekRate: 'Weekly rate: 520,000 FCFA (2 Suites)',
+        suiteJuniorVipWeekendRate: 'Weekend rate: 650,000 FCFA (2 Suites)',
+        suiteSeniorVipSubtitle: 'The <span class="highlight text-[#B78F62]">senior VIP</span> suite',
+        suiteSeniorVipDescription: 'With an area of 85.91 m², the Senior VIP Suite offers spacious volumes reminiscent of the comfort of a private apartment. Its distinct interiors, blending openness and harmony, create a restful and elegant setting. This VIP suite offers exceptional comfort for an unforgettable stay.',
+        suiteSeniorVipCapacity: 'Total capacity (2 Junior VIP Suites): 4 adults + 4 children',
+        suiteSeniorVipWeekRate: 'Weekly rate: 320,000 FCFA',
+        suiteSeniorVipWeekendRate: 'Weekend rate: 400,000 FCFA',
+        suiteVillaFamilialeSubtitle: 'The <span class="highlight text-[#B78F62]">Family Villa</span>',
+        suiteVillaFamilialeDescription: 'Open onto L\'Escapade\'s lush garden, the Family Villa is a true haven of exception. With its private pool and large terrace bordered by coconut trees, it offers a soothing view of the hotel\'s green spaces. With its two bedrooms, elegant living room and generous volumes, this suite is designed to welcome families and loved ones in absolute comfort. Every detail reflects Ivorian hospitality.',
+        suiteVillaFamilialeCapacity: 'Capacity: Family',
+        suiteVillaFamilialeRate: 'Rate: On request',
+        privatePool: 'Private pool',
+      },
+      events: {
+        eventsHeroTitle: 'EVENTS',
+        eventsSectionTitle: 'EVENTS <span class="highlight">L\'ESCAPADE</span>',
+        eventsParagraph1: 'L\'Escapade is the ideal setting to celebrate life\'s great moments. Waterfront weddings, birthdays, small-group retreats, or large celebrations bringing together up to 2,000 guests: every event finds its perfect setting here.',
+        eventsParagraph2: 'At L\'Escapade, elegance and nature come together to offer a setting where the most precious memories are created and the most beautiful inspirations are born.',
+        eventsParagraph3: 'Enjoy your event to the fullest, we take care of the rest. From setup to decoration, through catering, entertainment, and even guest accommodation, our team coordinates every detail with care and flexibility.',
+        eventsParagraph4: 'You can choose your own service providers, or entrust everything to our organization for a turnkey service, always adapted to your wishes.',
+        eventsSpacesTitle: 'Our spaces adapt to all your wishes:',
+        eventsSpace1: '● a natural beach facing the lagoon for unforgettable ceremonies,',
+        eventsSpace2: '● an outdoor pool for lively evenings,',
+        eventsSpace3: '● a refined lounge and restaurant for elegant receptions,',
+        eventsSpace4: '● a dedicated room for seminars, team building and professional meetings.',
+      },
+      about: {
+        aboutHeroTitle: 'About',
+        aboutSectionTitle: 'ABOUT',
+        aboutParagraph1: 'Located at kilometer 12, L\'Escapade opens its doors to you in Assinie, an emblematic seaside resort in Côte d\'Ivoire. Just 90km from Abidjan, this peaceful village stretches between the Aby Lagoon and the Atlantic Ocean, offering an exceptional natural setting. Once fishing grounds, Assinie has transformed into an international destination, welcoming a growing number of visitors each year in search of calm and authenticity. With its 30-kilometer-long fine sand beach, its coconut trees, its peaceful lagoons, and its gentle way of life, Assinie is an invitation to escape.',
+      },
     },
   };
 
@@ -164,7 +234,20 @@
   }
 
   function getPageScope() {
-    return document.body?.dataset?.page || 'common';
+    const page = document.body?.dataset?.page || 'common';
+    // Mapper les pages de suites individuelles au scope "suites"
+    if (page && (page.startsWith('suite-') || page === 'suite-list')) {
+      return 'suites';
+    }
+    // Mapper les pages d'événements
+    if (page === 'events' || page === 'evenementiel') {
+      return 'events';
+    }
+    // Mapper les pages à propos
+    if (page === 'about' || page === 'apropos') {
+      return 'about';
+    }
+    return page;
   }
 
   function buildLookup(lang) {
