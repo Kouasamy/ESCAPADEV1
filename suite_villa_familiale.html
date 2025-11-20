@@ -122,7 +122,7 @@
             </a>
           </li>
           <li>
-            <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
+            <a href="lounge.html" class="nav-item" data-image="img/10.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
               <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
@@ -612,10 +612,11 @@
         width: 100%;
       }
 
-      .gallery-slide img {
+      .gallery-slide img,
+      .gallery-slide video {
         display: block;
         width: 100%;
-        height: auto;
+        height: 300px;
         border-radius: 85px 0;
         object-fit: cover;
       }
@@ -647,7 +648,8 @@
           scroll-snap-align: start;
         }
 
-        .gallery-slide img {
+        .gallery-slide img,
+        .gallery-slide video {
           border-radius: 85px 0;
           height: 400px;
           width: 100%;
@@ -659,13 +661,15 @@
       }
 
       @media (max-width: 768px) {
-        .gallery-slide img {
+        .gallery-slide img,
+        .gallery-slide video {
           height: 350px;
         }
       }
 
       @media (max-width: 480px) {
-        .gallery-slide img {
+        .gallery-slide img,
+        .gallery-slide video {
           height: 300px;
         }
       }
@@ -790,7 +794,7 @@
         </div>
 
         <div class="details-image-wrapper w-full md:w-1/2 relative">
-          <img id="mainImage" src="images/3b4e8398b539c12a5e9d6d121050234f86cac4ac.png" alt="Villa Familiale interior"
+          <img id="mainImage" src="images/DJI_0956.jpg" alt="Villa Familiale interior"
             class="details-image w-full h-[400px] md:h-[500px] object-cover rounded-[85px_0] transition-opacity duration-300" />
 
           <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" />
@@ -805,13 +809,15 @@
               <div class="gallery-slider-container relative" style="max-width: 100%; margin: 0 auto;">
                 <div class="gallery-slider-track">
                   <div class="gallery-slide">
-                    <img src="img/12.jpg" alt="Intérieur de la Villa Familiale" class="w-full h-[400px] object-cover">
+                    <img src="images/IMG_1415.jpg" alt="Intérieur de la Villa Familiale" class="w-full h-[400px] object-cover">
                   </div>
                   <div class="gallery-slide">
-                    <img src="img/13.jpg" alt="Vue extérieure de la Villa Familiale" class="w-full h-[400px] object-cover">
+                    <img src="images/IMG_1341.jpg" alt="Vue extérieure de la Villa Familiale" class="w-full h-[400px] object-cover">
                   </div>
                   <div class="gallery-slide">
-                    <img src="img/14.jpg" alt="Vue piscine de la Villa Familiale" class="w-full h-[400px] object-cover">
+                    <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[300px] object-cover" style="border-radius: 85px 0;" controlslist="nodownload nofullscreen noremoteplayback">
+                      <source src="video/CHAMBRE 1 NEW VERSION.mp4" type="video/mp4">
+                    </video>
                   </div>
                 </div>
               </div>

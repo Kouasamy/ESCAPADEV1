@@ -191,7 +191,7 @@
             </a>
           </li>
           <li>
-            <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
+            <a href="lounge.html" class="nav-item" data-image="img/10.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
               <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
@@ -905,6 +905,92 @@
       header, #contactFab {
         transition: all 0.3s ease;
       }
+
+      /* Styles pour le slider horizontal des suites */
+      .suite-gallery-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        position: relative;
+        cursor: grab;
+        user-select: none;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        padding: 20px 0;
+        margin-bottom: 2rem;
+      }
+
+      .suite-gallery-wrapper:active {
+        cursor: grabbing;
+      }
+
+      .suite-gallery-wrapper * {
+        user-select: none;
+      }
+
+      .suite-gallery-wrapper a {
+        user-select: none;
+        pointer-events: auto;
+      }
+
+      .suite-gallery-wrapper::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+
+      .suite-gallery-container {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+      }
+
+      .suite-gallery-track {
+        display: flex;
+        gap: 2rem;
+        padding: 0 2rem;
+        width: max-content;
+      }
+
+      .suite-card {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        min-width: 270px;
+      }
+
+      /* Desktop : afficher plusieurs cartes avec scroll horizontal */
+      @media (min-width: 1024px) {
+        .suite-gallery-wrapper {
+          overflow-x: auto;
+        }
+        
+        .suite-gallery-track {
+          padding: 0 3rem;
+        }
+      }
+
+      /* Mobile : une carte à la fois avec scroll */
+      @media (max-width: 1023px) {
+        .suite-card {
+          min-width: 280px;
+        }
+        
+        .suite-gallery-track {
+          padding: 0 1.5rem;
+          gap: 1.5rem;
+        }
+      }
+      
+      /* Tablet : ajustement du gap */
+      @media (min-width: 640px) and (max-width: 1023px) {
+        .suite-gallery-track {
+          gap: 2rem;
+        }
+      }
     </style>
 
     
@@ -958,9 +1044,11 @@
       <img src="media/510_6.svg" alt="Decorative element" class="absolute -top-12 -right-16 w-32 h-32 z-10 opacity-90" loading="lazy" decoding="async" width="128" height="128" />
       <img src="media/510_8.svg" alt="Decorative element" class="deco-element-bottom" style="position: absolute; bottom: 40px; left: -64px; width: 128px; height: 128px; z-index: 10; opacity: 0.9;" loading="lazy" decoding="async" width="128" height="128" />
       
-      <!-- Conteneur sans bordure -->
+      <!-- Conteneur avec scroll horizontal -->
       <div class="relative">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+      <div class="suite-gallery-wrapper">
+        <div class="suite-gallery-container">
+          <div class="suite-gallery-track">
 
       <!-- Suite Junior -->
       <div class="flex flex-col items-center suite-card">
@@ -993,25 +1081,22 @@
         <div class="w-[140px] border-t border-black my-2"></div>
         <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
+
+      <!-- Villa Familiale -->
+      <div class="flex flex-col items-center suite-card">
+        <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg suite-card-image" data-bg="images/DJI_0956.jpg"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Villa Familiale</p>
+        <div class="w-[110px] border-t border-black my-2"></div>
+        <a href="suite_villa_familiale.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
+      </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Indicateurs ellipses -->
-    <div class="flex gap-2 justify-center">
-      <!-- 12 points -->
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
-      <div class="w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]"></div>
+    <!-- Indicateurs ellipses - générés automatiquement -->
+    <div id="suite-indicators" class="flex gap-2 justify-center">
+      <!-- Les indicateurs seront générés automatiquement par JavaScript -->
     </div>
 
   </section>
@@ -1169,68 +1254,68 @@
       <!-- FAQ item (répéter pour chaque question) -->
       <div>
         <button
-          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          class="faq-toggle w-full flex items-center justify-start px-6 py-5 bg-white text-left focus:outline-none"
           aria-expanded="false"
           aria-controls="faq1"
           id="faq1-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
-          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" loading="lazy" />
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion1">1. Êtes-vous ouverts tous les jours ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq1" role="region" aria-labelledby="faq1-btn" class="faq-panel px-6 pb-6 hidden">
           <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer1">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            Oui, L’Escapade est ouvert tous les jours, y compris les jours fériés. Notre équipe est disponible en continu pour vous accueillir pour un séjour, un déjeuner ou un moment de détente.
           </p>
         </div>
       </div>
 
       <div>
         <button
-          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          class="faq-toggle w-full flex items-center justify-start px-6 py-5 bg-white text-left focus:outline-none"
           aria-expanded="false"
           aria-controls="faq2"
           id="faq2-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
-          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" loading="lazy" />
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion2">2. Quels sont les horaires du lounge ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq2" role="region" aria-labelledby="faq2-btn" class="faq-panel px-6 pb-6 hidden">
           <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer2">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+            Le lounge est ouvert du jeudi au dimanche, de 16h à 02h. Vous pouvez y profiter de nos cocktails, de notre ambiance musicale et de l’atmosphère signature de L’Escapade jusque tard dans la soirée.
           </p>
         </div>
       </div>
 
       <div>
         <button
-          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          class="faq-toggle w-full flex items-center justify-start px-6 py-5 bg-white text-left focus:outline-none"
           aria-expanded="false"
           aria-controls="faq3"
           id="faq3-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
-          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" loading="lazy" />
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion3">3. Combien de personnes peut accueillir la villa familiale ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq3" role="region" aria-labelledby="faq3-btn" class="faq-panel px-6 pb-6 hidden">
           <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer3">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+            La villa familiale peut accueillir confortablement jusqu’à 8 personnes dont 4 adultes et 4 enfants, idéale pour les séjours en groupe ou en famille.
           </p>
         </div>
       </div>
 
       <div>
         <button
-          class="faq-toggle w-full flex items-center justify-evenly px-6 py-5 bg-white text-left focus:outline-none"
+          class="faq-toggle w-full flex items-center justify-start px-6 py-5 bg-white text-left focus:outline-none"
           aria-expanded="false"
           aria-controls="faq4"
           id="faq4-btn"
         >
-          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ?</span>
-          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200" style="margin-left: 8px;" aria-hidden="true" loading="lazy" />
+          <span class="font-[Futura_Md_BT] text-lg md:text-xl border-b-2 border-black pb-2 inline-block" data-translate="faqQuestion4">4. Pouvons-nous accéder à la piscine en déjeunant simplement à l’hôtel ?</span>
+          <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq4" role="region" aria-labelledby="faq4-btn" class="faq-panel px-6 pb-6 hidden">
           <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer4">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            L’accès à la piscine est réservé en priorité à nos résidents. Cependant, les non-résidents peuvent y accéder sous réserve de disponibilité en effectuant une consommation minimum de 20&nbsp;000&nbsp;FCFA par personne. Notre équipe reste à votre disposition pour vous informer sur les modalités et les horaires.
           </p>
         </div>
       </div>
@@ -1449,6 +1534,38 @@
           });
         });
       }, 300);
+    });
+  </script>
+
+  <!-- Script pour générer automatiquement les indicateurs selon le nombre de cartes suite-card -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function generateIndicators() {
+        const suiteCards = document.querySelectorAll('.suite-card');
+        const indicatorsContainer = document.getElementById('suite-indicators');
+        
+        if (!indicatorsContainer || suiteCards.length === 0) return;
+        
+        // Vider le conteneur
+        indicatorsContainer.innerHTML = '';
+        
+        // Créer un indicateur pour chaque carte
+        suiteCards.forEach(() => {
+          const indicator = document.createElement('div');
+          indicator.className = 'w-3 h-3 rounded-full bg-[rgba(42,38,38,0.5)]';
+          indicatorsContainer.appendChild(indicator);
+        });
+      }
+      
+      // Générer les indicateurs au chargement
+      generateIndicators();
+      
+      // Régénérer les indicateurs lors du redimensionnement (pour le responsive)
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(generateIndicators, 100);
+      });
     });
   </script>
 </body>

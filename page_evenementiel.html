@@ -18,6 +18,70 @@
     /* Small hover polish for plat images */
     .reveal img { transition: transform .35s ease, opacity .35s ease; }
     .reveal:hover img { transform: translateY(-6px) scale(1.02); }
+
+    /* Responsive adjustments for MacBook screens (1280px - 1440px) */
+    @media (min-width: 1280px) and (max-width: 1440px) {
+      /* Reduce section padding */
+      #evenementiel {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+      }
+
+      /* Reduce vertical spacing between elements */
+      #evenementiel .space-y-24 > * + * {
+        margin-top: 3.5rem !important;
+      }
+
+      /* Reduce gaps between flex items */
+      #evenementiel .gap-12 {
+        gap: 2.5rem !important;
+      }
+
+      /* Reduce image heights */
+      #evenementiel img[class*="h-[400px]"] {
+        height: 320px !important;
+      }
+
+      #evenementiel img[class*="h-[450px]"] {
+        height: 360px !important;
+      }
+
+      /* Reduce height of the background image section */
+      div.relative.w-full.py-24.mb-9.overflow-hidden[class*="h-\[750px\"] {
+        height: 550px !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      
+      /* Alternative selector for the background section */
+      section#evenementiel + div.relative {
+        height: 550px !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* Reduce spacing in text blocks */
+      #evenementiel .space-y-6 > * + * {
+        margin-top: 1rem !important;
+      }
+
+      /* Reduce margin-top on second block */
+      #evenementiel .mt-12 {
+        margin-top: 2rem !important;
+      }
+
+      /* Reduce text spacing in list */
+      #evenementiel .space-y-2 > * + * {
+        margin-top: 0.4rem !important;
+      }
+
+      /* Reduce paragraph spacing in overlay section */
+      .relative.w-full.py-24.mb-9 .mt-6 {
+        margin-top: 1rem !important;
+      }
+    }
   </style>
   <!-- GSAP pour animations luxueuses -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -133,7 +197,7 @@
             </a>
           </li>
           <li>
-            <a href="lounge.html" class="nav-item" data-image="Menu/images/IMG_1981.jpg">
+            <a href="lounge.html" class="nav-item" data-image="img/10.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
               <span class="nav-text" data-translate="lounge">LE LOUNGE</span>

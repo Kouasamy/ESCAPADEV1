@@ -81,18 +81,18 @@
           'An urban spirit in Assinie.<br>The Lounge at L’Escapade combines urban elegance with coastal softness: a space created to unwind, reconnect, and enjoy simple moments in a refined setting.',
         loungeCta: 'Learn more',
         faqTitle: '<span>Frequently</span> <span class="highlight">Asked Questions</span>',
-        faqQuestion1: 'Where can I find detailed information about your suites?',
+        faqQuestion1: '1. Are you open every day?',
         faqAnswer1:
-          'You can explore each category of suites on our Rooms & Suites page, including photos, amenities, and capacity details.',
-        faqQuestion2: 'Do you host private events?',
+          'Yes, L’Escapade is open daily, including public holidays. Our team is always available to welcome you for a stay, lunch, or a relaxing break.',
+        faqQuestion2: '2. What are the lounge opening hours?',
         faqAnswer2:
-          'Yes, our event spaces can be tailored to private or corporate gatherings. Contact us to design a bespoke experience.',
-        faqQuestion3: 'Is breakfast included in every stay?',
+          'The lounge is open from Thursday to Sunday, 4 p.m. to 2 a.m. Enjoy our cocktails, musical ambiance, and the signature atmosphere of L’Escapade late into the evening.',
+        faqQuestion3: '3. How many guests can the family villa accommodate?',
         faqAnswer3:
-          'Breakfast options vary with the package selected during booking. We also offer à la carte service each morning.',
-        faqQuestion4: 'Do you provide transfer services from Abidjan?',
+          'The family villa comfortably accommodates up to 8 guests, including 4 adults and 4 children—ideal for group or family stays.',
+        faqQuestion4: '4. Can we use the pool if we simply come for lunch?',
         faqAnswer4:
-          'We can arrange a private transfer upon request. Simply mention it during booking or reach out to our concierge.',
+          'Pool access is prioritized for our residents. Non-resident guests may use it subject to availability with a minimum spend of 20,000 FCFA per person. Our team can inform you about the conditions and schedule.',
       },
       restaurant: {
         restaurantHeroTitle: 'RESTAURANT',
