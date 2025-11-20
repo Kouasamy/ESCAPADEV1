@@ -4,18 +4,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
   <title>Escapade</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
   <link rel="icon" type="image/png" href="images/568_819.png">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/style1.css">
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   
   <!-- Preload des images critiques pour améliorer les performances -->
   <link rel="preload" as="image" href="img/42.jpg" fetchpriority="high">
   <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
   <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
-  <link rel="preload" as="image" href="images/568_840.svg">
-  <link rel="preload" as="image" href="images/574_538.png">
+  
+  <!-- Prefetch des ressources non critiques -->
+  <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+  
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <style>
     /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal {
@@ -50,9 +63,6 @@
       transform: translateY(-6px) scale(1.02);
     }
   </style>
-  <!-- GSAP pour animations luxueuses -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
   
@@ -1107,25 +1117,38 @@
     </footer>
   </section>
   
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- GSAP pour animations - chargé en bas de page avec defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
   <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js"></script>
+  <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
   
   <!-- Script pour optimiser le chargement des images du footer -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Précharger les images du footer qui sont en bas de page
-      const footerImages = document.querySelectorAll('#footer-section img');
-      footerImages.forEach(img => {
-        if (img.src && !img.hasAttribute('loading')) {
-          img.setAttribute('loading', 'lazy');
-          img.setAttribute('decoding', 'async');
-          img.setAttribute('fetchpriority', 'low');
-        }
-      });
-    });
+  <script defer>
+    // Script inline pour optimiser les images du footer - s'exécute après le parsing
+    (function() {
+      function initFooterImages() {
+        const footerImages = document.querySelectorAll('#footer-section img');
+        footerImages.forEach(img => {
+          if (img.src && !img.hasAttribute('loading')) {
+            img.setAttribute('loading', 'lazy');
+            img.setAttribute('decoding', 'async');
+            img.setAttribute('fetchpriority', 'low');
+          }
+        });
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFooterImages);
+      } else {
+        setTimeout(initFooterImages, 0);
+      }
+    })();
   </script>
-  
-  <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

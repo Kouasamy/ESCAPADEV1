@@ -17,9 +17,19 @@
   
   <link rel="icon" type="image/png" href="images/568_819.png">
   
+  <!-- Preload des ressources critiques -->
+  <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
+  
+  <!-- Prefetch des ressources non critiques -->
+  <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+  
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/responsive.css">
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js"></script>
@@ -347,7 +357,9 @@
 </section>
 
 <!-- CSS pour le menu -->
-<link rel="stylesheet" href="Menu/global.css">
+<!-- CSS pour le menu - chargé en lazy pour ne pas bloquer le rendu initial -->
+<link rel="stylesheet" href="Menu/global.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="Menu/global.css"></noscript>
 <style id="menu-styles">
 /* CSS for section section:menu */
 .menu-container {
@@ -1473,7 +1485,5 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
   
-  <!-- CSS responsive - chargé en bas -->
-  <link rel="stylesheet" href="css/responsive.css">
 </body>
 </html>

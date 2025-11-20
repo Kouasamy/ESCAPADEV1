@@ -19,9 +19,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
   
+  <!-- Preload des ressources critiques -->
+  <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
+  
+  <!-- Prefetch des ressources non critiques -->
+  <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+  
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
   
   <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
@@ -227,7 +237,9 @@
 </section>
 
 <!-- CSS pour le menu -->
-<link rel="stylesheet" href="Menu/global.css">
+<!-- CSS pour le menu - chargé en lazy pour ne pas bloquer le rendu initial -->
+<link rel="stylesheet" href="Menu/global.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="Menu/global.css"></noscript>
 <style id="menu-styles">
 /* CSS for section section:menu */
 .menu-container {
@@ -1473,8 +1485,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
   
   <!-- CSS responsive - chargé en bas pour ne pas bloquer -->
-  <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
   
   <!-- Scripts d'animations -->
   <script src="js/gsap-animations.js" defer></script>

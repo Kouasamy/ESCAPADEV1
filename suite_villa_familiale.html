@@ -3,23 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#ffffff">
   <title>Escapade</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/568_819.png">
+  
+  <!-- Preconnect pour améliorer les performances des CDN -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Preload des ressources critiques -->
+  <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="img/12.jpg" fetchpriority="high">
+  
+  <!-- Prefetch des ressources non critiques qui seront probablement nécessaires -->
+  <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+  <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+  <link rel="prefetch" as="stylesheet" href="Menu/global.css">
+  
+  <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
-  <!-- GSAP pour animations luxueuses -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Image Optimizer pour améliorer les performances -->
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
+  <script src="js/background-loader.js" defer></script>
+  <script src="js/page-loader.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js"></script>
   
   <!-- Script pour supprimer complètement les contrôles vidéo -->
   <script src="js/remove-video-controls.js"></script>
-  <script src="js/page-loader.js" defer></script>
   
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
@@ -47,14 +69,14 @@
     <div class="menu-cluster site-header__start">
       <!-- Bouton burger -->
       <button id="openMenu" class="menu-button flex flex-row gap-1.5 items-center group mr-4" aria-label="Ouvrir le menu" title="Ouvrir le menu">
-        <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12">
+        <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12" loading="eager" fetchpriority="high" width="48" height="48">
         <span class="text-sm md:text-base" data-translate="menu">MENU</span>
       </button>
 
       <!-- Sélecteur de langue -->
       <div class="lang-switcher">
         <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
-        <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4">
+        <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" loading="lazy">
         <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
       </div>
     </div>
@@ -62,7 +84,7 @@
     <!-- Logo -->
     <div class="site-header__logo">
       <a href="index.html" class="logo-link">
-        <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" />
+        <img src="images/568_819.svg" alt="Logo L'Escapade" class="w-[120px] md:w-[150px]" loading="eager" fetchpriority="high" width="150" height="150" />
       </a>
     </div>
 
@@ -70,12 +92,12 @@
     <nav class="header-nav site-header__end">
       <!--merged image-->
       <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
-        <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+        <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
         <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2">Réserver une suite</span>
       </a>
       <!--merged image-->
       <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
-        <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
+        <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
         <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2">Réserver un espace</span>
       </a>
     </nav>
@@ -87,21 +109,21 @@
   <div class="menu-container is-hidden" id="menuOverlay">
     <header class="menu-header">
       <a href="#" class="menu-close-button">
-        <img src="Menu/images/542_446.svg" alt="Close Icon">
+        <img src="Menu/images/542_446.svg" alt="Close Icon" loading="lazy">
         <span data-translate="close">FERMER</span>
       </a>
       <div class="menu-lang-switcher">
         <a href="#" data-lang="fr">FR</a>
-        <img src="Menu/images/542_445.svg" alt="Language separator">
+        <img src="Menu/images/542_445.svg" alt="Language separator" loading="lazy">
         <a href="#" data-lang="en">EN</a>
       </div>
     </header>
 
     <!--merged image-->
     <a href="index.html" class="menu-logo">
-      <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
-      <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
-      <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
+      <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;" loading="lazy">
+      <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;" loading="lazy">
+      <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;" loading="lazy">
     </a>
 
     <main class="menu-content">
@@ -109,36 +131,36 @@
         <ul>
           <li>
             <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
-              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-              <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy">
+              <img src="Menu/images/542_560.svg" class="nav-bg" alt="" loading="lazy">
               <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
             </a>
           </li>
           <li>
             <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
-              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-              <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy">
+              <img src="Menu/images/542_467.svg" class="nav-bg" alt="" loading="lazy">
               <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
             </a>
           </li>
           <li>
             <a href="lounge.html" class="nav-item" data-image="img/10.jpg">
-              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-              <img src="Menu/images/542_471.svg" class="nav-bg" alt="">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy">
+              <img src="Menu/images/542_471.svg" class="nav-bg" alt="" loading="lazy">
               <span class="nav-text" data-translate="lounge">LE LOUNGE</span>
             </a>
           </li>
           <li>
             <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
-              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-              <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy">
+              <img src="Menu/images/542_564.svg" class="nav-bg" alt="" loading="lazy">
               <span class="nav-text">ÉVÉNEMENTIEL</span>
             </a>
           </li>
           <li>
             <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
-              <img src="Menu/images/542_575.svg" class="nav-line" alt="">
-              <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
+              <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy">
+              <img src="Menu/images/542_567.svg" class="nav-bg" alt="" loading="lazy">
               <span class="nav-text" data-translate="about">A PROPOS</span>
             </a>
           </li>
@@ -146,19 +168,20 @@
       </nav>
 
       <div class="image-showcase">
-        <img src="Menu/images/542_461.svg" class="deco-corner-top" alt="Decorative corner">
+        <img src="Menu/images/542_461.svg" class="deco-corner-top" alt="Decorative corner" loading="lazy">
         <div class="image-container">
-          <img src="Menu/images/IMG_1341.jpg" alt="Hotel exterior at night">
-          <img class="image-transition-layer" alt="transition layer" />
+          <img src="Menu/images/IMG_1341.jpg" alt="Hotel exterior at night" loading="lazy">
+          <img class="image-transition-layer" alt="transition layer" loading="lazy" />
         </div>
-        <img src="Menu/images/542_458.svg" class="deco-corner-bottom" alt="Decorative corner">
+        <img src="Menu/images/542_458.svg" class="deco-corner-bottom" alt="Decorative corner" loading="lazy">
       </div>
     </main>
   </div>
 </section>
 
-<!-- CSS pour le menu -->
-<link rel="stylesheet" href="Menu/global.css">
+<!-- CSS pour le menu - chargé en lazy pour ne pas bloquer le rendu initial -->
+<link rel="stylesheet" href="Menu/global.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="Menu/global.css"></noscript>
 <style id="menu-styles">
 /* CSS for section section:menu */
 .menu-container {
@@ -531,33 +554,43 @@
   }
 </style>
 
-<!-- SCRIPT pour le menu -->
+<!-- SCRIPT pour le menu - chargé en différé -->
 <script src="Menu/global.js" defer></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('openMenu');
-    const menuContainer = document.querySelector('.menu-container');
-    const closeButton = document.querySelector('.menu-close-button');
-
-    if (menuButton && menuContainer) {
-      menuButton.addEventListener('click', () => {
-        menuContainer.classList.remove('is-hidden');
-        menuContainer.style.pointerEvents = 'auto';
-      });
+  // Script inline minimal pour le menu - s'exécute après le parsing
+  (function() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMenu);
+    } else {
+      // DOM déjà chargé, exécuter immédiatement
+      setTimeout(initMenu, 0);
     }
+    
+    function initMenu() {
+      const menuButton = document.getElementById('openMenu');
+      const menuContainer = document.querySelector('.menu-container');
+      const closeButton = document.querySelector('.menu-close-button');
 
-    if (closeButton && menuContainer) {
-      closeButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        menuContainer.classList.add('is-closing');
-        setTimeout(() => {
-          menuContainer.classList.remove('is-closing');
-          menuContainer.classList.add('is-hidden');
-          menuContainer.style.pointerEvents = 'none';
-        }, 300);
-      });
+      if (menuButton && menuContainer) {
+        menuButton.addEventListener('click', () => {
+          menuContainer.classList.remove('is-hidden');
+          menuContainer.style.pointerEvents = 'auto';
+        });
+      }
+
+      if (closeButton && menuContainer) {
+        closeButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          menuContainer.classList.add('is-closing');
+          setTimeout(() => {
+            menuContainer.classList.remove('is-closing');
+            menuContainer.classList.add('is-hidden');
+            menuContainer.style.pointerEvents = 'none';
+          }, 300);
+        });
+      }
     }
-  });
+  })();
 </script>
 
 
@@ -676,40 +709,51 @@
     </style>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('header');
-        const contactBtn = document.getElementById('contactFab');
-        let lastScroll = window.scrollY;
+      // Script inline pour le scroll header - s'exécute après le parsing
+      (function() {
+        function initScroll() {
+          const header = document.querySelector('header');
+          const contactBtn = document.getElementById('contactFab');
+          if (!header || !contactBtn) return;
+          
+          let lastScroll = window.scrollY;
 
-        // Vérifie si on a scrollé plus de 100px
-        function checkScroll() {
-          const currentScroll = window.scrollY;
-          
-          if (currentScroll > lastScroll && currentScroll > 100) {
-            // On scroll vers le bas
-            header.classList.add('scroll-hide');
-            contactBtn.classList.add('scroll-hide');
-          } else {
-            // On scroll vers le haut
-            header.classList.remove('scroll-hide');
-            contactBtn.classList.remove('scroll-hide');
+          // Vérifie si on a scrollé plus de 100px
+          function checkScroll() {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+              // On scroll vers le bas
+              header.classList.add('scroll-hide');
+              contactBtn.classList.add('scroll-hide');
+            } else {
+              // On scroll vers le haut
+              header.classList.remove('scroll-hide');
+              contactBtn.classList.remove('scroll-hide');
+            }
+            
+            lastScroll = currentScroll;
           }
-          
-          lastScroll = currentScroll;
+
+          // Ajoute l'événement scroll avec throttling
+          let ticking = false;
+          window.addEventListener('scroll', function() {
+            if (!ticking) {
+              window.requestAnimationFrame(function() {
+                checkScroll();
+                ticking = false;
+              });
+              ticking = true;
+            }
+          });
         }
-
-        // Ajoute l'événement scroll avec throttling
-        let ticking = false;
-        window.addEventListener('scroll', function() {
-          if (!ticking) {
-            window.requestAnimationFrame(function() {
-              checkScroll();
-              ticking = false;
-            });
-            ticking = true;
-          }
-        });
-      });
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initScroll);
+        } else {
+          setTimeout(initScroll, 0);
+        }
+      })();
     </script>
 
 
@@ -731,7 +775,7 @@
       <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
       <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
          <div class="btn-wrapper contact-btn">
-        <img src="images/568_840.svg" alt="" class="btn-bg">
+        <img src="images/568_840.svg" alt="" class="btn-bg" loading="lazy">
         <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
       </div>
       </a>
@@ -749,15 +793,15 @@
           
           <div class="features flex items-center gap-8 mt-6">
             <div class="feature-item flex items-center gap-2">
-              <img src="images/510_20.svg" alt="Area icon" class="feature-icon w-8 h-8" />
+              <img src="images/510_20.svg" alt="Area icon" class="feature-icon w-8 h-8" loading="lazy" />
               <p class="feature-label font-[Big_Caslon] text-[14px]">-</p>
             </div>
             <div class="feature-item flex items-center gap-2">
-              <img src="images/272_1551.svg" alt="Pool icon" class="feature-icon w-8 h-8" />
+              <img src="images/272_1551.svg" alt="Pool icon" class="feature-icon w-8 h-8" loading="lazy" />
               <p class="feature-label font-[Big_Caslon] text-[14px]" data-translate="pool">Piscine</p>
             </div>
             <div class="feature-item flex items-center gap-2">
-              <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="feature-icon tv-icon w-8 h-8" />
+              <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="feature-icon tv-icon w-8 h-8" loading="lazy" />
               <p class="feature-label font-[Big_Caslon] text-[14px]">TV</p>
             </div>
           </div>
@@ -773,15 +817,15 @@
 
           <ul class="details-list mt-8 space-y-2 text-[15px] font-[Futura_Md_BT]">
             <li class="flex items-center gap-3">
-              <img src="images/272_1778.svg" alt="bullet point" class="w-3 h-3" />
+              <img src="images/272_1778.svg" alt="bullet point" class="w-3 h-3" loading="lazy" />
               <span data-translate="suiteVillaFamilialeCapacity">Capacité : Famille</span>
             </li>
             <li class="flex items-center gap-3">
-              <img src="images/272_1776.svg" alt="bullet point" class="w-3 h-3" />
+              <img src="images/272_1776.svg" alt="bullet point" class="w-3 h-3" loading="lazy" />
               <span data-translate="suiteVillaFamilialeRate">Tarif : Sur demande</span>
             </li>
             <li class="flex items-center gap-3">
-              <img src="images/279_1796.svg" alt="bullet point" class="w-3 h-3" />
+              <img src="images/279_1796.svg" alt="bullet point" class="w-3 h-3" loading="lazy" />
               <span data-translate="privatePool">Piscine privée</span>
             </li>
           </ul>
@@ -795,10 +839,10 @@
 
         <div class="details-image-wrapper w-full md:w-1/2 relative">
           <img id="mainImage" src="images/DJI_0956.jpg" alt="Villa Familiale interior"
-            class="details-image w-full h-[400px] md:h-[500px] object-cover rounded-[85px_0] transition-opacity duration-300" />
+            class="details-image w-full h-[400px] md:h-[500px] object-cover rounded-[85px_0] transition-opacity duration-300" loading="lazy" width="800" height="600" />
 
-          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" />
-          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" />
+          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" loading="lazy" />
+          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" loading="lazy" />
 
         </div>
        
@@ -809,13 +853,13 @@
               <div class="gallery-slider-container relative" style="max-width: 100%; margin: 0 auto;">
                 <div class="gallery-slider-track">
                   <div class="gallery-slide">
-                    <img src="images/IMG_1415.jpg" alt="Intérieur de la Villa Familiale" class="w-full h-[400px] object-cover">
+                    <img src="images/IMG_1415.jpg" alt="Intérieur de la Villa Familiale" class="w-full h-[400px] object-cover" loading="lazy" width="1200" height="400">
                   </div>
                   <div class="gallery-slide">
-                    <img src="images/IMG_1341.jpg" alt="Vue extérieure de la Villa Familiale" class="w-full h-[400px] object-cover">
+                    <img src="images/IMG_1341.jpg" alt="Vue extérieure de la Villa Familiale" class="w-full h-[400px] object-cover" loading="lazy" width="1200" height="400">
                   </div>
                   <div class="gallery-slide">
-                    <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[300px] object-cover" style="border-radius: 85px 0;" controlslist="nodownload nofullscreen noremoteplayback">
+                    <video muted loop playsinline preload="none" controls="false" class="w-full h-[300px] object-cover" style="border-radius: 85px 0;" controlslist="nodownload nofullscreen noremoteplayback" data-video-lazy width="1200" height="300" poster="">
                       <source src="video/CHAMBRE 1 NEW VERSION.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -835,15 +879,15 @@
 
     <!-- FOOTER -->
   <section id="footer-section">
-  <footer class="site-footer text-white ">
+    <footer class="site-footer text-white ">
       <div class="container">
         <div class="footer-top">
-          <img src="images/527e11cd0fcc42350d0710d865057dc9385bcebf.png" alt="L'ESCAPADE Logo" class="footer-logo">
+          <img src="images/527e11cd0fcc42350d0710d865057dc9385bcebf.png" alt="L'ESCAPADE Logo" class="footer-logo" loading="lazy">
           <div class="footer-grid">
             <div class="footer-menu">
               <!--merged image-->
               <div class="footer-title-wrapper">
-                <img src="images/427_66.svg" alt="" class="footer-title-bg">
+                <img src="images/427_66.svg" alt="" class="footer-title-bg" loading="lazy">
                 <h3 class="footer-title">MENU</h3>
               </div>
               <nav>
@@ -859,7 +903,7 @@
             <div class="footer-contact-form" id="contact">
               <!--merged image-->
               <div class="footer-title-wrapper">
-                <img src="images/427_67.svg" alt="" class="footer-title-bg">
+                <img src="images/427_67.svg" alt="" class="footer-title-bg" loading="lazy">
                 <h3 class="footer-title">CONTACT</h3>
               </div>
               <form>
@@ -875,17 +919,17 @@
         </div>
         <div class="footer-contact-info">
           <div class="contact-item">
-            <img src="images/427_62.svg" alt="Phone Icon">
+            <img src="images/427_62.svg" alt="Phone Icon" loading="lazy">
             <span>+225 07-16-70-00-00</span>
           </div>
           <div class="separator"></div>
           <div class="contact-item">
-            <img src="images/427_56.svg" alt="Email Icon">
+            <img src="images/427_56.svg" alt="Email Icon" loading="lazy">
             <a href="mailto:contact@escapadehotel.com">contact@escapadehotel.com</a>
           </div>
           <div class="separator"></div>
           <div class="contact-item">
-            <img src="images/427_50.svg" alt="Location Icon">
+            <img src="images/427_50.svg" alt="Location Icon" loading="lazy">
             <span>Assinie, Km 12, Côte d'Ivoire</span>
           </div>
         </div>
@@ -901,15 +945,48 @@
 
     <!-- Script pour le slider de la galerie d'images (Désactivé sur mobile/tablette - scroll natif utilisé) -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          // Le slider JavaScript est désactivé sur mobile/tablette
-          // Le scroll horizontal natif est utilisé à la place
-        });
+        // Script inline pour le lazy load vidéo - s'exécute après le parsing
+        (function() {
+          function initVideoLazy() {
+            // Le slider JavaScript est désactivé sur mobile/tablette
+            // Le scroll horizontal natif est utilisé à la place
+            
+            // Lazy load video quand il entre dans la vue
+            const video = document.querySelector('video[data-video-lazy]');
+            if (video && 'IntersectionObserver' in window) {
+              const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    const videoElement = entry.target;
+                    videoElement.preload = 'metadata';
+                    videoElement.autoplay = true;
+                    videoElement.play().catch(() => {
+                      // Ignore les erreurs d'autoplay
+                    });
+                    observer.unobserve(videoElement);
+                  }
+                });
+              }, { rootMargin: '50px' });
+              observer.observe(video);
+            }
+          }
+          
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initVideoLazy);
+          } else {
+            setTimeout(initVideoLazy, 0);
+          }
+        })();
     </script>
   
-  <!-- Scripts GSAP pour animations smooth scroll -->
-  <script src="js/gsap-animations.js"></script>
-  <script src="js/background-loader.js" defer></script>
-  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Tailwind CSS - chargé en bas de page de manière asynchrone pour ne pas bloquer le rendu -->
+  <script src="https://cdn.tailwindcss.com" async></script>
+  
+  <!-- GSAP pour animations - chargé en bas de page avec defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
+  <!-- Scripts GSAP pour animations smooth scroll (chargés en différé) -->
+  <script src="js/gsap-animations.js" defer></script>
 </body>
 </html>
