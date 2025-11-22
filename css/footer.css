@@ -59,7 +59,7 @@
     transform: translate(-50%, -50%);
     font-family: 'Futura Md BT', 'Futura', sans-serif;
     font-size: 22px; /* Reduced from 26px */
-    font-weight: 400;
+    font-weight: 0;
     z-index: 2;
     width: 100%;
     text-align: center;
@@ -87,7 +87,7 @@
 .footer-menu a {
     font-family: 'Futura Md BT', 'Futura', sans-serif;
     font-size: 20px; /* Reduced from 26px */
-    font-weight: 400;
+    font-weight: 0;
     text-align: left;
 }
 

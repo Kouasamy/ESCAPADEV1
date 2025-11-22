@@ -111,7 +111,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   .progress-step__label {
     font-family: var(--font-secondary);
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 0;
     line-height: 1.8;
     letter-spacing: 0.39px;
     color: #000000;

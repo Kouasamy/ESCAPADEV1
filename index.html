@@ -75,39 +75,39 @@
     <header class="site-header hero-header">
       <div class="site-header__inner">
         <div class="menu-cluster site-header__start">
-        <!-- Bouton burger -->
-        <button class="menu-button flex flex-row gap-1.5 items-center group" aria-label="Ouvrir le menu" title="Ouvrir le menu">
-          <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12" fetchpriority="high" width="32" height="32">
-          <span class="text-sm md:text-base" data-translate="menu">MENU</span>
-        </button>
-        <!-- Sélecteur de langue - visible sur tous les écrans, juste après le menu-button -->
-        <div class="lang-switcher">
-          <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
-          <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" fetchpriority="high" width="16" height="16">
-          <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
+          <!-- Bouton burger -->
+          <button class="menu-button flex flex-row gap-1.5 items-center group" aria-label="Ouvrir le menu" title="Ouvrir le menu">
+            <img src="images/568_939.svg" alt="Menu Icon" class="w-8 h-8 md:w-12 md:h-12" fetchpriority="high" width="32" height="32">
+            <span class="text-sm md:text-base" data-translate="menu">MENU</span>
+          </button>
+          <!-- Sélecteur de langue - visible sur tous les écrans, juste après le menu-button -->
+          <div class="lang-switcher">
+            <a href="#" class="text-sm md:text-base font-medium" data-lang="fr">FR</a>
+            <img src="images/568_837.svg" alt="" class="lang-separator w-3 h-3 md:w-4 md:h-4" fetchpriority="high" width="16" height="16">
+            <a href="#" class="text-sm md:text-base" data-lang="en">EN</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Logo -->
+        <!-- Logo -->
         <div class="site-header__logo">
-        <a href="index.html" class="logo-link">
-          <img src="images/568_819.svg" alt="ESCAPADE Logo" class="w-[120px] md:w-[150px]" fetchpriority="high" width="150" height="150">
-        </a>
-      </div>
+          <a href="index.html" class="logo-link">
+            <img src="images/568_819.svg" alt="ESCAPADE Logo" class="w-[120px] md:w-[150px]" fetchpriority="high" width="150" height="150">
+          </a>
+        </div>
 
-      <!-- Navigation principale -->
+        <!-- Navigation principale -->
         <nav class="header-nav site-header__end">
-        <!--merged image-->
-        <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
-          <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
-          <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
-        </a>
-        <!--merged image-->
-        <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
-          <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
-          <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
-        </a>
-      </nav>
+          <!--merged image-->
+          <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
+            <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
+            <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
+          </a>
+          <!--merged image-->
+          <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
+            <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
+            <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
+          </a>
+        </nav>
       </div>
     </header>
 
@@ -190,7 +190,7 @@
             <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_560.svg" class="nav-bg" alt="">
-              <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
+              <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITES</span>
             </a>
           </li>
           <li>
@@ -241,7 +241,14 @@
 <link rel="stylesheet" href="Menu/global.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="Menu/global.css"></noscript>
 <style id="menu-styles">
-/* CSS for section section:menu */
+/* ============================================
+   * CSS for section section:menu
+   * Menu Overlay - Optimisé pour tous les écrans
+   * ============================================ */
+
+/*------------------------------------------*
+ *      STRUCTURE GLOBALE - CONTAINER       *
+ *------------------------------------------*/
 .menu-container {
     width: 100vw;
     height: 100vh;
@@ -264,6 +271,7 @@
     transform: translateY(-8px);
     pointer-events: none;
   }
+  
   .menu-container.is-closing {
     opacity: 0;
     transform: translateY(-8px);
@@ -443,22 +451,36 @@
     position: absolute;
   }
 
+  /*------------------------------------------*
+   *      MENU CONTENT - LAYOUT GRID          *
+   *------------------------------------------*/
   .menu-content {
     display: grid;
     grid-template-columns: 40% 60%;
     height: 100%;
+    width: 100%;
+    max-width: 100vw;
   }
 
+  /*------------------------------------------*
+   *      MENU-NAV - NAVIGATION GAUCHE       *
+   *------------------------------------------*/
   .menu-nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
   }
 
   .menu-nav ul {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-item {
@@ -470,15 +492,19 @@
     will-change: transform;
     text-decoration: none;
     color: inherit;
-    overflow: hidden;
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav-bg {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     height: 100%;
+    max-width: 100%;
     z-index: 1;
     object-fit: contain;
   }
@@ -488,37 +514,46 @@
     z-index: 2;
     font-family: var(--font-sans);
     font-size: 32px;
-    font-weight: 400;
-    padding-left: 162px; /* Center text inside the pill shape */
-    padding-right: 40px; /* Espace à droite pour éviter le débordement */
+    font-weight: 0;
+    padding-left: 141px;
+    padding-right: 40px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: unset;
     max-width: 100%;
   }
   
   .nav-line {
     position: absolute;
-    left: 89px; /* 45px (from figma) - 88px (nav padding) */
-    top: 24px; /* 310px (from figma) - 286px (nav top) */
-    opacity: 0;
-    transform: translateX(-8px) scaleX(0.9);
+    left: 89px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px) scaleX(0.9);
     transform-origin: left center;
+    opacity: 0;
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
   .nav-item:hover .nav-line {
     opacity: 1;
-    transform: translateX(0) scaleX(1);
+    transform: translateY(-50%) translateX(0) scaleX(1);
   }
 
   .nav-item:hover {
     transform: translateX(12px);
   }
 
+  /*------------------------------------------*
+   *      IMAGE SHOWCASE - CÔTÉ DROIT        *
+   *------------------------------------------*/
   .image-showcase {
     position: relative;
     padding-top: 247px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
   }
 
   /* Staggered entrance for menu items */
@@ -577,7 +612,7 @@
   .deco-corner-top {
     position: absolute;
     top: 193px;
-    right: 219px; /* Tout en haut à droite de l'image */
+    right: 5px; /* Tout en haut à droite de l'image */
     z-index: 6;
     transform: rotate(-0.38deg);
   }
@@ -590,33 +625,236 @@
     transform: rotate(0.38deg);
   }
 
+  /* ============================================
+   * OPTIMISATION 1440P - MACBOOK PRO / RETINA
+   * ============================================ */
+  @media (min-width: 1440px) {
+    .menu-content {
+      grid-template-columns: 40% 60%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    
+    .image-container {
+      width: 800px;
+      height: 458px;
+    }
+  }
+
+  /* ============================================
+   * OPTIMISATION LAPTOP 1282px → 1509px
+   * Centrage vertical parfait menu-nav / image-showcase
+   * ============================================ */
+  @media (min-width: 1282px) and (max-width: 1509px) {
+    /* Structure globale : alignement vertical parfait */
+    .menu-content {
+      display: grid;
+      grid-template-columns: 46% 54%;
+      align-items: center; /* ★ CENTRAGE VERTICAL DU MENU-NAV ET IMAGE-SHOWCASE */
+      column-gap: 42px;
+      height: 100%;
+    }
+
+    /* Menu-nav / Navigation gauche */
+    .menu-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;   /* ★ CENTRE LE BLOC DU MENU */
+      align-items: flex-start;   /* Garde l'alignement naturel des liens */
+      height: auto;
+    }
+
+    /* Espacement entre les items */
+    .menu-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .menu-nav ul li {
+      margin: 0; /* Le gap gère tout */
+    }
+
+    /* Conteneur <a> */
+    .menu-nav .nav-item {
+      position: relative;
+      max-width: 360px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Fond décoratif (pilule) */
+    .menu-nav .nav-bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.90);
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Ligne décorative au hover - masquée pour cette plage */
+    .menu-nav .nav-line {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    /* Texte du menu – éviter les "…" et les collisions */
+    .menu-nav .nav-text {
+      position: relative;
+      z-index: 2;
+      font-size: 1.35rem;
+      padding: 10px 32px;
+      white-space: nowrap;
+      overflow: visible;
+      text-overflow: unset;
+      letter-spacing: 0.4px;
+    }
+
+    /* Image Showcase (côté droit) */
+    .image-showcase {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* ★ Centre l'image verticalement */
+      padding-top: 0;
+      position: relative; /* Pour positionner les décoratifs en dehors de l'image */
+      align-items: center; /* Centre horizontalement le container */
+    }
+
+    .image-showcase .image-container {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      position: relative;
+      border-radius: 85px 0 85px 0; /* ★ CONSERVE LE BORDER-RADIUS ORIGINAL - PAS DE MODIFICATION */
+      overflow: hidden; /* Conserve l'overflow original pour l'image */
+      margin: 0 auto; /* Centre le container */
+    }
+
+    /* ★ CONSERVE LE BORDER-RADIUS ORIGINAL - HERITE DU CONTAINER */
+    .image-showcase .image-container img {
+      max-height: 400px;
+      border-radius: inherit !important; /* ★ HERITE DU BORDER-RADIUS ORIGINAL (85px 0 85px 0) */
+      object-fit: cover;
+    }
+
+    .image-showcase .image-transition-layer {
+      max-height: 400px;
+      border-radius: inherit !important; /* ★ HERITE DU BORDER-RADIUS ORIGINAL */
+    }
+
+    /* Décors top & bottom - POSITIONNÉS EN DEHORS DE L'IMAGE */
+    /* Positionnés par rapport à .image-showcase pour être visibles en dehors de .image-container */
+    .image-showcase .deco-corner-top {
+      position: absolute;
+      /* Position en haut à droite : depuis le centre vertical, remonter de la moitié de la hauteur + espacement */
+      top: calc(50% - 200px - 12px); /* Centre vertical - moitié hauteur max (200px) - espacement (12px) */
+      right: 12px; /* ★ EN DEHORS à droite - espacement de 12px depuis le bord de .image-showcase */
+      transform: rotate(-0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
+      z-index: 6;
+      opacity: 0.95;
+    }
+
+    .image-showcase .deco-corner-bottom {
+      position: absolute;
+      /* Position en bas à gauche : depuis le centre vertical, descendre de la moitié de la hauteur + espacement */
+      bottom: calc(50% - 200px - 12px); /* Centre vertical inversé - moitié hauteur max (200px) - espacement (12px) */
+      left: 12px; /* ★ EN DEHORS à gauche - espacement de 12px depuis le bord de .image-showcase */
+      transform: rotate(0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
+      z-index: 6;
+      opacity: 0.95;
+    }
+  }
+
+  /* ============================================
+   * CORRECTION DÉCORATIFS LAPTOP 1024px → 1509px
+   * Coins décoratifs stabilisés aux extrémités naturelles de l'image
+   * ============================================ */
+  @media (min-width: 1024px) and (max-width: 1509px) {
+    /* S'assurer que .image-showcase permet aux décoratifs d'être visibles en dehors */
+    .image-showcase {
+      position: relative;
+      overflow: visible; /* Permet aux décoratifs d'être visibles en dehors */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Position relative pour .image-container afin de référencer les décoratifs */
+    .image-showcase .image-container {
+      position: relative;
+    }
+
+    /* Coins décoratifs supprimés pour le responsive laptop */
+    .image-showcase .deco-corner-top {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    .image-showcase .deco-corner-bottom {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+
+  /* ============================================
+   * SPÉCIFICITÉS TECHNIQUES 1024px → 1600px
+   * ============================================ */
+  @media (min-width: 1024px) and (max-width: 1600px) {
+    /* 6.1. Image-container : ajouter un margin-top subtil */
+    .image-container {
+      margin-top: 20px;
+    }
+
+    /* 6.2. Deco-corner-top : ajuster la position (sauf pour 1024px-1509px déjà couvert) */
+    @media (min-width: 1510px) and (max-width: 1600px) {
+      .deco-corner-top {
+        margin-left: calc(100% - 219px); /* Position à l'extrémité de .image-container */
+      }
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE TABLETTE / MOBILE UNIFIÉ
+   * 768px → 1280px (mobile = tablette)
+   * ============================================ */
   @media (max-width: 1280px) {
+    /* Responsive unifié : Mobile = Tablette */
     .menu-container {
       width: 100vw;
       height: 100vh;
       margin: 0;
       border-radius: 0;
     }
+    
     .menu-content {
       grid-template-columns: 1fr;
-      padding: 150px 20px 40px;
+      padding: 120px 20px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
+    
     .menu-header {
       left: 20px;
       right: 20px;
-      top: 30px;
+      top: 20px;
       justify-content: space-between;
       align-items: center;
       gap: 0;
       position: relative;
-      padding: 0;
+      padding: 10px 0;
     }
     
-    /* Cacher le menu-logo sur mobile */
+    /* Cacher le menu-logo sur mobile/tablette */
     .menu-header .menu-logo,
     .menu-logo {
       display: none !important;
@@ -639,114 +877,235 @@
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
-    }
-    
-    .menu-header .menu-lang-switcher {
-      flex: 0 0 auto;
-      justify-content: flex-end;
-      margin-left: auto;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .menu-header {
-      position: relative;
-      top: 0;
-      left: 15px;
-      right: 15px;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0;
-      position: relative;
-      padding: 0;
-    }
-    
-    /* Cacher le menu-logo sur mobile */
-    .menu-header .menu-logo,
-    .menu-logo {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      overflow: hidden !important;
-      position: absolute !important;
-      left: -9999px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part,
-    .menu-logo .logo-part {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-    }
-    
-    .menu-header .menu-close-button {
-      flex: 0 0 auto;
-      justify-content: flex-start;
-    }
-    
-    .menu-header .menu-lang-switcher {
-      flex: 0 0 auto;
-      justify-content: flex-end;
-      margin-left: auto;
-    }
-    .menu-close-button {
       font-size: 14px;
-      gap: 12px;
+      gap: 10px;
     }
-    .menu-close-button img {
-      width: 20px;
-      height: 20px;
+    
+    .menu-header .menu-close-button img {
+      width: 18px;
+      height: 18px;
     }
-    .menu-lang-switcher {
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
       font-size: 14px;
       gap: 8px;
     }
-    .menu-lang-switcher img {
-      width: 12px;
-      height: 12px;
+    
+    .menu-header .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
     }
+    
+    /* Menu-nav : réductions de taille */
     .menu-nav {
       padding: 0;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       display: flex;
       justify-content: center;
       width: 100%;
     }
+    
     .menu-nav ul {
       align-items: center;
       width: 100%;
+      gap: 14px; /* Réduction de l'espacement */
     }
+    
     .nav-item {
       justify-content: center;
+      height: 44px; /* Réduction de hauteur */
+      max-width: 100%;
     }
+    
     .nav-text {
       padding-left: 0;
       text-align: center;
+      font-size: 22px; /* Réduction de taille de police */
+      padding: 8px 16px;
     }
+    
     .nav-line {
       display: none;
     }
+    
+    /* UNIFORMISATION TOTALE DES NAV-BG - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 280px !important;
+      height: 44px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    /* S'assurer que tous les nav-item ont la même largeur */
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      width: 280px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+    }
+    
+    /* Image-showcase : réductions */
     .image-showcase {
       padding: 0;
       display: flex;
       justify-content: center;
+      align-items: center;
       width: 100%;
     }
+    
     .image-container {
       width: 100%;
-      max-width: 658.19px;
+      max-width: 600px;
       height: auto;
       aspect-ratio: 658.19 / 429;
+      margin-top: 0;
     }
+    
     .deco-corner-top {
-      top: 150px;
-      right: 50px;
+      top: 120px;
+      right: 30px;
+      transform: scale(0.75);
     }
+    
     .deco-corner-bottom {
-      top: 200px;
+      top: auto;
+      bottom: 20px;
       left: 20px;
+      transform: scale(0.75);
+    }
+  }
+  
+  /* ============================================
+   * OPTIMISATION TRÈS PETIT ÉCRAN < 480px
+   * Améliorations spécifiques pour petits écrans
+   * ============================================ */
+  @media (max-width: 480px) {
+    .menu-content {
+      padding-top: 100px;
+      padding-bottom: 20px;
+    }
+    
+    .menu-header {
+      top: 15px;
+      left: 15px;
+      right: 15px;
+    }
+    
+    .menu-header .menu-close-button {
+      font-size: 12px;
+      gap: 8px;
+    }
+    
+    .menu-header .menu-close-button img {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      font-size: 12px;
+      gap: 6px;
+    }
+    
+    .menu-header .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .nav-text {
+      font-size: 20px; /* Encore plus petit sur très petit écran */
+      padding: 6px 12px;
+    }
+    
+    .nav-item {
+      height: 38px;
+      width: 260px !important;
+      max-width: 260px !important;
+    }
+    
+    /* UNIFORMISATION TOTALE DES NAV-BG SUR TRÈS PETIT ÉCRAN - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 260px !important;
+      height: 38px !important;
+      max-width: 260px !important;
+      min-width: 260px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    /* S'assurer que tous les nav-item ont la même largeur sur très petit écran */
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      height: 38px !important;
+      width: 260px !important;
+      max-width: 260px !important;
+      min-width: 260px !important;
+    }
+    
+    .menu-nav ul {
+      gap: 12px;
+    }
+    
+    .image-container {
+      max-width: 100%;
     }
   }
   
@@ -830,9 +1189,50 @@
       padding-left: 0;
       text-align: center;
     }
-    .nav-item {
-      height: 40px;
-      justify-content: center;
+    /* UNIFORMISATION TOTALE DES NAV-BG SUR MOBILE 480px - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 280px !important;
+      height: 40px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      height: 40px !important;
+      justify-content: center !important;
+      width: 280px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
     }
   }
   </style>
@@ -1016,7 +1416,7 @@
           <span data-translate="welcomeTo">Bienvenue à</span> <span class="highlight" data-translate="escapade">l'Escapade</span>
         </h1>
       </div>
-      <p class="subtitle text-black" data-translate="welcomeText">
+      <p class="subtitle text-black font-[Futura_Md_BT] font-normal" data-translate="welcomeText">
         L'Escapade Hôtel, <strong>depuis mai 2025</strong>. Venez découvrir un refuge élégant posé <strong>en bordure de lagune</strong> à <strong>Assinie</strong>.
       </p>
     </div>
@@ -1064,39 +1464,31 @@
 
       <!-- Suite Junior -->
       <div class="flex flex-col items-center suite-card">
-        <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg suite-card-image" data-bg="img/3.jpg"></div>
+        <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md lazy-bg suite-card-image" data-bg="img/3.jpg"></div>
         <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteJuniorTitle">Suites Junior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
         <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
 
-      <!-- Suite Sénior VIP -->
+      <!-- Les suites seniors avec piscines -->
       <div class="flex flex-col items-center suite-card">
-        <div class="w-[283px] h-[235px] bg-cover bg-center rounded-[55px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg suite-card-image" data-bg="img/4.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorVipTitle">Suites Sénior VIP</p>
+        <div class="w-[283px] h-[235px] bg-cover bg-center rounded-[55px_0px] shadow-md lazy-bg suite-card-image" data-bg="img/4.jpg"></div>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorVipTitle">Les suites seniors avec piscines</p>
         <div class="w-[140px] border-t border-black my-2"></div>
         <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
 
       <!-- Suite Sénior -->
       <div class="flex flex-col items-center suite-card">
-        <div class="w-[275px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg suite-card-image" data-bg="img/5.jpg"></div>
+        <div class="w-[275px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md lazy-bg suite-card-image" data-bg="img/5.jpg"></div>
         <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorTitle">Suites Sénior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
         <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
 
-      <!-- Suite Junior VIP -->
-      <div class="flex flex-col items-center suite-card">
-        <div class="w-[273px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg suite-card-image" data-bg="img/6.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteJuniorVipTitle">Suites Junior VIP</p>
-        <div class="w-[140px] border-t border-black my-2"></div>
-        <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
-      </div>
-
       <!-- Villa Familiale -->
       <div class="flex flex-col items-center suite-card">
-        <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md hover:scale-105 transition-transform duration-500 lazy-bg suite-card-image" data-bg="images/DJI_0956.jpg"></div>
+        <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md lazy-bg suite-card-image" data-bg="images/DJI_0956.jpg"></div>
         <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Villa Familiale</p>
         <div class="w-[110px] border-t border-black my-2"></div>
         <a href="suite_villa_familiale.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
@@ -1137,7 +1529,7 @@
 
         <!-- Texte -->
         <div class="max-w-md text-right restaurant-text">
-          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px]" data-translate="restaurantText">
+          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px]" data-translate="restaurantText">
             Le restaurant de L'Escapade est une adresse bistronomique où se rencontrent goût, 
             générosité et élégance pour offrir une expérience culinaire inoubliable.
           </p>
@@ -1152,9 +1544,9 @@
         <!-- Image + légende alignée à droite sous l'image -->
         <div class="relative w-[90vw] max-w-[750px] restaurant-media">
           <img src="img/7.jpg" alt="Restaurant L'Escapade"
-               class="w-full h-auto rounded-[112px_0px_108px] shadow-lg hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+               class="w-full h-auto rounded-[112px_0px_108px] shadow-lg" loading="lazy" decoding="async" />
                <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
-               <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
+               <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-4 -left-10 w-20 h-20" loading="lazy" decoding="async" width="80" height="80" />
           <p class="mt-4 text-right font-[Big_Caslon] text-[#78552A] text-[14px] md:text-[15px]">Restaurant L'Escapade</p>
         </div>
 
@@ -1193,13 +1585,13 @@
               
 
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8" data-translate="loungeParagraph1">
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] mb-8" data-translate="loungeParagraph1">
                 Dans une atmosphère où le luxe rencontre la sérénité, le Lounge vous invite à un moment d’exception.
                 Entre lumière tamisée, notes subtiles et service attentif, chaque instant devient une expérience unique —
                 un art de vivre à savourer pleinement.
               </p>
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-10" data-translate="loungeParagraph2">
+              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] mb-10" data-translate="loungeParagraph2">
                 Une ambiance citadine à Assinie. Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire :
                 un lieu pensé pour se détendre, se retrouver et profiter d’instants simples dans un cadre raffiné.
               </p>
@@ -1217,7 +1609,7 @@
 
       <!-- Texte à droite -->
       <div class="w-full lg:w-[30%] text-right text-black lounge-gallery-text">
-        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[30px] mb-8" data-translate="loungeParagraph3">
+        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] mb-8" data-translate="loungeParagraph3">
           Une ambiance citadine à Assinie.<br>
           Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire : 
           un lieu pensé pour se détendre, se retrouver et profiter d’instants simples 
@@ -1233,13 +1625,13 @@
       </div>
 
       <!-- Image ou bloc décoratif à gauche -->
-      <div class="relative w-full lg:w-[70%] mt-16 lg:mt-0 lounge-gallery-media">
-        <div class="relative h-[620px]">
+      <div class="relative w-full lg:w-[70%] mt-16 lg:mt-0 lounge-gallery-media" style="overflow: visible;">
+        <div class="relative h-[620px]" style="overflow: visible;">
           <img src="img/10.jpg" alt="Lounge – Espace détente"
-               class="w-full h-full object-cover rounded-[112px_0px] shadow-lg hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+               class="w-full h-full object-cover rounded-[112px_0px] shadow-lg" loading="lazy" decoding="async" />
 
-          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20" loading="lazy" decoding="async" />
-          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" loading="lazy" decoding="async" />
+          <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-20 z-10" loading="lazy" decoding="async" style="z-index: 10;" />
+          <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20 z-10" loading="lazy" decoding="async" style="z-index: 10;" />
         </div>
         
         <!-- Signature sous l'image alignée à droite -->

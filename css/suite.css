@@ -7,10 +7,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 148px 42px;
+    align-items: start;
   }
-  .suite-card {
+.suite-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
   .suite-card-full {
     grid-column: 1 / -1;
@@ -22,9 +24,14 @@
     height: 388px;
     object-fit: cover;
     border-radius: 85px 0px 85px 0px;
+    flex-shrink: 0;
   }
   .suite-content {
     padding: 0 7px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
   }
   .suite-header {
     display: flex;
@@ -88,6 +95,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
   }
   .details-link {
     font-family: 'Futura Md BT', 'Futura', sans-serif;
@@ -120,6 +128,7 @@
   @media (max-width: 1200px) {
     .suite-grid {
         gap: 100px 30px;
+        align-items: start;
     }
     .suite-header, .suite-details, .suite-footer {
         flex-direction: column;
@@ -132,6 +141,10 @@
   }
 
   @media (max-width: 1024px) {
+    .suite-grid {
+      align-items: start;
+    }
+    
     .suite-header {
       flex-direction: row;
       justify-content: space-between;
@@ -151,6 +164,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 15px;
+      margin-top: auto;
     }
     
     .suite-price {
@@ -175,6 +189,11 @@
     .suite-grid {
       grid-template-columns: 1fr;
       gap: 30px;
+      align-items: start;
+    }
+    
+    .suite-image {
+      height: 388px;
     }
     
     .suite-title {
@@ -200,6 +219,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
+      margin-top: auto;
     }
     
     .suite-price {
@@ -221,5 +241,151 @@
       order: 2;
       padding: 8px 16px;
       font-size: 16px;
+    }
+  }
+
+  /* Centrer horizontalement le suite-content pour LES SUITES SENIORS AVEC PISCINE */
+  .suite-card.suite-senior-piscine .suite-content {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* Centrer horizontalement le suite-content pour VILLA FAMILIALE AVEC PISCINE PRIVEE */
+  .suite-card.suite-villa-familiale .suite-content {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* Centrer les éléments internes pour ces deux suites - Desktop */
+  .suite-card.suite-senior-piscine .suite-header,
+  .suite-card.suite-villa-familiale .suite-header {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .suite-card.suite-senior-piscine .suite-details,
+  .suite-card.suite-villa-familiale .suite-details {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .suite-card.suite-senior-piscine .suite-footer,
+  .suite-card.suite-villa-familiale .suite-footer {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .suite-card.suite-senior-piscine .suite-price,
+  .suite-card.suite-villa-familiale .suite-price {
+    text-align: center;
+    width: 100%;
+  }
+
+  .suite-card.suite-senior-piscine .suite-amenities,
+  .suite-card.suite-villa-familiale .suite-amenities {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Responsive pour les suites centrées - Tablette */
+  @media (max-width: 1024px) {
+    .suite-card.suite-senior-piscine .suite-content,
+    .suite-card.suite-villa-familiale .suite-content {
+      text-align: center;
+      align-items: center;
+      padding: 0;
+    }
+
+    .suite-card.suite-senior-piscine .suite-header,
+    .suite-card.suite-villa-familiale .suite-header {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .suite-card.suite-senior-piscine .suite-details,
+    .suite-card.suite-villa-familiale .suite-details {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .suite-card.suite-senior-piscine .suite-footer,
+    .suite-card.suite-villa-familiale .suite-footer {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  /* Responsive pour les suites centrées - Mobile */
+  @media (max-width: 768px) {
+    .suite-card.suite-senior-piscine .suite-content,
+    .suite-card.suite-villa-familiale .suite-content {
+      text-align: center;
+      align-items: center;
+      padding: 0;
+    }
+
+    .suite-card.suite-senior-piscine .suite-header,
+    .suite-card.suite-villa-familiale .suite-header {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .suite-card.suite-senior-piscine .suite-details,
+    .suite-card.suite-villa-familiale .suite-details {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .suite-card.suite-senior-piscine .suite-footer,
+    .suite-card.suite-villa-familiale .suite-footer {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .suite-card.suite-senior-piscine .suite-price,
+    .suite-card.suite-villa-familiale .suite-price {
+      text-align: center;
+      order: unset;
+    }
+
+    .suite-card.suite-senior-piscine .suite-amenities,
+    .suite-card.suite-villa-familiale .suite-amenities {
+      order: unset;
+      justify-content: center;
+    }
+
+    .suite-card.suite-senior-piscine .details-link,
+    .suite-card.suite-villa-familiale .details-link {
+      order: unset;
     }
   }

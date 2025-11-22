@@ -1,6 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/futura-md-bt');
+@import url('https://fonts.cdnfonts.com/css/big-caslon-medium');
+
 :root {
   --font-heading: 'Big Caslon', serif;
-  --font-body: 'Futura Md BT', 'Futura', sans-serif;
+  --font-body: 'Futura Md BT', sans-serif;
 }
 
 /* Règles globales pour prévenir les débordements */
@@ -130,7 +133,7 @@ p.text-lg {
   .lounge-gallery-media {
     width: 63% !important; /* Réduction de la largeur de l'image (de 70% à 63%) */
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible; /* Permet l'affichage des éléments décoratifs */
   }
   
   .lounge-gallery-text {
@@ -230,7 +233,7 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 680px; /* Réduit de 800px à 680px */
-  height: 58px; /* Réduit de 76px à 65px */
+  height: 59px; /* Réduit de 76px à 65px */
   z-index: 1;
 }
 
@@ -1360,24 +1363,79 @@ video::-webkit-media-controls {
   box-sizing: border-box;
 }
 
-.title-wrapper {
-  margin-bottom: 25px;
-}
+/* Responsive pour tablette - Ajustement des éléments décoratifs title-border */
+@media (max-width: 992px) {
+  .title-wrapper {
+    margin-bottom: 25px;
+  }
 
+  /* Hauteurs fixes pour les title-border sur tablette pour un affichage optimal avec arrondi modéré */
   .title-border {
     width: 100%;
-    max-width: 240px; /* Réduit de 280px à 240px - même que mobile */
-    height: auto;
+    max-width: 240px;
+    height: 21px !important; /* Hauteur fixe pour affichage optimal sur tablette (59px desktop * 0.36) */
+    object-fit: contain;
+    border-radius: 12px; /* Arrondi modéré */
   }
   
-  /* Ajustements responsives pour les sections spécifiques - même que mobile */
+  /* Styles spécifiques pour chaque type de title-border sur tablette */
+  /* Si l'élément est trop élargi, réduire la hauteur de 5px puis appliquer le ratio proportionnel (240/680 ≈ 0.353) */
+  .title-border-restaurant {
+    height: 28px !important; /* Réduit de 83px à 28px pour tablette (83-5=78, puis 78*0.353≈28px) - arrondi modéré */
+    border-radius: 14px;
+  }
+  
+  .title-border-restaurant-dishes {
+    height: 19px !important; /* Réduit de 53px à 19px pour tablette (53*0.353≈19px) */
+    border-radius: 10px;
+  }
+  
+  .title-border-lounge {
+    height: 25px !important; /* Réduit de 71px à 25px pour tablette (71*0.353≈25px) */
+    border-radius: 13px;
+  }
+  
+  .title-border-lounge-gallery {
+    height: 18px !important; /* Réduit de 50px à 18px pour tablette (50*0.353≈18px) */
+    border-radius: 9px;
+  }
+  
+  .title-border-lounge-drinks {
+    height: 27px !important; /* Réduit de 76px à 27px pour tablette (76*0.353≈27px) */
+    border-radius: 14px;
+  }
+  
+  .title-border-events {
+    height: 25px !important; /* Réduit de 77px à 25px pour tablette (77-5=72, puis 72*0.353≈25px) */
+    border-radius: 13px;
+  }
+  
+  /* Ajustements responsives pour les sections spécifiques - title-border-flipped */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
     left: 49% !important;
     width: 100% !important;
-    max-width: 280px !important; /* Même que mobile */
-    height: auto !important;
+    max-width: 280px !important;
+    height: 29px !important; /* Hauteur fixe pour chef (80px desktop * 0.36) et lounge drinks (70px desktop * 0.36) */
+    object-fit: contain;
+    border-radius: 15px; /* Arrondi modéré */
   }
+
+  .main-title {
+    font-size: 20px !important; /* Augmenté de manière raisonnable pour tablette */
+    margin-left: 13px; /* Réduit de 15px à 13px - même que mobile */
+    line-height: 1.15;
+  }
+  
+  #chef .title-border-flipped-wrapper .main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
+    margin-right: 20px !important; /* Même que mobile */
+  }
+
+  .subtitle {
+    font-size: 14.5px; /* Réduction pour mobile */
+  }
+}
 
   .main-title {
     font-size: 20px !important; /* Augmenté de manière raisonnable pour tablette */
@@ -1443,6 +1501,18 @@ video::-webkit-media-controls {
     height: auto !important;
   }
   
+  /* Ajustement spécifique pour title-border-events sur mobile/tablette - pousser vers la gauche */
+  .title-border-events {
+    left: 42% !important; /* Poussé vers la gauche pour mieux encadrer le titre */
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  /* Ajuster le margin-left du main-title dans la section événementiel sur mobile/tablette */
+  #evenementiel .main-title[style*="margin-left"],
+  #evenementiel .title-wrapper .main-title {
+    margin-left: 0 !important; /* Réinitialiser le margin-left sur mobile/tablette pour aligner avec la bordure */
+  }
+  
   /* Ajustements pour tablettes - sections spécifiques - même que mobile */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
@@ -1474,7 +1544,19 @@ video::-webkit-media-controls {
     height: auto !important;
   }
   
-  /* Ajustements pour mobile - sections spécifiques */
+  /* Ajustement spécifique pour title-border-events sur mobile - pousser vers la gauche */
+  .title-border-events {
+    left: 38% !important; /* Poussé vers la gauche pour mieux encadrer le titre */
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  /* Ajuster le margin-left du main-title dans la section événementiel sur mobile */
+  #evenementiel .main-title[style*="margin-left"],
+  #evenementiel .title-wrapper .main-title {
+    margin-left: 0 !important; /* Réinitialiser le margin-left sur mobile pour aligner avec la bordure */
+  }
+  
+    /* Ajustements pour mobile - sections spécifiques */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
     left: 49% !important;
@@ -1586,10 +1668,11 @@ video::-webkit-media-controls {
 }
 
 .hero-text {
-  font-size: 21.6px; /* Réduction de 10% (24px * 0.9) */
+  font-size: 20px; /* Réduction de 10% (24px * 0.9) */
   line-height: 1.25; /* 30px */
   margin: 0 0 24px 0; /* Increased margin for better spacing */
   font-family: var(--font-body);
+  text-align: center; /* Centrer le texte */
 }
 
 .hero-button {
@@ -1617,15 +1700,15 @@ video::-webkit-media-controls {
     font-size: 0.85em !important;
   }
   
-  /* Centrer hero-content au milieu de experience-section sur tablette - même que mobile */
+  /* Centrer hero-content au milieu de experience-section sur tablette - descendre un peu */
   .hero-overlay {
-    justify-content: center; /* Center vertically */
+    justify-content: flex-start; /* Start from top */
     align-items: center; /* Center horizontally */
-    padding-top: 0; /* Retirer le padding pour un centrage parfait */
+    padding-top: 80px !important; /* Descendre un peu */
   }
 
   .hero-content {
-    margin-top: 0 !important; /* Retirer le margin-top pour centrer verticalement */
+    margin-top: 10px !important; /* Descendre un peu le hero-content */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1644,13 +1727,13 @@ video::-webkit-media-controls {
   }
   
   .hero-overlay {
-    justify-content: center; /* Center vertically on smaller screens */
+    justify-content: flex-start; /* Start from top */
     align-items: center; /* Center horizontally */
-    padding-top: 0; /* Retirer le padding pour un centrage parfait */
+    padding-top: 70px !important; /* Descendre un peu */
   }
 
   .hero-content {
-    margin-top: 0 !important; /* Retirer le margin-top pour centrer verticalement */
+    margin-top: 5px !important; /* Descendre un peu le hero-content */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1675,13 +1758,13 @@ video::-webkit-media-controls {
   }
   
   .hero-overlay {
-    justify-content: center; /* Center vertically */
+    justify-content: flex-start; /* Start from top */
     align-items: center; /* Center horizontally */
-    padding-top: 0; /* Retirer le padding pour un centrage parfait */
+    padding-top: 60px !important; /* Descendre un peu */
   }
 
   .hero-content {
-    margin-top: 0 !important; /* Retirer le margin-top pour centrer verticalement */
+    margin-top: 0px !important; /* Descendre un peu le hero-content */
     display: flex;
     flex-direction: column;
     align-items: center;

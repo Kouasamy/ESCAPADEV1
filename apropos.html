@@ -181,7 +181,7 @@
               <a href="page_suite.html" class="nav-item" data-image="Menu/images/IMG_1341.jpg">
                 <img src="Menu/images/542_575.svg" class="nav-line" alt="" loading="lazy" decoding="async" fetchpriority="low">
                 <img src="Menu/images/542_560.svg" class="nav-bg" alt="" loading="lazy" decoding="async" fetchpriority="low">
-                <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITE</span>
+                <span class="nav-text" data-translate="roomsSuites">CHAMBRES & SUITES</span>
               </a>
             </li>
             <li>
@@ -231,9 +231,18 @@
   </section>
 
   <!-- CSS pour le menu -->
-  <link rel="stylesheet" href="Menu/global.css">
+  <!-- CSS pour le menu - chargé en lazy pour ne pas bloquer le rendu initial -->
+<link rel="stylesheet" href="Menu/global.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="Menu/global.css"></noscript>
 <style id="menu-styles">
-/* CSS for section section:menu */
+/* ============================================
+   * CSS for section section:menu
+   * Menu Overlay - Optimisé pour tous les écrans
+   * ============================================ */
+
+/*------------------------------------------*
+ *      STRUCTURE GLOBALE - CONTAINER       *
+ *------------------------------------------*/
 .menu-container {
     width: 100vw;
     height: 100vh;
@@ -256,6 +265,7 @@
     transform: translateY(-8px);
     pointer-events: none;
   }
+  
   .menu-container.is-closing {
     opacity: 0;
     transform: translateY(-8px);
@@ -341,10 +351,6 @@
   }
   
   @media (max-width: 768px) {
-    .menu-nav {
-      padding-top: 0;
-      padding-left: 0;
-    }
     /* Logo centré horizontalement au responsive */
     .menu-header {
       position: relative;
@@ -439,24 +445,36 @@
     position: absolute;
   }
 
+  /*------------------------------------------*
+   *      MENU CONTENT - LAYOUT GRID          *
+   *------------------------------------------*/
   .menu-content {
     display: grid;
     grid-template-columns: 40% 60%;
     height: 100%;
+    width: 100%;
+    max-width: 100vw;
   }
 
-
-
+  /*------------------------------------------*
+   *      MENU-NAV - NAVIGATION GAUCHE       *
+   *------------------------------------------*/
   .menu-nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
   }
 
   .menu-nav ul {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-item {
@@ -468,15 +486,19 @@
     will-change: transform;
     text-decoration: none;
     color: inherit;
-    overflow: hidden;
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav-bg {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     height: 100%;
+    max-width: 100%;
     z-index: 1;
     object-fit: contain;
   }
@@ -486,37 +508,46 @@
     z-index: 2;
     font-family: var(--font-sans);
     font-size: 32px;
-    font-weight: 400;
-    padding-left: 162px; /* Center text inside the pill shape */
-    padding-right: 40px; /* Espace à droite pour éviter le débordement */
+    font-weight: 0;
+    padding-left: 141px;
+    padding-right: 40px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: unset;
     max-width: 100%;
   }
   
   .nav-line {
     position: absolute;
-    left: 89px; /* 45px (from figma) - 88px (nav padding) */
-    top: 24px; /* 310px (from figma) - 286px (nav top) */
-    opacity: 0;
-    transform: translateX(-8px) scaleX(0.9);
+    left: 89px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px) scaleX(0.9);
     transform-origin: left center;
+    opacity: 0;
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
   .nav-item:hover .nav-line {
     opacity: 1;
-    transform: translateX(0) scaleX(1);
+    transform: translateY(-50%) translateX(0) scaleX(1);
   }
 
   .nav-item:hover {
     transform: translateX(12px);
   }
 
+  /*------------------------------------------*
+   *      IMAGE SHOWCASE - CÔTÉ DROIT        *
+   *------------------------------------------*/
   .image-showcase {
     position: relative;
     padding-top: 247px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
   }
 
   /* Staggered entrance for menu items */
@@ -588,37 +619,236 @@
     transform: rotate(0.38deg);
   }
 
+  /* ============================================
+   * OPTIMISATION 1440P - MACBOOK PRO / RETINA
+   * ============================================ */
+  @media (min-width: 1440px) {
+    .menu-content {
+      grid-template-columns: 40% 60%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    
+    .image-container {
+      width: 800px;
+      height: 458px;
+    }
+  }
+
+  /* ============================================
+   * OPTIMISATION LAPTOP 1282px → 1509px
+   * Centrage vertical parfait menu-nav / image-showcase
+   * ============================================ */
+  @media (min-width: 1282px) and (max-width: 1509px) {
+    /* Structure globale : alignement vertical parfait */
+    .menu-content {
+      display: grid;
+      grid-template-columns: 46% 54%;
+      align-items: center; /* ★ CENTRAGE VERTICAL DU MENU-NAV ET IMAGE-SHOWCASE */
+      column-gap: 42px;
+      height: 100%;
+    }
+
+    /* Menu-nav / Navigation gauche */
+    .menu-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;   /* ★ CENTRE LE BLOC DU MENU */
+      align-items: flex-start;   /* Garde l'alignement naturel des liens */
+      height: auto;
+    }
+
+    /* Espacement entre les items */
+    .menu-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .menu-nav ul li {
+      margin: 0; /* Le gap gère tout */
+    }
+
+    /* Conteneur <a> */
+    .menu-nav .nav-item {
+      position: relative;
+      max-width: 360px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Fond décoratif (pilule) */
+    .menu-nav .nav-bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.90);
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Ligne décorative au hover - masquée pour cette plage */
+    .menu-nav .nav-line {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    /* Texte du menu – éviter les "…" et les collisions */
+    .menu-nav .nav-text {
+      position: relative;
+      z-index: 2;
+      font-size: 1.35rem;
+      padding: 10px 32px;
+      white-space: nowrap;
+      overflow: visible;
+      text-overflow: unset;
+      letter-spacing: 0.4px;
+    }
+
+    /* Image Showcase (côté droit) */
+    .image-showcase {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* ★ Centre l'image verticalement */
+      padding-top: 0;
+      position: relative; /* Pour positionner les décoratifs en dehors de l'image */
+      align-items: center; /* Centre horizontalement le container */
+    }
+
+    .image-showcase .image-container {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      position: relative;
+      border-radius: 85px 0 85px 0; /* ★ CONSERVE LE BORDER-RADIUS ORIGINAL - PAS DE MODIFICATION */
+      overflow: hidden; /* Conserve l'overflow original pour l'image */
+      margin: 0 auto; /* Centre le container */
+    }
+
+    /* ★ CONSERVE LE BORDER-RADIUS ORIGINAL - HERITE DU CONTAINER */
+    .image-showcase .image-container img {
+      max-height: 400px;
+      border-radius: inherit !important; /* ★ HERITE DU BORDER-RADIUS ORIGINAL (85px 0 85px 0) */
+      object-fit: cover;
+    }
+
+    .image-showcase .image-transition-layer {
+      max-height: 400px;
+      border-radius: inherit !important; /* ★ HERITE DU BORDER-RADIUS ORIGINAL */
+    }
+
+    /* Décors top & bottom - POSITIONNÉS EN DEHORS DE L'IMAGE */
+    /* Positionnés par rapport à .image-showcase pour être visibles en dehors de .image-container */
+    .image-showcase .deco-corner-top {
+      position: absolute;
+      /* Position en haut à droite : depuis le centre vertical, remonter de la moitié de la hauteur + espacement */
+      top: calc(50% - 200px - 12px); /* Centre vertical - moitié hauteur max (200px) - espacement (12px) */
+      right: 12px; /* ★ EN DEHORS à droite - espacement de 12px depuis le bord de .image-showcase */
+      transform: rotate(-0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
+      z-index: 6;
+      opacity: 0.95;
+    }
+
+    .image-showcase .deco-corner-bottom {
+      position: absolute;
+      /* Position en bas à gauche : depuis le centre vertical, descendre de la moitié de la hauteur + espacement */
+      bottom: calc(50% - 200px - 12px); /* Centre vertical inversé - moitié hauteur max (200px) - espacement (12px) */
+      left: 12px; /* ★ EN DEHORS à gauche - espacement de 12px depuis le bord de .image-showcase */
+      transform: rotate(0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
+      z-index: 6;
+      opacity: 0.95;
+    }
+  }
+
+  /* ============================================
+   * CORRECTION DÉCORATIFS LAPTOP 1024px → 1509px
+   * Coins décoratifs stabilisés aux extrémités naturelles de l'image
+   * ============================================ */
+  @media (min-width: 1024px) and (max-width: 1509px) {
+    /* S'assurer que .image-showcase permet aux décoratifs d'être visibles en dehors */
+    .image-showcase {
+      position: relative;
+      overflow: visible; /* Permet aux décoratifs d'être visibles en dehors */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Position relative pour .image-container afin de référencer les décoratifs */
+    .image-showcase .image-container {
+      position: relative;
+    }
+
+    /* Coins décoratifs supprimés pour le responsive laptop */
+    .image-showcase .deco-corner-top {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    .image-showcase .deco-corner-bottom {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+
+  /* ============================================
+   * SPÉCIFICITÉS TECHNIQUES 1024px → 1600px
+   * ============================================ */
+  @media (min-width: 1024px) and (max-width: 1600px) {
+    /* 6.1. Image-container : ajouter un margin-top subtil */
+    .image-container {
+      margin-top: 20px;
+    }
+
+    /* 6.2. Deco-corner-top : ajuster la position (sauf pour 1024px-1509px déjà couvert) */
+    @media (min-width: 1510px) and (max-width: 1600px) {
+      .deco-corner-top {
+        margin-left: calc(100% - 219px); /* Position à l'extrémité de .image-container */
+      }
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE TABLETTE / MOBILE UNIFIÉ
+   * 768px → 1280px (mobile = tablette)
+   * ============================================ */
   @media (max-width: 1280px) {
+    /* Responsive unifié : Mobile = Tablette */
     .menu-container {
       width: 100vw;
       height: 100vh;
       margin: 0;
       border-radius: 0;
     }
+    
     .menu-content {
       grid-template-columns: 1fr;
-      padding: 150px 20px 40px;
+      padding: 120px 20px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    .menu-nav {
-      padding-top: 0;
-      padding-left: 0;
-    }
+    
     .menu-header {
       left: 20px;
       right: 20px;
-      top: 30px;
+      top: 20px;
       justify-content: space-between;
       align-items: center;
       gap: 0;
       position: relative;
-      padding: 0;
+      padding: 10px 0;
     }
     
-    /* Cacher le menu-logo sur mobile */
+    /* Cacher le menu-logo sur mobile/tablette */
     .menu-header .menu-logo,
     .menu-logo {
       display: none !important;
@@ -641,101 +871,204 @@
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
+      font-size: 14px;
+      gap: 10px;
+    }
+    
+    .menu-header .menu-close-button img {
+      width: 18px;
+      height: 18px;
     }
     
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .menu-nav {
-      padding-top: 0;
-      padding-left: 0;
-    }
-    .menu-header {
-      position: relative;
-      top: 0;
-      left: 15px;
-      right: 15px;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0;
-      position: relative;
-      padding: 0;
-    }
-    
-    /* Cacher le menu-logo sur mobile */
-    .menu-header .menu-logo,
-    .menu-logo {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      overflow: hidden !important;
-      position: absolute !important;
-      left: -9999px !important;
-    }
-    
-    .menu-header .menu-logo .logo-part,
-    .menu-logo .logo-part {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-    }
-    
-    .menu-header .menu-close-button {
-      flex: 0 0 auto;
-      justify-content: flex-start;
-    }
-    
-    .menu-header .menu-lang-switcher {
-      flex: 0 0 auto;
-      justify-content: flex-end;
-      margin-left: auto;
-    }
-    .menu-close-button {
-      font-size: 12px;
+      font-size: 14px;
       gap: 8px;
     }
-    .menu-close-button img {
-      width: 16px;
-      height: 16px;
-    }
-    .menu-lang-switcher {
-      font-size: 12px;
-      gap: 6px;
-    }
-    .menu-lang-switcher img {
+    
+    .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    .menu-content {
-      padding-top: 220px;
+    
+    /* Menu-nav : réductions de taille */
+    .menu-nav {
+      padding: 0;
+      margin-bottom: 30px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      width: 100%;
     }
+    
+    .menu-nav ul {
+      align-items: center;
+      width: 100%;
+      gap: 14px; /* Réduction de l'espacement */
+    }
+    
+    .nav-item {
+      justify-content: center;
+      height: 44px; /* Réduction de hauteur */
+      max-width: 100%;
+    }
+    
     .nav-text {
-      font-size: 24px;
       padding-left: 0;
       text-align: center;
+      font-size: 22px; /* Réduction de taille de police */
+      padding: 8px 16px;
     }
-    .nav-item {
-      height: 40px;
+    
+    .nav-line {
+      display: none;
+    }
+    
+    /* UNIFORMISATION TOTALE DES NAV-BG - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 280px !important;
+      height: 44px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    /* S'assurer que tous les nav-item ont la même largeur */
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      width: 280px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+    }
+    
+    /* Image-showcase : réductions */
+    .image-showcase {
+      padding: 0;
+      display: flex;
       justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .image-container {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      aspect-ratio: 658.19 / 429;
+      margin-top: 0;
+    }
+    
+    .deco-corner-top {
+      top: 120px;
+      right: 30px;
+      transform: scale(0.75);
+    }
+    
+    .deco-corner-bottom {
+      top: auto;
+      bottom: 20px;
+      left: 20px;
+      transform: scale(0.75);
+    }
+  }
+  
+  /* ============================================
+   * OPTIMISATION TRÈS PETIT ÉCRAN < 480px
+   * Améliorations spécifiques pour petits écrans
+   * ============================================ */
+  @media (max-width: 480px) {
+    .menu-content {
+      padding-top: 100px;
+      padding-bottom: 20px;
+    }
+    
+    .menu-header {
+      top: 15px;
+      left: 15px;
+      right: 15px;
+    }
+    
+    .menu-header .menu-close-button {
+      font-size: 12px;
+      gap: 8px;
+    }
+    
+    .menu-header .menu-close-button img {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      font-size: 12px;
+      gap: 6px;
+    }
+    
+    .menu-header .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .nav-text {
+      font-size: 20px; /* Encore plus petit sur très petit écran */
+      padding: 6px 12px;
+    }
+    
+    .nav-item {
+      height: 38px;
+      width: 260px !important;
+      max-width: 260px !important;
+    }
+    
+    .nav-bg {
+      width: 260px !important;
+      height: 38px !important;
+      max-width: 260px !important;
+      margin: 0 auto;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill;
+      object-position: center;
+    }
+    
+    .menu-nav ul {
+      gap: 12px;
+    }
+    
+    .image-container {
+      max-width: 100%;
     }
   }
   
   @media (max-width: 768px) {
-    .menu-nav {
-      padding-top: 0;
-      padding-left: 0;
-    }
     .menu-header {
       left: 20px;
       right: 20px;
@@ -746,10 +1079,6 @@
   }
   
   @media (max-width: 480px) {
-    .menu-nav {
-      padding-top: 0;
-      padding-left: 0;
-    }
     .menu-header {
       top: 20px;
       left: 15px;
@@ -822,6 +1151,19 @@
     .nav-item {
       height: 40px;
       justify-content: center;
+      width: 280px !important;
+      max-width: 280px !important;
+    }
+    
+    .nav-bg {
+      width: 280px !important;
+      height: 40px !important;
+      max-width: 280px !important;
+      margin: 0 auto;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill;
+      object-position: center;
     }
   }
   </style>
@@ -971,7 +1313,7 @@
           <img src="images/574_538.png" alt="Decorative border" class="title-border" 
             loading="lazy" decoding="async" fetchpriority="low">
           <h1 class="main-title" data-translate="aboutSectionTitle">
-            A PROPOS
+            A <span class="highlight">PROPOS</span>
           </h1>
         </div>
 
@@ -996,20 +1338,9 @@
 
         <!-- Texte descriptif -->
         <div class="w-full md:w-1/2 space-y-6">
-          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-            <strong>L’Escapade Hôtel, depuis mai 2025.</strong> Venez découvrir un refuge élégant posé en bordure de
-            lagune à Assinie. Ici, le temps s’étire et les sens s’éveillent. Entre nature apaisante et raffinement
-            discret,
-            votre voyage commence là où le luxe rencontre la quiétude.
-          </p>
-
-          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-            Érigé sur <strong>3,5 hectares</strong>, le domaine abrite 22 suites juniors et seniors au design épuré,
-            pensées pour offrir confort, intimité et sérénité à chaque hôte.
-          </p>
-
-          <p class="font-[Futura_Md_BT] text-[20px] leading-[26px] text-[#000000]">
-            À L’Escapade, chaque instant devient une invitation au lâcher-prise.
+          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#000000]">
+            L’Escapade Hôtel, depuis mai 2025.  Venez découvrir un refuge élégant posé en bordure de lagune à Assinie.
+            Ici, le temps s’étire et les sens s’éveillent. Entre nature apaisante et raffinement discret,  votre voyage commence là où le luxe rencontre la quiétude.  Érigé sur 3,5 hectares, le domaine abrite 22 suites  juniors et seniors au design épuré,  pensées pour offrir confort, intimité et sérénité à chaque hôte.  À L’Escapade, chaque instant devient une invitation au lâcher-prise.
           </p>
         </div>
       </div>
@@ -1031,8 +1362,8 @@
     </div>
 
     <!-- Texte superposé -->
-    <div class="relative z-10 max-w-5xl mx-auto text-center px-6">
-      <p class="font-[Futura_Md_BT] text-[16px] md:text-[18px] leading-[24px] md:leading-[28px] text-white mt-6" data-translate="aboutParagraph1">
+    <div class="relative z-10 max-w-5xl mx-auto text-start px-6">
+      <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-white mt-6" data-translate="aboutParagraph1">
         Situé au kilomètre 12, L'Escapade vous ouvre ses portes à Assinie, station balnéaire emblématique de la Côte
         d'Ivoire. <br>  
         À seulement 90km d'Abidjan, ce village paisible s'étend entre la lagune Aby et l'Océan Atlantique, offrant un

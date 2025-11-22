@@ -137,7 +137,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 
   .suite-quantity {
     font-family: var(--font-sans);
-    font-weight: 400;
+    font-weight: 0;
     font-size: 30px;
     line-height: 1.2;
     flex-shrink: 0;
@@ -152,7 +152,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 
   .date {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 0;
   }
 
   .date-arrow {
@@ -162,13 +162,13 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 
   .guest-count {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 0;
     margin: 0 0 79px 0;
   }
 
   .total-price {
     font-family: var(--font-sans);
-    font-weight: 400;
+    font-weight: 0;
     font-size: 30px;
     margin: 0 0 39px 0;
     line-height: 1.2;
@@ -178,7 +178,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
     background-color: var(--color-button-bg);
     color: var(--color-text-light);
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 0;
     text-decoration: none;
     text-align: center;
     padding: 14px 0;
@@ -266,7 +266,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   .progress-step__label {
     font-family: var(--font-sans);
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 0;
     line-height: 1.8;
     letter-spacing: 0.39px;
     color: #000000;
