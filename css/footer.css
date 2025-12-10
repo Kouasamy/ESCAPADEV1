@@ -163,6 +163,12 @@
     align-items: center;
     gap: 8px; /* Reduced from 10px */
     font-size: 16px; /* Reduced from 18px */
+    text-decoration: none;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: inherit;
 }
 .contact-item:first-child span {
     font-family: 'Big Caslon', serif;
@@ -182,7 +188,47 @@
     border: none;
     height: 1px;
     background-color: white;
-    margin-bottom: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* Section paiement - Wave et Orange Money - Identique à footer-contact-info */
+.footer-payment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Same as footer-contact-info */
+    margin-bottom: 30px; /* Same as footer-contact-info */
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Same as contact-item */
+    font-size: 16px; /* Same as contact-item */
+    text-decoration: none;
+}
+
+.payment-item img {
+    width: 34px; /* Same as contact-item img */
+    height: 34px; /* Same as contact-item img */
+}
+
+.payment-item span {
+    font-family: 'Futura Md BT', 'Futura', sans-serif;
+    font-size: 16px; /* Same as contact-item */
+}
+
+.footer-payment .separator {
+    width: 1px;
+    height: 40px; /* Same as footer-contact-info .separator */
+    background-color: var(--color-white);
+}
+
+.footer-payment .separator img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .footer-bottom {
@@ -216,11 +262,28 @@
     .footer-contact-info .separator {
         display: none;
     }
+    .footer-payment {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-payment .separator {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
+    }
+    .footer-payment {
+        gap: 20px;
+    }
+    .payment-item img {
+        width: 34px;
+        height: 34px;
+    }
+    .payment-item span {
+        font-size: 16px;
     }
 }

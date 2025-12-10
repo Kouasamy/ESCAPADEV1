@@ -190,6 +190,12 @@ p.text-lg {
   background-color: transparent;
 }
 
+.hero-spacer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Prevent horizontal scroll globally */
 html, body {
   overflow-x: hidden;
@@ -1928,6 +1934,41 @@ video::-webkit-media-controls {
     gap: clamp(0.85rem, 2vw, 2.5rem);
     padding: 0 clamp(0.35rem, 1.5vw, 1.5rem);
     z-index: 1;
+    transition: color 0.3s ease;
+  }
+
+  /* Style pour header sur fond blanc - éléments noirs SAUF le logo ESCAPADE */
+  .site-header.header-on-white .site-header__inner,
+  .site-header.header-on-white .site-header__inner * {
+    color: #000000 !important;
+  }
+
+  /* Logo ESCAPADE - NE PAS rendre noir (exclu du filtre) */
+  .site-header.header-on-white .site-header__logo img {
+    filter: none !important;
+  }
+
+  /* Tous les autres éléments du header en noir */
+  .site-header.header-on-white .menu-button,
+  .site-header.header-on-white .menu-button span,
+  .site-header.header-on-white .lang-switcher,
+  .site-header.header-on-white .lang-switcher a,
+  .site-header.header-on-white .header-nav .btn-text {
+    color: #000000 !important;
+  }
+
+  /* Assurer que les images du header deviennent noires sur fond blanc SAUF le logo */
+  .site-header.header-on-white .menu-button img {
+    filter: brightness(0);
+  }
+
+  .site-header.header-on-white .lang-switcher img {
+    filter: brightness(0);
+  }
+
+  /* Les images btn-bg (formes qui encadrent les boutons) en noir aussi */
+  .site-header.header-on-white .btn-bg {
+    filter: brightness(0);
   }
 
   .site-header__start,

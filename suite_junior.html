@@ -85,12 +85,12 @@
     <!-- Navigation principale -->
     <nav class="header-nav site-header__end">
       <!--merged image-->
-      <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
+      <a href="#paiement" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
         <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
         <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
       </a>
       <!--merged image-->
-      <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
+      <a href="#paiement" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
         <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none">
         <span class="btn-text relative text-sm md:text-md font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
       </a>
@@ -131,7 +131,7 @@
             </a>
           </li>
           <li>
-            <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
+            <a href="restaurant.html" class="nav-item" data-image="img/27.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
               <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
@@ -1105,6 +1105,31 @@
       /* Styles pour le slider de galerie */
       .gallery-slider-wrapper {
         max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        cursor: grab;
+        user-select: none;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        padding: 20px 0;
+      }
+
+      .gallery-slider-wrapper:active {
+        cursor: grabbing;
+      }
+
+      .gallery-slider-wrapper * {
+        user-select: none;
+      }
+
+      .gallery-slider-wrapper::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
       }
 
       .gallery-slider-container {
@@ -1114,16 +1139,18 @@
       }
 
       .gallery-slider-track {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
         gap: 1.5rem;
-        width: 100%;
+        width: max-content;
+        padding: 0 1.5rem;
         transform: none !important;
       }
 
       .gallery-slide {
-        flex-shrink: 0;
-        width: 100%;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        width: clamp(280px, 32vw, 420px);
       }
 
       .gallery-slide img,
@@ -1136,30 +1163,34 @@
       }
 
       .gallery-dots {
-        display: none;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 1rem;
+      }
+
+      .gallery-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .gallery-dot.active {
+        background-color: rgba(0, 0, 0, 0.65);
+        transform: scale(1.15);
       }
 
       /* Responsive pour le slider - Mobile et Tablette uniquement */
       @media (max-width: 1024px) {
-        .gallery-slider-container {
-          overflow-x: auto;
-          overflow-y: hidden;
-          width: 100%;
-          -webkit-overflow-scrolling: touch;
-          scroll-snap-type: x mandatory;
-        }
-
         .gallery-slider-track {
-          display: flex;
-          width: 150%;
-          transform: none !important;
-          gap: 1.5rem;
+          padding: 0 1rem;
         }
 
         .gallery-slide {
-          width: 100%;
-          flex-shrink: 0;
-          scroll-snap-align: start;
+          width: min(80vw, 360px);
         }
 
         .gallery-slide img,
@@ -1170,7 +1201,7 @@
         }
 
         .gallery-dots {
-          display: none;
+          display: flex;
         }
       }
 
@@ -1231,7 +1262,7 @@
   <section class="relative w-full h-screen overflow-hidden" data-hero="suite-junior">
 
     <!-- Image de fond : ESCAPADE 1 (derrière tout le contenu pour éviter qu'elle masque la suite au scroll) -->
-    <div class="absolute inset-0 bg-cover bg-center filter drop-shadow-md -z-10 lazy-bg" data-bg="img/3.jpg" data-bg-priority="high"></div>
+    <div class="absolute inset-0 bg-cover bg-center filter drop-shadow-md -z-10 lazy-bg" data-bg="img/4.jpg" data-bg-priority="high"></div>
 
     <!-- Overlay sombre (au-dessus de l'image mais sous le contenu) -->
     <div class="absolute inset-0 bg-black/40 z-0"></div>
@@ -1267,8 +1298,8 @@
               <p class="feature-label font-[Big_Caslon] text-[14px]">70 m²</p>
             </div>
             <div class="feature-item flex items-center gap-2">
-              <img src="images/272_1551.svg" alt="Pool icon" class="feature-icon w-8 h-8" />
-              <p class="feature-label font-[Big_Caslon] text-[14px]" data-translate="pool">Piscine</p>
+              <img src="images/iconeTerrasse.jpg" alt="terrasse icon" class="feature-icon w-8 h-8" />
+              <p class="feature-label font-[Big_Caslon] text-[14px]" data-translate="pool">Terrasse</p>
             </div>
             <div class="feature-item flex items-center gap-2">
               <img src="images/4549a4342843ea65a58fc8c16959a3919cfb25dd.png" alt="TV icon" class="feature-icon tv-icon w-8 h-8" />
@@ -1298,14 +1329,14 @@
           </ul>
 
           <div class="pt-6">
-            <a href="page_reservation1.html" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]" data-translate="bookNow">
+            <a href="#paiement" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]" data-translate="bookNow">
               Réserver maintenant
             </a>
           </div>
         </div>
 
         <div class="details-image-wrapper w-full md:w-1/2 relative">
-          <img id="mainImage" src="images/fed713276c2b8f97b67e33b6a240df722bb83d82.png" alt="Junior Suite interior"
+          <img id="mainImage" src="img/4.jpg" alt="Junior Suite interior"
             class="details-image w-full h-[400px] md:h-[500px] object-cover rounded-[85px_0] transition-opacity duration-300" />
 
           <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" />
@@ -1325,18 +1356,14 @@
                     </video>
                   </div>
                   <div class="gallery-slide">
-                    <img src="images/0E1A4767.jpg" alt="Vue extérieure de la Suite Junior" class="w-full h-[400px] object-cover">
+                    <img src="images/DSC06627.jpg" alt="Vue extérieure de la Suite Junior" class="w-full h-[400px] object-cover">
                   </div>
-                  <div class="gallery-slide">
-                    <img src="img/14.jpg" alt="Vue piscine de la Suite Junior" class="w-full h-[400px] object-cover">
-                  </div>
+                  
                 </div>
               </div>
-              <div class="flex justify-center gap-3 mt-4 gallery-dots">
-                <button class="gallery-dot w-2 h-2 bg-gray-400 rounded-full transition-all duration-300 active" data-slide="0" aria-label="Slide 1"></button>
-                <button class="gallery-dot w-2 h-2 bg-gray-400/50 rounded-full transition-all duration-300" data-slide="1" aria-label="Slide 2"></button>
-                <button class="gallery-dot w-2 h-2 bg-gray-400/50 rounded-full transition-all duration-300" data-slide="2" aria-label="Slide 3"></button>
-              </div>
+            </div>
+            <div class="flex justify-center gap-3 mt-4 gallery-dots">
+              <img src="images/Group 208.png" alt="">
             </div>
           </div>
         </div>
@@ -1384,17 +1411,27 @@
             </div>
           </div>
         </div>
-        <div class="footer-contact-info">
+        <div class="footer-contact-info" id="paiement">
+          <a href="tel:+2250719700000" class="contact-item" title="Payer par Wave">
+            <img src="images/WaveLogo.png" alt="Logo Wave">
+            <span>+225 07 19 70 00 00</span>
+          </a>
+          <div class="separator"><img src="images/Vector.png" alt="" loading="lazy" decoding="async" data-optimized="true"></div>
+          <a href="tel:+2250797793820" class="contact-item" title="Payer par Orange Money">
+            <img src="images/logoOrange.png" alt="Logo Orange Money">
+            <span>+225 07 97 79 38 20</span>
+          </a>
+          <div class="separator"><img src="images/Vector.png" alt=""></div>
           <div class="contact-item">
             <img src="images/427_62.svg" alt="Phone Icon">
             <span>+225 07-16-70-00-00</span>
           </div>
-          <div class="separator"></div>
+          <div class="separator"><img src="images/Vector.png" alt=""></div>
           <div class="contact-item">
             <img src="images/427_56.svg" alt="Email Icon">
             <a href="mailto:contact@escapadehotel.com">contact@escapadehotel.com</a>
           </div>
-          <div class="separator"></div>
+          <div class="separator"><img src="images/Vector.png" alt=""></div>
           <div class="contact-item">
             <img src="images/427_50.svg" alt="Location Icon">
             <span>Assinie, Km 12, Côte d'Ivoire</span>
@@ -1428,5 +1465,7 @@
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
+  <!-- Script pour détecter le header sur fond blanc -->
+  <script src="js/header-scroll-detection.js" defer></script>
 </body>
 </html>

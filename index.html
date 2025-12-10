@@ -70,7 +70,7 @@
 <section id="hero">
   <div class="hero-container">
     <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
-      <source src="video/PAYSAGE.mp4" type="video/mp4">
+      <source src="video/VideoAcc.mp4" type="video/mp4">
     </video>
     <header class="site-header hero-header">
       <div class="site-header__inner">
@@ -98,12 +98,12 @@
         <!-- Navigation principale -->
         <nav class="header-nav site-header__end">
           <!--merged image-->
-          <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
+          <a href="#paiement" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-block">
             <img src="images/568_838.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
             <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSuite">Réserver une suite</span>
           </a>
           <!--merged image-->
-          <a href="page_reservation1.html" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
+          <a href="#paiement" class="btn-wrapper relative inline-flex items-center justify-center hidden md:inline-flex">
             <img src="images/568_833.svg" alt="" class="btn-bg absolute inset-0 w-full h-full object-contain pointer-events-none" loading="lazy">
             <span class="btn-text relative text-sm md:text-base font-medium text-white px-6 py-2" data-translate="reserveSpace">Réserver un espace</span>
           </a>
@@ -194,7 +194,7 @@
             </a>
           </li>
           <li>
-            <a href="restaurant.html" class="nav-item" data-image="Menu/images/0E1A2520.jpg">
+            <a href="restaurant.html" class="nav-item" data-image="img/27.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_467.svg" class="nav-bg" alt="">
               <span class="nav-text" data-translate="restaurant">LE RESTAURANT</span>
@@ -1473,7 +1473,7 @@
       <!-- Les suites seniors avec piscines -->
       <div class="flex flex-col items-center suite-card">
         <div class="w-[283px] h-[235px] bg-cover bg-center rounded-[55px_0px] shadow-md lazy-bg suite-card-image" data-bg="img/4.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorVipTitle">Les suites seniors avec piscines</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="">Suites seniors avec piscines</p>
         <div class="w-[140px] border-t border-black my-2"></div>
         <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
@@ -1498,15 +1498,15 @@
       </div>
     </div>
 
-    <!-- Indicateurs ellipses - générés automatiquement -->
-    <div id="suite-indicators" class="flex gap-2 justify-center">
-      <!-- Les indicateurs seront générés automatiquement par JavaScript -->
+    <!-- Indicateur décoratif fixe -->
+    <div class="flex justify-center mt-6">
+      <img src="images/Group 2.png" alt="Indicateur de la galerie" class="max-w-full h-auto">
     </div>
 
   </section>
  
 
-  <div class="w-full h-[650px] bg-cover bg-center opacity-90 -z-10 lazy-bg hero-spacer" data-bg="img/8.jpg" data-bg-priority="high"></div>
+  <div class="w-full h-[650px] bg-cover bg-center opacity-90 -z-10 lazy-bg hero-spacer" data-bg="img/Imageacc.jpg" data-bg-priority="high"></div>
 
      <!-- SECTION RESTAURANT -->
     <section class="relative w-full py-10 px-6 md:px-16 overflow-hidden text-black bg-white restaurant-section">
@@ -1843,17 +1843,27 @@
             </div>
           </div>
         </div>
-        <div class="footer-contact-info">
+        <div class="footer-contact-info" id="paiement">
+          <a href="tel:+2250719700000" class="contact-item" title="Payer par Wave">
+            <img src="images/WaveLogo.png" alt="Logo Wave" loading="lazy">
+            <span>+225 07 19 70 00 00</span>
+          </a>
+          <div class="separator"><img src="images/Vector.png" alt="" loading="lazy" decoding="async" data-optimized="true"></div>
+          <a href="tel:+2250797793820" class="contact-item" title="Payer par Orange Money">
+            <img src="images/logoOrange.png" alt="Logo Orange Money" loading="lazy">
+            <span>+225 07 97 79 38 20</span>
+          </a>
+          <div class="separator"><img src="images/Vector.png" alt=""></div>
           <div class="contact-item">
             <img src="images/427_62.svg" alt="Phone Icon" loading="lazy">
             <span>+225 07-16-70-00-00</span>
           </div>
-          <div class="separator"></div>
+          <div class="separator"><img src="images/Vector.png" alt=""></div>
           <div class="contact-item">
             <img src="images/427_56.svg" alt="Email Icon" loading="lazy">
             <a href="mailto:contact@escapadehotel.com">contact@escapadehotel.com</a>
           </div>
-          <div class="separator"></div>
+          <div class="separator"><img src="images/Vector.png" alt=""></div>
           <div class="contact-item">
             <img src="images/427_50.svg" alt="Location Icon" loading="lazy">
             <span data-translate="footerAddress">Assinie, Km 12, Côte d'Ivoire</span>
@@ -1882,6 +1892,8 @@
   <script src="js/gsap-animations.js" defer></script>
   <!-- Script pour le formulaire de réservation -->
   <script src="js/booking-form.js" defer></script>
+  <!-- Script pour détecter le header sur fond blanc -->
+  <script src="js/header-scroll-detection.js" defer></script>
   
   <!-- Script pour forcer l'autoplay des vidéos sur mobile - chargé après le chargement de la page -->
   <script defer>
