@@ -10,18 +10,29 @@
   <link rel="icon" type="image/png" href="images/568_819.png">
   
   <!-- Preconnect pour améliorer les performances des CDN -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://fonts.cdnfonts.com">
   
   <!-- Meta tags pour le cache et les performances -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
   
+  <!-- Chargement optimisé des polices avec font-display: swap pour améliorer les performances -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/futura-md-bt" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/big-caslon-medium" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/futura-md-bt">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/big-caslon-medium">
+  </noscript>
+  
   <!-- Preload des ressources critiques -->
   <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
   <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/568_837.svg" fetchpriority="high">
   
   <!-- Prefetch des ressources non critiques -->
   <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
@@ -31,18 +42,22 @@
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/hero-footer-responsive.css">
+  <!-- CSS responsive chargé de manière asynchrone pour ne pas bloquer le rendu -->
+  <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
   
-  <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
+  <!-- Scripts critiques chargés en premier avec defer pour ne pas bloquer le rendu -->
+  <script src="js/page-loader.js" defer></script>
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/background-loader.js" defer></script>
-  <script src="js/page-loader.js" defer></script>
+  <script src="js/performance-optimizer.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
-  <script src="js/translations.js"></script>
+  <script src="js/translations.js" defer></script>
   
-  <!-- Script pour supprimer complètement les contrôles vidéo -->
-  <script src="js/remove-video-controls.js"></script>
+  <!-- Script pour supprimer complètement les contrôles vidéo - chargé avec defer -->
+  <script src="js/remove-video-controls.js" defer></script>
   
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
@@ -60,7 +75,7 @@
     })();
   </script>
 </head>
-<body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home">
+<body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home" data-loading="true">
 <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Chargement">
   <div class="loader-inner">
     <span class="loader-ring" aria-hidden="true"></span>
@@ -69,7 +84,7 @@
 </div>
 <section id="hero">
   <div class="hero-container">
-    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
+    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" controls="false" controlslist="nodownload nofullscreen noremoteplayback" fetchpriority="high">
       <source src="video/VideoAcc.mp4" type="video/mp4">
     </video>
     <header class="site-header hero-header">
@@ -151,10 +166,15 @@
     </main>
 
     <footer class="hero-footer">
-      <!--merged image-->
+      <!--merged image - Bouton Nous contactez -->
       <a href="#contact" class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg" loading="lazy">
         <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
+      </a>
+      <!--merged image - Bouton Réserver une suite (visible uniquement sur mobile) -->
+      <a href="page_suite.html" class="btn-wrapper btn-reserve-space-mobile">
+        <img src="images/568_833.svg" alt="" class="btn-bg" loading="lazy">
+        <span class="btn-text" data-translate="reserveSuite">Réserver une suite</span>
       </a>
     </footer>
   </div>
@@ -1237,17 +1257,6 @@
   }
   </style>
 
-<style>
-  /* Scroll hide/show animation for the hero header on the homepage */
-  .scroll-hide {
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-  .hero-header.scroll-hide {
-    transform: translateY(-100%);
-  }
-</style>
 
 <style>
   /* Force la visibilité de la vidéo loungeVideo */
@@ -1263,32 +1272,6 @@
 
 <!-- SCRIPT pour le menu -->
 <script src="Menu/global.js" defer></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.querySelector('.menu-button');
-    const menuContainer = document.querySelector('.menu-container');
-    const closeButton = document.querySelector('.menu-close-button');
-
-    if (menuButton && menuContainer) {
-      menuButton.addEventListener('click', () => {
-        menuContainer.classList.remove('is-hidden');
-        menuContainer.style.pointerEvents = 'auto';
-      });
-    }
-
-    if (closeButton && menuContainer) {
-      closeButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        menuContainer.classList.add('is-closing');
-        setTimeout(() => {
-          menuContainer.classList.remove('is-closing');
-          menuContainer.classList.add('is-hidden');
-          menuContainer.style.pointerEvents = 'none';
-        }, 300);
-      });
-    }
-  });
-</script>
 
 
     <!-- Animation simple -->
@@ -1570,11 +1553,11 @@
 
             <!-- Image principale (gauche) -->
             <div class="relative w-full max-w-[450px] lounge-media" style="z-index: 10; position: relative;">
-              <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" 
+              <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)] lazy-video" 
                 style="position: relative; z-index: 10; display: block; opacity: 1 !important; visibility: visible !important; background-color: transparent !important;" 
                 aria-label="Cocktail exotique"
-                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
-                <source src="video/COCKTAIL 2.mp4" type="video/mp4" />
+                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="none" data-src="video/COCKTAIL 2.mp4" controls="false" controlslist="nodownload nofullscreen noremoteplayback">
+                <source data-src="video/COCKTAIL 2.mp4" type="video/mp4" />
                 Votre navigateur ne prend pas en charge la lecture vidéo.
               </video>
 
@@ -1773,35 +1756,6 @@
       });
     })();
   </script>
-  
-  <!-- Scroll behavior: hide hero header when scrolling down, show when scrolling up -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const header = document.querySelector('.hero-header');
-      let lastScroll = window.scrollY;
-
-      function checkScroll() {
-        const currentScroll = window.scrollY;
-        if (currentScroll > lastScroll && currentScroll > 100) {
-          header && header.classList.add('scroll-hide');
-        } else {
-          header && header.classList.remove('scroll-hide');
-        }
-        lastScroll = currentScroll;
-      }
-
-      let ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            checkScroll();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-    });
-  </script>
    </section>
 
   <section id="footer-section">
@@ -1888,64 +1842,72 @@
   
   <!-- CSS responsive - chargé en bas pour ne pas bloquer -->
   
+  <!-- Script de lazy loading vidéo optimisé -->
+  <script src="js/video-lazy-loader.js" defer></script>
   <!-- Scripts d'animations -->
   <script src="js/gsap-animations.js" defer></script>
   <!-- Script pour le formulaire de réservation -->
   <script src="js/booking-form.js" defer></script>
   <!-- Script pour détecter le header sur fond blanc -->
   <script src="js/header-scroll-detection.js" defer></script>
+  <!-- Script pour le comportement scroll hide/show -->
+  <script src="js/scroll-hide-behavior.js" defer></script>
+  <!-- Script pour le menu avec toggle header/footer -->
+  <script src="js/menu-header-footer-toggle.js" defer></script>
   
-  <!-- Script pour forcer l'autoplay des vidéos sur mobile - chargé après le chargement de la page -->
+  <!-- Script optimisé pour forcer l'autoplay des vidéos sur mobile -->
   <script defer>
-    // Attendre que la page soit complètement chargée avant de charger les vidéos
+    // Attendre que la page soit complètement chargée avant de gérer les vidéos
     window.addEventListener('load', function() {
-      // Fonction pour forcer la lecture des vidéos
+      // Fonction pour forcer la lecture des vidéos critiques (hero uniquement)
       function forceVideoPlay(video) {
-        if (video) {
-          video.muted = true;
-          video.setAttribute('playsinline', '');
-          video.setAttribute('webkit-playsinline', '');
-          video.setAttribute('x5-playsinline', '');
-          
-          // Charger la vidéo seulement maintenant
+        if (!video || video.dataset.videoLoaded === 'true') return;
+        
+        video.muted = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('x5-playsinline', '');
+        
+        // Charger la vidéo seulement maintenant
+        if (video.readyState === 0) {
           video.load();
-          
-          const playPromise = video.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-              // La vidéo a démarré avec succès
-            }).catch(error => {
-              // Tentative de lecture automatique échouée, réessayer après un délai
-              setTimeout(() => {
-                video.play().catch(() => {});
-              }, 500);
-            });
-          }
+        }
+        
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            video.dataset.videoLoaded = 'true';
+          }).catch(error => {
+            // Tentative de lecture automatique échouée, réessayer après un délai
+            setTimeout(() => {
+              video.play().catch(() => {});
+            }, 500);
+          });
         }
       }
       
-      // Appliquer à toutes les vidéos après un court délai pour laisser la page se charger
+      // Appliquer uniquement aux vidéos critiques (hero) après un court délai
       setTimeout(function() {
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-          forceVideoPlay(video);
+        const heroVideo = document.querySelector('#hero video');
+        if (heroVideo) {
+          forceVideoPlay(heroVideo);
           
           // Réessayer si la vidéo est mise en pause (certains navigateurs mobiles)
-          video.addEventListener('pause', function() {
-            if (this.hasAttribute('autoplay')) {
+          heroVideo.addEventListener('pause', function() {
+            if (this.hasAttribute('autoplay') && !document.hidden) {
               setTimeout(() => {
                 this.play().catch(() => {});
               }, 100);
             }
           });
-          
-          // Réessayer lors du changement de visibilité de la page
-          document.addEventListener('visibilitychange', function() {
-            if (!document.hidden && video.hasAttribute('autoplay')) {
-              forceVideoPlay(video);
-            }
-          });
+        }
+        
+        // Réessayer lors du changement de visibilité de la page (uniquement pour vidéo hero)
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden && heroVideo && heroVideo.hasAttribute('autoplay')) {
+            forceVideoPlay(heroVideo);
+          }
         });
       }, 300);
     });

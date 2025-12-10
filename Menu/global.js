@@ -54,6 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       if (closeButtonIcon) closeButtonIcon.classList.add('is-closing');
       menuContainer.classList.add('is-closing');
+      
+      // Réafficher le header et le footer quand le menu se ferme
+      const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
+      const headerInner = document.querySelector('.site-header__inner');
+      const footer = document.querySelector('.hero-footer');
+      const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn');
+      const reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
+      
+      if (header) header.classList.remove('scroll-hide');
+      if (headerInner) headerInner.classList.remove('scroll-hide');
+      if (footer) footer.classList.remove('scroll-hide');
+      if (contactBtn) contactBtn.classList.remove('scroll-hide');
+      if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+      
       // After animation, fully hide and disable interactions
       setTimeout(() => {
         menuContainer.classList.remove('is-closing');
@@ -64,5 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButton.addEventListener('click', runClose);
     if (closeButtonIcon) closeButtonIcon.addEventListener('click', runClose);
+  }
+  
+  // Cacher le header et le footer quand le menu s'ouvre (si ouvert depuis un autre script)
+  const menuButton = document.querySelector('.menu-button');
+  if (menuButton && menuContainer) {
+    menuButton.addEventListener('click', () => {
+      const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
+      const headerInner = document.querySelector('.site-header__inner');
+      const footer = document.querySelector('.hero-footer');
+      const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn');
+      const reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
+      
+      if (header) header.classList.add('scroll-hide');
+      if (headerInner) headerInner.classList.add('scroll-hide');
+      if (footer) footer.classList.add('scroll-hide');
+      if (contactBtn) contactBtn.classList.add('scroll-hide');
+      if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+    });
   }
 });

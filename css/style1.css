@@ -1,5 +1,5 @@
-@import url('https://fonts.cdnfonts.com/css/futura-md-bt');
-@import url('https://fonts.cdnfonts.com/css/big-caslon-medium');
+/* Polices chargées via link tags dans le HTML pour améliorer les performances */
+/* @import bloque le rendu, donc on les charge de manière asynchrone dans le HTML */
 
 :root {
   --font-heading: 'Big Caslon', serif;
@@ -1968,6 +1968,56 @@ video::-webkit-media-controls {
 
   /* Les images btn-bg (formes qui encadrent les boutons) en noir aussi */
   .site-header.header-on-white .btn-bg {
+    filter: brightness(0);
+  }
+
+  /* Style pour site-header__inner sur fond blanc - tous les éléments en noir */
+  .site-header__inner.header-inner-on-white,
+  .site-header__inner.header-inner-on-white * {
+    color: #000000 !important;
+  }
+
+  /* Logo ESCAPADE - NE PAS rendre noir dans header-inner */
+  .site-header__inner.header-inner-on-white .site-header__logo img {
+    filter: none !important;
+  }
+
+  /* Tous les autres éléments du header-inner en noir */
+  .site-header__inner.header-inner-on-white .menu-button,
+  .site-header__inner.header-inner-on-white .menu-button span,
+  .site-header__inner.header-inner-on-white .lang-switcher,
+  .site-header__inner.header-inner-on-white .lang-switcher a,
+  .site-header__inner.header-inner-on-white .header-nav .btn-text {
+    color: #000000 !important;
+  }
+
+  /* Assurer que les images du header-inner deviennent noires sur fond blanc SAUF le logo */
+  .site-header__inner.header-inner-on-white .menu-button img {
+    filter: brightness(0);
+  }
+
+  .site-header__inner.header-inner-on-white .lang-switcher img {
+    filter: brightness(0);
+  }
+
+  /* Les images btn-bg dans header-inner en noir aussi */
+  .site-header__inner.header-inner-on-white .btn-bg {
+    filter: brightness(0);
+  }
+
+  /* Style pour hero-footer sur fond blanc - tous les éléments en noir */
+  .hero-footer.hero-footer-on-white,
+  .hero-footer.hero-footer-on-white * {
+    color: #000000 !important;
+  }
+
+  /* Tous les éléments du hero-footer en noir */
+  .hero-footer.hero-footer-on-white .btn-text {
+    color: #000000 !important;
+  }
+
+  /* Les images btn-bg dans hero-footer en noir */
+  .hero-footer.hero-footer-on-white .btn-bg {
     filter: brightness(0);
   }
 

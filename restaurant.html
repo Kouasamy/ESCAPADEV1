@@ -29,6 +29,7 @@
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/hero-footer-responsive.css">
   <link rel="stylesheet" href="css/responsive.css">
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
@@ -1282,14 +1283,39 @@
 <script src="Menu/global.js" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('openMenu');
+    const menuButton = document.getElementById('openMenu') || document.querySelector('.menu-button');
     const menuContainer = document.querySelector('.menu-container');
     const closeButton = document.querySelector('.menu-close-button');
+    
+    // Éléments à cacher quand le menu est ouvert
+    const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
+    const headerInner = document.querySelector('.site-header__inner');
+    const footer = document.querySelector('.hero-footer');
+    const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn') || document.getElementById('contactFab');
+    const reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
+
+    function hideHeaderAndFooter() {
+      if (header) header.classList.add('scroll-hide');
+      if (headerInner) headerInner.classList.add('scroll-hide');
+      if (footer) footer.classList.add('scroll-hide');
+      if (contactBtn) contactBtn.classList.add('scroll-hide');
+      if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+    }
+
+    function showHeaderAndFooter() {
+      if (header) header.classList.remove('scroll-hide');
+      if (headerInner) headerInner.classList.remove('scroll-hide');
+      if (footer) footer.classList.remove('scroll-hide');
+      if (contactBtn) contactBtn.classList.remove('scroll-hide');
+      if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+    }
 
     if (menuButton && menuContainer) {
       menuButton.addEventListener('click', () => {
         menuContainer.classList.remove('is-hidden');
         menuContainer.style.pointerEvents = 'auto';
+        // Cacher le header et le footer quand le menu s'ouvre
+        hideHeaderAndFooter();
       });
     }
 
@@ -1297,6 +1323,8 @@
       closeButton.addEventListener('click', (e) => {
         e.preventDefault();
         menuContainer.classList.add('is-closing');
+        // Réafficher le header et le footer quand le menu se ferme
+        showHeaderAndFooter();
         setTimeout(() => {
           menuContainer.classList.remove('is-closing');
           menuContainer.classList.add('is-hidden');
@@ -1304,9 +1332,17 @@
         }, 300);
       });
     }
+    
+    // Écouter aussi les clics sur l'icône de fermeture dans Menu/global.js
+    // Pour être sûr que ça fonctionne même si global.js se charge après
+    const closeButtonIcon = closeButton ? closeButton.querySelector('img') : null;
+    if (closeButtonIcon) {
+      closeButtonIcon.addEventListener('click', (e) => {
+        showHeaderAndFooter();
+      });
+    }
   });
 </script>
-
 
     <!-- Animation simple -->
     <style>
@@ -1315,52 +1351,268 @@
         to { opacity: 1; transform: scale(1); }
       }
       .animate-fadeIn { animation: fadeIn 0.4s ease-out; }
+    </style>
+  .scroll-hide {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .hero-header.scroll-hide,
+  .site-header.scroll-hide {
+    transform: translateY(-100%) !important;
+  }
+  .site-header__inner.scroll-hide {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .hero-footer.scroll-hide {
+    transform: translateY(100%) !important;
+  }
+  .btn-wrapper.contact-btn.scroll-hide,
+  .btn-wrapper.btn-reserve-space-mobile.scroll-hide {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(100%) !important;
+  }
+  
+  /* S'assurer que les transitions fonctionnent sur mobile et desktop */
+  .hero-header,
+  .site-header,
+  .site-header__inner,
+  .hero-footer,
+  .btn-wrapper.contact-btn,
+  .btn-wrapper.btn-reserve-space-mobile {
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+    will-change: opacity, transform;
+  }
+  
+  /* Cacher le bouton "Réserver un espace" sur desktop */
+  .btn-reserve-space-mobile {
+    display: none !important;
+  }
+  
+  /* Afficher les deux boutons de part et d'autre sur mobile uniquement */
+  @media (max-width: 768px) {
+    .hero-footer {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 0 !important;
+      padding: 10px 20px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
+    }
+    
+    .btn-reserve-space-mobile {
+      display: inline-flex !important;
+      position: relative !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: auto !important;
+      min-width: 140px !important;
+      max-width: 160px !important;
+      height: 35px !important;
+      margin-left: auto !important;
+    }
+    
+    .hero-footer .contact-btn {
+      width: auto !important;
+      min-width: 140px !important;
+      max-width: 160px !important;
+      height: 35px !important;
+      margin-right: auto !important;
+    }
+    
+    .hero-footer .contact-btn .btn-text,
+    .hero-footer .btn-reserve-space-mobile .btn-text {
+      font-size: 12px !important;
+      padding: 6px 12px !important;
+      white-space: nowrap !important;
+    }
+  }
+  
+  /* S'assurer que le header reste visible sur toute la page */
+  .hero-header,
+  .site-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+  }
+  
+  /* S'assurer que le site-header__inner est visible */
+  .site-header__inner {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  /* Cacher le header et footer pendant le chargement initial */
+  body[data-loading="true"] .hero-header,
+  body[data-loading="true"] .site-header,
+  body[data-loading="true"] .site-header__inner,
+  body[data-loading="true"] .hero-footer,
+  body[data-loading="true"] .btn-wrapper.contact-btn,
+  body[data-loading="true"] .btn-wrapper.btn-reserve-space-mobile,
+  body:not(.page-loaded) .hero-header,
+  body:not(.page-loaded) .site-header,
+  body:not(.page-loaded) .site-header__inner,
+  body:not(.page-loaded) .hero-footer,
+  body:not(.page-loaded) .btn-wrapper.contact-btn,
+  body:not(.page-loaded) .btn-wrapper.btn-reserve-space-mobile {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  
+  /* S'assurer que le footer reste visible sur toute la page (desktop) */
+  @media (min-width: 769px) {
+    .hero-footer {
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 56px !important;
+      z-index: 9998 !important;
+      width: auto !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-header,
+    .site-header,
+    .site-header__inner,
+    .hero-footer,
+    .btn-wrapper.contact-btn,
+    .btn-wrapper.btn-reserve-space-mobile {
+      -webkit-transform: translateZ(0); /* Force l'accélération GPU sur iOS */
+      transform: translateZ(0);
+    }
+    
+    /* S'assurer que le footer reste visible sur toute la page (mobile) */
+    .hero-footer {
+      position: fixed !important;
+      bottom: 20px !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: translateZ(0) !important;
+      z-index: 9998 !important;
+      width: 100% !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 0 !important;
+      padding: 10px 20px !important;
+    }
+    
+    /* Positionner les boutons de part et d'autre */
+    .hero-footer .contact-btn {
+      margin-right: auto !important;
+    }
+    
+    .hero-footer .btn-reserve-space-mobile {
+      margin-left: auto !important;
+    }
+    
+    /* S'assurer que le header reste fixe et visible */
+    .hero-header,
+    .site-header {
+      position: fixed !important;
+      top: 0 !important;
+      z-index: 9999 !important;
+    }
+  }
+</style>
 
-      /* Header and contact button animations */
-      .scroll-hide {
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease;
+    <!-- Animation simple -->
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.98); }
+        to { opacity: 1; transform: scale(1); }
       }
-
-      header.scroll-hide {
-        transform: translateY(-100%);
-      }
-
-      #contactFab.scroll-hide {
-        transform: translateY(100%);
-      }
-
-      header, #contactFab {
-        transition: all 0.3s ease;
-      }
+      .animate-fadeIn { animation: fadeIn 0.4s ease-out; }
     </style>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('header');
-        const contactBtn = document.getElementById('contactFab');
-        let lastScroll = window.scrollY;
-
-        // Vérifie si on a scrollé plus de 100px
+  <!-- Scroll behavior: hide hero header and footer when scrolling down, show when scrolling up - FONCTIONNE SUR TOUTE LA PAGE -->
+  <script>
+    (function() {
+      'use strict';
+      
+      let lastScroll = 0;
+      let ticking = false;
+      let header = null;
+      let headerInner = null;
+      let footer = null;
+      let contactBtn = null;
+      let reserveSpaceBtn = null;
+      
+      function initScrollHide() {
+        // Sélectionner les éléments - chercher sur toute la page
+        header = document.querySelector('.hero-header') || document.querySelector('.site-header');
+        headerInner = document.querySelector('.site-header__inner');
+        footer = document.querySelector('.hero-footer');
+        contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn') || document.getElementById('contactFab');
+        reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
+        
+        // Si les éléments n'existent pas, réessayer après un court délai
+        if (!header && !footer && !contactBtn) {
+          setTimeout(initScrollHide, 100);
+          return;
+        }
+        
         function checkScroll() {
-          const currentScroll = window.scrollY;
+          const currentScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
           
+          // Toujours afficher si on est en haut de la page (moins de 50px)
+          if (currentScroll < 50) {
+            if (header) header.classList.remove('scroll-hide');
+            if (headerInner) headerInner.classList.remove('scroll-hide');
+            if (footer) footer.classList.remove('scroll-hide');
+            if (contactBtn) contactBtn.classList.remove('scroll-hide');
+            if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+            lastScroll = currentScroll;
+            return;
+          }
+          
+          // Calculer la différence de scroll
+          const scrollDifference = Math.abs(currentScroll - lastScroll);
+          
+          // Seulement agir si le scroll est significatif (évite les micro-mouvements)
+          if (scrollDifference < 3) {
+            return;
+          }
+          
+          // Si on scroll vers le bas ET qu'on a dépassé 100px, cacher
           if (currentScroll > lastScroll && currentScroll > 100) {
-            // On scroll vers le bas
-            header.classList.add('scroll-hide');
-            contactBtn.classList.add('scroll-hide');
-          } else {
-            // On scroll vers le haut
-            header.classList.remove('scroll-hide');
-            contactBtn.classList.remove('scroll-hide');
+            if (header) header.classList.add('scroll-hide');
+            if (headerInner) headerInner.classList.add('scroll-hide');
+            if (footer) footer.classList.add('scroll-hide');
+            if (contactBtn) contactBtn.classList.add('scroll-hide');
+            if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+          } 
+          // Si on scroll vers le haut, afficher immédiatement (PEU IMPORTE OÙ ON EST SUR LA PAGE)
+          else if (currentScroll < lastScroll) {
+            if (header) header.classList.remove('scroll-hide');
+            if (headerInner) headerInner.classList.remove('scroll-hide');
+            if (footer) footer.classList.remove('scroll-hide');
+            if (contactBtn) contactBtn.classList.remove('scroll-hide');
+            if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
           }
           
           lastScroll = currentScroll;
         }
-
-        // Ajoute l'événement scroll avec throttling
-        let ticking = false;
+        
+        // Initialiser lastScroll
+        lastScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        
+        // Vérifier immédiatement au chargement
+        checkScroll();
+        
+        // Écouter le scroll avec throttling et passive pour de meilleures performances
+        // Utiliser window pour capturer le scroll sur toute la page
         window.addEventListener('scroll', function() {
           if (!ticking) {
             window.requestAnimationFrame(function() {
@@ -1369,9 +1621,45 @@
             });
             ticking = true;
           }
-        });
+        }, { passive: true });
+        
+        // Écouter aussi le touchmove pour mobile
+        window.addEventListener('touchmove', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              checkScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+        
+        // Écouter aussi wheel pour certains navigateurs
+        window.addEventListener('wheel', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              checkScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      }
+      
+      // Initialiser dès que possible
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollHide);
+      } else {
+        // Si le DOM est déjà chargé, attendre un peu pour être sûr que tout est prêt
+        setTimeout(initScrollHide, 50);
+      }
+      
+      // Réinitialiser après le chargement complet de la page
+      window.addEventListener('load', function() {
+        setTimeout(initScrollHide, 100);
       });
-    </script>
+    })();
+  </script>
 
 
   <!-- Section ESCAPADE -->
@@ -1389,14 +1677,20 @@
 
 
       <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="restaurantHeroTitle">RESTAURANT</h1>
-      <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
-      <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter" data-translate="contactAria" data-translate-attr="aria-label">
-         <div class="btn-wrapper contact-btn">
-        <img src="images/568_840.svg" alt="" class="btn-bg">
-        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
-      </div>
-      </a>
     </div>
+
+    <footer class="hero-footer">
+      <!--merged image - Bouton Nous contactez -->
+      <a href="#contact" class="btn-wrapper contact-btn">
+        <img src="images/568_840.svg" alt="" class="btn-bg" loading="lazy">
+        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
+      </a>
+      <!--merged image - Bouton Réserver une suite (visible uniquement sur mobile) -->
+      <a href="page_suite.html" class="btn-wrapper btn-reserve-space-mobile">
+        <img src="images/568_833.svg" alt="" class="btn-bg" loading="lazy">
+        <span class="btn-text" data-translate="reserveSuite">Réserver une suite</span>
+      </a>
+    </footer>
 
   </section>
 
@@ -1837,6 +2131,10 @@
   <script src="js/background-loader.js" defer></script>
   <!-- Script pour détecter le header sur fond blanc -->
   <script src="js/header-scroll-detection.js" defer></script>
-
+  <!-- Script pour le comportement scroll hide/show -->
+  <script src="js/scroll-hide-behavior.js" defer></script>
+  <!-- Script pour le menu avec toggle header/footer -->
+  <script src="js/menu-header-footer-toggle.js" defer></script>
+  
 </body>
 </html>

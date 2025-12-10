@@ -30,6 +30,7 @@
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/hero-footer-responsive.css">
   <link rel="stylesheet" href="css/responsive.css">
   
   <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
@@ -1109,11 +1110,11 @@
         transform: translateY(-100%);
       }
 
-      #contactFab.scroll-hide {
+      .hero-footer .contact-btn.scroll-hide {
         transform: translateY(100%);
       }
 
-      header, #contactFab {
+      header, .hero-footer .contact-btn {
         transition: all 0.3s ease;
       }
 
@@ -1240,7 +1241,7 @@
       (function() {
         function initScroll() {
           const header = document.querySelector('header');
-          const contactBtn = document.getElementById('contactFab');
+          const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn');
           if (!header || !contactBtn) return;
           
           let lastScroll = window.scrollY;
@@ -1299,14 +1300,20 @@
 
 
       <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="suiteVillaFamilialeTitle">VILLA FAMILIALE AVEC <br> <span class="highlight text-[#BB996B]">PISCINE PRIVEE</span></h1>
-      <!-- Bouton flottant 'Nous contacter' fixé en bas à droite -->
-      <a href="#contact" id="contactFab" class="fixed bottom-6 right-6 z-50 px-6 py-3  transition-all duration-300 " aria-label="Nous contacter">
-         <div class="btn-wrapper contact-btn">
+    </div>
+
+    <footer class="hero-footer">
+      <!--merged image - Bouton Nous contactez -->
+      <a href="#contact" class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg" loading="lazy">
         <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
-      </div>
       </a>
-    </div>
+      <!--merged image - Bouton Réserver une suite (visible uniquement sur mobile) -->
+      <a href="page_suite.html" class="btn-wrapper btn-reserve-space-mobile">
+        <img src="images/568_833.svg" alt="" class="btn-bg" loading="lazy">
+        <span class="btn-text" data-translate="reserveSuite">Réserver une suite</span>
+      </a>
+    </footer>
 
   </section>
 
@@ -1554,5 +1561,9 @@
   <script src="js/gsap-animations.js" defer></script>
   <!-- Script pour détecter le header sur fond blanc -->
   <script src="js/header-scroll-detection.js" defer></script>
+  <!-- Script pour le comportement scroll hide/show -->
+  <script src="js/scroll-hide-behavior.js" defer></script>
+  <!-- Script pour le menu avec toggle header/footer -->
+  <script src="js/menu-header-footer-toggle.js" defer></script>
 </body>
 </html>
