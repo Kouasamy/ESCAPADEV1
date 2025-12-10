@@ -243,3 +243,47 @@
       font-size: 16px;
     }
   }
+
+  /* Centrer horizontalement le suite-content pour LES SUITES SENIORS AVEC PISCINE et VILLA FAMILIALE */
+  .suite-card.suite-senior-piscine,
+  .suite-card.suite-villa-familiale {
+    align-items: center;
+  }
+
+  .suite-card.suite-senior-piscine .suite-content,
+  .suite-card.suite-villa-familiale .suite-content {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 7px;
+  }
+
+  /* Responsive - Tablette */
+  @media (max-width: 1024px) {
+    .suite-card.suite-senior-piscine,
+    .suite-card.suite-villa-familiale {
+      align-items: center;
+    }
+
+    .suite-card.suite-senior-piscine .suite-content,
+    .suite-card.suite-villa-familiale .suite-content {
+      margin: 0 auto;
+      max-width: 100%;
+      padding: 0 7px;
+    }
+  }
+
+  /* Responsive - Mobile */
+  @media (max-width: 768px) {
+    .suite-card.suite-senior-piscine,
+    .suite-card.suite-villa-familiale {
+      align-items: center;
+    }
+
+    .suite-card.suite-senior-piscine .suite-content,
+    .suite-card.suite-villa-familiale .suite-content {
+      margin: 0 auto;
+      max-width: 100%;
+      padding: 0 7px;
+    }
+  }
