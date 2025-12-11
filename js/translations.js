@@ -500,7 +500,7 @@
         if (el.tagName === 'TITLE') {
           el.textContent = typeof translation === 'string' ? translation.replace(/<[^>]*>/g, '') : translation;
         } else {
-          el.innerHTML = translation;
+        el.innerHTML = translation;
         }
       } else if (isFrench) {
         const fallback = getFrenchValue(key);
@@ -508,7 +508,7 @@
           if (el.tagName === 'TITLE') {
             el.textContent = typeof fallback === 'string' ? fallback.replace(/<[^>]*>/g, '') : fallback;
           } else {
-            el.innerHTML = fallback;
+          el.innerHTML = fallback;
           }
         }
       }

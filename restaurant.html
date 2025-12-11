@@ -1864,9 +1864,30 @@
               <img src="img/19.jpg" alt="Plat 4" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
             </div>
           </div>
+
+          <!-- Plat 5 -->
+          <div class="plats-slide space-y-4 text-center reveal reveal-left">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="images/IMG_1737.jpg" alt="Plat 5" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+            </div>
+          </div>
+
+          <!-- Plat 6 -->
+          <div class="plats-slide space-y-4 text-center reveal reveal-left">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="images/IMG_1728.jpg" alt="Plat 6" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+            </div>
+          </div>
+
+          <!-- Plat 7 -->
+          <div class="plats-slide space-y-4 text-center reveal reveal-left">
+            <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+              <img src="images/0E1A2523.jpg" alt="Plat 7" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+            </div>
+          </div>
         </div>
       </div>
-
+      
       <div class="flex justify-center mt-6">
         <img src="images/Group 2.png" alt="Indicateur de la galerie" class="max-w-full h-auto">
       </div>
@@ -1993,106 +2014,16 @@
    </script>
   
   <script>
-    // Slider simplifié pour les plats - similaire à suite-gallery-wrapper avec dots
+    // Slider simplifié pour les plats - scroll horizontal uniquement
     document.addEventListener('DOMContentLoaded', () => {
       const wrapper = document.querySelector('.plats-slider-wrapper');
       const track = document.querySelector('#plats-slider-track');
       const slides = Array.from(document.querySelectorAll('.plats-slide'));
-      const dotsContainer = document.querySelector('#plats-slider-dots');
       
-      if (!wrapper || !track || !slides.length || !dotsContainer) return;
+      if (!wrapper || !track || !slides.length) return;
       
-      let currentIndex = 0;
-      let dots = [];
-      
-      // Fonction pour trouver la slide la plus proche du début du viewport
-      function getClosestSlideIndex() {
-        if (!wrapper || slides.length === 0) return 0;
-        
-        const wrapperRect = wrapper.getBoundingClientRect();
-        const wrapperLeft = wrapperRect.left;
-        
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-        
-        slides.forEach((slide, index) => {
-          const slideRect = slide.getBoundingClientRect();
-          const slideLeft = slideRect.left;
-          const distance = Math.abs(slideLeft - wrapperLeft);
-          
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestIndex = index;
-          }
-        });
-        
-        return closestIndex;
-      }
-      
-      // Créer les dots (un par slide)
-      function buildDots() {
-        dotsContainer.innerHTML = '';
-        dots = [];
-        
-        slides.forEach((slide, index) => {
-          const dot = document.createElement('button');
-          dot.className = 'plats-slider-dot';
-          if (index === 0) dot.classList.add('active');
-          dot.setAttribute('aria-label', `Aller au plat ${index + 1}`);
-          dot.addEventListener('click', () => {
-            goToSlide(index);
-          });
-          dotsContainer.appendChild(dot);
-          dots.push(dot);
-        });
-      }
-      
-      // Mettre à jour les dots
-      function updateDots(index) {
-        dots.forEach((dot, idx) => {
-          if (idx === index) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
-        });
-      }
-      
-      // Aller à une slide spécifique
-      function goToSlide(index) {
-        if (index < 0 || index >= slides.length) return;
-        currentIndex = index;
-        
-        if (slides[index]) {
-          const slideElement = slides[index];
-          const wrapperRect = wrapper.getBoundingClientRect();
-          const slideRect = slideElement.getBoundingClientRect();
-          const scrollLeft = wrapper.scrollLeft + (slideRect.left - wrapperRect.left);
-          
-          wrapper.scrollTo({
-            left: scrollLeft,
-            behavior: 'smooth'
-          });
-        }
-        
-        updateDots(currentIndex);
-      }
-      
-      // Initialiser les dots
-      buildDots();
-      
-      // Mettre à jour les dots lors du scroll
-      let scrollTimeout;
-      wrapper.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          const newIndex = getClosestSlideIndex();
-          if (newIndex !== currentIndex && newIndex >= 0 && newIndex < slides.length) {
-            currentIndex = newIndex;
-            updateDots(currentIndex);
-          }
-        }, 100);
-      }, { passive: true });
+      // Le slider fonctionne avec le scroll horizontal natif
+      // Pas besoin de dots, l'image Group 2.png sert d'indicateur visuel
     });
   </script>
   
