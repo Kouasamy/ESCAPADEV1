@@ -17,7 +17,7 @@
       reservationStep4: {},
       reservationStep5: {
         reservationInstructionsTitle: 'Prochaines étapes importantes',
-        reservationStep1: '<strong>Appelez d\'abord le numéro de réservation</strong> pour confirmer votre réservation et finaliser les détails avec notre équipe.',
+        reservationStep1: '<strong>L\'Escapade vous appellera</strong> au numéro de réservation pour confirmer votre réservation et finaliser les détails avec vous. Ensuite, vous pourrez procéder au paiement sur Wave.',
         reservationStep2: '<strong>Effectuez le dépôt</strong> en utilisant l\'un des numéros de paiement ci-dessous pour sécuriser votre réservation.',
         reservationNumberTitle: 'Numéro de réservation',
         paymentNumberTitle: 'Numéro de paiement',
@@ -154,7 +154,7 @@
       },
       reservationStep5: {
         reservationInstructionsTitle: 'Important next steps',
-        reservationStep1: '<strong>First call the reservation number</strong> to confirm your reservation and finalize details with our team.',
+        reservationStep1: '<strong>L\'Escapade will call you</strong> at the reservation number to confirm your reservation and finalize details with you. Then, you can proceed with payment on Wave.',
         reservationStep2: '<strong>Make the deposit</strong> using one of the payment numbers below to secure your reservation.',
         reservationNumberTitle: 'Reservation number',
         paymentNumberTitle: 'Payment number',

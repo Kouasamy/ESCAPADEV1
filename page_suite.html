@@ -33,17 +33,20 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/suite.css">
   <link rel="stylesheet" href="css/hero-footer-responsive.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <!-- CSS responsive chargé de manière asynchrone pour ne pas bloquer le rendu -->
+  <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
   
   <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/page-loader.js" defer></script>
+  <script src="js/performance-optimizer.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
-  <script src="js/translations.js"></script>
+  <script src="js/translations.js" defer></script>
   
   <!-- Script pour supprimer complètement les contrôles vidéo -->
-  <script src="js/remove-video-controls.js"></script>
+  <script src="js/remove-video-controls.js" defer></script>
   
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
@@ -1067,7 +1070,7 @@
 
     <!-- Image 1 -->
     <div class="relative w-full md:w-1/2">
-      <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[0_70px]" controlslist="nodownload nofullscreen noremoteplayback">
+      <video autoplay muted loop playsinline preload="none" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[0_70px]" controlslist="nodownload nofullscreen noremoteplayback">
         <source src="video/CHAMBRE 2 NEW VERSION.mp4" type="video/mp4">
       </video>
     </div>
@@ -1101,7 +1104,7 @@
 
     <!-- Image 2 -->
     <div class="relative w-full md:w-1/2">
-      <video autoplay muted loop playsinline preload="metadata" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[70px_0]" controlslist="nodownload nofullscreen noremoteplayback">
+      <video autoplay muted loop playsinline preload="none" controls="false" loading="lazy" class="w-full h-[900px] object-cover rounded-[70px_0]" controlslist="nodownload nofullscreen noremoteplayback">
         <source src="video/PISCINE.mp4" type="video/mp4">
       </video>
     </div>
@@ -1121,7 +1124,7 @@
       </p>
        <!-- Bouton -->  
       <div class="">
-        <a href="#paiement"
+        <a href="page_reservation1.html"
           class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#caa57f] mt-10">
           <span data-translate="bookNow">Réserver maintenant</span>
         </a>

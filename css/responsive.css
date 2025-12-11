@@ -460,7 +460,7 @@ footer {
     padding-bottom: clamp(3.5rem, 12vw, 5rem);
   }
   [data-hero] h1 {
-    font-size: clamp(2.4rem, 6.4vw, 3.4rem) !important;
+    font-size: clamp(1.25rem, 4.5vw, 1.8rem) !important;
     letter-spacing: 0.14em;
   }
   #contactFab {
@@ -478,7 +478,7 @@ footer {
     padding-bottom: clamp(3rem, 14vw, 4rem);
   }
   [data-hero] h1 {
-    font-size: clamp(1.9rem, 8.5vw, 2.4rem) !important;
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
     letter-spacing: 0.12em;
   }
   [data-hero] .btn-wrapper,
@@ -712,6 +712,219 @@ footer {
   .hero-button,
   .contact-btn {
     transform: scale(0.9);
+  }
+}
+
+/* -------------------------------------------------------------
+ * Augmentation des tailles de texte au responsive mobile
+ * ------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  /* Augmentation générale des tailles de texte */
+  body {
+    font-size: 18px !important;
+  }
+  
+  /* Titres */
+  h1, .h1, .main-title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+  }
+  
+  h2, .h2, .suite-title {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+  
+  h3, .h3 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+  }
+  
+  /* Paragraphes et texte */
+  p, .text-base, .font-\[Futura_Md_BT\] {
+    font-size: clamp(18px, 5vw, 20px) !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Textes spécifiques */
+  .suite-price, .amenity-label, .details-link {
+    font-size: clamp(15px, 3.5vw, 17px) !important;
+  }
+  
+  .subtitle, .hero-text {
+    font-size: clamp(18px, 5vw, 20px) !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Boutons */
+  .btn, .btn-primary, .btn-text {
+    font-size: clamp(15px, 3.5vw, 17px) !important;
+    padding: clamp(10px, 2.5vw, 12px) clamp(16px, 4vw, 20px) !important;
+  }
+  
+  /* Navigation et liens */
+  .nav-text, .menu-nav .nav-text {
+    font-size: clamp(18px, 4.5vw, 22px) !important;
+  }
+  
+  /* Section titles */
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+  
+  /* Footer */
+  .site-footer p, .site-footer a, .site-footer span {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Encore plus grand sur très petits écrans */
+  body {
+    font-size: 17px !important;
+  }
+  
+  h1, .h1, .main-title {
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+  }
+  
+  h2, .h2, .suite-title {
+    font-size: clamp(1.4rem, 7vw, 1.8rem) !important;
+  }
+  
+  p, .text-base, .font-\[Futura_Md_BT\] {
+    font-size: clamp(17px, 5.5vw, 19px) !important;
+  }
+  
+  .suite-price, .amenity-label, .details-link {
+    font-size: clamp(14px, 4vw, 16px) !important;
+  }
+  
+  .btn, .btn-primary, .btn-text {
+    font-size: clamp(14px, 4vw, 16px) !important;
+  }
+  
+  .nav-text, .menu-nav .nav-text {
+    font-size: clamp(16px, 5vw, 20px) !important;
+  }
+}
+
+/* -------------------------------------------------------------
+ * Vidéos - Lecture automatique en boucle au responsive mobile
+ * Suppression complète des contrôles et bouton play
+ * ------------------------------------------------------------- */
+
+/* Cacher TOUS les contrôles vidéo au responsive mobile */
+@media (max-width: 768px) {
+  /* Supprimer tous les contrôles natifs */
+  video,
+  video::-webkit-media-controls,
+  video::-webkit-media-controls-enclosure,
+  video::-webkit-media-controls-panel,
+  video::-webkit-media-controls-play-button,
+  video::-webkit-media-controls-start-playback-button,
+  video::-webkit-media-controls-overlay-play-button,
+  video::-webkit-media-controls-timeline,
+  video::-webkit-media-controls-current-time-display,
+  video::-webkit-media-controls-time-remaining-display,
+  video::-webkit-media-controls-mute-button,
+  video::-webkit-media-controls-volume-slider,
+  video::-webkit-media-controls-fullscreen-button {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+
+  /* Forcer la lecture automatique et masquer les contrôles */
+  video {
+    controls: none !important;
+    pointer-events: none !important;
+  }
+
+  video[controls],
+  video[controls="true"] {
+    controls: none !important;
+  }
+
+  /* Cacher spécifiquement le bouton play au centre */
+  video::before,
+  video::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Empêcher l'affichage des contrôles au touch */
+  video:active,
+  video:focus {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Encore plus strict sur très petits écrans */
+  video {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    controls: none !important;
+    pointer-events: none !important;
+  }
+
+  /* Cacher tous les overlays et boutons */
+  video::-webkit-media-controls-overlay-enclosure,
+  video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+}
+
+/* -------------------------------------------------------------
+ * Augmentation des paragraphes avec classes Tailwind au responsive mobile
+ * ------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  /* Augmenter les paragraphes avec classes Tailwind text-[18px] */
+  p[class*="text-[18px]"] {
+    font-size: clamp(19px, 5.5vw, 21px) !important;
+  }
+
+  /* Augmenter les paragraphes avec classes Tailwind text-[22px] */
+  p[class*="text-[22px]"] {
+    font-size: clamp(20px, 6vw, 23px) !important;
+  }
+
+  /* Augmenter les paragraphes avec classes Tailwind text-[19px] */
+  p[class*="text-[19px]"] {
+    font-size: clamp(18px, 5.5vw, 20px) !important;
+  }
+
+  /* Augmenter les paragraphes avec classes Tailwind text-[20px] */
+  p[class*="text-[20px]"] {
+    font-size: clamp(19px, 5.5vw, 21px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Encore plus grand sur très petits écrans */
+  p[class*="text-[18px]"] {
+    font-size: clamp(18px, 6vw, 20px) !important;
+  }
+
+  p[class*="text-[22px]"] {
+    font-size: clamp(19px, 6.5vw, 22px) !important;
+  }
+
+  p[class*="text-[19px]"] {
+    font-size: clamp(17px, 6vw, 19px) !important;
+  }
+
+  p[class*="text-[20px]"] {
+    font-size: clamp(18px, 6vw, 20px) !important;
   }
 }
 

@@ -27,16 +27,20 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/hero-footer-responsive.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Image Optimizer pour améliorer les performances -->
+  <!-- CSS responsive chargé de manière asynchrone -->
+  <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
+  
+  <!-- Scripts optimisés -->
   <script src="js/image-optimizer.js" defer></script>
+  <script src="js/page-loader.js" defer></script>
+  <script src="js/performance-optimizer.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
-  <script src="js/translations.js"></script>
+  <script src="js/translations.js" defer></script>
   
   <!-- Script pour supprimer complètement les contrôles vidéo -->
-  <script src="js/remove-video-controls.js"></script>
-  <script src="js/page-loader.js" defer></script>
+  <script src="js/remove-video-controls.js" defer></script>
   
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>

@@ -1,155 +1,193 @@
 /**
- * Performance Optimizer
- * Optimisations supplémentaires pour améliorer les performances globales du site
+ * Optimiseur de performance global
+ * Améliore le chargement de la page sur tous les types d'écrans
  */
 
 (function() {
   'use strict';
 
+  // Détecter le type de connexion
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const isSlowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g');
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   /**
-   * Optimise les images avec des placeholders pour éviter le layout shift
+   * Différer le chargement des images non critiques
    */
-  function optimizeImagePlaceholders() {
-    const images = document.querySelectorAll('img[loading="lazy"]:not([data-placeholder-set])');
-    
-    images.forEach(img => {
-      // Ajouter un placeholder si l'image n'a pas de dimensions explicites
-      if (!img.hasAttribute('width') || !img.hasAttribute('height')) {
-        // Créer un placeholder SVG minimal pour éviter le layout shift
-        const placeholder = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3C/svg%3E';
+  function optimizeImages() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(function(img) {
+      // Utiliser Intersection Observer pour un chargement plus efficace
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+              }
+              if (img.dataset.srcset) {
+                img.srcset = img.dataset.srcset;
+                img.removeAttribute('data-srcset');
+              }
+              observer.unobserve(img);
+            }
+          });
+        }, {
+          rootMargin: '50px' // Commencer à charger 50px avant que l'image soit visible
+        });
+        imageObserver.observe(img);
+      }
+    });
+  }
+
+  /**
+   * Optimiser le chargement des vidéos
+   */
+  function optimizeVideos() {
+    const videos = document.querySelectorAll('video[preload="metadata"], video[preload="auto"]');
+    videos.forEach(function(video) {
+      // Sur connexion lente ou mobile, utiliser preload="none"
+      if (isSlowConnection || (isMobile && !video.hasAttribute('fetchpriority'))) {
+        video.preload = 'none';
+        video.loading = 'lazy';
         
-        if (!img.src || img.src === placeholder) {
-          img.src = placeholder;
-          img.setAttribute('data-placeholder-set', 'true');
+        // Charger la vidéo seulement quand elle est visible
+        if ('IntersectionObserver' in window) {
+          const videoObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                const video = entry.target;
+                video.preload = 'metadata';
+                video.load();
+                observer.unobserve(video);
+              }
+            });
+          }, {
+            rootMargin: '100px'
+          });
+          videoObserver.observe(video);
         }
       }
     });
   }
 
   /**
-   * Optimise les requêtes réseau en utilisant le cache du navigateur
+   * Différer le chargement des scripts non critiques
    */
-  function optimizeNetworkRequests() {
-    // Précharger les ressources critiques qui seront probablement nécessaires
-    const criticalResources = [
-      'images/574_538.png', // Title border utilisé fréquemment
-      'Menu/images/542_446.svg', // Close icon
+  function deferNonCriticalScripts() {
+    // Scripts à charger après le rendu initial
+    const scriptsToDefer = [
+      'js/gsap-animations.js',
+      'js/video-lazy-loader.js',
+      'js/booking-form.js'
     ];
 
-    // Utiliser requestIdleCallback si disponible, sinon setTimeout
-    const schedulePreload = window.requestIdleCallback || ((fn) => setTimeout(fn, 2000));
-
-    schedulePreload(() => {
-      criticalResources.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = src;
-        link.as = 'image';
-        document.head.appendChild(link);
-      });
-    });
-  }
-
-  /**
-   * Optimise le scroll en utilisant passive event listeners
-   */
-  function optimizeScrollPerformance() {
-    // Remplacer les event listeners de scroll par des versions passives si possible
-    const scrollElements = document.querySelectorAll('[data-scroll]');
-    
-    scrollElements.forEach(element => {
-      const handler = () => {
-        // Handler vide, juste pour activer le mode passif
-      };
-      
-      element.addEventListener('scroll', handler, { passive: true });
-    });
-  }
-
-  /**
-   * Délaye le chargement des ressources non critiques
-   */
-  function deferNonCriticalResources() {
-    // Délayer le chargement des scripts non critiques après l'interaction utilisateur
-    const deferredScripts = document.querySelectorAll('script[data-defer-on-interaction]');
-    
-    const loadDeferredScripts = () => {
-      deferredScripts.forEach(script => {
-        const newScript = document.createElement('script');
-        newScript.src = script.getAttribute('data-src');
-        newScript.defer = true;
-        script.parentNode.replaceChild(newScript, script);
-      });
-    };
-
-    // Charger après la première interaction utilisateur
-    ['mousedown', 'touchstart', 'keydown'].forEach(event => {
-      document.addEventListener(event, loadDeferredScripts, { once: true, passive: true });
-    });
-
-    // Ou charger après 3 secondes si pas d'interaction
-    setTimeout(loadDeferredScripts, 3000);
-  }
-
-  /**
-   * Optimise les animations pour de meilleures performances
-   */
-  function optimizeAnimations() {
-    // Utiliser will-change uniquement pour les éléments animés actifs
-    const animatedElements = document.querySelectorAll('.animate-fadeIn, .reveal, [data-animate]');
-    
-    animatedElements.forEach(element => {
-      // Ajouter will-change seulement quand l'élément est proche du viewport
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.willChange = 'transform, opacity';
-              observer.unobserve(entry.target);
-              
-              // Retirer will-change après l'animation
-              setTimeout(() => {
-                entry.target.style.willChange = 'auto';
-              }, 1000);
-            }
-          });
-        }, { rootMargin: '100px' });
-        
-        observer.observe(element);
+    scriptsToDefer.forEach(function(scriptPath) {
+      const existingScript = document.querySelector(`script[src="${scriptPath}"]`);
+      if (existingScript && !existingScript.hasAttribute('defer') && !existingScript.hasAttribute('async')) {
+        existingScript.setAttribute('defer', '');
       }
     });
   }
 
   /**
-   * Initialisation
+   * Optimiser les polices
    */
-  function init() {
-    // Attendre que le DOM soit prêt
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        optimizeImagePlaceholders();
-        optimizeScrollPerformance();
-        optimizeAnimations();
-      });
-    } else {
-      optimizeImagePlaceholders();
-      optimizeScrollPerformance();
-      optimizeAnimations();
-    }
-
-    // Optimisations qui peuvent attendre
-    if (document.readyState === 'complete') {
-      optimizeNetworkRequests();
-      deferNonCriticalResources();
-    } else {
-      window.addEventListener('load', () => {
-        optimizeNetworkRequests();
-        deferNonCriticalResources();
+  function optimizeFonts() {
+    // Précharger les polices critiques
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() {
+        // Les polices sont chargées
+        document.documentElement.classList.add('fonts-loaded');
       });
     }
   }
 
-  // Démarrer
+  /**
+   * Réduire la taille des images sur mobile
+   */
+  function optimizeImagesForMobile() {
+    if (isMobile && window.devicePixelRatio > 1) {
+      const images = document.querySelectorAll('img[src*=".jpg"], img[src*=".png"], img[src*=".webp"]');
+      images.forEach(function(img) {
+        // Ajouter des attributs pour le responsive loading
+        if (!img.hasAttribute('sizes')) {
+          img.setAttribute('sizes', '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw');
+        }
+      });
+    }
+  }
+
+  /**
+   * Précharger les ressources critiques au scroll
+   */
+  function preloadOnScroll() {
+    let hasScrolled = false;
+    const preloadResources = [
+      'css/responsive.css',
+      'js/gsap-animations.js'
+    ];
+
+    function preloadResourcesOnScroll() {
+      if (!hasScrolled) {
+        hasScrolled = true;
+        preloadResources.forEach(function(resource) {
+          const link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = resource;
+          document.head.appendChild(link);
+        });
+      }
+    }
+
+    // Précharger après le premier scroll ou après 2 secondes
+    window.addEventListener('scroll', preloadResourcesOnScroll, { once: true, passive: true });
+    setTimeout(preloadResourcesOnScroll, 2000);
+  }
+
+  /**
+   * Optimiser le rendu initial
+   */
+  function optimizeInitialRender() {
+    // Masquer le contenu non critique jusqu'au chargement
+    const nonCriticalElements = document.querySelectorAll('[data-non-critical]');
+    nonCriticalElements.forEach(function(el) {
+      el.style.visibility = 'hidden';
+    });
+
+    // Afficher après le chargement
+    window.addEventListener('load', function() {
+      nonCriticalElements.forEach(function(el) {
+        el.style.visibility = 'visible';
+      });
+    });
+  }
+
+  /**
+   * Initialiser toutes les optimisations
+   */
+  function init() {
+    // Optimisations immédiates
+    optimizeImages();
+    optimizeVideos();
+    optimizeFonts();
+    optimizeImagesForMobile();
+    deferNonCriticalScripts();
+
+    // Optimisations différées
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        preloadOnScroll();
+        optimizeInitialRender();
+      });
+    } else {
+      preloadOnScroll();
+      optimizeInitialRender();
+    }
+  }
+
+  // Démarrer immédiatement
   init();
 })();
-
