@@ -15,7 +15,15 @@
       reservationStep1: {},
       reservationStep3: {},
       reservationStep4: {},
-      reservationStep5: {},
+      reservationStep5: {
+        reservationInstructionsTitle: 'Prochaines étapes importantes',
+        reservationStep1: '<strong>Appelez d\'abord le numéro de réservation</strong> pour confirmer votre réservation et finaliser les détails avec notre équipe.',
+        reservationStep2: '<strong>Effectuez le dépôt</strong> en utilisant l\'un des numéros de paiement ci-dessous pour sécuriser votre réservation.',
+        reservationNumberTitle: 'Numéro de réservation',
+        paymentNumberTitle: 'Numéro de paiement',
+        reservationConfirmationMessage1: 'Un mail de confirmation vous sera envoyé après validation de votre réservation.',
+        reservationConfirmationMessage2: 'L\'équipe de <span style="color: #B78F62;">L\'Escapade</span> vous remercie pour votre confiance.',
+      },
       genericReservation: {},
     },
     en: {
@@ -52,6 +60,8 @@
         footerPlaceholderEmail: 'Email address',
         footerPlaceholderPhone: 'Phone number',
         footerPlaceholderMessage: 'Write your message',
+        footerReservationTitle: 'Reservation number',
+        footerPaymentTitle: 'Payment number',
         contactAria: { 'aria-label': 'Contact us' },
       },
       home: {
@@ -141,6 +151,15 @@
         reservationCardCVV: { placeholder: 'CVV*' },
         reservationPayingLabel: 'You will pay:',
         reservationConfirmPayment: 'Confirm payment',
+      },
+      reservationStep5: {
+        reservationInstructionsTitle: 'Important next steps',
+        reservationStep1: '<strong>First call the reservation number</strong> to confirm your reservation and finalize details with our team.',
+        reservationStep2: '<strong>Make the deposit</strong> using one of the payment numbers below to secure your reservation.',
+        reservationNumberTitle: 'Reservation number',
+        paymentNumberTitle: 'Payment number',
+        reservationConfirmationMessage1: 'A confirmation email will be sent after validation of your reservation.',
+        reservationConfirmationMessage2: 'The <span style="color: #B78F62;">L\'Escapade</span> team thanks you for your trust.',
       },
       lounge: {
         loungeHeroTitle: 'LOUNGE',

@@ -158,6 +158,36 @@
     margin-bottom: 30px; /* Reduced from 50px */
 }
 
+/* Sections de réservation et paiement - sur la même ligne */
+/* Wrapper pour mettre les sections de réservation et paiement sur la même ligne */
+.footer-reservation-payment-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+/* Sections de réservation et paiement */
+.footer-reservation-section,
+.footer-payment-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 auto;
+}
+
+.footer-section-title {
+    font-family: 'Futura Md BT', 'Futura', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 .contact-item {
     display: flex;
     align-items: center;
@@ -268,6 +298,10 @@
     }
     .footer-payment .separator {
         display: none;
+    }
+    .footer-reservation-payment-wrapper {
+        flex-direction: column;
+        gap: 30px;
     }
 }
 

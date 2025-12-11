@@ -11,6 +11,43 @@
 <link rel="stylesheet" href="css/reservation1.css">
 <script src="js/page-loader.js" defer></script>
    <style>
+    /* Style pour les liens cliquables de la progress bar */
+    .progress-step__link {
+      transition: opacity 0.2s ease;
+    }
+    .progress-step__link:hover {
+      opacity: 0.7;
+    }
+
+    /* Application des mêmes border-radius que reservation4.html pour mobile et tablette */
+    .summary-card,
+    .suite-card {
+      border-radius: 0 140px 0 140px;
+    }
+
+    /* Tablette */
+    @media (max-width: 1024px) {
+      .summary-card,
+      .suite-card {
+        border-radius: 0 100px 0 100px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .summary-card,
+      .suite-card {
+        border-radius: 0 70px 0 70px;
+      }
+    }
+
+    /* Petit mobile */
+    @media (max-width: 480px) {
+      .summary-card,
+      .suite-card {
+        border-radius: 0 50px 0 50px;
+      }
+    }
 .counter {
   display: inline-flex;
   align-items: center;
@@ -56,10 +93,12 @@
       <nav class="progress-header__nav" aria-label="Checkout Progress">
         <ol class="progress-steps">
           <li class="progress-step is-complete">
+            <a href="page_reservation1.html" class="progress-step__link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
             <div class="progress-step__icon-wrapper">
               <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 1 Completed">
             </div>
             <span class="progress-step__label">Date</span>
+            </a>
           </li>
           <li class="progress-arrow">
             <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">

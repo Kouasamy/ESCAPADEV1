@@ -145,6 +145,20 @@
         border-radius: 0 50px 0 50px;
       }
     }
+
+    /* Suppression du scroll vertical sur le textarea */
+    #message {
+      overflow-y: hidden !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Style pour les liens cliquables de la progress bar */
+    .progress-step__link {
+      transition: opacity 0.2s ease;
+    }
+    .progress-step__link:hover {
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body data-page="reservationStep4">
@@ -163,28 +177,34 @@
         <nav class="progress-header__nav" aria-label="Checkout Progress">
           <ol class="progress-steps">
             <li class="progress-step is-complete">
+              <a href="page_reservation1.html" class="progress-step__link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
               <div class="progress-step__icon-wrapper">
                 <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 1 Completed">
               </div>
               <span class="progress-step__label" data-translate="reservationStepDate">Date</span>
+              </a>
             </li>
             <li class="progress-arrow">
               <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
             </li>
             <li class="progress-step is-complete">
+              <a href="reservation1.html" class="progress-step__link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
               <div class="progress-step__icon-wrapper">
                 <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 2 Completed">
               </div>
               <span class="progress-step__label" data-translate="reservationStepCategory">Catégorie</span>
+              </a>
             </li>
             <li class="progress-arrow">
               <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
             </li>
             <li class="progress-step is-complete">
+              <a href="reservation3.html" class="progress-step__link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
               <div class="progress-step__icon-wrapper">
                 <img class="progress-step__icon" src="images/11d0ffacd4ff82d0273fcea40309ad0ecc3b1fc6.png" alt="Step 3 Completed">
               </div>
               <span class="progress-step__label" data-translate="reservationStepDetails">Details & confirmation</span>
+              </a>
             </li>
             <li class="progress-arrow">
               <img src="images/324_439.svg" alt="Arrow" class="progress-arrow__icon">
@@ -204,14 +224,14 @@
     <section id="paiement" class="relative py-8 px-6 md:px-16 bg-white text-black overflow-hidden">
 
   <!-- Section contact -->
-  <div class="max-w-6xl mx-auto mb-20 mt-16">
+  <div class="max-w-7xl mx-auto mb-20 mt-16">
     <h2 class="text-center text-[32px] font-[Big_Caslon] mb-8" data-translate="reservationContactTitle">Contact</h2>
     <div class="relative">
       <!-- Image décorative en haut à gauche -->
       <img src="media/510_6.svg" alt="Decorative element" class="absolute -top-12 -left-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
       <!-- Image décorative en bas à droite -->
       <img src="media/510_8.svg" alt="Decorative element" class="absolute -bottom-12 -right-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
-      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] space-y-10 relative" style="min-height: 374px;">
+      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] space-y-10 relative" style="min-height: 450px;">
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="space-y-6">
@@ -234,61 +254,15 @@
             <input id="telephone" type="tel" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Téléphone*" data-translate="reservationPhone" data-translate-attr="placeholder">
           </div>
           <div>
-            <textarea id="message" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2 resize-none" placeholder="Message ou Demandes spéciales" data-translate="reservationMessage" data-translate-attr="placeholder"></textarea>
+            <textarea id="message" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2 resize-none overflow-hidden" placeholder="Message ou Demandes spéciales" data-translate="reservationMessage" data-translate-attr="placeholder" style="overflow-y: hidden;"></textarea>
           </div>
         </div>
-      </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section paiement -->
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-center text-[32px] font-[Big_Caslon] mb-8" data-translate="reservationPaymentTitle">Paiement</h2>
-    <div class="relative">
-      <!-- Image décorative en haut à gauche -->
-      <img src="media/510_6.svg" alt="Decorative element" class="absolute -top-12 -left-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
-      <!-- Image décorative en bas à droite -->
-      <img src="media/510_8.svg" alt="Decorative element" class="absolute -bottom-12 -right-12 w-24 h-24 z-10 opacity-90" style="transform: scaleX(-1) scaleY(1);" />
-      <div class="bg-[#BB996B] text-white p-10 md:p-16 rounded-[0_140px] space-y-12 relative" style="min-height: 600px;">
-      
-      <!-- Logos de cartes -->
-      <div class="card-logos-container flex items-center justify-center gap-8 mb-8 mx-auto bg-white rounded-md">
-        <img src="images/visa.png" alt="Visa" class="card-logo object-contain">
-        <img src="images/WaveLogo.png " alt="MasterCard" class="card-logo object-contain">
-      </div>
-
-      <!-- Formulaire carte -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="space-y-6">
-          <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Numéro de carte*" data-translate="reservationCardNumber" data-translate-attr="placeholder">
-          </div>
-          <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Nom sur la carte*" data-translate="reservationCardName" data-translate-attr="placeholder">
-          </div>
-        </div>
-
-        <div class="space-y-6">
-          <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="Expiration (MM/YY)*" data-translate="reservationCardExpiry" data-translate-attr="placeholder">
-          </div>
-          <div>
-            <input type="text" class="w-full bg-transparent border-b border-white/90 text-white placeholder:text-white placeholder:text-[20px] placeholder:opacity-100 placeholder:font-[Big_Caslon] focus:outline-none pb-2" placeholder="CVV*" data-translate="reservationCardCVV" data-translate-attr="placeholder">
-          </div>
-        </div>
-      </div>
-
-      <!-- Total -->
-      <div class="flex flex-col md:flex-row items-center justify-between pt-8">
-        <p class="font-[Futura_Md_BT] text-[30px]" data-translate="reservationPayingLabel">Vous allez payer :</p>
-        <p class="font-[Futura_Md_BT] text-[30px]">840 000 FCFA</p>
       </div>
 
       <!-- Bouton valider -->
-      <div class="text-center pt-10">
-        <a href="reservation5.html" class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-10 py-3 rounded-[20px_0px] hover:bg-[#835622] transition duration-300" data-translate="reservationConfirmPayment">
-          Valider le paiement
+      <div class="text-center pt-10 mt-8">
+        <a href="reservation5.html" class="inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-10 py-3 rounded-[20px_0px] hover:bg-[#835622] transition duration-300">
+          Suivant
         </a>
       </div>
       </div>

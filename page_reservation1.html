@@ -203,6 +203,21 @@
     transform: translateX(-50%);
   }
   
+  /* Réduction de la hauteur des images sur mobile */
+  @media (max-width: 767px) {
+    .date-field .field-bg.date-field-bg {
+      height: 55%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .guest-field .field-bg.guest-field-bg {
+      height: 55%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
   /* Sur desktop : les date-field reprennent 100% */
   @media (min-width: 768px) {
     .date-field .field-bg.date-field-bg {
@@ -210,6 +225,8 @@
       left: 0;
       right: 0;
       transform: none;
+      height: 100%;
+      top: 0;
     }
     
     .form-field-wrapper.date-field {
@@ -223,6 +240,8 @@
     .guest-field .field-bg.guest-field-bg {
       left: 0;
       transform: none;
+      height: 100%;
+      top: 0;
     }
   }
 
@@ -374,6 +393,136 @@
     opacity: 0.5;
   }
 
+  /* Réduction de la taille des images guest-minus et guest-plus sur mobile */
+  @media (max-width: 767px) {
+    .guest-stepper img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  /* Centrage et alignement des inputs sur mobile uniquement */
+  @media (max-width: 767px) {
+    /* Centrer le conteneur principal */
+    #reservation-date .max-w-xl {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Centrer le formulaire et tous ses éléments */
+    #reservation-date .max-w-xl form {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    /* Centrer la grille des dates */
+    #reservation-date .max-w-xl form .grid {
+      justify-items: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    /* Centrer les wrappers de champs de date */
+    #reservation-date .max-w-xl .form-field-wrapper.date-field {
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 280px;
+    }
+    
+    /* Centrer les labels des dates */
+    #reservation-date .max-w-xl .date-field .field-label {
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+    
+    /* Centrer le conteneur du champ invités */
+    #reservation-date .max-w-xl .w-full.flex.justify-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    /* Centrer le champ invités */
+    #reservation-date .max-w-xl .guest-field {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    /* Centrer le label des invités */
+    #reservation-date .max-w-xl .guest-field .field-label {
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      text-align: center;
+      flex: 1;
+    }
+    
+    /* Centrer le stepper des invités */
+    #reservation-date .max-w-xl .guest-field .guest-stepper {
+      position: relative;
+      left: auto;
+      transform: none;
+      margin-left: 8px;
+      margin-right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    
+    /* Centrer le bouton */
+    #reservation-date .max-w-xl .pt-6 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  /* Application des mêmes border-radius que reservation4.html pour mobile et tablette */
+  .bg-\[#BB996B\]\/90,
+  div[class*="bg-[#BB996B]"] {
+    border-radius: 0 140px 0 140px;
+  }
+
+  /* Tablette */
+  @media (max-width: 1024px) {
+    .bg-\[#BB996B\]\/90,
+    div[class*="bg-[#BB996B]"] {
+      border-radius: 0 100px 0 100px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .bg-\[#BB996B\]\/90,
+    div[class*="bg-[#BB996B]"] {
+      border-radius: 0 70px 0 70px;
+    }
+  }
+
+  /* Petit mobile */
+  @media (max-width: 480px) {
+    .bg-\[#BB996B\]\/90,
+    div[class*="bg-[#BB996B]"] {
+      border-radius: 0 50px 0 50px;
+    }
+  }
 </style>
 <link rel="stylesheet" href="css/responsive.css">
 </body>
