@@ -5,22 +5,76 @@
 
   const translations = {
     fr: {
-      common: {},
+      common: {
+        escapadeLoader: 'L\'ESCAPADE',
+        loading: 'Chargement',
+        or: 'ou',
+      },
       home: {},
       restaurant: {},
       lounge: {},
       suites: {},
       events: {},
       about: {},
-      reservationStep1: {},
-      reservationStep3: {},
-      reservationStep4: {},
+      reservationStep1: {
+        reservationPageTitleStep2: 'Page Réservation - Étape 2',
+        reservationStepDate: 'Date',
+        reservationStepCategory: 'Catégorie',
+        reservationStepDetails: 'Détails & confirmation',
+        reservationStepPayment: 'Paiement',
+        reservationSelectCategory: 'Sélectionnez une catégorie de suite',
+        reservationNightsSelected: 'Nuits sélectionnées',
+        reservationGuests: 'Invités',
+        reservationModify: 'Modifier',
+        reservationViewSuite: 'Voir la suite',
+        reservationSelect: 'Sélectionner',
+        reservationNext: 'Suivant',
+        reservationWeekend: 'Week-end',
+        reservationWeek: 'Semaine',
+        reservationTerrace: 'Terrasse',
+        reservationPool: 'Piscine',
+        reservationTV: 'TV',
+        reservationSuiteJunior: 'SUITES JUNIOR',
+        reservationSuiteSenior: 'SUITES SÉNIOR',
+        reservationSuiteSeniorPool: 'SUITES SENIORS AVEC PISCINE',
+        reservationVillaFamiliale: 'VILLA FAMILIALE AVEC PISCINE PRIVEE',
+        arrival: 'Arrivée',
+        departure: 'Départ',
+        guests: 'Invités',
+      },
+      reservationStep3: {
+        reservationPageTitleStep3: 'Détails & Confirmation',
+        reservationStepDate: 'Date',
+        reservationStepCategory: 'Catégorie',
+        reservationStepDetails: 'Détails & confirmation',
+        reservationStepPayment: 'Paiement',
+        reservationDetailsTitle: 'Détails & Confirmation',
+        reservationTotal: 'TOTAL',
+        reservationNext: 'Suivant',
+        reservationGuests: 'Invités',
+        reservationSuiteSenior: 'SUITES SÉNIOR',
+      },
+      reservationStep4: {
+        reservationStepDate: 'Date',
+        reservationStepCategory: 'Catégorie',
+        reservationStepDetails: 'Détails & confirmation',
+        reservationStepPayment: 'Paiement',
+        reservationContactTitle: 'Contact',
+        reservationFirstName: { placeholder: 'Prénom*' },
+        reservationEmail: { placeholder: 'E-mail*' },
+        reservationNationality: { placeholder: 'Nationalité' },
+        reservationLastName: { placeholder: 'Nom de famille*' },
+        reservationPhone: { placeholder: 'Téléphone*' },
+        reservationMessage: { placeholder: 'Message ou Demandes spéciales' },
+        reservationNext: 'Suivant',
+      },
       reservationStep5: {
         reservationInstructionsTitle: 'Prochaines étapes importantes',
         reservationStep1: '<strong>L\'Escapade vous appellera</strong> au numéro de réservation pour confirmer votre réservation et finaliser les détails avec vous. Ensuite, vous pourrez procéder au paiement sur Wave.',
         reservationStep2: '<strong>Effectuez le dépôt</strong> en utilisant l\'un des numéros de paiement ci-dessous pour sécuriser votre réservation.',
         reservationNumberTitle: 'Numéro de réservation',
         paymentNumberTitle: 'Numéro de paiement',
+        reservationConfirmed: 'Réservation <span style="color: #B78F62;">Confirmée</span>',
         reservationConfirmationMessage1: 'Un mail de confirmation vous sera envoyé après validation de votre réservation.',
         reservationConfirmationMessage2: 'L\'équipe de <span style="color: #B78F62;">L\'Escapade</span> vous remercie pour votre confiance.',
       },
@@ -28,6 +82,9 @@
     },
     en: {
       common: {
+        escapadeLoader: 'L\'ESCAPADE',
+        loading: 'Loading',
+        or: 'or',
         menu: 'MENU',
         close: 'CLOSE',
         roomsSuites: 'ROOMS & SUITES',
@@ -132,6 +189,44 @@
         restaurantDish5: 'Dish 5',
         restaurantDish6: 'Dish 6',
       },
+      reservationStep1: {
+        reservationPageTitleStep2: 'Reservation Page - Step 2',
+        reservationStepDate: 'Date',
+        reservationStepCategory: 'Category',
+        reservationStepDetails: 'Details & confirmation',
+        reservationStepPayment: 'Payment',
+        reservationSelectCategory: 'Select a suite category',
+        reservationNightsSelected: 'Nights selected',
+        reservationGuests: 'Guests',
+        reservationModify: 'Modify',
+        reservationViewSuite: 'View the suite',
+        reservationSelect: 'Select',
+        reservationNext: 'Next',
+        reservationWeekend: 'Weekend',
+        reservationWeek: 'Week',
+        reservationTerrace: 'Terrace',
+        reservationPool: 'Pool',
+        reservationTV: 'TV',
+        reservationSuiteJunior: 'JUNIOR SUITES',
+        reservationSuiteSenior: 'SENIOR SUITES',
+        reservationSuiteSeniorPool: 'SENIOR SUITES WITH POOL',
+        reservationVillaFamiliale: 'FAMILY VILLA WITH PRIVATE POOL',
+        arrival: 'Arrival',
+        departure: 'Departure',
+        guests: 'Guests',
+      },
+      reservationStep3: {
+        reservationPageTitleStep3: 'Details & Confirmation',
+        reservationStepDate: 'Date',
+        reservationStepCategory: 'Category',
+        reservationStepDetails: 'Details & confirmation',
+        reservationStepPayment: 'Payment',
+        reservationDetailsTitle: 'Details & Confirmation',
+        reservationTotal: 'TOTAL',
+        reservationNext: 'Next',
+        reservationGuests: 'Guests',
+        reservationSuiteSenior: 'SENIOR SUITES',
+      },
       reservationStep4: {
         reservationStepDate: 'Date',
         reservationStepCategory: 'Category',
@@ -144,6 +239,7 @@
         reservationLastName: { placeholder: 'Last name*' },
         reservationPhone: { placeholder: 'Phone*' },
         reservationMessage: { placeholder: 'Message or special requests' },
+        reservationNext: 'Next',
         reservationPaymentTitle: 'Payment',
         reservationCardNumber: { placeholder: 'Card number*' },
         reservationCardName: { placeholder: 'Name on card*' },
@@ -158,6 +254,7 @@
         reservationStep2: '<strong>Make the deposit</strong> using one of the payment numbers below to secure your reservation.',
         reservationNumberTitle: 'Reservation number',
         paymentNumberTitle: 'Payment number',
+        reservationConfirmed: 'Reservation <span style="color: #B78F62;">Confirmed</span>',
         reservationConfirmationMessage1: 'A confirmation email will be sent after validation of your reservation.',
         reservationConfirmationMessage2: 'The <span style="color: #B78F62;">L\'Escapade</span> team thanks you for your trust.',
       },
@@ -255,6 +352,21 @@
 
   function getPageScope() {
     const page = document.body?.dataset?.page || 'common';
+    
+    // Mapper les pages de réservation
+    if (page === 'reservation-step1' || page === 'reservation-step2') {
+      return 'reservationStep1';
+    }
+    if (page === 'reservation-step3') {
+      return 'reservationStep3';
+    }
+    if (page === 'reservationStep4' || page === 'reservation-step4') {
+      return 'reservationStep4';
+    }
+    if (page === 'reservation-step5' || page === 'reservationStep5') {
+      return 'reservationStep5';
+    }
+    
     // Mapper les pages de suites individuelles au scope "suites"
     if (page && (page.startsWith('suite-') || page === 'suite-list')) {
       return 'suites';
@@ -384,11 +496,20 @@
       const translation = lookup[key];
 
       if (translation != null) {
-        el.innerHTML = translation;
+        // Pour les éléments title, utiliser textContent au lieu de innerHTML
+        if (el.tagName === 'TITLE') {
+          el.textContent = typeof translation === 'string' ? translation.replace(/<[^>]*>/g, '') : translation;
+        } else {
+          el.innerHTML = translation;
+        }
       } else if (isFrench) {
         const fallback = getFrenchValue(key);
         if (fallback != null) {
-          el.innerHTML = fallback;
+          if (el.tagName === 'TITLE') {
+            el.textContent = typeof fallback === 'string' ? fallback.replace(/<[^>]*>/g, '') : fallback;
+          } else {
+            el.innerHTML = fallback;
+          }
         }
       }
     });
