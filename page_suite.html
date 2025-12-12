@@ -41,6 +41,7 @@
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/page-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
+  <script src="js/page-prefetch.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js" defer></script>
@@ -302,15 +303,19 @@
     will-change: transform;
     text-decoration: none;
     color: inherit;
-    overflow: hidden;
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav-bg {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     height: 100%;
+    max-width: 100%;
     z-index: 1;
     object-fit: contain;
   }
@@ -320,28 +325,28 @@
     z-index: 2;
     font-family: var(--font-sans);
     font-size: 32px;
-    font-weight: 400;
-    padding-left: 141px; /* Center text inside the pill shape */
-    padding-right: 40px; /* Espace à droite pour éviter le débordement */
+    font-weight: 0;
+    padding-left: 141px;
+    padding-right: 40px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: unset;
     max-width: 100%;
   }
   
   .nav-line {
     position: absolute;
-    left: 78px; /* Ajusté pour correspondre au nouveau padding-left */
-    top: 24px; /* 310px (from figma) - 286px (nav top) */
-    opacity: 0;
-    transform: translateX(-8px) scaleX(0.9);
+    left: 78px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px) scaleX(0.9);
     transform-origin: left center;
+    opacity: 0;
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
   .nav-item:hover .nav-line {
     opacity: 1;
-    transform: translateX(0) scaleX(1);
+    transform: translateY(-50%) translateX(0) scaleX(1);
   }
 
   .nav-item:hover {
@@ -422,21 +427,193 @@
     transform: rotate(0.38deg);
   }
 
+  /* ============================================
+   * RESPONSIVE TABLETTE / MOBILE UNIFIÉ
+   * 768px → 1280px (mobile = tablette)
+   * ============================================ */
   @media (max-width: 1280px) {
+    /* Responsive unifié : Mobile = Tablette */
     .menu-container {
       width: 100vw;
       height: 100vh;
       margin: 0;
       border-radius: 0;
     }
+    
     .menu-content {
       grid-template-columns: 1fr;
-      padding: 150px 20px 40px;
+      padding: 120px 20px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
+    
+    .menu-header {
+      left: 20px;
+      right: 20px;
+      top: 20px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      padding: 10px 0;
+    }
+    
+    /* Cacher le menu-logo sur mobile/tablette */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+      font-size: 14px;
+      gap: 10px;
+    }
+    
+    .menu-header .menu-close-button img {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
+      font-size: 14px;
+      gap: 8px;
+    }
+    
+    .menu-header .menu-lang-switcher img {
+      width: 10px;
+      height: 10px;
+    }
+    
+    /* Menu-nav : réductions de taille */
+    .menu-nav {
+      padding: 0;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .menu-nav ul {
+      align-items: center;
+      width: 100%;
+      gap: 14px; /* Réduction de l'espacement */
+    }
+    
+    .nav-item {
+      justify-content: center;
+      height: 44px; /* Réduction de hauteur */
+      max-width: 100%;
+    }
+    
+    .nav-text {
+      padding-left: 0;
+      text-align: center;
+      font-size: 22px; /* Réduction de taille de police */
+      padding: 8px 16px;
+    }
+    
+    .nav-line {
+      display: none;
+    }
+    
+    /* UNIFORMISATION TOTALE DES NAV-BG - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 280px !important;
+      height: 44px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    /* S'assurer que tous les nav-item ont la même largeur */
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      width: 280px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+    }
+    
+    /* Image-showcase : réductions */
+    .image-showcase {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .image-container {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      aspect-ratio: 658.19 / 429;
+      margin-top: 0;
+    }
+    
+    .deco-corner-top {
+      top: 120px;
+      right: 30px;
+      transform: scale(0.75);
+    }
+    
+    .deco-corner-bottom {
+      top: auto;
+      bottom: 20px;
+      left: 20px;
+      transform: scale(0.75);
+    }
+  }
+
+  @media (max-width: 768px) {
     .menu-header {
       left: 20px;
       right: 20px;
@@ -444,79 +621,53 @@
       justify-content: space-between;
       gap: 0;
     }
-    .menu-close-button {
-      font-size: 14px;
-      gap: 12px;
-    }
-    .menu-close-button img {
-      width: 20px;
-      height: 20px;
-    }
-    .menu-lang-switcher {
-      font-size: 14px;
-      gap: 8px;
-    }
-    .menu-lang-switcher img {
-      width: 12px;
-      height: 12px;
-    }
-    .menu-logo {
-      left: 50%;
-      transform: translateX(-50%) scale(0.75);
-      top: 30px;
-      width: 120px;
-      height: 112px;
-    }
-    .menu-nav {
-      padding: 0;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .menu-nav ul {
-      align-items: center;
-      width: 100%;
-    }
-    .nav-item {
-      justify-content: center;
-    }
-    .nav-text {
-      padding-left: 0;
-      text-align: center;
-    }
-    .nav-line {
-      display: none;
-    }
-    .image-showcase {
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .image-container {
-      width: 100%;
-      max-width: 658.19px;
-      height: auto;
-      aspect-ratio: 658.19 / 429;
-    }
-    .deco-corner-top {
-      top: 150px;
-      right: 50px;
-    }
-    .deco-corner-bottom {
-      top: 200px;
-      left: 20px;
-    }
   }
 
+  /* ============================================
+   * OPTIMISATION TRÈS PETIT ÉCRAN < 480px
+   * Améliorations spécifiques pour petits écrans
+   * ============================================ */
   @media (max-width: 480px) {
     .menu-header {
       top: 20px;
       left: 15px;
       right: 15px;
       justify-content: space-between;
+      align-items: center;
       gap: 0;
+      position: relative;
+      padding: 0;
+    }
+    
+    /* Cacher le menu-logo sur mobile */
+    .menu-header .menu-logo,
+    .menu-logo {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      left: -9999px !important;
+    }
+    
+    .menu-header .menu-logo .logo-part,
+    .menu-logo .logo-part {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    .menu-header .menu-close-button {
+      flex: 0 0 auto;
+      justify-content: flex-start;
+    }
+    
+    .menu-header .menu-lang-switcher {
+      flex: 0 0 auto;
+      justify-content: flex-end;
+      margin-left: auto;
     }
     .menu-close-button {
       font-size: 12px;
@@ -534,12 +685,6 @@
       width: 10px;
       height: 10px;
     }
-    .menu-logo {
-      top: 80px;
-      transform: translateX(-50%) scale(0.6);
-      width: 96px;
-      height: 89px;
-    }
     .menu-content {
       padding-top: 220px;
       display: flex;
@@ -556,11 +701,256 @@
       height: 40px;
       justify-content: center;
     }
+    
+    /* UNIFORMISATION TOTALE DES NAV-BG SUR TRÈS PETIT ÉCRAN - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 260px !important;
+      height: 38px !important;
+      max-width: 260px !important;
+      min-width: 260px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    /* S'assurer que tous les nav-item ont la même largeur sur très petit écran */
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      height: 38px !important;
+      width: 260px !important;
+      max-width: 260px !important;
+      min-width: 260px !important;
+    }
+    
+    .menu-nav ul {
+      gap: 12px;
+    }
+    
+    .image-container {
+      max-width: 100%;
+    }
+  }
+  
+  /* ============================================
+   * OPTIMISATION LAPTOP 1024px → 1509px
+   * Centrage vertical parfait menu-nav / image-showcase
+   * ============================================ */
+  @media (min-width: 1024px) and (max-width: 1509px) {
+    /* Structure globale : alignement vertical parfait */
+    .menu-content {
+      display: grid;
+      grid-template-columns: 46% 54%;
+      align-items: center; /* ★ CENTRAGE VERTICAL DU MENU-NAV ET IMAGE-SHOWCASE */
+      column-gap: 42px;
+      height: 100%;
+    }
+
+    /* Menu-nav / Navigation gauche */
+    .menu-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;   /* ★ CENTRE LE BLOC DU MENU */
+      align-items: flex-start;   /* Garde l'alignement naturel des liens */
+      height: auto;
+    }
+
+    /* Espacement entre les items */
+    .menu-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .menu-nav ul li {
+      margin: 0; /* Le gap gère tout */
+    }
+
+    /* Conteneur <a> */
+    .menu-nav .nav-item {
+      position: relative;
+      max-width: 360px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Fond décoratif (pilule) */
+    .menu-nav .nav-bg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.90);
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Ligne décorative au hover - masquée pour cette plage */
+    .menu-nav .nav-line {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    /* Texte du menu – éviter les "…" et les collisions */
+    .menu-nav .nav-text {
+      position: relative;
+      z-index: 2;
+      font-size: 1.35rem;
+      padding: 10px 32px;
+      white-space: nowrap;
+      overflow: visible;
+      text-overflow: unset;
+      letter-spacing: 0.4px;
+    }
+
+    /* Image Showcase (côté droit) */
+    .image-showcase {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* ★ Centre l'image verticalement */
+      padding-top: 0;
+      position: relative; /* Pour positionner les décoratifs en dehors de l'image */
+      align-items: center; /* Centre horizontalement le container */
+    }
+
+    .image-showcase .image-container {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      position: relative;
+      border-radius: 85px 0 85px 0; /* ★ CONSERVE LE BORDER-RADIUS ORIGINAL - PAS DE MODIFICATION */
+      overflow: hidden; /* Conserve l'overflow original pour l'image */
+      margin: 0 auto; /* Centre le container */
+    }
+
+    /* ★ CONSERVE LE BORDER-RADIUS ORIGINAL - HERITE DU CONTAINER */
+    .image-showcase .image-container img {
+      max-height: 400px;
+      border-radius: inherit !important; /* ★ HERITE DU BORDER-RADIUS ORIGINAL (85px 0 85px 0) */
+      object-fit: cover;
+    }
+
+    .image-showcase .image-transition-layer {
+      max-height: 400px;
+      border-radius: inherit !important; /* ★ HERITE DU BORDER-RADIUS ORIGINAL */
+    }
+
+    /* Décors top & bottom - POSITIONNÉS EN DEHORS DE L'IMAGE */
+    /* Positionnés par rapport à .image-showcase pour être visibles en dehors de .image-container */
+    .image-showcase .deco-corner-top {
+      position: absolute;
+      /* Position en haut à droite : depuis le centre vertical, remonter de la moitié de la hauteur + espacement */
+      top: calc(50% - 200px - 12px); /* Centre vertical - moitié hauteur max (200px) - espacement (12px) */
+      right: 12px; /* ★ EN DEHORS à droite - espacement de 12px depuis le bord de .image-showcase */
+      transform: rotate(-0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
+      z-index: 6;
+      opacity: 0.95;
+    }
+
+    .image-showcase .deco-corner-bottom {
+      position: absolute;
+      /* Position en bas à gauche : depuis le centre vertical, descendre de la moitié de la hauteur + espacement */
+      bottom: calc(50% - 200px - 12px); /* Centre vertical inversé - moitié hauteur max (200px) - espacement (12px) */
+      left: 12px; /* ★ EN DEHORS à gauche - espacement de 12px depuis le bord de .image-showcase */
+      transform: rotate(0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
+      z-index: 6;
+      opacity: 0.95;
+    }
   }
 </style>
 
 <!-- SCRIPT pour le menu -->
 <script src="Menu/global.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('openMenu') || document.querySelector('.menu-button');
+    const menuContainer = document.querySelector('.menu-container');
+    const closeButton = document.querySelector('.menu-close-button');
+    
+    // Éléments à cacher quand le menu est ouvert
+    const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
+    const headerInner = document.querySelector('.site-header__inner');
+    const footer = document.querySelector('.hero-footer');
+    const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn') || document.getElementById('contactFab');
+    const reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
+
+    function hideHeaderAndFooter() {
+      if (header) header.classList.add('scroll-hide');
+      if (headerInner) headerInner.classList.add('scroll-hide');
+      if (footer) footer.classList.add('scroll-hide');
+      if (contactBtn) contactBtn.classList.add('scroll-hide');
+      if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+    }
+
+    function showHeaderAndFooter() {
+      if (header) header.classList.remove('scroll-hide');
+      if (headerInner) headerInner.classList.remove('scroll-hide');
+      if (footer) footer.classList.remove('scroll-hide');
+      if (contactBtn) contactBtn.classList.remove('scroll-hide');
+      if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+    }
+
+    if (menuButton && menuContainer) {
+      menuButton.addEventListener('click', () => {
+        menuContainer.classList.remove('is-hidden');
+        menuContainer.style.pointerEvents = 'auto';
+        // Cacher le header et le footer quand le menu s'ouvre
+        hideHeaderAndFooter();
+      });
+    }
+
+    if (closeButton && menuContainer) {
+      closeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        menuContainer.classList.add('is-closing');
+        // Réafficher le header et le footer quand le menu se ferme
+        showHeaderAndFooter();
+        setTimeout(() => {
+          menuContainer.classList.remove('is-closing');
+          menuContainer.classList.add('is-hidden');
+          menuContainer.style.pointerEvents = 'none';
+        }, 300);
+      });
+    }
+    
+    // Écouter aussi les clics sur l'icône de fermeture dans Menu/global.js
+    // Pour être sûr que ça fonctionne même si global.js se charge après
+    const closeButtonIcon = closeButton ? closeButton.querySelector('img') : null;
+    if (closeButtonIcon) {
+      closeButtonIcon.addEventListener('click', (e) => {
+        showHeaderAndFooter();
+      });
+    }
+  });
+</script>
 
 <style>
   /* Scroll hide/show animation for the hero header and footer on the homepage - FONCTIONNE SUR TOUTE LA PAGE */
@@ -1225,5 +1615,24 @@
   <!-- Script pour le menu avec toggle header/footer -->
   <script src="js/menu-header-footer-toggle.js" defer></script>
   
+  <!-- Bouton de retour -->
+  <button id="back-button" class="back-button" aria-label="Retour à la page précédente" title="Retour">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </button>
+  
+  <!-- Bouton scroll to top -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut de la page" title="Haut de page">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+  
+  <script src="js/navigation-tracker.js" defer></script>
+  <link rel="stylesheet" href="css/back-button.css">
+  <script src="js/back-button.js" defer></script>
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+  <script src="js/scroll-to-top.js" defer></script>
 </body>
 </html>

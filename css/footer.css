@@ -275,6 +275,122 @@
     text-align: center;
 }
 
+/* Responsive Tablette - Spécifiquement pour 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .footer-contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+    }
+    
+    .footer-contact-info .contact-item {
+        white-space: nowrap;
+        flex-shrink: 0;
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-contact-info .contact-item span,
+    .footer-contact-info .contact-item a {
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    
+    .footer-contact-info .separator {
+        display: none;
+    }
+    
+    .footer-payment {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+    }
+    
+    .footer-payment .payment-item {
+        white-space: nowrap;
+        flex-shrink: 0;
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-payment .payment-item span {
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    
+    .footer-payment .separator {
+        display: none;
+    }
+}
+
+/* Spécifique pour 1024px exactement */
+@media (width: 1024px) {
+    .footer-contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+    }
+    
+    .footer-contact-info .contact-item {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-contact-info .contact-item span,
+    .footer-contact-info .contact-item a {
+        white-space: nowrap !important;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    
+    .footer-contact-info .separator {
+        display: none;
+    }
+    
+    .footer-payment {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+    }
+    
+    .footer-payment .payment-item {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-payment .payment-item span {
+        white-space: nowrap !important;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    
+    .footer-payment .separator {
+        display: none;
+    }
+}
+
 @media (max-width: 992px) {
     .footer-grid {
         flex-direction: column;
@@ -288,6 +404,17 @@
     .footer-contact-info {
         flex-direction: column;
         gap: 20px;
+        align-items: center;
+    }
+    .footer-contact-info .contact-item {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .footer-contact-info .contact-item span,
+    .footer-contact-info .contact-item a {
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
     }
     .footer-contact-info .separator {
         display: none;
@@ -295,6 +422,16 @@
     .footer-payment {
         flex-direction: column;
         gap: 20px;
+        align-items: center;
+    }
+    .footer-payment .payment-item {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .footer-payment .payment-item span {
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
     }
     .footer-payment .separator {
         display: none;

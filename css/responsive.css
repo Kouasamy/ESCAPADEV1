@@ -460,8 +460,26 @@ footer {
     padding-bottom: clamp(3.5rem, 12vw, 5rem);
   }
   [data-hero] h1 {
-    font-size: clamp(1.25rem, 4.5vw, 1.8rem) !important;
+    font-size: clamp(1.4rem, 5.5vw, 2rem) !important;
     letter-spacing: 0.14em;
+  }
+  
+  /* Augmentation spécifique pour les h1 dans les divs hero avec classes spécifiques */
+  .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1,
+  [data-hero] .relative.z-10 h1,
+  [data-hero] .flex.flex-col.items-center.justify-center h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+  }
+  
+  /* Réduction spécifique pour le h1 hero de la page restaurant */
+  [data-page="restaurant"] [data-hero] h1,
+  [data-hero="restaurant"] h1 {
+    font-size: clamp(1.3rem, 5.2vw, 1.9rem) !important;
+  }
+  
+  /* Augmentation pour restaurant dans les divs spécifiques */
+  [data-page="restaurant"] .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1 {
+    font-size: clamp(1.4rem, 5.8vw, 2.1rem) !important;
   }
   #contactFab {
     right: clamp(1.25rem, 5vw, 2rem);
@@ -478,8 +496,26 @@ footer {
     padding-bottom: clamp(3rem, 14vw, 4rem);
   }
   [data-hero] h1 {
-    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+    font-size: clamp(1.2rem, 5.5vw, 1.8rem) !important;
     letter-spacing: 0.12em;
+  }
+  
+  /* Augmentation spécifique pour les h1 dans les divs hero avec classes spécifiques */
+  .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1,
+  [data-hero] .relative.z-10 h1,
+  [data-hero] .flex.flex-col.items-center.justify-center h1 {
+    font-size: clamp(1.3rem, 6vw, 2rem) !important;
+  }
+  
+  /* Réduction spécifique pour le h1 hero de la page restaurant */
+  [data-page="restaurant"] [data-hero] h1,
+  [data-hero="restaurant"] h1 {
+    font-size: clamp(1.15rem, 5.2vw, 1.7rem) !important;
+  }
+  
+  /* Augmentation pour restaurant dans les divs spécifiques */
+  [data-page="restaurant"] .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1 {
+    font-size: clamp(1.25rem, 5.8vw, 1.9rem) !important;
   }
   [data-hero] .btn-wrapper,
   [data-hero] .hero-button {
@@ -725,13 +761,40 @@ footer {
     font-size: 18px !important;
   }
   
-  /* Titres */
+  /* Titres - Réduction légère pour mobile */
   h1, .h1, .main-title {
-    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+    font-size: clamp(1rem, 4vw, 1.5rem) !important;
+  }
+  
+  /* Augmentation spécifique pour les h1 dans les divs hero avec classes spécifiques */
+  .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1,
+  [data-hero] .relative.z-10 h1,
+  [data-hero] .flex.flex-col.items-center.justify-center h1 {
+    font-size: clamp(1.4rem, 5.8vw, 2.1rem) !important;
+  }
+  
+  /* Réduction spécifique pour les h1 de la page restaurant */
+  [data-page="restaurant"] h1,
+  [data-page="restaurant"] .main-title,
+  #restaurant h1,
+  #restaurant .main-title {
+    font-size: clamp(0.95rem, 3.8vw, 1.4rem) !important;
+  }
+  
+  /* Augmentation pour restaurant dans les divs hero spécifiques */
+  [data-page="restaurant"] .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1 {
+    font-size: clamp(1.35rem, 5.5vw, 2rem) !important;
   }
   
   h2, .h2, .suite-title {
-    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+    font-size: clamp(1.2rem, 5vw, 1.65rem) !important;
+  }
+  
+  /* Réduction spécifique pour les h2 encadrés par title-border */
+  h2.main-title,
+  .main-title h2,
+  .title-wrapper h2.main-title {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important;
   }
   
   h3, .h3 {
@@ -782,12 +845,40 @@ footer {
     font-size: 17px !important;
   }
   
+  /* Titres - Réduction légère pour très petits écrans */
   h1, .h1, .main-title {
-    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+    font-size: clamp(0.85rem, 3.8vw, 1.25rem) !important;
+  }
+  
+  /* Augmentation spécifique pour les h1 dans les divs hero avec classes spécifiques */
+  .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1,
+  [data-hero] .relative.z-10 h1,
+  [data-hero] .flex.flex-col.items-center.justify-center h1 {
+    font-size: clamp(1.3rem, 6vw, 2rem) !important;
+  }
+  
+  /* Réduction spécifique pour les h1 de la page restaurant */
+  [data-page="restaurant"] h1,
+  [data-page="restaurant"] .main-title,
+  #restaurant h1,
+  #restaurant .main-title {
+    font-size: clamp(0.8rem, 3.5vw, 1.15rem) !important;
+  }
+  
+  /* Augmentation pour restaurant dans les divs hero spécifiques */
+  [data-page="restaurant"] .relative.z-10.flex.flex-col.items-center.justify-center.text-center.h-full.space-y-6 h1 {
+    font-size: clamp(1.25rem, 5.8vw, 1.9rem) !important;
   }
   
   h2, .h2, .suite-title {
-    font-size: clamp(1.4rem, 7vw, 1.8rem) !important;
+    font-size: clamp(1.1rem, 6vw, 1.5rem) !important;
+  }
+  
+  /* Réduction spécifique pour les h2 encadrés par title-border */
+  h2.main-title,
+  .main-title h2,
+  .title-wrapper h2.main-title {
+    font-size: clamp(0.95rem, 4vw, 1.3rem) !important;
   }
   
   p, .text-base, .font-\[Futura_Md_BT\] {
@@ -907,6 +998,16 @@ footer {
   p[class*="text-[20px]"] {
     font-size: clamp(19px, 5.5vw, 21px) !important;
   }
+  
+  /* Harmoniser tous les textes avec font-[Futura_Md_BT] text-[18px] md:text-[22px] sur index.html */
+  /* Appliquer la même taille que les paragraphes p avec cette classe */
+  .restaurant-text p,
+  .lounge-text p,
+  .lounge-gallery-text p,
+  p[class*="text-[18px]"][class*="md:text-[22px]"] {
+    font-size: clamp(19px, 5.5vw, 21px) !important;
+    line-height: clamp(28px, 7vw, 30px) !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -925,6 +1026,182 @@ footer {
 
   p[class*="text-[20px]"] {
     font-size: clamp(18px, 6vw, 20px) !important;
+  }
+  
+  /* Harmoniser tous les textes avec font-[Futura_Md_BT] text-[18px] md:text-[22px] sur index.html */
+  /* Appliquer la même taille que les paragraphes p avec cette classe */
+  .restaurant-text p,
+  .lounge-text p,
+  .lounge-gallery-text p,
+  p[class*="text-[18px]"][class*="md:text-[22px]"] {
+    font-size: clamp(18px, 6vw, 20px) !important;
+    line-height: clamp(28px, 7.5vw, 30px) !important;
+  }
+}
+
+/* -------------------------------------------------------------
+ * Réduction des boutons avec couleur #B78F62 au responsive
+ * ------------------------------------------------------------- */
+@media (max-width: 992px) {
+  /* Réduire les boutons avec bg-[#B78F62] sur tablette */
+  a[class*="bg-[#B78F62]"],
+  button[class*="bg-[#B78F62]"],
+  .btn-reserve-main,
+  a.bg-\[#B78F62\] {
+    font-size: clamp(15px, 3.5vw, 17px) !important;
+    padding: clamp(8px, 2vw, 10px) clamp(20px, 5vw, 24px) !important;
+    transform: scale(0.92);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Réduire encore plus sur mobile */
+  a[class*="bg-[#B78F62]"],
+  button[class*="bg-[#B78F62]"],
+  .btn-reserve-main,
+  a.bg-\[#B78F62\] {
+    font-size: clamp(14px, 3.8vw, 16px) !important;
+    padding: clamp(7px, 2.2vw, 9px) clamp(18px, 4.5vw, 22px) !important;
+    transform: scale(0.88);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Réduction maximale sur très petits écrans */
+  a[class*="bg-[#B78F62]"],
+  button[class*="bg-[#B78F62]"],
+  .btn-reserve-main,
+  a.bg-\[#B78F62\] {
+    font-size: clamp(13px, 4vw, 15px) !important;
+    padding: clamp(6px, 2.5vw, 8px) clamp(16px, 4vw, 20px) !important;
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+}
+
+/* -------------------------------------------------------------
+ * Augmentation légère des title-border au responsive
+ * ------------------------------------------------------------- */
+@media (max-width: 992px) {
+  /* Augmenter légèrement les title-border sur tablette */
+  .title-border {
+    max-width: 260px !important; /* Augmenté de 240px à 260px */
+    height: 23px !important; /* Augmenté de 21px à 23px */
+  }
+  
+  .title-border-restaurant {
+    height: 30px !important; /* Augmenté de 28px à 30px */
+  }
+  
+  .title-border-restaurant-dishes {
+    height: 21px !important; /* Augmenté de 19px à 21px */
+  }
+  
+  .title-border-lounge {
+    height: 27px !important; /* Augmenté de 25px à 27px */
+  }
+  
+  .title-border-lounge-gallery {
+    height: 20px !important; /* Augmenté de 18px à 20px */
+  }
+  
+  .title-border-lounge-drinks {
+    height: 29px !important; /* Augmenté de 27px à 29px */
+  }
+  
+  .title-border-events {
+    height: 27px !important; /* Augmenté de 25px à 27px */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Augmenter encore plus sur mobile */
+  .title-border {
+    max-width: 320px !important; /* Augmenté de 280px à 320px */
+    height: 28px !important; /* Augmenté de 25px à 28px */
+  }
+  
+  .title-border-restaurant {
+    height: 36px !important; /* Augmenté de 32px à 36px */
+  }
+  
+  .title-border-restaurant-dishes {
+    height: 26px !important; /* Augmenté de 23px à 26px */
+  }
+  
+  .title-border-lounge {
+    height: 33px !important; /* Augmenté de 29px à 33px */
+  }
+  
+  .title-border-lounge-gallery {
+    height: 25px !important; /* Augmenté de 22px à 25px */
+  }
+  
+  .title-border-lounge-drinks {
+    height: 35px !important; /* Augmenté de 31px à 35px */
+  }
+  
+  .title-border-events {
+    height: 33px !important; /* Augmenté de 29px à 33px */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Augmentation maximale sur très petits écrans */
+  .title-border {
+    max-width: 340px !important; /* Augmenté de 300px à 340px */
+    height: 30px !important; /* Augmenté de 27px à 30px */
+  }
+  
+  .title-border-restaurant {
+    height: 38px !important; /* Augmenté de 34px à 38px */
+  }
+  
+  .title-border-restaurant-dishes {
+    height: 28px !important; /* Augmenté de 25px à 28px */
+  }
+  
+  .title-border-lounge {
+    height: 35px !important; /* Augmenté de 31px à 35px */
+  }
+  
+  .title-border-lounge-gallery {
+    height: 27px !important; /* Augmenté de 24px à 27px */
+  }
+  
+  .title-border-lounge-drinks {
+    height: 37px !important; /* Augmenté de 33px à 37px */
+  }
+  
+  .title-border-events {
+    height: 35px !important; /* Augmenté de 31px à 35px */
+  }
+}
+
+/* -------------------------------------------------------------
+ * Réduction spécifique du titre "EVENEMENTS À L'ESCAPADE" au responsive téléphone
+ * ------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Réduire le titre pour éviter le retour à la ligne */
+  h2.main-title[data-translate="eventsListTitle"],
+  #evenementiel h2.main-title {
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem) !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    padding: 0 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Réduction encore plus importante sur très petits écrans */
+  h2.main-title[data-translate="eventsListTitle"],
+  #evenementiel h2.main-title {
+    font-size: clamp(0.9rem, 3.8vw, 1.15rem) !important;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap !important;
+    padding: 0 12px !important;
   }
 }
 

@@ -38,6 +38,7 @@
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/page-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
+  <script src="js/page-prefetch.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js" defer></script>
@@ -1790,10 +1791,6 @@
 
       <!-- Texte -->
       <div class="w-full md:w-1/2 space-y-6">
-        <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]" data-translate="restaurantChefIntro">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
-        </p>
         <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000]" data-translate="restaurantChefCraft">
           Le chef sublime les produits locaux par un savoir-faire d’exception, entre tradition ivoirienne
           et gastronomie internationale.
@@ -1817,8 +1814,7 @@
       <!-- Texte -->
       <div class="w-full md:w-1/2 text-right space-y-6">
         <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-[#000000] relative" data-translate="restaurantChefPassion">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem   <br> accusantiumdoloremque laudantium,
-          totam rem aperiam, <br> eaque ipsa quae ab illo inventore veritatis.  Entre  passion et <br> précision, chaque plat devient une œuvre
+          Entre  passion et <br> précision, chaque plat devient une œuvre
            d’art, alliant <br> créativité et
           respect du produit.
 
@@ -1854,35 +1850,35 @@
           <!-- Plat 2 -->
           <div class="plats-slide space-y-4 text-center reveal reveal-left">
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
-              <img src="img/25.jpg" alt="Plat 2" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+              <img src="img/25.jpg" alt="Plat 2" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" fetchpriority="low" />
             </div>
           </div>
 
           <!-- Plat 4 -->
           <div class="plats-slide space-y-4 text-center reveal reveal-left">
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
-              <img src="img/19.jpg" alt="Plat 4" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+              <img src="img/19.jpg" alt="Plat 4" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" fetchpriority="low" />
             </div>
           </div>
 
           <!-- Plat 5 -->
           <div class="plats-slide space-y-4 text-center reveal reveal-left">
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
-              <img src="images/IMG_1737.jpg" alt="Plat 5" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+              <img src="images/IMG_1737.jpg" alt="Plat 5" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" fetchpriority="low" />
             </div>
           </div>
 
           <!-- Plat 6 -->
           <div class="plats-slide space-y-4 text-center reveal reveal-left">
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
-              <img src="images/IMG_1728.jpg" alt="Plat 6" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+              <img src="images/0E1A2591.jpg" alt="Plat 6" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" fetchpriority="low" />
             </div>
           </div>
 
           <!-- Plat 7 -->
           <div class="plats-slide space-y-4 text-center reveal reveal-left">
             <div class="relative overflow-hidden rounded-[70px_0px] shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
-              <img src="images/0E1A2523.jpg" alt="Plat 7" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" />
+              <img src="images/0E1A2523.jpg" alt="Plat 7" class="plats-slide-img" loading="lazy" width="301" height="451" decoding="async" fetchpriority="low" />
             </div>
           </div>
         </div>
@@ -2045,5 +2041,24 @@
   <!-- Script pour le menu avec toggle header/footer -->
   <script src="js/menu-header-footer-toggle.js" defer></script>
   
+  <!-- Bouton de retour -->
+  <button id="back-button" class="back-button" aria-label="Retour à la page précédente" title="Retour">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </button>
+  
+  <!-- Bouton scroll to top -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut de la page" title="Haut de page">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+  
+  <script src="js/navigation-tracker.js" defer></script>
+  <link rel="stylesheet" href="css/back-button.css">
+  <script src="js/back-button.js" defer></script>
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+  <script src="js/scroll-to-top.js" defer></script>
 </body>
 </html>

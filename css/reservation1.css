@@ -507,6 +507,13 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
     .suite-price {
         text-align: left;
     }
+    
+    /* Aligner le compteur à droite comme le bouton */
+    .counter.guest-stepper,
+    .suite-footer .counter {
+      align-self: flex-end;
+      margin-left: auto;
+    }
   }
 
   @media (max-width: 1024px) {
@@ -546,6 +553,14 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
     
     .btn {
       order: 2;
+    }
+    
+    /* Aligner le compteur à droite comme le bouton */
+    .counter.guest-stepper,
+    .suite-footer .counter {
+      order: 2;
+      margin-left: auto;
+      flex-shrink: 0;
     }
   }
 
@@ -599,6 +614,14 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
       order: 2;
       padding: 8px 16px;
       font-size: 16px;
+    }
+    
+    /* Aligner le compteur à droite comme le bouton */
+    .counter.guest-stepper,
+    .suite-footer .counter {
+      order: 2;
+      margin-left: auto;
+      flex-shrink: 0;
     }
   }
 

@@ -52,6 +52,11 @@
       transform: translateY(-60px);
       padding-top: 0;
     }
+    
+    /* Overlay sombre caché par défaut (desktop) */
+    .events-overlay-dark {
+      display: none;
+    }
 
     /* Responsive adjustments for MacBook screens (1280px - 1440px) */
     @media (min-width: 1280px) and (max-width: 1440px) {
@@ -127,14 +132,96 @@
       .events-overlay-text {
         transform: translateY(-40px) !important;
       }
+      
+      /* Overlay glassmorphism très léger sur toute l'image */
+      .events-overlay-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(8px) saturate(120%);
+        -webkit-backdrop-filter: blur(8px) saturate(120%);
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      /* Overlay plus sombre sur l'image pour améliorer la lisibilité */
+      .events-overlay-container .events-overlay-dark {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+      }
+      
+      /* Texte en blanc */
+      .events-overlay-text p {
+        color: #ffffff !important;
+      }
+    }
+    
+    /* Responsive pour tablettes moyennes */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      /* Texte en blanc */
+      .events-overlay-text p {
+        color: #ffffff !important;
+      }
+      
+      /* Overlay glassmorphism très léger sur toute l'image */
+      .events-overlay-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(8px) saturate(120%);
+        -webkit-backdrop-filter: blur(8px) saturate(120%);
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      /* Overlay plus sombre sur l'image */
+      .events-overlay-container .events-overlay-dark {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+      }
     }
 
     /* Responsive pour mobile */
     @media (max-width: 768px) {
       .events-overlay-text {
         transform: translateY(-30px) !important;
+        padding: 1.25rem !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
+      }
+      
+      /* Overlay glassmorphism très léger sur toute l'image */
+      .events-overlay-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px) saturate(120%);
+        -webkit-backdrop-filter: blur(10px) saturate(120%);
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      /* Overlay plus sombre sur l'image pour améliorer la lisibilité */
+      .events-overlay-container .events-overlay-dark {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 0;
+      }
+      
+      /* Texte en blanc */
+      .events-overlay-text p {
+        color: #ffffff !important;
       }
     }
 
@@ -142,6 +229,33 @@
     @media (max-width: 480px) {
       .events-overlay-text {
         transform: translateY(-20px) !important;
+        padding: 1rem !important;
+      }
+      
+      /* Overlay glassmorphism très léger sur toute l'image */
+      .events-overlay-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(12px) saturate(120%);
+        -webkit-backdrop-filter: blur(12px) saturate(120%);
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      /* Overlay encore plus sombre sur l'image */
+      .events-overlay-container .events-overlay-dark {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+      }
+      
+      /* Texte en blanc */
+      .events-overlay-text p {
+        color: #ffffff !important;
       }
     }
   </style>
@@ -1440,16 +1554,19 @@
  
   </section>
 
-<div class="relative w-full py-24  overflow-hidden h-[750px]">
+<div class="relative w-full py-24  overflow-hidden h-[750px] events-overlay-container">
       <!-- Image de fond -->
       <div class="absolute inset-0">
         <img src="images/DJI_0290 1.png" alt="Événement à L'Escapade"
              class="w-full h-full object-cover" />
     
       </div>
+      
+      <!-- Overlay sombre pour améliorer la lisibilité au responsive -->
+      <div class="events-overlay-dark"></div>
 
      <!-- Texte superposé -->
-      <div class="relative z-10 max-w-5xl mx-auto text-start px-6 events-overlay-text">
+      <div class="relative z-20 max-w-5xl mx-auto text-start px-6 events-overlay-text">
       <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#956F40]" data-translate="eventsParagraph2">
         À L'Escapade, élégance et nature se rejoignent pour offrir un cadre où se créent les souvenirs les plus précieux
         et où naissent les plus belles inspirations.
@@ -1541,7 +1658,7 @@ Fitness et le coach Baba. Une expérience bien-être au coucher du soleil, pens�
           </div>
           <div class="flex items-center justify-between text-black font-[Futura_Md_BT] font-normal text-lg uppercase tracking-[0.2em]">
             <span class="font-normal" data-translate="eventsWeddingTitle">Saint-Sylvestre & <br> Brunch du Nouvel An</span>
-            <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsWeddingSchedule">Dates privées</span>
+            <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsWeddingSchedule">A venir</span>
           </div>
           <p class="font-[Futura_Md_BT] font-normal text-[18px] leading-[28px] text-black" data-translate="eventsWeddingDescription">
             L’Escapade propose des packs exclusifs pour un réveillon tout en élégance, comprenant 
@@ -1681,5 +1798,25 @@ l’entrée en douceur dans la nouvelle année.
   <script src="js/scroll-hide-behavior.js" defer></script>
   <!-- Script pour le menu avec toggle header/footer -->
   <script src="js/menu-header-footer-toggle.js" defer></script>
+  
+  <!-- Bouton de retour -->
+  <button id="back-button" class="back-button" aria-label="Retour à la page précédente" title="Retour">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </button>
+  
+  <!-- Bouton scroll to top -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut de la page" title="Haut de page">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+  
+  <script src="js/navigation-tracker.js" defer></script>
+  <link rel="stylesheet" href="css/back-button.css">
+  <script src="js/back-button.js" defer></script>
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+  <script src="js/scroll-to-top.js" defer></script>
 </body>
 </html>

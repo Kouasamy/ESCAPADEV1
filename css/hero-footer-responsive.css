@@ -38,8 +38,8 @@
   display: none !important;
 }
 
-/* Afficher les deux boutons de part et d'autre sur mobile uniquement */
-@media (max-width: 768px) {
+/* Afficher les deux boutons de part et d'autre sur mobile et tablette */
+@media (max-width: 1024px) {
   .hero-footer {
     display: flex !important;
     flex-direction: row !important;
@@ -126,7 +126,7 @@ body:not(.page-loaded) .btn-wrapper.btn-reserve-space-mobile {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-header,
   .site-header,
   .site-header__inner,
@@ -137,7 +137,7 @@ body:not(.page-loaded) .btn-wrapper.btn-reserve-space-mobile {
     transform: translateZ(0);
   }
   
-  /* S'assurer que le footer reste visible sur toute la page (mobile) */
+  /* S'assurer que le footer reste visible sur toute la page (mobile et tablette) */
   .hero-footer {
     position: fixed !important;
     bottom: 20px !important;
@@ -172,6 +172,7 @@ body:not(.page-loaded) .btn-wrapper.btn-reserve-space-mobile {
     z-index: 9999 !important;
   }
 }
+
 
 
 

@@ -1,39 +1,54 @@
-// Scroll behavior: hide hero header and footer when scrolling down, show when scrolling up - FONCTIONNE SUR TOUTE LA PAGE
+// Bouton de retour avec animation scroll-hide
+// Utilise le système de suivi de navigation personnalisé
 (function() {
   'use strict';
   
   let lastScroll = 0;
   let ticking = false;
-  let header = null;
-  let headerInner = null;
-  let footer = null;
-  let contactBtn = null;
-  let reserveSpaceBtn = null;
+  let backButton = null;
   
-  function initScrollHide() {
-    // Sélectionner les éléments - chercher sur toute la page
-    header = document.querySelector('.hero-header') || document.querySelector('.site-header');
-    headerInner = document.querySelector('.site-header__inner');
-    footer = document.querySelector('.hero-footer');
-    contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn') || document.getElementById('contactFab');
-    reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
+  function initBackButton() {
+    // Sélectionner le bouton de retour
+    backButton = document.getElementById('back-button');
     
-    // Si les éléments n'existent pas, réessayer après un court délai
-    if (!header && !footer && !contactBtn) {
-      setTimeout(initScrollHide, 100);
+    // Si le bouton n'existe pas, réessayer après un court délai
+    if (!backButton) {
+      setTimeout(initBackButton, 100);
       return;
     }
+    
+    // Ajouter l'événement de clic pour revenir en arrière
+    backButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Utiliser le système de navigation personnalisé si disponible
+      if (window.EscapadeNavigation && typeof window.EscapadeNavigation.goBack === 'function') {
+        window.EscapadeNavigation.goBack();
+        return;
+      }
+      
+      // Fallback : utiliser l'historique du navigateur
+      try {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = 'index.html';
+        }
+      } catch (error) {
+        try {
+          window.history.back();
+        } catch (e) {
+          window.location.href = 'index.html';
+        }
+      }
+    });
     
     function checkScroll() {
       const currentScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
       
       // Toujours afficher si on est en haut de la page (moins de 50px)
       if (currentScroll < 50) {
-        if (header) header.classList.remove('scroll-hide');
-        if (headerInner) headerInner.classList.remove('scroll-hide');
-        if (footer) footer.classList.remove('scroll-hide');
-        if (contactBtn) contactBtn.classList.remove('scroll-hide');
-        if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+        if (backButton) backButton.classList.remove('scroll-hide');
         lastScroll = currentScroll;
         return;
       }
@@ -48,19 +63,11 @@
       
       // Si on scroll vers le bas ET qu'on a dépassé 100px, cacher
       if (currentScroll > lastScroll && currentScroll > 100) {
-        if (header) header.classList.add('scroll-hide');
-        if (headerInner) headerInner.classList.add('scroll-hide');
-        if (footer) footer.classList.add('scroll-hide');
-        if (contactBtn) contactBtn.classList.add('scroll-hide');
-        if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+        if (backButton) backButton.classList.add('scroll-hide');
       } 
-      // Si on scroll vers le haut, afficher immédiatement (PEU IMPORTE OÙ ON EST SUR LA PAGE)
+      // Si on scroll vers le haut, afficher immédiatement
       else if (currentScroll < lastScroll) {
-        if (header) header.classList.remove('scroll-hide');
-        if (headerInner) headerInner.classList.remove('scroll-hide');
-        if (footer) footer.classList.remove('scroll-hide');
-        if (contactBtn) contactBtn.classList.remove('scroll-hide');
-        if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+        if (backButton) backButton.classList.remove('scroll-hide');
       }
       
       lastScroll = currentScroll;
@@ -73,7 +80,6 @@
     checkScroll();
     
     // Écouter le scroll avec throttling et passive pour de meilleures performances
-    // Utiliser window pour capturer le scroll sur toute la page
     window.addEventListener('scroll', function() {
       if (!ticking) {
         window.requestAnimationFrame(function() {
@@ -109,23 +115,15 @@
   
   // Initialiser dès que possible
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initScrollHide);
+    document.addEventListener('DOMContentLoaded', initBackButton);
   } else {
     // Si le DOM est déjà chargé, attendre un peu pour être sûr que tout est prêt
-    setTimeout(initScrollHide, 50);
+    setTimeout(initBackButton, 50);
   }
   
   // Réinitialiser après le chargement complet de la page
   window.addEventListener('load', function() {
-    setTimeout(initScrollHide, 100);
+    setTimeout(initBackButton, 100);
   });
 })();
-
-
-
-
-
-
-
-
 

@@ -165,22 +165,46 @@
     const sliderTrack = currentImg.closest('.plats-slider-track');
     if (!sliderTrack) return;
 
-    const allImages = Array.from(sliderTrack.querySelectorAll('img[loading="lazy"]'));
+    const allImages = Array.from(sliderTrack.querySelectorAll('img.plats-slide-img'));
     const currentIndex = allImages.indexOf(currentImg);
 
-    // Précharger l'image suivante et précédente
+    // Précharger l'image suivante et précédente pour un scroll fluide
     [currentIndex - 1, currentIndex + 1].forEach(index => {
       if (index >= 0 && index < allImages.length) {
         const adjacentImg = allImages[index];
-        if (adjacentImg.dataset.src) {
-          adjacentImg.src = adjacentImg.dataset.src;
-          adjacentImg.removeAttribute('data-src');
+        if (adjacentImg && adjacentImg.src && !adjacentImg.complete) {
+          // Forcer le chargement en créant une nouvelle image
+          const preloadImg = new Image();
+          preloadImg.src = adjacentImg.src;
         }
-        // Forcer le chargement en créant une nouvelle image
-        const preloadImg = new Image();
-        preloadImg.src = adjacentImg.src;
       }
     });
+  }
+  
+  /**
+   * Optimise spécifiquement les images des galeries (restaurant et lounge)
+   */
+  function optimizeGalleryImages() {
+    const galleryImages = document.querySelectorAll('.plats-slide-img');
+    
+    if ('IntersectionObserver' in window) {
+      const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            // Précharger les images adjacentes dans le slider
+            preloadAdjacentSliderImages(img);
+            galleryObserver.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '200px' // Précharger 200px avant que l'image soit visible pour un scroll fluide
+      });
+      
+      galleryImages.forEach(img => {
+        galleryObserver.observe(img);
+      });
+    }
   }
 
   /**
@@ -195,10 +219,12 @@
       document.addEventListener('DOMContentLoaded', () => {
         optimizeAllImages();
         setupIntersectionObserver();
+        optimizeGalleryImages();
       });
     } else {
       optimizeAllImages();
       setupIntersectionObserver();
+      optimizeGalleryImages();
     }
 
     // Observer les nouvelles images ajoutées dynamiquement

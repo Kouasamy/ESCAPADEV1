@@ -22,31 +22,59 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadedImages.set(hoverSrc, img);
   });
 
+  // Variable pour suivre l'image actuellement affichée
+  let currentDisplayedImage = null;
+
+  // Fonction pour afficher une image (utilisée par desktop et mobile/tablette)
+  function showImage(imageSrc) {
+    // Ne rien faire si c'est déjà l'image affichée
+    if (currentDisplayedImage === imageSrc) return;
+    
+    // L'image est déjà préchargée, on peut l'utiliser directement
+    const preloadedImg = preloadedImages.get(imageSrc);
+    if (preloadedImg && preloadedImg.complete) {
+      transitionLayer.setAttribute('src', imageSrc);
+      transitionLayer.classList.add('is-visible');
+      currentDisplayedImage = imageSrc; // Mettre à jour l'image actuelle
+    } else {
+      // Si pas encore chargée, on charge normalement
+      transitionLayer.setAttribute('src', imageSrc);
+      transitionLayer.classList.add('is-visible');
+      currentDisplayedImage = imageSrc; // Mettre à jour l'image actuelle
+    }
+  }
+
   navItems.forEach((item) => {
     const hoverSrc = item.getAttribute('data-image');
     if (!hoverSrc) return;
 
+    // Événement pour desktop (mouseenter)
     item.addEventListener('mouseenter', () => {
-      // L'image est déjà préchargée, on peut l'utiliser directement
-      const preloadedImg = preloadedImages.get(hoverSrc);
-      if (preloadedImg && preloadedImg.complete) {
-        transitionLayer.setAttribute('src', hoverSrc);
-        transitionLayer.classList.add('is-visible');
-      } else {
-        // Si pas encore chargée, on charge normalement
-        transitionLayer.setAttribute('src', hoverSrc);
-        transitionLayer.classList.add('is-visible');
-      }
+      showImage(hoverSrc);
     });
 
-    item.addEventListener('mouseleave', () => {
-      // Crossfade back to original
-      transitionLayer.addEventListener('transitionend', function handle() {
-        transitionLayer.classList.remove('is-visible');
-        transitionLayer.removeEventListener('transitionend', handle);
-      });
-      baseImage.setAttribute('src', originalSrc);
+    // Événements pour mobile et tablette (touchstart et touchend)
+    // Ces événements permettent d'afficher l'image au touch sur mobile/tablette
+    item.addEventListener('touchstart', (e) => {
+      // Ne pas empêcher le comportement par défaut pour permettre la navigation
+      // mais afficher l'image
+      showImage(hoverSrc);
     });
+
+    item.addEventListener('touchend', (e) => {
+      // Afficher l'image même après le touchend pour qu'elle reste visible
+      showImage(hoverSrc);
+    });
+
+    // Événement click pour mobile/tablette (fallback)
+    // Cela fonctionne aussi sur desktop mais ne gêne pas
+    item.addEventListener('click', () => {
+      // Afficher l'image au clic (pour mobile/tablette)
+      showImage(hoverSrc);
+    });
+
+    // Supprimer le comportement mouseleave pour que l'image reste affichée
+    // L'image ne changera que lorsqu'un autre nav-item sera survolé ou touché
   });
 
   if (closeButton && menuContainer) {

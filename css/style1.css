@@ -1503,7 +1503,7 @@ video::-webkit-media-controls {
 
   .title-border {
     width: 100% !important;
-    max-width: 240px !important; /* Réduit de 280px à 240px - même que mobile */
+    max-width: 260px !important; /* Augmenté de 240px à 260px */
     height: auto !important;
   }
   
@@ -1532,9 +1532,14 @@ video::-webkit-media-controls {
   }
 
   .main-title {
-    font-size: 18px !important; /* Augmenté de manière raisonnable pour tablette/mobile */
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important; /* Réduit pour mobile */
     margin-left: 13px !important; /* Réduit de 15px à 13px - même que mobile */
     line-height: 1.15 !important;
+  }
+  
+  /* Réduction supplémentaire pour les h2 avec main-title */
+  h2.main-title {
+    font-size: clamp(1.05rem, 4.2vw, 1.4rem) !important;
   }
 }
 
@@ -1546,7 +1551,7 @@ video::-webkit-media-controls {
 
   .title-border {
     width: 100% !important;
-    max-width: 240px !important; /* Réduit de 280px à 240px */
+    max-width: 320px !important; /* Augmenté de 280px à 320px */
     height: auto !important;
   }
   
@@ -1575,9 +1580,14 @@ video::-webkit-media-controls {
   }
 
   .main-title {
-    font-size: 16px !important; /* Augmenté de manière raisonnable pour mobile */
+    font-size: clamp(0.95rem, 4vw, 1.3rem) !important; /* Réduit pour très petit mobile */
     margin-left: 13px !important; /* Réduit de 15px à 13px */
     line-height: 1.15 !important;
+  }
+  
+  /* Réduction supplémentaire pour les h2 avec main-title */
+  h2.main-title {
+    font-size: clamp(0.9rem, 3.8vw, 1.2rem) !important;
   }
 }
 
