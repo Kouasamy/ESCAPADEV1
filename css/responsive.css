@@ -797,6 +797,40 @@ footer {
     font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important;
   }
   
+  /* Réduction spécifique pour les h1 dans les decorative borders au responsive téléphone */
+  .title-wrapper .main-title,
+  .title-wrapper h1.main-title,
+  .title-wrapper h2.main-title,
+  .title-border-flipped-wrapper .main-title,
+  .title-border-flipped-wrapper h1.main-title,
+  .title-border-flipped-wrapper h2.main-title,
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef .title-border-flipped-wrapper h2.main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper .main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper h1.main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper h2.main-title,
+  /* Titre GALERIE dans la section lounge - Réduit pour correspondre à la page lounge.html */
+  #plats .title-wrapper .main-title,
+  #plats .title-wrapper h1.main-title,
+  .title-border-lounge-gallery ~ .main-title,
+  .title-border-lounge-gallery + .main-title,
+  #plats .title-border-lounge-gallery + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page lounge.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
+  .title-border-restaurant-dishes ~ .main-title,
+  .title-border-restaurant-dishes + .main-title,
+  #restaurant .title-border-restaurant-dishes + .main-title,
+  [data-page="restaurant"] .title-border-restaurant-dishes + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page restaurant.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
+  
   h3, .h3 {
     font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
   }
@@ -879,6 +913,40 @@ footer {
   .main-title h2,
   .title-wrapper h2.main-title {
     font-size: clamp(0.95rem, 4vw, 1.3rem) !important;
+  }
+  
+  /* Réduction spécifique pour les h1 dans les decorative borders au responsive téléphone (480px) */
+  .title-wrapper .main-title,
+  .title-wrapper h1.main-title,
+  .title-wrapper h2.main-title,
+  .title-border-flipped-wrapper .main-title,
+  .title-border-flipped-wrapper h1.main-title,
+  .title-border-flipped-wrapper h2.main-title,
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef .title-border-flipped-wrapper h2.main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper .main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper h1.main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper h2.main-title,
+  /* Titre GALERIE dans la section lounge - Réduit pour correspondre à la page lounge.html */
+  #plats .title-wrapper .main-title,
+  #plats .title-wrapper h1.main-title,
+  .title-border-lounge-gallery ~ .main-title,
+  .title-border-lounge-gallery + .main-title,
+  #plats .title-border-lounge-gallery + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page lounge.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
+  .title-border-restaurant-dishes ~ .main-title,
+  .title-border-restaurant-dishes + .main-title,
+  #restaurant .title-border-restaurant-dishes + .main-title,
+  [data-page="restaurant"] .title-border-restaurant-dishes + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page restaurant.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
   }
   
   p, .text-base, .font-\[Futura_Md_BT\] {
@@ -1082,37 +1150,48 @@ footer {
 }
 
 /* -------------------------------------------------------------
- * Augmentation légère des title-border au responsive
+ * Taille uniforme pour toutes les title-border au responsive tablette
  * ------------------------------------------------------------- */
 @media (max-width: 992px) {
-  /* Augmenter légèrement les title-border sur tablette */
-  .title-border {
-    max-width: 260px !important; /* Augmenté de 240px à 260px */
-    height: 23px !important; /* Augmenté de 21px à 23px */
+  /* Taille uniforme pour TOUTES les title-border sur tablette */
+  .title-border,
+  .title-border-restaurant,
+  .title-border-restaurant-dishes,
+  .title-border-lounge,
+  .title-border-lounge-gallery,
+  .title-border-lounge-drinks,
+  .title-border-events,
+  .title-border-flipped {
+    max-width: 514px !important; /* Taille uniforme pour toutes les decorative borders */
+    height: 57px !important; /* Taille uniforme pour toutes les decorative borders */
   }
   
-  .title-border-restaurant {
-    height: 30px !important; /* Augmenté de 28px à 30px */
+  /* Ajustements pour les title-border-flipped dans les sections spécifiques */
+  #chef .title-border-flipped-wrapper .title-border-flipped,
+  #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
+    max-width: 514px !important; /* Taille uniforme pour toutes les decorative borders */
+    height: 57px !important; /* Taille uniforme pour toutes les decorative borders */
   }
   
-  .title-border-restaurant-dishes {
-    height: 21px !important; /* Augmenté de 19px à 21px */
-  }
-  
-  .title-border-lounge {
-    height: 27px !important; /* Augmenté de 25px à 27px */
-  }
-  
-  .title-border-lounge-gallery {
-    height: 20px !important; /* Augmenté de 18px à 20px */
-  }
-  
-  .title-border-lounge-drinks {
-    height: 29px !important; /* Augmenté de 27px à 29px */
-  }
-  
-  .title-border-events {
-    height: 27px !important; /* Augmenté de 25px à 27px */
+  /* Taille uniforme pour TOUS les h1/h2 dans les decorative borders sur tablette */
+  /* Taille uniforme pour les main-title dans les decorative borders pour tablette UNIQUEMENT (pas téléphone) */
+  @media (min-width: 768px) {
+    .title-wrapper .main-title,
+    .title-wrapper h1.main-title,
+    .title-wrapper h2.main-title,
+    .title-border-flipped-wrapper .main-title,
+    .title-border-flipped-wrapper h1.main-title,
+    .title-border-flipped-wrapper h2.main-title,
+    #chef .title-border-flipped-wrapper .main-title,
+    #chef .title-border-flipped-wrapper h1.main-title,
+    #chef .title-border-flipped-wrapper h2.main-title,
+    #lounge .title-wrapper.title-border-flipped-wrapper .main-title,
+    #lounge .title-wrapper.title-border-flipped-wrapper h1.main-title,
+    #lounge .title-wrapper.title-border-flipped-wrapper h2.main-title {
+      font-size: 32px !important; /* Taille uniforme de 32px pour toutes les decorative borders sur tablette */
+      line-height: 1.2 !important;
+      padding: 0 16px !important;
+    }
   }
 }
 
@@ -1136,7 +1215,11 @@ footer {
   }
   
   .title-border-lounge-gallery {
-    height: 25px !important; /* Augmenté de 22px à 25px */
+    height: 25px !important; /* Augmenté de 22px à 25px - correspond à la page lounge.html */
+  }
+  
+  .title-border-restaurant-dishes {
+    height: 26px !important; /* Augmenté de 23px à 26px - correspond à la page restaurant.html */
   }
   
   .title-border-lounge-drinks {
@@ -1168,7 +1251,11 @@ footer {
   }
   
   .title-border-lounge-gallery {
-    height: 27px !important; /* Augmenté de 24px à 27px */
+    height: 27px !important; /* Augmenté de 24px à 27px - correspond à la page lounge.html */
+  }
+  
+  .title-border-restaurant-dishes {
+    height: 28px !important; /* Augmenté de 25px à 28px - correspond à la page restaurant.html */
   }
   
   .title-border-lounge-drinks {
@@ -1178,6 +1265,73 @@ footer {
   .title-border-events {
     height: 35px !important; /* Augmenté de 31px à 35px */
   }
+}
+
+/* -------------------------------------------------------------
+ * Empêcher le retour à la ligne pour le titre "NOTRE CHEF & SES SPÉCIALITÉS" au responsive téléphone
+ * ------------------------------------------------------------- */
+@media (max-width: 576px) {
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef h1.main-title[data-translate="restaurantChefTitle"] {
+    white-space: nowrap !important;
+    font-size: 16px !important; /* Légèrement réduit pour tenir sur une ligne */
+    line-height: 1.1 !important;
+    padding: 0 6px !important;
+    letter-spacing: -0.01em !important; /* Réduire légèrement l'espacement des lettres */
+  }
+}
+
+@media (max-width: 480px) {
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef h1.main-title[data-translate="restaurantChefTitle"] {
+    white-space: nowrap !important;
+    font-size: 15px !important; /* Encore plus réduit pour très petits écrans */
+    line-height: 1.1 !important;
+    padding: 0 5px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+@media (max-width: 360px) {
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef h1.main-title[data-translate="restaurantChefTitle"] {
+    white-space: nowrap !important;
+    font-size: 14px !important; /* Encore plus réduit pour très petits téléphones */
+    line-height: 1.05 !important;
+    padding: 0 4px !important;
+    letter-spacing: -0.03em !important;
+  }
+}
+
+/* -------------------------------------------------------------
+ * OPTIMISATION GLOBALE DU CHARGEMENT DES IMAGES - TOUTES LES PAGES
+ * Chargement rapide et prioritaire des images
+ * ------------------------------------------------------------- */
+img {
+  /* Chargement prioritaire */
+  content-visibility: auto;
+  /* Améliorer le rendu */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Optimisation du décodage */
+  will-change: contents;
+}
+
+/* Images visibles - charger immédiatement */
+img[loading="eager"],
+img[fetchpriority="high"] {
+  content-visibility: visible;
+  will-change: contents;
+}
+
+/* Images lazy - précharger plus tôt */
+img[loading="lazy"] {
+  content-visibility: auto;
+  /* Précharger les images lazy plus tôt pour un affichage plus rapide */
+  transition: opacity 0.2s ease-in-out;
 }
 
 /* -------------------------------------------------------------

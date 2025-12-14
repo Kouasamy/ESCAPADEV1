@@ -27,10 +27,16 @@
     'images/568_840.svg', // Contact button
   ];
 
-  // Configuration : Images qui doivent être préchargées
+  // Configuration : Images qui doivent être préchargées - LISTE ÉTENDUE POUR CHARGEMENT RAPIDE
   const preloadImages = [
     'images/574_538.png', // Title border (utilisé fréquemment)
     'Menu/images/542_446.svg', // Close icon
+    'images/568_819.svg', // Logo (utilisé partout)
+    'images/568_939.svg', // Menu icon (utilisé partout)
+    'images/568_837.svg', // Lang separator (utilisé partout)
+    'images/568_838.svg', // Réserver une suite button
+    'images/568_833.svg', // Réserver un espace button
+    'images/568_840.svg', // Contact button
   ];
 
   /**
@@ -54,7 +60,7 @@
   }
 
   /**
-   * Optimise une image individuelle
+   * Optimise une image individuelle - CHARGEMENT RAPIDE
    */
   function optimizeImage(img) {
     const src = img.getAttribute('src');
@@ -65,20 +71,26 @@
       img.setAttribute('fetchpriority', 'high');
       // Pas de lazy loading pour les images critiques
       img.removeAttribute('loading');
+      img.setAttribute('loading', 'eager');
     } else {
-      // Lazy loading pour les images non-critiques
-      // Sauf si elles sont déjà dans le viewport
+      // Charger les images visibles immédiatement sans lazy loading
       if (!img.hasAttribute('loading')) {
-        if (!isInViewport(img)) {
-          img.setAttribute('loading', 'lazy');
-        } else {
-          // Image déjà visible, pas de lazy loading
+        if (isInViewport(img)) {
+          // Image déjà visible, charger immédiatement
           img.setAttribute('fetchpriority', 'high');
+          img.setAttribute('loading', 'eager');
+        } else {
+          // Image hors viewport - lazy loading mais avec priorité plus élevée
+          img.setAttribute('loading', 'lazy');
+          img.setAttribute('fetchpriority', 'auto');
         }
+      } else if (img.getAttribute('loading') === 'lazy') {
+        // Si déjà en lazy, ajouter fetchpriority pour accélérer
+        img.setAttribute('fetchpriority', 'auto');
       }
     }
 
-    // Ajouter decoding="async" pour améliorer les performances
+    // Utiliser decoding="async" pour améliorer les performances (non-bloquant)
     if (!img.hasAttribute('decoding')) {
       img.setAttribute('decoding', 'async');
     }
@@ -148,7 +160,7 @@
           }
         });
       }, {
-        rootMargin: '100px' // Commencer à charger 100px avant que l'image soit visible pour plus de fluidité
+        rootMargin: '500px' // Commencer à charger 500px avant que l'image soit visible pour un chargement beaucoup plus rapide
       });
 
       // Observer toutes les images avec lazy loading
@@ -198,7 +210,7 @@
           }
         });
       }, {
-        rootMargin: '200px' // Précharger 200px avant que l'image soit visible pour un scroll fluide
+        rootMargin: '600px' // Précharger 600px avant que l'image soit visible pour un chargement beaucoup plus rapide
       });
       
       galleryImages.forEach(img => {

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
+  <!-- Optimisations de performance -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   <title>Escapade</title>
   
   <!-- Preconnect pour améliorer les performances des CDN -->
@@ -42,9 +44,10 @@
       height: 77px;
     }
     
-    .events-overlay-text p {
-      font-size: 20px;
-      line-height: 30px;
+    
+    /* Réduction des margin-top des paragraphes */
+    .events-overlay-text p.mt-6 {
+      margin-top: 0.75rem !important; /* Réduit de 1.5rem à 0.75rem */
     }
 
     /* Remonter la div events-overlay-text */
@@ -53,9 +56,45 @@
       padding-top: 0;
     }
     
+    /* Taille du texte sur l'image de fond à 14px sur desktop uniquement */
+    @media (min-width: 1280px) {
+      .events-overlay-text p {
+        font-size: 14px !important;
+        line-height: 21px !important;
+      }
+    }
+    
     /* Overlay sombre caché par défaut (desktop) */
     .events-overlay-dark {
       display: none;
+    }
+
+     /* Styles pour la vidéo hero - standards web */
+     #hero .hero-bg-video,
+     #hero video {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       z-index: -1;
+       display: block;
+       visibility: visible;
+       opacity: 1;
+       background-color: transparent;
+       pointer-events: none;
+     }
+     
+     /* Image fallback */
+     .hero-bg-fallback {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       z-index: -2;
     }
 
     /* Responsive adjustments for MacBook screens (1280px - 1440px) */
@@ -128,139 +167,487 @@
     }
 
     /* Responsive pour tablettes et petits écrans */
-    @media (max-width: 1279px) {
+    @media (min-width: 1025px) and (max-width: 1279px) {
       .events-overlay-text {
-        transform: translateY(-40px) !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        margin-top: 1.5rem !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        /* Dégradé beige/crème très transparent harmonisé avec la couleur du texte (#956F40) */
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 245, 235, 0.15),
+          rgba(245, 238, 225, 0.12),
+          rgba(240, 230, 215, 0.10),
+          rgba(235, 225, 205, 0.08)
+        );
+        border-radius: 0 !important;
+        padding: 1.5rem 2rem !important;
+        padding-top: 0.5rem !important;
+        z-index: 10 !important;
       }
       
-      /* Overlay glassmorphism très léger sur toute l'image */
-      .events-overlay-container::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(8px) saturate(120%);
-        -webkit-backdrop-filter: blur(8px) saturate(120%);
-        z-index: 1;
-        pointer-events: none;
+      /* Contenu du texte centré horizontalement */
+      .events-overlay-text > * {
+        max-width: 1200px;
+        width: 100%;
       }
       
-      /* Overlay plus sombre sur l'image pour améliorer la lisibilité */
+      /* Pas d'overlay sur toute l'image - l'image reste entièrement visible */
       .events-overlay-container .events-overlay-dark {
-        display: block;
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.2);
-        z-index: 0;
+        display: none !important;
       }
       
-      /* Texte en blanc */
+      /* Cacher l'overlay glassmorphism */
+      .events-overlay-container::after {
+        display: none !important;
+      }
+      
+       /* Texte - taille 20px sur tablette */
       .events-overlay-text p {
-        color: #ffffff !important;
+         color: #7A5A33 !important; /* Version plus foncée pour meilleure lisibilité */
+         font-size: 20px !important;
+         line-height: 30px !important;
+         letter-spacing: 0.01em;
+         word-spacing: -0.02em;
+       }
+      
+      /* Réduction des margin-top des paragraphes */
+      .events-overlay-text p.mt-6 {
+        margin-top: 0.4rem !important;
+      }
+      
+      /* Centrer et réduire les spans de statut sur tablette */
+      article > div > div.flex.items-center.justify-between span.text-sm,
+      article > div > div.flex.items-center.justify-between span[class*="text-sm"],
+      article div.flex.items-center.justify-between.text-lg span.text-sm,
+      article div.flex.items-center.justify-between[class*="text-lg"] span.text-sm,
+      article div.flex.items-center.justify-between span[data-translate="eventsSunsetSchedule"],
+      article div.flex.items-center.justify-between span[data-translate="eventsBrunchSchedule"],
+      article div.flex.items-center.justify-between span[data-translate="eventsCorporateSchedule"],
+      article div.flex.items-center.justify-between span[data-translate="eventsWeddingSchedule"],
+      article div.flex.items-center.justify-between.text-lg span[class*="text-sm"],
+      article div.flex.items-center.justify-between[class*="text-lg"] span[class*="text-sm"] {
+        text-align: center !important;
+        align-self: center !important;
+        width: 100% !important;
+        font-size: 0.65rem !important; /* Taille légèrement augmentée pour "À venir" - toujours plus petit que les titres */
+        line-height: 1.3 !important;
+      }
+      
+      /* S'assurer que les titres (font-normal sans text-sm) restent plus grands */
+      article > div > div.flex.items-center.justify-between span.font-normal:not(.text-sm),
+      article div.flex.items-center.justify-between.text-lg span.font-normal:not(.text-sm) {
+        font-size: clamp(1.05rem, 2.6vw, 1.2rem) !important; /* Taille text-lg pour les titres */
       }
     }
     
     /* Responsive pour tablettes moyennes */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      /* Texte en blanc */
-      .events-overlay-text p {
-        color: #ffffff !important;
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .events-overlay-text {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        margin-top: 1.5rem !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        /* Dégradé beige/crème très transparent harmonisé avec la couleur du texte (#956F40) */
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 245, 235, 0.15),
+          rgba(245, 238, 225, 0.12),
+          rgba(240, 230, 215, 0.10),
+          rgba(235, 225, 205, 0.08)
+        );
+        border-radius: 0 !important;
+        padding: 1.5rem 2rem !important;
+        padding-top: 0.5rem !important;
+        z-index: 10 !important;
       }
       
-      /* Overlay glassmorphism très léger sur toute l'image */
-      .events-overlay-container::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(8px) saturate(120%);
-        -webkit-backdrop-filter: blur(8px) saturate(120%);
-        z-index: 1;
-        pointer-events: none;
+      /* Contenu du texte centré horizontalement */
+      .events-overlay-text > * {
+        max-width: 1200px;
+        width: 100%;
       }
       
-      /* Overlay plus sombre sur l'image */
+      /* Pas d'overlay sur toute l'image - l'image reste entièrement visible */
       .events-overlay-container .events-overlay-dark {
-        display: block;
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.2);
-        z-index: 0;
+        display: none !important;
+      }
+      
+      /* Cacher l'overlay glassmorphism */
+      .events-overlay-container::after {
+        display: none !important;
+      }
+      
+       /* Texte - taille 20px sur tablette moyenne */
+       .events-overlay-text p {
+         color: #7A5A33 !important; /* Version plus foncée pour meilleure lisibilité */
+         font-size: 20px !important;
+         line-height: 30px !important;
+         letter-spacing: 0.01em;
+         word-spacing: -0.02em;
+       }
+      
+      /* Réduction des margin-top des paragraphes */
+      .events-overlay-text p.mt-6 {
+        margin-top: 0.4rem !important;
+      }
+      
+      /* Centrer et réduire les spans de statut sur tablette moyenne */
+      article > div > div.flex.items-center.justify-between span.text-sm,
+      article > div > div.flex.items-center.justify-between span[class*="text-sm"],
+      article div.flex.items-center.justify-between.text-lg span.text-sm,
+      article div.flex.items-center.justify-between[class*="text-lg"] span.text-sm,
+      article div.flex.items-center.justify-between span[data-translate="eventsSunsetSchedule"],
+      article div.flex.items-center.justify-between span[data-translate="eventsBrunchSchedule"],
+      article div.flex.items-center.justify-between span[data-translate="eventsCorporateSchedule"],
+      article div.flex.items-center.justify-between span[data-translate="eventsWeddingSchedule"],
+      article div.flex.items-center.justify-between.text-lg span[class*="text-sm"],
+      article div.flex.items-center.justify-between[class*="text-lg"] span[class*="text-sm"] {
+        text-align: center !important;
+        align-self: center !important;
+        width: 100% !important;
+        font-size: 0.65rem !important; /* Taille légèrement augmentée pour "À venir" - toujours plus petit que les titres */
+        line-height: 1.3 !important;
+      }
+      
+      /* S'assurer que les titres (font-normal sans text-sm) restent plus grands */
+      article > div > div.flex.items-center.justify-between span.font-normal:not(.text-sm),
+      article div.flex.items-center.justify-between.text-lg span.font-normal:not(.text-sm) {
+        font-size: clamp(1.05rem, 2.6vw, 1.2rem) !important; /* Taille text-lg pour les titres */
       }
     }
 
     /* Responsive pour mobile */
     @media (max-width: 768px) {
+      /* Ajuster la hauteur du conteneur sur mobile - AUGMENTER LA HAUTEUR DE L'IMAGE */
+      .events-overlay-container {
+        height: auto !important;
+        min-height: 1000px !important; /* Augmenté pour rendre l'image plus longue */
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+      
+      /* Augmenter la hauteur de l'image DJI_0290 1.png au responsive téléphone */
+      .events-overlay-container img[src*="DJI_0290"] {
+        height: 100% !important;
+        min-height: 1000px !important;
+        object-fit: cover !important;
+      }
+      
       .events-overlay-text {
-        transform: translateY(-30px) !important;
-        padding: 1.25rem !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-top: 3rem !important;
+        /* Dégradé beige/crème très transparent harmonisé avec la couleur du texte (#956F40) */
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 245, 235, 0.15),
+          rgba(245, 238, 225, 0.12),
+          rgba(240, 230, 215, 0.10),
+          rgba(235, 225, 205, 0.08)
+        );
+        border-radius: 0 !important;
+        padding: 1rem 3.5rem !important;
+        padding-top: 0.75rem !important;
+        padding-left: 3.5rem !important;
+        padding-right: 3.5rem !important;
+        z-index: 10 !important;
       }
       
-      /* Overlay glassmorphism très léger sur toute l'image */
-      .events-overlay-container::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px) saturate(120%);
-        -webkit-backdrop-filter: blur(10px) saturate(120%);
-        z-index: 1;
-        pointer-events: none;
+      /* Contenu du texte centré horizontalement */
+      .events-overlay-text > * {
+        max-width: 1200px;
+        width: 100%;
       }
       
-      /* Overlay plus sombre sur l'image pour améliorer la lisibilité */
+      /* Pas d'overlay sur toute l'image - l'image reste entièrement visible */
       .events-overlay-container .events-overlay-dark {
-        display: block;
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.25);
-        z-index: 0;
+        display: none !important;
       }
       
-      /* Texte en blanc */
+      /* Cacher l'overlay glassmorphism */
+      .events-overlay-container::after {
+        display: none !important;
+      }
+      
+      /* Texte - taille réduite à 10.5px sur mobile */
       .events-overlay-text p {
-        color: #ffffff !important;
+        color: #7A5A33 !important; /* Version plus foncée pour meilleure lisibilité */
+        font-size: 10.5px !important;
+        line-height: 16px !important;
+        letter-spacing: 0.01em;
+        word-spacing: -0.02em;
+      }
+      
+      /* Marge entre les paragraphes sur mobile */
+      .events-overlay-text p.mt-6 {
+        margin-top: 0.5rem !important;
       }
     }
 
     /* Responsive pour très petits écrans */
     @media (max-width: 480px) {
+      /* Ajuster la hauteur du conteneur sur très petits écrans - AUGMENTER LA HAUTEUR DE L'IMAGE */
+      .events-overlay-container {
+        height: auto !important;
+        min-height: 900px !important; /* Augmenté pour rendre l'image plus longue */
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+      
+      /* Augmenter la hauteur de l'image DJI_0290 1.png au responsive téléphone */
+      .events-overlay-container img[src*="DJI_0290"] {
+        height: 100% !important;
+        min-height: 900px !important;
+        object-fit: cover !important;
+      }
+      
       .events-overlay-text {
-        transform: translateY(-20px) !important;
-        padding: 1rem !important;
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        margin-top: 3rem !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        /* Dégradé beige/crème très transparent harmonisé avec la couleur du texte (#956F40) */
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 245, 235, 0.15),
+          rgba(245, 238, 225, 0.12),
+          rgba(240, 230, 215, 0.10),
+          rgba(235, 225, 205, 0.08)
+        );
+        border-radius: 0 !important;
+        padding: 0.75rem 2.5rem !important;
+        padding-top: 0.5rem !important;
+        padding-left: 2.5rem !important;
+        padding-right: 2.5rem !important;
+        z-index: 10 !important;
       }
       
-      /* Overlay glassmorphism très léger sur toute l'image */
-      .events-overlay-container::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(12px) saturate(120%);
-        -webkit-backdrop-filter: blur(12px) saturate(120%);
-        z-index: 1;
-        pointer-events: none;
+      /* Contenu du texte centré horizontalement */
+      .events-overlay-text > * {
+        max-width: 1200px;
+        width: 100%;
       }
       
-      /* Overlay encore plus sombre sur l'image */
+      /* Pas d'overlay sur toute l'image - l'image reste entièrement visible */
       .events-overlay-container .events-overlay-dark {
-        display: block;
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 0;
+        display: none !important;
       }
       
-      /* Texte en blanc */
+      /* Cacher l'overlay glassmorphism */
+      .events-overlay-container::after {
+        display: none !important;
+      }
+      
+      /* Texte - taille réduite à 10.5px sur très petits écrans */
       .events-overlay-text p {
-        color: #ffffff !important;
+        color: #7A5A33 !important; /* Version plus foncée pour meilleure lisibilité */
+        font-size: 10.5px !important;
+        line-height: 16px !important;
+        letter-spacing: 0.005em;
+        word-spacing: -0.03em;
+      }
+      
+      /* Marge entre les paragraphes sur très petits écrans */
+      .events-overlay-text p.mt-6 {
+        margin-top: 0.5rem !important;
+      }
+    }
+
+    /* Responsive pour très petits téléphones */
+    @media (max-width: 360px) {
+      /* Ajuster la hauteur du conteneur sur très petits téléphones - AUGMENTER LA HAUTEUR DE L'IMAGE */
+      .events-overlay-container {
+        min-height: 850px !important; /* Augmenté pour rendre l'image plus longue */
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+      }
+      
+      /* Augmenter la hauteur de l'image DJI_0290 1.png au responsive téléphone */
+      .events-overlay-container img[src*="DJI_0290"] {
+        height: 100% !important;
+        min-height: 850px !important;
+        object-fit: cover !important;
+      }
+      
+      .events-overlay-text {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        margin-top: 3rem !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        /* Dégradé beige/crème très transparent harmonisé avec la couleur du texte (#956F40) */
+        background: linear-gradient(
+          to bottom,
+          rgba(250, 245, 235, 0.15),
+          rgba(245, 238, 225, 0.12),
+          rgba(240, 230, 215, 0.10),
+          rgba(235, 225, 205, 0.08)
+        );
+        border-radius: 0 !important;
+        padding: 0.5rem 2rem !important;
+        padding-top: 0.4rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+        z-index: 10 !important;
+      }
+      
+      /* Contenu du texte centré horizontalement */
+      .events-overlay-text > * {
+        max-width: 1200px;
+        width: 100%;
+      }
+      
+      /* Pas d'overlay sur toute l'image - l'image reste entièrement visible */
+      .events-overlay-container .events-overlay-dark {
+        display: none !important;
+      }
+      
+      /* Cacher l'overlay glassmorphism */
+      .events-overlay-container::after {
+        display: none !important;
+      }
+      
+      /* Texte - taille réduite à 10.5px sur très petits téléphones */
+      .events-overlay-text p {
+        color: #7A5A33 !important; /* Version plus foncée pour meilleure lisibilité */
+        font-size: 10.5px !important;
+        line-height: 16px !important;
+        letter-spacing: 0.003em;
+        word-spacing: -0.04em;
+      }
+      
+      /* Marge entre les paragraphes sur très petits téléphones */
+      .events-overlay-text p.mt-6 {
+        margin-top: 0.5rem !important;
       }
     }
   </style>
+  <!-- Style inline pour cacher le contenu immédiatement pendant le chargement -->
+  <style>
+    /* Cacher TOUT le contenu sauf le loader pendant le chargement */
+    body[data-loading="true"] > *:not(#page-loader) {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      }
+    body[data-loading="true"] section:not(#page-loader),
+    body[data-loading="true"] main {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    /* S'assurer que le loader reste visible */
+    #page-loader {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      z-index: 99999 !important;
+    }
+     /* Empêcher le scroll pendant le chargement */
+     body[data-loading="true"] {
+       overflow: hidden !important;
+     }
+     
+      /* Aligner les spans des événements à gauche sur téléphone */
+      @media (max-width: 768px) {
+        /* Cibler les divs contenant les titres et statuts des événements dans les articles */
+        article > div > div.flex.items-center.justify-between {
+          justify-content: flex-start !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 1rem !important;
+        }
+        
+        /* Aligner les spans à gauche par défaut */
+        article > div > div.flex.items-center.justify-between span {
+          text-align: left !important;
+        }
+        
+        /* Centrer les spans de statut (text-sm font-[Futura_Md_BT] font-normal text-black) */
+        article > div > div.flex.items-center.justify-between span.text-sm,
+        article > div > div.flex.items-center.justify-between span[class*="text-sm"],
+        article div.flex.items-center.justify-between.text-lg span.text-sm,
+        article div.flex.items-center.justify-between[class*="text-lg"] span.text-sm,
+        article div.flex.items-center.justify-between span[data-translate="eventsSunsetSchedule"],
+        article div.flex.items-center.justify-between span[data-translate="eventsBrunchSchedule"],
+        article div.flex.items-center.justify-between span[data-translate="eventsCorporateSchedule"],
+        article div.flex.items-center.justify-between span[data-translate="eventsWeddingSchedule"],
+        article div.flex.items-center.justify-between.text-lg span[class*="text-sm"],
+        article div.flex.items-center.justify-between[class*="text-lg"] span[class*="text-sm"] {
+          text-align: center !important;
+          align-self: center !important;
+          width: 100% !important;
+          font-size: 0.65rem !important; /* Taille légèrement augmentée pour "À venir" - toujours plus petit que les titres */
+          line-height: 1.3 !important;
+        }
+        
+        /* S'assurer que les titres (font-normal sans text-sm) restent plus grands */
+        article > div > div.flex.items-center.justify-between span.font-normal:not(.text-sm),
+        article div.flex.items-center.justify-between.text-lg span.font-normal:not(.text-sm) {
+          font-size: clamp(1.05rem, 2.6vw, 1.2rem) !important; /* Taille text-lg pour les titres */
+        }
+      }
+   </style>
   <!-- Image Optimizer pour améliorer les performances -->
   <script src="js/image-optimizer.js" defer></script>
+  <script src="js/performance-enhancer.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js"></script>
@@ -282,7 +669,7 @@
     })();
   </script>
 </head>
-<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="events">
+<body class=" text-white overflow-x-hidden" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="events" data-loading="true">
 <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Chargement">
   <div class="loader-inner">
     <span class="loader-ring" aria-hidden="true"></span>
@@ -338,19 +725,18 @@
         <img src="Menu/images/542_446.svg" alt="Close Icon">
         <span data-translate="close">FERMER</span>
       </a>
+      <!--merged image-->
+      <a href="index.html" class="menu-logo">
+        <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
+        <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
+        <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
+      </a>
       <div class="menu-lang-switcher">
         <a href="#" data-lang="fr">FR</a>
         <img src="Menu/images/542_445.svg" alt="Language separator">
         <a href="#" data-lang="en">EN</a>
       </div>
     </header>
-
-    <!--merged image-->
-    <a href="index.html" class="menu-logo">
-      <img src="Menu/images/542_454.svg" alt="Logo element" class="logo-part" style="top: 0.35px; left: 0px; width: 157.75px; height: 147.67px;">
-      <img src="Menu/images/542_453.svg" alt="Logo element" class="logo-part" style="top: 2.35px; left: 33.41px; width: 120.47px; height: 130.42px;">
-      <img src="Menu/images/542_457.svg" alt="Logo element" class="logo-part" style="top: 46.62px; left: 36.8px; width: 108.29px; height: 83.41px;">
-    </a>
 
     <main class="menu-content">
       <nav class="menu-nav">
@@ -781,7 +1167,7 @@
   .deco-corner-top {
     position: absolute;
     top: 193px;
-    right: 219px; /* Tout en haut à droite de l'image */
+    right: 5px; /* Tout en haut à droite de l'image */
     z-index: 6;
     transform: rotate(-0.38deg);
   }
@@ -1145,6 +1531,121 @@
       min-width: 280px !important;
     }
     
+    /* Ajustement spécifique pour TOUTES les nav-items sur tablette pour que les textes soient entièrement encadrés */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      /* CHAMBRES & SUITES */
+      .nav-item[href*="page_suite"] .nav-bg,
+      .nav-item[href*="suite"] .nav-bg,
+      .menu-nav a[href*="suite"] .nav-bg {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="page_suite"],
+      .nav-item[href*="suite"],
+      .menu-nav a[href*="suite"] {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="page_suite"] .nav-text,
+      .nav-item[href*="suite"] .nav-text[data-translate="roomsSuites"] {
+        font-size: 20px !important;
+        padding: 8px 12px !important;
+        white-space: nowrap !important;
+      }
+      
+      /* LE RESTAURANT */
+      .nav-item[href*="restaurant"] .nav-bg,
+      .menu-nav a[href*="restaurant"] .nav-bg {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="restaurant"],
+      .menu-nav a[href*="restaurant"] {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="restaurant"] .nav-text,
+      .nav-item[href*="restaurant"] .nav-text[data-translate="restaurant"] {
+        font-size: 20px !important;
+        padding: 8px 12px !important;
+        white-space: nowrap !important;
+      }
+      
+      /* LE LOUNGE */
+      .nav-item[href*="lounge"] .nav-bg,
+      .menu-nav a[href*="lounge"] .nav-bg {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="lounge"],
+      .menu-nav a[href*="lounge"] {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="lounge"] .nav-text,
+      .nav-item[href*="lounge"] .nav-text[data-translate="lounge"] {
+        font-size: 20px !important;
+        padding: 8px 12px !important;
+        white-space: nowrap !important;
+      }
+      
+      /* ÉVÉNEMENTIEL */
+      .nav-item[href*="evenementiel"] .nav-bg,
+      .menu-nav a[href*="evenementiel"] .nav-bg {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="evenementiel"],
+      .menu-nav a[href*="evenementiel"] {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="evenementiel"] .nav-text,
+      .nav-item[href*="evenementiel"] .nav-text[data-translate="event"] {
+        font-size: 20px !important;
+        padding: 8px 12px !important;
+        white-space: nowrap !important;
+      }
+      
+      /* A PROPOS */
+      .nav-item[href*="apropos"] .nav-bg,
+      .menu-nav a[href*="apropos"] .nav-bg {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="apropos"],
+      .menu-nav a[href*="apropos"] {
+        width: 320px !important;
+        max-width: 320px !important;
+        min-width: 320px !important;
+      }
+      
+      .nav-item[href*="apropos"] .nav-text,
+      .nav-item[href*="apropos"] .nav-text[data-translate="about"] {
+        font-size: 20px !important;
+        padding: 8px 12px !important;
+        white-space: nowrap !important;
+      }
+    }
+    
     /* Image-showcase : réductions */
     .image-showcase {
       padding: 0;
@@ -1215,6 +1716,12 @@
     .nav-text {
       font-size: 20px; /* Encore plus petit sur très petit écran */
       padding: 6px 12px;
+    }
+    
+    .nav-item {
+      height: 38px;
+      width: 260px !important;
+      max-width: 260px !important;
     }
     
     /* UNIFORMISATION TOTALE DES NAV-BG SUR TRÈS PETIT ÉCRAN - TOUTES LA MÊME TAILLE ET LARGEUR */
@@ -1352,9 +1859,50 @@
       padding-left: 0;
       text-align: center;
     }
-    .nav-item {
-      height: 40px;
-      justify-content: center;
+    /* UNIFORMISATION TOTALE DES NAV-BG SUR MOBILE 480px - TOUTES LA MÊME TAILLE ET LARGEUR */
+    .nav-bg,
+    .nav-item .nav-bg,
+    .nav-item img.nav-bg,
+    .menu-nav .nav-item .nav-bg,
+    .menu-nav li .nav-item .nav-bg,
+    .menu-nav li a .nav-bg,
+    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    .nav-item[href*="lounge"] .nav-bg,
+    .nav-item[href*="apropos"] .nav-bg,
+    .nav-item[href*="lounge.html"] .nav-bg,
+    .nav-item[href*="apropos.html"] .nav-bg,
+    a[href*="lounge"] .nav-bg,
+    a[href*="apropos"] .nav-bg,
+    a[href*="lounge.html"] .nav-bg,
+    a[href*="apropos.html"] .nav-bg,
+    /* Tous les autres sélecteurs possibles */
+    .menu-nav a[href*="suite"] .nav-bg,
+    .menu-nav a[href*="restaurant"] .nav-bg,
+    .menu-nav a[href*="evenementiel"] .nav-bg {
+      width: 280px !important;
+      height: 40px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
+      margin: 0 auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      object-fit: fill !important;
+      object-position: center !important;
+    }
+    
+    .nav-item,
+    .menu-nav .nav-item,
+    .menu-nav li .nav-item,
+    .nav-item[href*="lounge"],
+    .nav-item[href*="apropos"],
+    .menu-nav a[href*="suite"],
+    .menu-nav a[href*="restaurant"],
+    .menu-nav a[href*="evenementiel"] {
+      height: 40px !important;
+      justify-content: center !important;
+      width: 280px !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
     }
   }
   </style>
@@ -1455,22 +2003,21 @@
     </script>
 
 
-  <!-- Section ESCAPADE -->
-  <section class="relative w-screen h-screen overflow-hidden" style="width: 100vw; left: 0; right: 0; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0;" data-hero="events">
-
-    <!-- Vidéo de fond : TABLE 1 (derrière tout le contenu pour éviter qu'elle masque la suite au scroll) -->
-    <video class="absolute inset-0 w-full h-full object-cover filter drop-shadow-md -z-10" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="none" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
-      <source src="video/TABLE 1.mp4" type="video/mp4">
+  <!-- Section ESCAPADE - Structure identique à index.html -->
+  <section id="hero">
+    <div class="hero-container">
+      <!-- Vidéo de fond : TABLE 1 (identique à index.html) -->
+      <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="auto" controls="false" controlslist="nodownload nofullscreen noremoteplayback" fetchpriority="high">
+      <source src="video/TABLE1.mp4" type="video/mp4">
     </video>
+      <!-- Image de fallback si la vidéo ne charge pas sur Android -->
+      <img src="images/DJI_0290 1.png" alt="Événement à L'Escapade" class="hero-bg-fallback" style="display: none;" />
 
     <!-- Overlay sombre (au-dessus de l'image mais sous le contenu) -->
     <div class="absolute inset-0 bg-black/30 z-0"></div>
 
     <!-- CONTENU PRINCIPAL -->
     <div class="relative z-10 flex flex-col items-center justify-center text-center h-full space-y-6">
-      
-
-
       <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="eventsHeroTitle">ÉVÈNEMENTIEL</h1>
     </div>
 
@@ -1486,7 +2033,7 @@
         <span class="btn-text" data-translate="reserveSuite">Réserver une suite</span>
       </a>
     </footer>
-
+    </div>
   </section>
 
 
@@ -1509,7 +2056,7 @@
     <div class="flex flex-col md:flex-row items-center gap-12">
       <!-- Texte -->
       <div class="w-full md:w-1/2 text-right space-y-6">
-        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#000000]" data-translate="eventsParagraph1">
+        <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-[#000000]" data-translate="eventsParagraph1">
           L'Escapade est la scène idéale pour célébrer les grands moments de la vie. Mariages au bord de l'eau,
           anniversaires, retraites en petit comité ou grandes célébrations réunissant jusqu'à 2 000 invités :
           chaque événement trouve ici son écrin.
@@ -1530,7 +2077,7 @@
       <!-- Texte -->
       <div class="w-full md:w-1/2 space-y-6">
         <div class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#000000]">
-          <p data-translate="eventsSpacesTitle" class="text-[18px] md:text-[22px] leading-[28px] md:leading-[30px]">Nos espaces s'adaptent à toutes vos envies :</p>
+          <p data-translate="eventsSpacesTitle" class="text-[20px] md:text-[24px] leading-[30px] md:leading-[34px]">Nos espaces s'adaptent à toutes vos envies :</p>
           <ul class="list-none space-y-2 mt-4">
             <li data-translate="eventsSpace1">● une plage naturelle face à la lagune pour des cérémonies inoubliables,</li>
             <li data-translate="eventsSpace2">● une piscine extérieure pour des soirées animées,</li>
@@ -1567,16 +2114,16 @@
 
      <!-- Texte superposé -->
       <div class="relative z-20 max-w-5xl mx-auto text-start px-6 events-overlay-text">
-      <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#956F40]" data-translate="eventsParagraph2">
+      <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-[#956F40]" data-translate="eventsParagraph2">
         À L'Escapade, élégance et nature se rejoignent pour offrir un cadre où se créent les souvenirs les plus précieux
         et où naissent les plus belles inspirations.
       </p>
-      <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#956F40] mt-6" data-translate="eventsParagraph3">
+      <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-[#956F40] mt-6" data-translate="eventsParagraph3">
         Profitez pleinement de votre événement, nous nous occupons du reste. De la mise en place à la décoration, en
         passant par la restauration, l'animation et même l'hébergement des invités, notre équipe coordonne chaque détail
         avec soin et flexibilité.
       </p>
-      <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] text-[#956F40] mt-6" data-translate="eventsParagraph4">
+      <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-[#956F40] mt-6" data-translate="eventsParagraph4">
         Vous pouvez choisir vos propres prestataires, ou confier l'ensemble à notre organisation pour une prestation
         clé en main, toujours adaptée à vos envies.
       </p>
@@ -1592,7 +2139,7 @@
           <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-events">
         <h2 class="main-title" style="margin-left: 70px;" data-translate="eventsListTitle">EVENEMENTS À <span class="highlight">L'ESCAPADE</span></h2>
         </div>
-       <p class="font-[Futura_Md_BT] font-normal text-[18px] md:text-[20px] leading-[28px] md:leading-[30px] text-black mt-6" data-translate="eventsListIntro">
+       <p class="font-[Futura_Md_BT] font-normal text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-black mt-6" data-translate="eventsListIntro">
           Retour en images sur nos événements récents : des rendez-vous hebdomadaires qui font vibrer la lagune.
         </p>
       </div>
@@ -1600,19 +2147,17 @@
       <div class="grid gap-8 md:grid-cols-2">
         <article class="p-6 border border-[#B78F62]/30 rounded-[40px_0] shadow-[0_8px_25px_rgba(0,0,0,0.05)] bg-white flex flex-col gap-4">
           <div class="relative w-full h-[320px] rounded-[30px_0] overflow-hidden">
-            <img src="images/imagesEvent4.JPG" alt="Sunset Lounge" class="w-full h-full object-cover">
+             <img src="images/Event1.png" alt="La Boutique Éphémère" class="w-full h-full object-cover">
           </div>
           <div class="flex items-center justify-between text-black font-[Futura_Md_BT] font-normal text-lg uppercase tracking-[0.2em]">
-            <span class="font-normal" data-translate="eventsSunsetTitle">Armani Mare</span>
-            <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsSunsetSchedule">Événement passé</span>
+             <span class="font-normal" data-translate="eventsSunsetTitle">La Boutique Éphémère</span>
+             <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsSunsetSchedule">À venir</span>
           </div>
-          <p class="font-[Futura_Md_BT] font-normal text-[18px] leading-[28px] text-black" data-translate="eventsSunsetDescription">
-            L’Escapade Assinie a accueilli l’expérience Armani Mare, une immersion élégante mêlant 
-            parfums, ambiance balnéaire et décor d’exception. Une journée raffinée qui a sublimé la 
-            lagune sous les couleurs de la maison Armani.
+           <p class="font-[Futura_Md_BT] font-normal text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-black" data-translate="eventsSunsetDescription">
+             Une alliance inédite entre trois maisons de prestige s'unissent pour créer une expérience lifestyle inédite au cœur de L'Escapade Hotel. Du 20 décembre au 5 janvier, plongez dans un univers où la Haute Couture, la Maroquinerie d'art et la Beauté premium se rencontrent pour sublimer vos fêtes de fin d'année. La Boutique éphémère vous ouvre ses portes de 16H à 21H.
           </p>
           <div class="flex items-center justify-end text-sm font-[Futura_Md_BT] font-normal text-black">
-            <span data-translate="eventsSunsetTime">Édition du 6 décembre 2025</span>
+             <span data-translate="eventsSunsetTime">Édition du 20 décembre 2025 au 5 janvier 2026</span>
           </div>
         </article>
 
@@ -1624,7 +2169,7 @@
             <span class="font-normal" data-translate="eventsBrunchTitle">Pilates Sunset avec  <br> Core Fitness</span>
             <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsBrunchSchedule">À venir</span>
           </div>
-          <p class="font-[Futura_Md_BT] font-normal text-[18px] leading-[28px] text-black" data-translate="eventsBrunchDescription">
+          <p class="font-[Futura_Md_BT] font-normal text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-black" data-translate="eventsBrunchDescription">
             L’Escapade proposera une séance exclusive de Pilates Sunset en collaboration avec Core 
 Fitness et le coach Baba. Une expérience bien-être au coucher du soleil, pensée pour allier 
 énergie, détente et cadre inspirant.
@@ -1642,7 +2187,7 @@ Fitness et le coach Baba. Une expérience bien-être au coucher du soleil, pens�
             <span class="font-normal" data-translate="eventsCorporateTitle">Dîners et Déjeuner de Noël </span>
             <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsCorporateSchedule">A venir</span>
           </div>
-          <p class="font-[Futura_Md_BT] font-normal text-[18px] leading-[28px] text-black" data-translate="eventsCorporateDescription">
+          <p class="font-[Futura_Md_BT] font-normal text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-black" data-translate="eventsCorporateDescription">
             Les 24 et 25 décembre, L’Escapade invite ses hôtes à célébrer Noël autour d’un dîner à 
             l’assiette puis d’un déjeuner buffet, tous deux accompagnés d’un cocktail de bienvenue. 
             Deux moments chaleureux pour vivre la magie des fêtes dans un décor tropical.
@@ -1660,7 +2205,7 @@ Fitness et le coach Baba. Une expérience bien-être au coucher du soleil, pens�
             <span class="font-normal" data-translate="eventsWeddingTitle">Saint-Sylvestre & <br> Brunch du Nouvel An</span>
             <span class="text-sm font-[Futura_Md_BT] font-normal text-black" data-translate="eventsWeddingSchedule">A venir</span>
           </div>
-          <p class="font-[Futura_Md_BT] font-normal text-[18px] leading-[28px] text-black" data-translate="eventsWeddingDescription">
+          <p class="font-[Futura_Md_BT] font-normal text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-black" data-translate="eventsWeddingDescription">
             L’Escapade propose des packs exclusifs pour un réveillon tout en élégance, comprenant 
 suite, dîner et champagne. Le 1er janvier, un brunch festif au bord de la lagune marquera 
 l’entrée en douceur dans la nouvelle année.
@@ -1764,6 +2309,99 @@ l’entrée en douceur dans la nouvelle année.
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
+  
+  <!-- Script optimisé pour forcer l'autoplay des vidéos sur mobile (identique à index.html) -->
+  <script defer>
+    // Attendre que la page soit complètement chargée avant de gérer les vidéos
+    window.addEventListener('load', function() {
+      // Fonction pour forcer la lecture des vidéos critiques (hero uniquement)
+      function forceVideoPlay(video) {
+        if (!video || video.dataset.videoLoaded === 'true') return;
+        
+        video.muted = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('x5-playsinline', '');
+        
+        // Charger la vidéo seulement maintenant
+        if (video.readyState === 0) {
+          video.load();
+        }
+        
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            video.dataset.videoLoaded = 'true';
+            // Cacher le fallback si la vidéo joue
+            const fallbackImg = document.querySelector('.hero-bg-fallback');
+            if (fallbackImg) {
+              fallbackImg.style.display = 'none';
+            }
+          }).catch(error => {
+            // Tentative de lecture automatique échouée, réessayer après un délai
+            setTimeout(() => {
+              video.play().catch(() => {
+                // Si la lecture échoue encore, afficher le fallback après un délai
+                setTimeout(() => {
+                  if (video.paused) {
+                    const fallbackImg = document.querySelector('.hero-bg-fallback');
+                    if (fallbackImg) {
+                      fallbackImg.style.display = 'block';
+                    }
+                  }
+                }, 2000);
+              });
+            }, 500);
+          });
+        }
+      }
+      
+      // Appliquer uniquement aux vidéos critiques (hero) après un court délai - identique à index.html
+      setTimeout(function() {
+        const heroVideo = document.querySelector('#hero .hero-bg-video') || document.querySelector('#hero video');
+        if (heroVideo) {
+          forceVideoPlay(heroVideo);
+          
+          // Réessayer si la vidéo est mise en pause (certains navigateurs mobiles)
+          heroVideo.addEventListener('pause', function() {
+            if (this.hasAttribute('autoplay') && !document.hidden) {
+              setTimeout(() => {
+                this.play().catch(() => {});
+              }, 100);
+            }
+          });
+          
+          // Écouter les erreurs de chargement et réessayer
+          heroVideo.addEventListener('error', function() {
+            setTimeout(() => {
+              this.load();
+              this.play().catch(() => {
+                const fallbackImg = document.querySelector('.hero-bg-fallback');
+                if (fallbackImg) {
+                  fallbackImg.style.display = 'block';
+                }
+              });
+            }, 1000);
+          });
+          
+          // Écouter canplay pour forcer la lecture
+          heroVideo.addEventListener('canplay', function() {
+            this.play().catch(() => {});
+          }, { once: true });
+        }
+        
+        // Réessayer lors du changement de visibilité de la page (uniquement pour vidéo hero)
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden && heroVideo && heroVideo.hasAttribute('autoplay')) {
+            forceVideoPlay(heroVideo);
+          }
+        });
+      }, 300);
+    });
+  </script>
+  
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const targetParagraphs = document.querySelectorAll('#evenementiel p, .events-overlay-text p');

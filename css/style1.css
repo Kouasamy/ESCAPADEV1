@@ -52,10 +52,143 @@ p, span, a, li, td, th, label, input, textarea, button,
   font-family: 'Futura Md BT', 'Futura', sans-serif !important;
 }
 
-/* Réduction de la taille du texte des paragraphes */
-p {
-  font-size: 0.9em; /* Réduction de 10% de la taille par défaut */
-  line-height: 1.5;
+/* Taille standardisée pour tous les paragraphes - Mobile par défaut */
+p:not(.suite-price),
+p.hero-text:not(.suite-price),
+p.subtitle:not(.suite-price),
+p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+p[class*="text-[20px]"]:not(.suite-price),
+p[class*="text-[24px]"]:not(.suite-price),
+p[class*="leading-[30px]"]:not(.suite-price),
+p[class*="leading-[34px]"]:not(.suite-price) {
+  font-size: 12px; /* Taille mobile par défaut */
+  line-height: 20px;
+}
+
+/* Taille desktop pour les paragraphes (min-width: 1280px) */
+@media (min-width: 1280px) {
+  p:not(.suite-price),
+  p.hero-text:not(.suite-price),
+  p.subtitle:not(.suite-price),
+  p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+  p[class*="text-[20px]"]:not(.suite-price),
+  p[class*="text-[24px]"]:not(.suite-price),
+  li:not(.suite-price),
+  #evenementiel li,
+  ul li {
+    font-size: 18px !important;
+    line-height: 27px !important;
+  }
+}
+
+/* Taille tablette pour les paragraphes (1025px - 1279px) */
+@media (min-width: 1025px) and (max-width: 1279px) {
+  p:not(.suite-price),
+  p.subtitle:not(.suite-price),
+  p.hero-text:not(.suite-price),
+  p[data-translate]:not(.suite-price),
+  p.font-[Futura_Md_BT]:not(.suite-price),
+  p.text-black:not(.suite-price),
+  p.text-gray-700:not(.suite-price),
+  p.text-white:not(.suite-price),
+  body p:not(.suite-price),
+  section p:not(.suite-price),
+  div p:not(.suite-price),
+  article p:not(.suite-price),
+  main p:not(.suite-price),
+  p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+  p[class*="text-[20px]"]:not(.suite-price),
+  p[class*="text-[24px]"]:not(.suite-price),
+  p[class*="leading-[30px]"]:not(.suite-price),
+  p[class*="leading-[34px]"]:not(.suite-price),
+  li:not(.suite-price),
+  #evenementiel li,
+  ul li {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+}
+
+/* Taille tablette moyenne pour les paragraphes (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  p:not(.suite-price),
+  p.subtitle:not(.suite-price),
+  p.hero-text:not(.suite-price),
+  p[data-translate]:not(.suite-price),
+  p.font-[Futura_Md_BT]:not(.suite-price),
+  p.text-black:not(.suite-price),
+  p.text-gray-700:not(.suite-price),
+  p.text-white:not(.suite-price),
+  body p:not(.suite-price),
+  section p:not(.suite-price),
+  div p:not(.suite-price),
+  article p:not(.suite-price),
+  main p:not(.suite-price),
+  p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+  p[class*="text-[20px]"]:not(.suite-price),
+  p[class*="text-[24px]"]:not(.suite-price),
+  p[class*="leading-[30px]"]:not(.suite-price),
+  p[class*="leading-[34px]"]:not(.suite-price),
+  li:not(.suite-price),
+  #evenementiel li,
+  ul li {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+}
+
+/* Taille mobile pour les paragraphes (max-width: 768px) */
+@media (max-width: 768px) {
+  p:not(.suite-price),
+  p.hero-text:not(.suite-price),
+  p.subtitle:not(.suite-price),
+  p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+  p[class*="text-[20px]"]:not(.suite-price),
+  p[class*="text-[24px]"]:not(.suite-price),
+  p[class*="leading-[30px]"]:not(.suite-price),
+  p[class*="leading-[34px]"]:not(.suite-price),
+  li:not(.suite-price),
+  #evenementiel li,
+  ul li {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
+}
+
+/* Taille très petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+  p:not(.suite-price),
+  p.hero-text:not(.suite-price),
+  p.subtitle:not(.suite-price),
+  p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+  p[class*="text-[20px]"]:not(.suite-price),
+  p[class*="text-[24px]"]:not(.suite-price),
+  p[class*="leading-[30px]"]:not(.suite-price),
+  p[class*="leading-[34px]"]:not(.suite-price),
+  li:not(.suite-price),
+  #evenementiel li,
+  ul li {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
+}
+
+/* Taille très petits téléphones (max-width: 360px) */
+@media (max-width: 360px) {
+  p:not(.suite-price),
+  p.hero-text:not(.suite-price),
+  p.subtitle:not(.suite-price),
+  p[class*="font-[Futura_Md_BT"]:not(.suite-price),
+  p[class*="text-[20px]"]:not(.suite-price),
+  p[class*="text-[24px]"]:not(.suite-price),
+  p[class*="leading-[30px]"]:not(.suite-price),
+  p[class*="leading-[34px]"]:not(.suite-price),
+  li:not(.suite-price),
+  #evenementiel li,
+  ul li {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
 }
 
 /* Ajustement pour les paragraphes avec des tailles spécifiques dans le HTML */
@@ -269,15 +402,50 @@ html, body {
 }
 
 /* Styles spécifiques pour les sections NOTRE CHEF et Boissons & Cocktails */
+
+/* Empêcher le retour à la ligne pour le titre "NOTRE CHEF & SES SPÉCIALITÉS" au responsive téléphone */
+@media (max-width: 576px) {
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef h1.main-title[data-translate="restaurantChefTitle"] {
+    white-space: nowrap !important;
+    font-size: 16px !important; /* Légèrement réduit pour tenir sur une ligne */
+    line-height: 1.1 !important;
+    padding: 0 6px !important;
+    letter-spacing: -0.01em !important; /* Réduire légèrement l'espacement des lettres */
+  }
+}
+
+@media (max-width: 480px) {
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef h1.main-title[data-translate="restaurantChefTitle"] {
+    white-space: nowrap !important;
+    font-size: 15px !important; /* Encore plus réduit pour très petits écrans */
+    line-height: 1.1 !important;
+    padding: 0 5px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+@media (max-width: 360px) {
+  #chef .title-border-flipped-wrapper .main-title,
+  #chef .title-border-flipped-wrapper h1.main-title,
+  #chef h1.main-title[data-translate="restaurantChefTitle"] {
+    white-space: nowrap !important;
+    font-size: 14px !important; /* Encore plus réduit pour très petits téléphones */
+    line-height: 1.05 !important;
+    padding: 0 4px !important;
+    letter-spacing: -0.03em !important;
+  }
+}
 #chef .title-border-flipped-wrapper .title-border-flipped {
   left: 55% !important; /* Position à 62% au lieu de 48% */
   width: 780px !important; /* Largeur augmentée de 680px à 780px */
   height: 80px !important; /* Hauteur légèrement augmentée pour s'adapter */
 }
 
-#chef .title-border-flipped-wrapper .main-title {
-  margin-right: 42px !important; /* Ajuster la marge pour la bordure plus large */
-}
+
 
 /* Pour la section Boissons & Cocktails dans lounge.html */
 #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
@@ -1158,16 +1326,30 @@ html, body {
   }
 }
 
-/* Styles pour optimiser le chargement des images */
+/* Styles pour optimiser le chargement des images - CHARGEMENT RAPIDE */
 img {
   max-width: 100%;
   height: auto;
   display: block;
+  /* Améliorer le rendu des images */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Chargement prioritaire */
+  content-visibility: auto;
 }
 
-/* Optimisation pour les images - pas besoin de masquer les images lazy-loaded */
+/* Optimisation pour les images - chargement rapide */
 img[loading="lazy"] {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  /* Précharger les images lazy plus tôt */
+  content-visibility: auto;
+}
+
+/* Images avec priorité haute - charger immédiatement */
+img[fetchpriority="high"],
+img[loading="eager"] {
+  content-visibility: visible;
+  will-change: contents;
 }
 
 /* Masquer complètement les contrôles vidéo sur toutes les vidéos */
@@ -1375,56 +1557,46 @@ video::-webkit-media-controls {
     margin-bottom: 25px;
   }
 
-  /* Hauteurs fixes pour les title-border sur tablette pour un affichage optimal avec arrondi modéré */
-  .title-border {
-    width: 100%;
-    max-width: 240px;
-    height: 21px !important; /* Hauteur fixe pour affichage optimal sur tablette (59px desktop * 0.36) */
-    object-fit: contain;
-    border-radius: 12px; /* Arrondi modéré */
-  }
-  
-  /* Styles spécifiques pour chaque type de title-border sur tablette */
-  /* Si l'élément est trop élargi, réduire la hauteur de 5px puis appliquer le ratio proportionnel (240/680 ≈ 0.353) */
-  .title-border-restaurant {
-    height: 28px !important; /* Réduit de 83px à 28px pour tablette (83-5=78, puis 78*0.353≈28px) - arrondi modéré */
-    border-radius: 14px;
-  }
-  
-  .title-border-restaurant-dishes {
-    height: 19px !important; /* Réduit de 53px à 19px pour tablette (53*0.353≈19px) */
-    border-radius: 10px;
-  }
-  
-  .title-border-lounge {
-    height: 25px !important; /* Réduit de 71px à 25px pour tablette (71*0.353≈25px) */
-    border-radius: 13px;
-  }
-  
-  .title-border-lounge-gallery {
-    height: 18px !important; /* Réduit de 50px à 18px pour tablette (50*0.353≈18px) */
-    border-radius: 9px;
-  }
-  
-  .title-border-lounge-drinks {
-    height: 27px !important; /* Réduit de 76px à 27px pour tablette (76*0.353≈27px) */
-    border-radius: 14px;
-  }
-  
+  /* Taille uniforme pour TOUTES les title-border sur tablette */
+  .title-border,
+  .title-border-restaurant,
+  .title-border-restaurant-dishes,
+  .title-border-lounge,
+  .title-border-lounge-gallery,
+  .title-border-lounge-drinks,
   .title-border-events {
-    height: 25px !important; /* Réduit de 77px à 25px pour tablette (77-5=72, puis 72*0.353≈25px) */
-    border-radius: 13px;
+    width: 100%;
+    max-width: 514px !important; /* Taille uniforme pour toutes les decorative borders */
+    height: 57px !important; /* Taille uniforme pour toutes les decorative borders */
+    object-fit: contain;
+    border-radius: 28px; /* Arrondi proportionnel */
   }
   
-  /* Ajustements responsives pour les sections spécifiques - title-border-flipped */
+  /* Ajustements responsives pour les sections spécifiques - title-border-flipped - Taille uniforme */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
     left: 49% !important;
     width: 100% !important;
-    max-width: 280px !important;
-    height: 29px !important; /* Hauteur fixe pour chef (80px desktop * 0.36) et lounge drinks (70px desktop * 0.36) */
+    max-width: 514px !important; /* Taille uniforme pour toutes les decorative borders */
+    height: 57px !important; /* Taille uniforme pour toutes les decorative borders */
     object-fit: contain;
-    border-radius: 15px; /* Arrondi modéré */
+    border-radius: 28px; /* Arrondi proportionnel */
+  }
+
+  /* Taille uniforme pour les main-title dans les decorative borders pour tablette UNIQUEMENT (pas téléphone) */
+  @media (min-width: 768px) {
+    .title-wrapper .main-title,
+    .title-wrapper h1.main-title,
+    .title-wrapper h2.main-title,
+    .title-border-flipped-wrapper .main-title,
+    .title-border-flipped-wrapper h1.main-title,
+    .title-border-flipped-wrapper h2.main-title,
+    #chef .title-border-flipped-wrapper .main-title,
+    #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
+      font-size: 32px !important; /* Taille uniforme de 32px pour toutes les decorative borders sur tablette */
+      line-height: 1.2 !important;
+      padding: 0 16px !important; /* Padding ajusté */
+    }
   }
 
   .main-title {
@@ -1433,9 +1605,44 @@ video::-webkit-media-controls {
     line-height: 1.15;
   }
   
-  #chef .title-border-flipped-wrapper .main-title,
+  /* Taille pour les main-title dans les decorative borders sur tablette uniquement (pas téléphone) */
+  @media (min-width: 768px) {
   #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
     margin-right: 20px !important; /* Même que mobile */
+      font-size: 32px !important; /* Taille uniforme de 32px pour toutes les decorative borders sur tablette */
+      line-height: 1.2 !important;
+      padding: 0 16px !important;
+    }
+  }
+  
+  /* Empêcher le retour à la ligne pour le titre "NOTRE CHEF & SES SPÉCIALITÉS" au responsive tablette uniquement - PRIORITÉ MAXIMALE */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    /* Exclure le titre du chef de la règle générale pour tablette */
+    #chef .title-border-flipped-wrapper .main-title,
+    #chef .title-border-flipped-wrapper h1.main-title,
+    #chef h1.main-title[data-translate="restaurantChefTitle"] {
+      white-space: nowrap !important;
+      font-size: 16px !important; /* Taille réduite pour tenir sur une ligne */
+      line-height: 1.1 !important;
+      padding: 0 6px !important;
+      letter-spacing: -0.02em !important; /* Réduire l'espacement des lettres */
+      display: inline-block !important;
+      width: auto !important;
+      max-width: 100% !important;
+    }
+    
+    /* S'assurer que le span highlight ne cause pas de retour à la ligne */
+    #chef .title-border-flipped-wrapper .main-title .highlight,
+    #chef .title-border-flipped-wrapper h1.main-title .highlight,
+    #chef h1.main-title[data-translate="restaurantChefTitle"] .highlight {
+      white-space: nowrap !important;
+      display: inline !important;
+    }
+    
+    /* S'assurer que le titre du chef n'hérite pas de la règle générale 32px */
+    #chef .title-border-flipped-wrapper .main-title {
+      font-size: 16px !important; /* Override la règle générale */
+    }
   }
 
   .subtitle {
@@ -1541,6 +1748,36 @@ video::-webkit-media-controls {
   h2.main-title {
     font-size: clamp(1.05rem, 4.2vw, 1.4rem) !important;
   }
+  
+  /* Réduction spécifique pour les h1 dans les decorative borders au responsive téléphone */
+  .title-wrapper .main-title,
+  .title-wrapper h1.main-title,
+  .title-wrapper h2.main-title,
+  .title-border-flipped-wrapper .main-title,
+  .title-border-flipped-wrapper h1.main-title,
+  .title-border-flipped-wrapper h2.main-title,
+  #chef .title-border-flipped-wrapper .main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper .main-title,
+  /* Titre GALERIE dans la section lounge - Réduit pour correspondre à la page lounge.html */
+  #plats .title-wrapper .main-title,
+  #plats .title-wrapper h1.main-title,
+  .title-border-lounge-gallery ~ .main-title,
+  .title-border-lounge-gallery + .main-title,
+  #plats .title-border-lounge-gallery + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page lounge.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
+  .title-border-restaurant-dishes ~ .main-title,
+  .title-border-restaurant-dishes + .main-title,
+  #restaurant .title-border-restaurant-dishes + .main-title,
+  [data-page="restaurant"] .title-border-restaurant-dishes + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page restaurant.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
 }
 
 /* Responsive pour téléphones */
@@ -1589,6 +1826,36 @@ video::-webkit-media-controls {
   h2.main-title {
     font-size: clamp(0.9rem, 3.8vw, 1.2rem) !important;
   }
+  
+  /* Réduction spécifique pour les h1 dans les decorative borders au responsive téléphone */
+  .title-wrapper .main-title,
+  .title-wrapper h1.main-title,
+  .title-wrapper h2.main-title,
+  .title-border-flipped-wrapper .main-title,
+  .title-border-flipped-wrapper h1.main-title,
+  .title-border-flipped-wrapper h2.main-title,
+  #chef .title-border-flipped-wrapper .main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper .main-title,
+  /* Titre GALERIE dans la section lounge - Réduit pour correspondre à la page lounge.html */
+  #plats .title-wrapper .main-title,
+  #plats .title-wrapper h1.main-title,
+  .title-border-lounge-gallery ~ .main-title,
+  .title-border-lounge-gallery + .main-title,
+  #plats .title-border-lounge-gallery + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page lounge.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
+  .title-border-restaurant-dishes ~ .main-title,
+  .title-border-restaurant-dishes + .main-title,
+  #restaurant .title-border-restaurant-dishes + .main-title,
+  [data-page="restaurant"] .title-border-restaurant-dishes + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page restaurant.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
 }
 
 /* Responsive pour très petits téléphones */
@@ -1635,6 +1902,36 @@ video::-webkit-media-controls {
     font-size: 14px !important; /* Augmenté de manière raisonnable pour très petits écrans */
     margin-left: 10px !important; /* Réduit de 12px à 10px */
     line-height: 1.1 !important;
+  }
+  
+  /* Réduction spécifique pour les h1 dans les decorative borders sur très petits téléphones */
+  .title-wrapper .main-title,
+  .title-wrapper h1.main-title,
+  .title-wrapper h2.main-title,
+  .title-border-flipped-wrapper .main-title,
+  .title-border-flipped-wrapper h1.main-title,
+  .title-border-flipped-wrapper h2.main-title,
+  #chef .title-border-flipped-wrapper .main-title,
+  #lounge .title-wrapper.title-border-flipped-wrapper .main-title,
+  /* Titre GALERIE dans la section lounge - Réduit pour correspondre à la page lounge.html */
+  #plats .title-wrapper .main-title,
+  #plats .title-wrapper h1.main-title,
+  #plats .title-border-lounge-gallery + .main-title,
+  .title-border-lounge-gallery ~ .main-title,
+  .title-border-lounge-gallery + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page lounge.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
+  .title-border-restaurant-dishes ~ .main-title,
+  .title-border-restaurant-dishes + .main-title,
+  #restaurant .title-border-restaurant-dishes + .main-title,
+  [data-page="restaurant"] .title-border-restaurant-dishes + .main-title {
+    font-size: 16px !important; /* Réduit de 18px à 16px pour correspondre à la page restaurant.html */
+    line-height: 1.1 !important;
+    padding: 0 8px !important;
   }
 }
 
@@ -1835,7 +2132,7 @@ video::-webkit-media-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 99999;
   transition: opacity 0.45s ease, visibility 0.45s ease;
 }
 
@@ -1843,6 +2140,25 @@ video::-webkit-media-controls {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+/* Cacher TOUT le contenu sauf le loader pendant le chargement */
+body[data-loading="true"] > *:not(#page-loader),
+body[data-loading="true"] section:not(#page-loader),
+body[data-loading="true"] main,
+body[data-loading="true"] header:not(#page-loader),
+body[data-loading="true"] footer {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* S'assurer que le loader reste visible */
+#page-loader {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 99999 !important;
 }
 
 .loader-inner {

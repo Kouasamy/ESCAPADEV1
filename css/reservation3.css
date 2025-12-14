@@ -275,6 +275,11 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 
   
   @media (max-width: 1024px) {
+    /* Supprimer min-height: 100vh sur tablette pour ajouter un espace au-dessus de la progress-bar */
+    body {
+      min-height: auto !important;
+    }
+    
     .progress-header__container {
       padding: 8px 15px 15px;
       justify-content: center;

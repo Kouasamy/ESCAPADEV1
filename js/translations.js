@@ -70,7 +70,7 @@
       },
       reservationStep5: {
         reservationInstructionsTitle: 'Prochaines étapes importantes',
-        reservationStep1: '<span class="text-[#B78F62] font-medium">L\'Escapade vous appellera</span> au numéro de réservation pour confirmer votre réservation et finaliser les détails avec vous. Ensuite, vous pourrez procéder au paiement sur Wave.',
+        reservationStep1: '<span class="text-[#B78F62] font-medium">L\'Escapade vous appellera</span> au numéro de réservation pour confirmer votre réservation et finaliser les détails avec vous. Ensuite, vous pourrez procéder au paiement sur Wave ou Orange Money.',
         reservationStep2: '<span class="text-[#B78F62] font-medium">Effectuez le dépôt</span> en utilisant l\'un des numéros de paiement ci-dessous pour sécuriser votre réservation.',
         reservationNumberTitle: 'Numéro de réservation',
         paymentNumberTitle: 'Numéro de paiement',
@@ -250,7 +250,7 @@
       },
       reservationStep5: {
         reservationInstructionsTitle: 'Important next steps',
-        reservationStep1: '<span class="text-[#B78F62] font-medium">L\'Escapade will call you</span> at the reservation number to confirm your reservation and finalize details with you. Then, you can proceed with payment on Wave.',
+        reservationStep1: '<span class="text-[#B78F62] font-medium">L\'Escapade will call you</span> at the reservation number to confirm your reservation and finalize details with you. Then, you can proceed with payment on Wave or Orange Money.',
         reservationStep2: '<span class="text-[#B78F62] font-medium">Make the deposit</span> using one of the payment numbers below to secure your reservation.',
         reservationNumberTitle: 'Reservation number',
         paymentNumberTitle: 'Payment number',

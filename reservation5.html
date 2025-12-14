@@ -92,6 +92,115 @@
       .success-card h2 {
         font-size: 48px;
       }
+      
+      /* Afficher les images décoratives dans les sections de numéros sur tablette */
+      .bg-\[#BB996B\] {
+        overflow: visible !important;
+      }
+      
+      /* Forcer l'affichage des images décoratives sur tablette */
+      .bg-\[#BB996B\] img[src*="314_45"],
+      .bg-\[#BB996B\] img[src*="314_41"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 0.7 !important;
+      }
+      
+      /* Forcer l'affichage des icônes (Phone Icon, Logo Wave, Logo Orange Money) sur tablette */
+      .bg-\[#BB996B\] img[src*="427_62"],
+      .bg-\[#BB996B\] img[src*="WaveLogo"],
+      .bg-\[#BB996B\] img[src*="logoOrange"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 60px !important;
+        height: 60px !important;
+        object-fit: contain !important;
+      }
+      
+      /* S'assurer que les conteneurs des icônes sont visibles */
+      .bg-\[#BB996B\] .bg-white\/20 {
+        display: flex !important;
+        visibility: visible !important;
+        padding: 15px !important;
+        width: auto !important;
+        height: auto !important;
+      }
+      
+      /* Aligner les éléments verticalement dans les divs sur tablette */
+      .bg-\[#BB996B\] {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      .bg-\[#BB996B\] > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      .bg-\[#BB996B\] a {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+      }
+    }
+    
+    /* Media query spécifique pour tablette (768px - 1024px) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      /* S'assurer que les images décoratives sont visibles sur tablette */
+      .bg-\[#BB996B\] img[src*="314_45"],
+      .bg-\[#BB996B\] img[src*="314_41"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 0.7 !important;
+      }
+      
+      /* Permettre l'overflow visible pour que les images positionnées en absolute soient visibles */
+      .bg-\[#BB996B\] {
+        overflow: visible !important;
+      }
+      
+      /* Forcer l'affichage des icônes (Phone Icon, Logo Wave, Logo Orange Money) sur tablette */
+      .bg-\[#BB996B\] img[src*="427_62"],
+      .bg-\[#BB996B\] img[src*="WaveLogo"],
+      .bg-\[#BB996B\] img[src*="logoOrange"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 60px !important;
+        height: 60px !important;
+        object-fit: contain !important;
+      }
+      
+      /* S'assurer que les conteneurs des icônes sont visibles */
+      .bg-\[#BB996B\] .bg-white\/20 {
+        display: flex !important;
+        visibility: visible !important;
+        padding: 15px !important;
+        width: auto !important;
+        height: auto !important;
+      }
+      
+      /* Aligner les éléments verticalement dans les divs sur tablette */
+      .bg-\[#BB996B\] {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      .bg-\[#BB996B\] > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      .bg-\[#BB996B\] a {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+      }
     }
 
     @media (max-width: 1024px) {
@@ -407,7 +516,7 @@
             1
           </div>
           <div class="flex-1 pt-0 md:pt-1 text-left">
-            <p class="font-[Futura_Md_BT] text-[17px] md:text-[20px] text-black leading-relaxed" data-translate="reservationStep1">
+            <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] text-black leading-relaxed" data-translate="reservationStep1">
               <span class="text-[#B78F62] font-medium">L'Escapade vous appellera</span> au numéro de réservation pour confirmer votre réservation et finaliser les détails avec vous. Ensuite, vous pourrez procéder au paiement sur Wave ou Orange Money.
             </p>
           </div>
@@ -418,7 +527,7 @@
             2
           </div>
           <div class="flex-1 pt-0 md:pt-1 text-left">
-            <p class="font-[Futura_Md_BT] text-[17px] md:text-[20px] text-black leading-relaxed" data-translate="reservationStep2">
+            <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] text-black leading-relaxed" data-translate="reservationStep2">
               <span class="text-[#B78F62] font-medium">Effectuez le dépôt</span> en utilisant l'un des numéros de paiement ci-dessous pour sécuriser votre réservation.
             </p>
           </div>
@@ -439,8 +548,8 @@
         </h3>
         
         <div class="flex flex-col items-center justify-center w-full">
-          <a href="tel:+2250716700000" class="flex items-center justify-center gap-2 md:gap-4 text-white hover:opacity-90 transition-all duration-300 hover:scale-105 group">
-            <div class="bg-white/20 rounded-full p-2 md:p-3 group-hover:bg-white/30 transition-colors">
+          <a href="tel:+2250716700000" class="flex flex-col items-center justify-center gap-2 md:gap-4 text-white hover:opacity-90 transition-all duration-300 hover:scale-105 group">
+            <div class="bg-white/20 rounded-full p-2 md:p-3 group-hover:bg-white/30 transition-colors flex items-center justify-center">
               <img src="images/427_62.svg" alt="Phone Icon" class="w-6 h-6 md:w-10 md:h-10">
             </div>
             <span class="font-[Futura_Md_BT] text-[14px] md:text-[22px] font-medium whitespace-nowrap">+225 07-16-70-00-00</span>
@@ -458,8 +567,8 @@
         </h3>
         
         <div class="flex flex-col items-center justify-center gap-4 md:gap-5 w-full">
-          <a href="tel:+2250719700000" class="flex items-center justify-center gap-2 md:gap-4 text-white hover:opacity-90 transition-all duration-300 hover:scale-105 group">
-            <div class="bg-white/20 rounded-full p-2 md:p-3 group-hover:bg-white/30 transition-colors">
+          <a href="tel:+2250719700000" class="flex flex-col items-center justify-center gap-2 md:gap-4 text-white hover:opacity-90 transition-all duration-300 hover:scale-105 group">
+            <div class="bg-white/20 rounded-full p-2 md:p-3 group-hover:bg-white/30 transition-colors flex items-center justify-center">
               <img src="images/WaveLogo.png" alt="Logo Wave" class="w-6 h-6 md:w-10 md:h-10">
             </div>
             <span class="font-[Futura_Md_BT] text-[14px] md:text-[22px] font-medium whitespace-nowrap">+225 07 19 70 00 00</span>
@@ -467,8 +576,8 @@
           
           <div class="text-white/70 text-sm md:text-xl font-medium my-1 md:my-2 text-center" data-translate="or">ou</div>
           
-          <a href="tel:+2250797793820" class="flex items-center justify-center gap-2 md:gap-4 text-white hover:opacity-90 transition-all duration-300 hover:scale-105 group">
-            <div class="bg-white/20 rounded-full p-2 md:p-3 group-hover:bg-white/30 transition-colors">
+          <a href="tel:+2250797793820" class="flex flex-col items-center justify-center gap-2 md:gap-4 text-white hover:opacity-90 transition-all duration-300 hover:scale-105 group">
+            <div class="bg-white/20 rounded-full p-2 md:p-3 group-hover:bg-white/30 transition-colors flex items-center justify-center">
               <img src="images/logoOrange.png" alt="Logo Orange Money" class="w-6 h-6 md:w-10 md:h-10">
             </div>
             <span class="font-[Futura_Md_BT] text-[14px] md:text-[22px] font-medium whitespace-nowrap">+225 07 97 79 38 20</span>

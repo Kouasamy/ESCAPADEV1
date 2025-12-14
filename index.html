@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- Optimisations de performance -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
   <title>Accueil ESCAPADE</title>
   
   <!-- Favicon -->
@@ -44,10 +47,15 @@
   <link rel="prefetch" href="css/suite.css" as="style">
   <link rel="prefetch" href="css/style1.css" as="style">
   
-  <!-- Chargement des CSS critiques en premier -->
+  <!-- Preload des CSS critiques pour un chargement plus rapide -->
+  <link rel="preload" as="style" href="css/style1.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/footer.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/hero-footer-responsive.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
   <link rel="stylesheet" href="css/style1.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/hero-footer-responsive.css">
+  </noscript>
   <!-- CSS responsive chargé de manière asynchrone pour ne pas bloquer le rendu -->
   <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
@@ -57,6 +65,7 @@
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/background-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
+  <script src="js/performance-enhancer.js" defer></script>
   <script src="js/page-prefetch.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
@@ -80,6 +89,32 @@
       }
     })();
   </script>
+  <!-- Style inline pour cacher le contenu immédiatement pendant le chargement -->
+  <style>
+    /* Cacher TOUT le contenu sauf le loader pendant le chargement */
+    body[data-loading="true"] > *:not(#page-loader) {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    body[data-loading="true"] section:not(#page-loader),
+    body[data-loading="true"] main {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    /* S'assurer que le loader reste visible */
+    #page-loader {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      z-index: 99999 !important;
+    }
+    /* Empêcher le scroll pendant le chargement */
+    body[data-loading="true"] {
+      overflow: hidden !important;
+    }
+  </style>
 </head>
 <body class="text-white" style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="home" data-loading="true">
 <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Chargement">
@@ -90,7 +125,7 @@
 </div>
 <section id="hero">
   <div class="hero-container">
-    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="none" controls="false" controlslist="nodownload nofullscreen noremoteplayback" fetchpriority="high">
+    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" controls="false" controlslist="nodownload nofullscreen noremoteplayback" fetchpriority="high">
       <source src="video/VideoAcc.mp4" type="video/mp4">
     </video>
     <header class="site-header hero-header">
@@ -1454,7 +1489,7 @@
       <!-- Suite Junior -->
       <div class="flex flex-col items-center suite-card">
         <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md lazy-bg suite-card-image" data-bg="img/4.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteJuniorTitle">Suites Junior</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px]" data-translate="suiteJuniorTitle">Suites Junior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
         <a href="suite_junior.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
@@ -1462,7 +1497,7 @@
       <!-- Les suites seniors avec piscines -->
       <div class="flex flex-col items-center suite-card">
         <div class="w-[283px] h-[235px] bg-cover bg-center rounded-[55px_0px] shadow-md lazy-bg suite-card-image" data-bg="img/5.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="">Suites seniors avec piscines</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px]" data-translate="">Suites seniors avec piscines</p>
         <div class="w-[140px] border-t border-black my-2"></div>
         <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
@@ -1470,7 +1505,7 @@
       <!-- Suite Sénior -->
       <div class="flex flex-col items-center suite-card">
         <div class="w-[275px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md lazy-bg suite-card-image" data-bg="images/fed713276c2b8f97b67e33b6a240df722bb83d82.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]" data-translate="suiteSeniorTitle">Suites Sénior</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px]" data-translate="suiteSeniorTitle">Suites Sénior</p>
         <div class="w-[110px] border-t border-black my-2"></div>
         <a href="page_suite.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
@@ -1478,7 +1513,7 @@
       <!-- Villa Familiale -->
       <div class="flex flex-col items-center suite-card">
         <div class="w-[270px] h-[235px] bg-cover bg-center rounded-[50px_0px] shadow-md lazy-bg suite-card-image" data-bg="images/DJI_0956.jpg"></div>
-        <p class="mt-4 font-[Futura_Md_BT] text-[20px]">Villa Familiale</p>
+        <p class="mt-4 font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px]">Villa Familiale</p>
         <div class="w-[110px] border-t border-black my-2"></div>
         <a href="suite_villa_familiale.html" class="text-[15px] font-[Futura_Md_BT] hover:underline" data-translate="viewRoom">Voir la chambre</a>
       </div>
@@ -1518,7 +1553,7 @@
 
         <!-- Texte -->
         <div class="max-w-md text-right restaurant-text">
-          <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px]" data-translate="restaurantText">
+          <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px]" data-translate="restaurantText">
             Le restaurant de L'Escapade est une adresse bistronomique où se rencontrent goût, 
             générosité et élégance pour offrir une expérience culinaire inoubliable.
           </p>
@@ -1562,7 +1597,7 @@
               <video id="loungeVideo" class="w-full h-[700px] object-cover rounded-[0px_70px] shadow-[0_8px_30px_rgba(0,0,0,0.1)] lazy-video" 
                 style="position: relative; z-index: 10; display: block; opacity: 1 !important; visibility: visible !important; background-color: transparent !important;" 
                 aria-label="Cocktail exotique"
-                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="none" data-src="video/COCKTAIL 2.mp4" controls="false" controlslist="nodownload nofullscreen noremoteplayback">
+                autoplay muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" data-src="video/COCKTAIL 2.mp4" controls="false" controlslist="nodownload nofullscreen noremoteplayback">
                 <source data-src="video/COCKTAIL 2.mp4" type="video/mp4" />
                 Votre navigateur ne prend pas en charge la lecture vidéo.
               </video>
@@ -1574,13 +1609,13 @@
               
 
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] mb-8" data-translate="loungeParagraph1">
+              <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] mb-8" data-translate="loungeParagraph1">
                 Dans une atmosphère où le luxe rencontre la sérénité, le Lounge vous invite à un moment d’exception.
                 Entre lumière tamisée, notes subtiles et service attentif, chaque instant devient une expérience unique —
                 un art de vivre à savourer pleinement.
               </p>
 
-              <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] mb-10" data-translate="loungeParagraph2">
+              <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] mb-10" data-translate="loungeParagraph2">
                 Une ambiance citadine à Assinie. Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire :
                 un lieu pensé pour se détendre, se retrouver et profiter d’instants simples dans un cadre raffiné.
               </p>
@@ -1598,7 +1633,7 @@
 
       <!-- Texte à droite -->
       <div class="w-full lg:w-[30%] text-right text-black lounge-gallery-text">
-        <p class="font-[Futura_Md_BT] text-[18px] md:text-[22px] leading-[28px] md:leading-[30px] mb-8" data-translate="loungeParagraph3">
+        <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] mb-8" data-translate="loungeParagraph3">
           Une ambiance citadine à Assinie.<br>
           Le lounge de L’Escapade marie l’élégance urbaine et la douceur balnéaire : 
           un lieu pensé pour se détendre, se retrouver et profiter d’instants simples 
@@ -1656,7 +1691,7 @@
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq1" role="region" aria-labelledby="faq1-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer1">
+          <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-gray-700" data-translate="faqAnswer1">
             Oui, L’Escapade est ouvert tous les jours, y compris les jours fériés. Notre équipe est disponible en continu pour vous accueillir pour un séjour, un déjeuner ou un moment de détente.
           </p>
         </div>
@@ -1673,7 +1708,7 @@
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq2" role="region" aria-labelledby="faq2-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer2">
+          <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-gray-700" data-translate="faqAnswer2">
             Le lounge est ouvert du jeudi au dimanche, de 16h à 02h. Vous pouvez y profiter de nos cocktails, de notre ambiance musicale et de l’atmosphère signature de L’Escapade jusque tard dans la soirée.
           </p>
         </div>
@@ -1690,7 +1725,7 @@
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq3" role="region" aria-labelledby="faq3-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer3">
+          <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-gray-700" data-translate="faqAnswer3">
             La villa familiale peut accueillir confortablement jusqu’à 8 personnes dont 4 adultes et 4 enfants, idéale pour les séjours en groupe ou en famille.
           </p>
         </div>
@@ -1707,7 +1742,7 @@
           <img src="images/croix.svg" alt="Toggle" class="faq-icon w-8 h-16 transform transition-transform duration-200 ml-auto" aria-hidden="true" loading="lazy" />
         </button>
         <div id="faq4" role="region" aria-labelledby="faq4-btn" class="faq-panel px-6 pb-6 hidden">
-          <p class="font-[Futura_Md_BT] text-[16px] leading-relaxed text-gray-700" data-translate="faqAnswer4">
+          <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-gray-700" data-translate="faqAnswer4">
             L’accès à la piscine est réservé en priorité à nos résidents. Cependant, les non-résidents peuvent y accéder sous réserve de disponibilité en effectuant une consommation minimum de 20&nbsp;000&nbsp;FCFA par personne. Notre équipe reste à votre disposition pour vous informer sur les modalités et les horaires.
           </p>
         </div>

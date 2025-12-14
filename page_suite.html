@@ -28,19 +28,61 @@
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
   
-  <!-- Chargement des CSS critiques en premier -->
-  <link rel="stylesheet" href="css/style1.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/suite.css">
-  <link rel="stylesheet" href="css/hero-footer-responsive.css">
+  <!-- Preload des CSS critiques pour un chargement plus rapide -->
+  <link rel="preload" as="style" href="css/style1.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/footer.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/suite.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/hero-footer-responsive.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/suite.css">
+    <link rel="stylesheet" href="css/hero-footer-responsive.css">
+  </noscript>
   <!-- CSS responsive chargé de manière asynchrone pour ne pas bloquer le rendu -->
   <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
+  
+  <!-- Style inline pour cacher le contenu immédiatement pendant le chargement -->
+  <style>
+    /* Cacher TOUT le contenu sauf le loader pendant le chargement */
+    body[data-loading="true"] > *:not(#page-loader) {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    body[data-loading="true"] section:not(#page-loader),
+    body[data-loading="true"] main {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    /* S'assurer que le loader reste visible */
+    #page-loader {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      z-index: 99999 !important;
+    }
+    /* Empêcher le scroll pendant le chargement */
+    body[data-loading="true"] {
+      overflow: hidden !important;
+    }
+    
+    /* Réduction de la taille des textes suite-price sur tablette uniquement */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .suite-price {
+        font-size: 16px !important;
+        line-height: 1.15 !important;
+      }
+    }
+  </style>
   
   <!-- Image Optimizer pour améliorer les performances (chargé en premier car nécessaire) -->
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/page-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
+  <script src="js/performance-enhancer.js" defer></script>
   <script src="js/page-prefetch.js" defer></script>
   
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
@@ -62,7 +104,7 @@
     })();
   </script>
 </head>
-<body style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="suite-list">
+<body style="font-family: 'Futura Md BT', 'Futura', sans-serif;" data-page="suite-list" data-loading="true">
 <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Chargement">
   <div class="loader-inner">
     <span class="loader-ring" aria-hidden="true"></span>
@@ -1470,7 +1512,7 @@
 
       
       
-      <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] relative" data-translate="suiteIntroText">
+      <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] relative" data-translate="suiteIntroText">
           Le confort d'un appartement privé mêlant ouverture  et harmonie, <br>
         Nos suites allant  de <b>70 m² à 170 m²</b> allient  design contemporain,<br>
         matières naturelles  et inspirations  locales. 
@@ -1504,7 +1546,7 @@
      
     
      
-      <p class="font-[Futura_Md_BT] text-[22px] leading-[28px] text-right md:text-left relative" data-translate="suiteComfortText">
+      <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-right md:text-left relative" data-translate="suiteComfortText">
             Le confort d'un appartement privé mêlant ouverture et   harmonie, <br> créent un  cadre reposant et élégant.
         Ici,   chaque détail  célèbre l'art de vivre : le bois,  la lumière, la douceur  des tissus,
         la sérénité des  <br> volumes. Un équilibre parfait  entre nature et élégance.

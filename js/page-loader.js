@@ -1,6 +1,38 @@
 (() => {
   'use strict';
   
+  // Fonction pour cacher TOUT le contenu sauf le loader
+  function hideAllContent() {
+    // Cacher tout le body sauf le loader
+    const body = document.body;
+    if (body) {
+      body.style.overflow = 'hidden';
+    }
+    
+    // Cacher toutes les sections et le contenu principal
+    const mainContent = document.querySelector('main') || document.querySelector('section') || document.body;
+    if (mainContent) {
+      const allSections = mainContent.querySelectorAll('section:not(#page-loader), main > *, body > section:not(#page-loader)');
+      allSections.forEach(section => {
+        if (section.id !== 'page-loader') {
+          section.style.opacity = '0';
+          section.style.visibility = 'hidden';
+          section.style.pointerEvents = 'none';
+        }
+      });
+    }
+    
+    // Cacher aussi les éléments directement dans le body
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(child => {
+      if (child.id !== 'page-loader') {
+        child.style.opacity = '0';
+        child.style.visibility = 'hidden';
+        child.style.pointerEvents = 'none';
+      }
+    });
+  }
+  
   // Fonction pour cacher le header et le footer pendant le chargement
   function hideHeaderAndFooter() {
     const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
@@ -34,6 +66,61 @@
       reserveSpaceBtn.style.visibility = 'hidden';
       reserveSpaceBtn.style.pointerEvents = 'none';
     }
+  }
+  
+  // Fonction pour afficher TOUT le contenu après le chargement
+  function showAllContent() {
+    // Réactiver le scroll du body
+    const body = document.body;
+    if (body) {
+      body.style.overflow = '';
+    }
+    
+    // Afficher toutes les sections et le contenu principal
+    const mainContent = document.querySelector('main') || document.querySelector('section') || document.body;
+    if (mainContent) {
+      const allSections = mainContent.querySelectorAll('section:not(#page-loader), main > *, body > section:not(#page-loader)');
+      allSections.forEach(section => {
+        if (section.id !== 'page-loader') {
+          section.style.transition = 'opacity 0.6s ease, visibility 0.6s ease';
+          section.style.opacity = '';
+          section.style.visibility = '';
+          section.style.pointerEvents = '';
+        }
+      });
+    }
+    
+    // Afficher aussi les éléments directement dans le body
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(child => {
+      if (child.id !== 'page-loader') {
+        child.style.transition = 'opacity 0.6s ease, visibility 0.6s ease';
+        child.style.opacity = '';
+        child.style.visibility = '';
+        child.style.pointerEvents = '';
+      }
+    });
+    
+    // Forcer le reflow pour déclencher la transition
+    if (body) body.offsetHeight;
+    
+    // Afficher avec une transition douce
+    setTimeout(() => {
+      const allSections = mainContent.querySelectorAll('section:not(#page-loader), main > *, body > section:not(#page-loader)');
+      allSections.forEach(section => {
+        if (section.id !== 'page-loader') {
+          section.style.opacity = '1';
+          section.style.visibility = 'visible';
+        }
+      });
+      
+      bodyChildren.forEach(child => {
+        if (child.id !== 'page-loader') {
+          child.style.opacity = '1';
+          child.style.visibility = 'visible';
+        }
+      });
+    }, 50);
   }
   
   // Fonction pour afficher le header et le footer après le chargement
@@ -110,12 +197,14 @@
   const initLoader = () => {
     const loader = document.getElementById('page-loader');
     if (!loader) {
-      // Si le loader n'existe pas, afficher quand même le header et footer
+      // Si le loader n'existe pas, afficher quand même tout le contenu
+      showAllContent();
       showHeaderAndFooter();
       return;
     }
 
-    // Cacher le header et footer au début
+    // Cacher TOUT le contenu au début (sauf le loader)
+    hideAllContent();
     hideHeaderAndFooter();
 
     const hideLoader = () => {
@@ -126,8 +215,9 @@
       document.body.classList.add('page-loaded');
       document.body.removeAttribute('data-loading');
       
-      // Afficher le header et footer après un court délai pour une transition fluide
+      // Afficher TOUT le contenu après un court délai pour une transition fluide
       setTimeout(() => {
+        showAllContent();
         showHeaderAndFooter();
       }, 300);
       
@@ -136,10 +226,15 @@
       }, 600);
     };
 
+    // Attendre que toutes les ressources soient chargées
     if (document.readyState === 'complete') {
-      hideLoader();
+      // Attendre encore un peu pour s'assurer que tout est vraiment chargé
+      setTimeout(hideLoader, 100);
     } else {
-      window.addEventListener('load', hideLoader, { once: true });
+      window.addEventListener('load', () => {
+        // Attendre encore un peu après l'événement load pour s'assurer que tout est chargé
+        setTimeout(hideLoader, 200);
+      }, { once: true });
     }
   };
 
@@ -147,11 +242,13 @@
   if (document.readyState === 'loading') {
     // Cacher dès que le DOM est disponible
     document.addEventListener('DOMContentLoaded', () => {
+      hideAllContent();
       hideHeaderAndFooter();
       initLoader();
     }, { once: true });
   } else {
     // Si le DOM est déjà chargé, cacher immédiatement puis initialiser
+    hideAllContent();
     hideHeaderAndFooter();
     initLoader();
   }
