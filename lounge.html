@@ -4,28 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  
+
   <!-- Preconnect pour améliorer les performances des CDN -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
+
   <!-- Meta tags pour le cache et les performances -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
-  
+
   <link rel="icon" type="image/png" href="images/568_819.png">
-  
+
   <!-- Preload des ressources critiques -->
   <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
   <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
-  
+
   <!-- Prefetch des ressources non critiques -->
   <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
-  
+
   <!-- Preload des CSS critiques pour un chargement plus rapide -->
   <link rel="preload" as="style" href="css/style1.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/footer.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -38,7 +38,7 @@
   <!-- CSS responsive chargé de manière asynchrone pour ne pas bloquer le rendu -->
   <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
-  
+
   <!-- Style inline pour cacher le contenu immédiatement pendant le chargement -->
   <style>
     /* Cacher TOUT le contenu sauf le loader pendant le chargement */
@@ -65,20 +65,20 @@
       overflow: hidden !important;
     }
   </style>
-  
+
   <!-- Scripts optimisés -->
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/page-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
   <script src="js/performance-enhancer.js" defer></script>
   <script src="js/page-prefetch.js" defer></script>
-  
+
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js" defer></script>
-  
+
   <!-- Script pour supprimer complètement les contrôles vidéo -->
   <script src="js/remove-video-controls.js" defer></script>
-  
+
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
     (function() {
@@ -91,7 +91,7 @@
       }
     })();
   </script>
-  
+
     <style>
       /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal { opacity: 0; transform: scale(0.98); transition: opacity .6s ease, transform .6s ease; }
@@ -102,32 +102,32 @@
     /* Small hover polish for plat images */
     .reveal img { transition: transform .35s ease, opacity .35s ease; }
     .reveal:hover img { transform: translateY(-6px) scale(1.02); }
-    
+
     /* Custom title border heights */
     .title-border-lounge {
       height: 71px;
     }
-    
+
     .title-border-lounge-gallery {
       height: 50px;
     }
-    
+
     .title-border-lounge-drinks {
       height: 76px;
     }
-    
+
     /* Couleur pour les éléments décoratifs du premier paragraphe */
     .lounge-paragraph-deco .deco-element {
       filter: brightness(0) saturate(100%) invert(67%) sepia(49%) saturate(1186%) hue-rotate(339deg) brightness(96%) contrast(82%);
     }
-    
+
     /* Slider des plats */
     .plats-slider-container {
       position: relative;
       width: 100%;
       max-width: 100%;
     }
-    
+
     .plats-slider-wrapper {
       overflow: hidden;
       width: 100%;
@@ -135,15 +135,15 @@
       cursor: grab;
       user-select: none;
     }
-    
+
     .plats-slider-wrapper:active {
       cursor: grabbing;
     }
-    
+
     .plats-slider-wrapper * {
       user-select: none;
     }
-    
+
     @media (min-width: 641px) {
       .plats-slider-wrapper {
         overflow-x: auto;
@@ -154,58 +154,58 @@
         -ms-overflow-style: none;
         -webkit-overflow-scrolling: touch;
       }
-      
+
       .plats-slider-wrapper::-webkit-scrollbar {
         display: none;
         width: 0;
         height: 0;
       }
     }
-    
+
     .plats-slider-track {
       display: flex;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       gap: 30px;
       padding: 20px 0;
     }
-    
+
     @media (min-width: 641px) {
       .plats-slider-track {
         transition: none;
       }
-      
+
       .plats-slide {
         scroll-snap-align: center;
         scroll-snap-stop: always;
       }
     }
-    
+
     .plats-slide {
       flex: 0 0 auto;
       width: 301px;
       min-width: 301px;
     }
-    
+
     .plats-slide-img {
       width: 301px;
       height: 451px;
       object-fit: cover;
       display: block;
     }
-    
+
     .plats-slider-controls {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 30px;
     }
-    
+
     .plats-slider-dots {
       display: flex;
       gap: 10px;
       align-items: center;
     }
-    
+
     .plats-slider-dot {
       width: 10px;
       height: 10px;
@@ -216,25 +216,25 @@
       transition: all 0.3s ease;
       padding: 0;
     }
-    
+
     .plats-slider-dot.active {
       background-color: #2A2626;
       width: 14px;
       height: 14px;
     }
-    
+
     @media (min-width: 641px) {
       .plats-slider-dot {
         width: 12px;
         height: 12px;
       }
-      
+
       .plats-slider-dot.active {
         width: 16px;
         height: 16px;
       }
     }
-    
+
     /* Mobile - Une seule image visible avec scroll horizontal */
     @media (max-width: 640px) {
       .plats-slider-wrapper {
@@ -246,16 +246,16 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
-      
+
       .plats-slider-wrapper::-webkit-scrollbar {
         display: none;
       }
-      
+
       .plats-slider-track {
         gap: 0;
         padding: 0;
       }
-      
+
       .plats-slide {
         width: 100vw;
         min-width: 100vw;
@@ -265,12 +265,12 @@
         padding: 0 20px;
         box-sizing: border-box;
       }
-      
+
       .plats-slide > div {
         width: 100%;
         max-width: 100%;
       }
-      
+
       .plats-slide-img {
         width: 100% !important;
         max-width: 100% !important;
@@ -278,7 +278,7 @@
         aspect-ratio: 301/451;
         object-fit: cover;
       }
-      
+
       .plats-slider-controls {
         margin-top: 20px;
       }
@@ -391,14 +391,14 @@
             <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
-              <span class="nav-text" data-translate="event">ÉVÉNEMENTIEL</span>
+              <span class="nav-text" data-translate="event">ÉVÈNEMENTIEL</span>
             </a>
           </li>
           <li>
             <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
-              <span class="nav-text" data-translate="about">A PROPOS</span>
+              <span class="nav-text" data-translate="about">À PROPOS</span>
             </a>
           </li>
         </ul>
@@ -451,7 +451,7 @@
     transform: translateY(-8px);
     pointer-events: none;
   }
-  
+
   .menu-container.is-closing {
     opacity: 0;
     transform: translateY(-8px);
@@ -468,7 +468,7 @@
     gap: 0;
     z-index: 10;
   }
-  
+
   /* Sur desktop, positionner le logo dans le header de manière absolue en haut au centre */
   .menu-header .menu-logo {
     position: absolute;
@@ -482,11 +482,11 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
   .menu-header .menu-logo .logo-part {
     transform: scale(0.75);
   }
-  
+
 
   .menu-close-button,
   .menu-lang-switcher {
@@ -509,7 +509,7 @@
     transform: rotate(90deg) scale(0.9);
     opacity: 0.6;
   }
-  
+
   .menu-lang-switcher {
     gap: 11px;
   }
@@ -531,11 +531,11 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
   .menu-logo .logo-part {
     transform: scale(0.75); /* Réduction globale de 25% pour toutes les parties du logo */
   }
-  
+
   @media (max-width: 768px) {
     /* Logo centré horizontalement au responsive */
     .menu-header {
@@ -547,7 +547,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     /* Cacher le menu-logo sur mobile */
     .menu-header .menu-logo,
     .menu-logo {
@@ -560,35 +560,35 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
     }
-    
+
     /* Centrer chaque logo-part horizontalement au responsive (768px) */
     /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
     /* Les logo-part doivent être centrés par rapport au conteneur */
     /* Largeur max du logo = 157.75px, centre à 78.875px depuis la gauche originale */
-    
+
     .menu-header .menu-logo .logo-part {
       position: absolute;
       transform-origin: center;
     }
-    
+
     /* Partie 1: left original = 0px, width = 157.75px */
     /* Centre de la partie = 78.875px depuis la gauche du logo */
     /* On centre par rapport au conteneur: left = 50% - (largeur_scalée / 2) */
@@ -597,7 +597,7 @@
       top: 0.35px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Partie 2: left original = 33.41px, width = 120.47px */
     /* Centre de la partie = 33.41 + 60.235 = 93.645px depuis la gauche du logo */
     /* Décalage depuis le centre du logo (78.875px) = 93.645 - 78.875 = 14.77px */
@@ -606,7 +606,7 @@
       top: 2.35px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Partie 3: left original = 36.8px, width = 108.29px */
     /* Centre de la partie = 36.8 + 54.145 = 90.945px depuis la gauche du logo */
     /* Décalage depuis le centre du logo (78.875px) = 90.945 - 78.875 = 12.07px */
@@ -615,7 +615,7 @@
       top: 46.62px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Logo en dehors du header (si présent) */
     .menu-logo:not(.menu-header .menu-logo) {
       top: 30px;
@@ -626,7 +626,7 @@
       transform: scale(0.6);
     }
   }
-  
+
   .logo-part {
     position: absolute;
   }
@@ -702,7 +702,7 @@
     text-overflow: unset;
     max-width: 100%;
   }
-  
+
   .nav-line {
     position: absolute;
     left: 78px;
@@ -792,7 +792,7 @@
   .deco-corner-top {
     position: absolute;
     top: 193px;
-    right: 219px; /* Tout en haut à droite de l'image */
+    right: 61px; /* Tout en haut à droite de l'image */
     z-index: 6;
     transform: rotate(-0.38deg);
   }
@@ -814,7 +814,7 @@
       max-width: 1440px;
       margin: 0 auto;
     }
-    
+
     .image-container {
       width: 800px;
       height: 458px;
@@ -936,7 +936,7 @@
       right: 12px; /* ★ EN DEHORS à droite - espacement de 12px depuis le bord de .image-showcase */
       transform: rotate(-0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
       z-index: 6;
-      opacity: 0.95;
+      opacity: -0.05;
     }
 
     .image-showcase .deco-corner-bottom {
@@ -946,7 +946,7 @@
       left: 12px; /* ★ EN DEHORS à gauche - espacement de 12px depuis le bord de .image-showcase */
       transform: rotate(0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
       z-index: 6;
-      opacity: 0.95;
+      opacity: -0.05;
     }
   }
 
@@ -1013,16 +1013,17 @@
       margin: 0;
       border-radius: 0;
     }
-    
+
     .menu-content {
       grid-template-columns: 1fr;
-      padding: 120px 20px 30px;
+      padding: 80px 20px 30px !important;
+      padding-top: 80px !important;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    
+
     .menu-header {
       left: 20px;
       right: 20px;
@@ -1033,7 +1034,7 @@
       position: relative;
       padding: 10px 0;
     }
-    
+
     /* Cacher le menu-logo sur mobile/tablette */
     .menu-header .menu-logo,
     .menu-logo {
@@ -1046,26 +1047,26 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
       font-size: 14px;
       gap: 10px;
     }
-    
+
     .menu-header .menu-close-button img {
       width: 18px;
       height: 18px;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
@@ -1073,12 +1074,12 @@
       font-size: 14px;
       gap: 8px;
     }
-    
+
     .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    
+
     /* Menu-nav : réductions de taille */
     .menu-nav {
       padding: 0;
@@ -1087,30 +1088,30 @@
       justify-content: center;
       width: 100%;
     }
-    
+
     .menu-nav ul {
       align-items: center;
       width: 100%;
       gap: 14px; /* Réduction de l'espacement */
     }
-    
+
     .nav-item {
       justify-content: center;
       height: 44px; /* Réduction de hauteur */
       max-width: 100%;
     }
-    
+
     .nav-text {
       padding-left: 0;
       text-align: center;
       font-size: 22px; /* Réduction de taille de police */
       padding: 8px 16px;
     }
-    
+
     .nav-line {
       display: none;
     }
-    
+
     /* UNIFORMISATION TOTALE DES NAV-BG - TOUTES LA MÊME TAILLE ET LARGEUR */
     .nav-bg,
     .nav-item .nav-bg,
@@ -1118,7 +1119,7 @@
     .menu-nav .nav-item .nav-bg,
     .menu-nav li .nav-item .nav-bg,
     .menu-nav li a .nav-bg,
-    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    /* Sélecteurs spécifiques pour LOUNGE et À PROPOS */
     .nav-item[href*="lounge"] .nav-bg,
     .nav-item[href*="apropos"] .nav-bg,
     .nav-item[href*="lounge.html"] .nav-bg,
@@ -1141,7 +1142,7 @@
       object-fit: fill !important;
       object-position: center !important;
     }
-    
+
     /* S'assurer que tous les nav-item ont la même largeur */
     .nav-item,
     .menu-nav .nav-item,
@@ -1155,7 +1156,7 @@
       max-width: 280px !important;
       min-width: 280px !important;
     }
-    
+
     /* Image-showcase : réductions */
     .image-showcase {
       padding: 0;
@@ -1164,7 +1165,7 @@
       align-items: center;
       width: 100%;
     }
-    
+
     .image-container {
       width: 100%;
       max-width: 600px;
@@ -1172,62 +1173,63 @@
       aspect-ratio: 658.19 / 429;
       margin-top: 0;
     }
-    
-    .deco-corner-top {
-      top: 120px;
-      right: 30px;
-      transform: scale(0.75);
+
+    .deco-corner-top,
+    .image-showcase .deco-corner-top {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
-    
-    .deco-corner-bottom {
-      top: auto;
-      bottom: 20px;
-      left: 20px;
-      transform: scale(0.75);
+
+    .deco-corner-bottom,
+    .image-showcase .deco-corner-bottom {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
   }
-  
+
   /* ============================================
    * OPTIMISATION TRÈS PETIT ÉCRAN < 480px
    * Améliorations spécifiques pour petits écrans
    * ============================================ */
   @media (max-width: 480px) {
     .menu-content {
-      padding-top: 100px;
-      padding-bottom: 20px;
+      padding-top: 60px !important;
+      padding: 60px 2rem 20px !important;
     }
-    
+
     .menu-header {
       top: 15px;
       left: 15px;
       right: 15px;
     }
-    
+
     .menu-header .menu-close-button {
       font-size: 12px;
       gap: 8px;
     }
-    
+
     .menu-header .menu-close-button img {
       width: 16px;
       height: 16px;
     }
-    
+
     .menu-header .menu-lang-switcher {
       font-size: 12px;
       gap: 6px;
     }
-    
+
     .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    
+
     .nav-text {
       font-size: 20px; /* Encore plus petit sur très petit écran */
       padding: 6px 12px;
     }
-    
+
     /* UNIFORMISATION TOTALE DES NAV-BG SUR TRÈS PETIT ÉCRAN - TOUTES LA MÊME TAILLE ET LARGEUR */
     .nav-bg,
     .nav-item .nav-bg,
@@ -1235,7 +1237,7 @@
     .menu-nav .nav-item .nav-bg,
     .menu-nav li .nav-item .nav-bg,
     .menu-nav li a .nav-bg,
-    /* Sélecteurs spécifiques pour LOUNGE et A PROPOS */
+    /* Sélecteurs spécifiques pour LOUNGE et À PROPOS */
     .nav-item[href*="lounge"] .nav-bg,
     .nav-item[href*="apropos"] .nav-bg,
     .nav-item[href*="lounge.html"] .nav-bg,
@@ -1258,7 +1260,7 @@
       object-fit: fill !important;
       object-position: center !important;
     }
-    
+
     /* S'assurer que tous les nav-item ont la même largeur sur très petit écran */
     .nav-item,
     .menu-nav .nav-item,
@@ -1273,16 +1275,16 @@
       max-width: 260px !important;
       min-width: 260px !important;
     }
-    
+
     .menu-nav ul {
       gap: 12px;
     }
-    
+
     .image-container {
       max-width: 100%;
     }
   }
-  
+
   @media (max-width: 768px) {
     .menu-header {
       left: 20px;
@@ -1292,7 +1294,7 @@
       gap: 0;
     }
   }
-  
+
   @media (max-width: 480px) {
     .menu-header {
       top: 20px;
@@ -1304,7 +1306,7 @@
       position: relative;
       padding: 0;
     }
-    
+
     /* Cacher le menu-logo sur mobile */
     .menu-header .menu-logo,
     .menu-logo {
@@ -1317,19 +1319,19 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
@@ -1352,7 +1354,8 @@
       height: 10px;
     }
     .menu-content {
-      padding-top: 220px;
+      padding-top: 100px !important;
+      padding: 100px 2.5rem 20px !important;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1437,7 +1440,7 @@
         // Vérifie si on a scrollé plus de 100px
         function checkScroll() {
           const currentScroll = window.scrollY;
-          
+
           if (currentScroll > lastScroll && currentScroll > 100) {
             // On scroll vers le bas
             header.classList.add('scroll-hide');
@@ -1447,7 +1450,7 @@
             header.classList.remove('scroll-hide');
             contactBtn.classList.remove('scroll-hide');
           }
-          
+
           lastScroll = currentScroll;
         }
 
@@ -1477,7 +1480,7 @@
 
     <!-- CONTENU PRINCIPAL -->
     <div class="relative z-10 flex flex-col items-center justify-center text-center h-full space-y-6">
-      
+
 
 
       <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="loungeHeroTitle">LOUNGE</h1>
@@ -1487,7 +1490,7 @@
       <!--merged image - Bouton Nous contactez -->
       <a href="#contact" class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg" loading="lazy">
-        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
+        <span class="btn-text" data-translate="contactUs">Nous Contacter</span>
       </a>
       <!--merged image - Bouton Réserver une suite (visible uniquement sur mobile) -->
       <a href="page_reservation1.html" class="btn-wrapper btn-reserve-space-mobile">
@@ -1499,7 +1502,7 @@
   </section>
 
 
- 
+
   <section id="lounge" class="bg-white py-24 relative">
   <div class="max-w-7xl mx-auto space-y-24 px-6 md:px-16">
 
@@ -1514,7 +1517,7 @@
     </div>
 
     <div class="flex flex-col md:flex-row items-center gap-12">
-     
+
 
       <!-- Texte -->
       <div class="w-full md:w-1/2 text-right space-y-6 lounge-paragraph-deco">
@@ -1527,7 +1530,7 @@
             <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" style="filter: brightness(0) saturate(100%) invert(67%) sepia(49%) saturate(1186%) hue-rotate(339deg) brightness(96%) contrast(82%);" />
           <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" style="filter: brightness(0) saturate(100%) invert(67%) sepia(49%) saturate(1186%) hue-rotate(339deg) brightness(96%) contrast(82%);" />
 
-        
+
         </p>
       </div>
 
@@ -1563,7 +1566,7 @@
       </div>
     </div>
 
-   
+
 
     <div class="flex flex-col md:flex-row items-center gap-12 mt-16">
          <!-- Image -->
@@ -1572,8 +1575,8 @@
           playsinline webkit-playsinline x5-playsinline muted loop autoplay preload="metadata" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
           <source src="video/COCKTAIL 1.mp4" type="video/mp4" />
           Votre navigateur ne prend pas en charge la lecture vidéo.
-        </video>    
-    
+        </video>
+
       </div>
       <!-- Texte -->
       <div class="w-full md:w-1/2 space-y-6">
@@ -1587,9 +1590,9 @@ carte, servis avec une attention discrète et chaleureuse.
         </p>
       </div>
 
-     
+
     </div>
-   
+
     <!-- Bloc 3 : Un voyage sensoriel -->
     <div class="flex flex-col md:flex-row items-center gap-12 mt-24">
 
@@ -1631,7 +1634,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
          GALERIE
         </h1>
       </div>
-      
+
     </div>
 
     <!-- Slider des boissons -->
@@ -1676,7 +1679,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
       </div>
 
       <!-- Contrôles du slider -->
-     
+
       <div class="flex justify-center mt-6">
         <img src="images/Group 2.png" alt="Indicateur de la galerie" class="max-w-full h-auto">
       </div>
@@ -1684,7 +1687,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
 
   </div>
 
-  
+
 </section>
 
 
@@ -1703,7 +1706,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
               </div>
               <nav>
                 <ul>
-                  <li><a href="page_suite.html" data-translate="footerMenuRooms">Chambre & Suites</a></li>
+                  <li><a href="page_suite.html" data-translate="footerMenuRooms">Chambres & Suites</a></li>
                   <li><a href="restaurant.html" data-translate="footerMenuRestaurant">Restaurant</a></li>
                   <li><a href="lounge.html" data-translate="footerMenuLounge">Lounge</a></li>
                   <li><a href="page_evenementiel.html" data-translate="footerMenuEvents">Évènementiel</a></li>
@@ -1722,7 +1725,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
                 <div class="form-group"><input type="text" placeholder="Prénom" data-translate="footerPlaceholderFirstName" data-translate-attr="placeholder"></div>
                 <div class="form-group"><input type="email" placeholder="Adresse e-mail" data-translate="footerPlaceholderEmail" data-translate-attr="placeholder"></div>
                 <div class="form-group"><input type="tel" placeholder="Numéro de téléphone" data-translate="footerPlaceholderPhone" data-translate-attr="placeholder"></div>
-                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3" data-translate="footerPlaceholderMessage" data-translate-attr="placeholder"></textarea></div>
+                <div class="form-group"><textarea placeholder="Écrivez votre message" rows="3" data-translate="footerPlaceholderMessage" data-translate-attr="placeholder"></textarea></div>
                 <button type="submit" class="btn-submit" data-translate="footerSubmit">Envoyer</button>
               </form>
             </div>
@@ -1757,7 +1760,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
         <hr class="footer-divider">
         <div class="footer-bottom">
           <a href="#" data-translate="footerTerms">Termes & Conditions</a>
-          <span data-translate="footerRights">©2025 – Tout droit réserver par l'Escapade.</span>
+          <span data-translate="footerRights">©2025 – Tous droits réservés par l'Escapade.</span>
           <a href="#" data-translate="footerPrivacy">Politique de confidentialité</a>
         </div>
       </div>
@@ -1799,23 +1802,23 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
        reveals.forEach(r => io.observe(r));
      });
    </script>
-  
+
   <script>
     // Slider pour les plats
     document.addEventListener('DOMContentLoaded', () => {
       const track = document.querySelector('#plats-slider-track');
       const slides = Array.from(document.querySelectorAll('.plats-slide'));
       const dotsContainer = document.querySelector('#plats-slider-dots');
-      
+
       if (!track || !slides.length || !dotsContainer) return;
-      
+
       // Vider les dots existants pour éviter les doublons
       dotsContainer.innerHTML = '';
-      
+
       let currentIndex = 0;
       let isScrolling = false;
       const wrapper = track.parentElement;
-      
+
       // Fonction pour calculer la largeur d'une slide avec gap
       function getSlideWidth() {
         if (slides.length === 0) return 0;
@@ -1826,7 +1829,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
         const gapValue = parseInt(gap) || 30;
         return slideRect.width + gapValue;
       }
-      
+
       // Dots responsives: 4 sur desktop, adaptent en fonction du viewport
       let dots = [];
       function getResponsiveDotsCount() {
@@ -1866,7 +1869,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
       }
 
       buildDots();
-      
+
       function updateDots(index) {
         const count = getResponsiveDotsCount();
         const activeDot = dotIndexFromSlide(index, count);
@@ -1880,58 +1883,58 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
           }
         });
       }
-      
+
       function goToSlide(index) {
         if (index < 0 || index >= slides.length) return;
         currentIndex = index;
         isScrolling = true;
-        
+
         if (wrapper && slides[index]) {
           const slideElement = slides[index];
           const wrapperRect = wrapper.getBoundingClientRect();
           const slideRect = slideElement.getBoundingClientRect();
           const scrollLeft = wrapper.scrollLeft + (slideRect.left - wrapperRect.left);
-          
+
           wrapper.scrollTo({
             left: scrollLeft,
             behavior: 'smooth'
           });
         }
-        
+
         updateDots(currentIndex);
-        
+
         setTimeout(() => {
           isScrolling = false;
         }, 500);
       }
-      
+
       // Fonction pour trouver l'index de la slide la plus proche du centre
       function getClosestSlideIndex() {
         if (!wrapper || slides.length === 0) return 0;
-        
+
         const wrapperRect = wrapper.getBoundingClientRect();
         const wrapperCenter = wrapperRect.left + wrapperRect.width / 2;
-        
+
         let closestIndex = 0;
         let closestDistance = Infinity;
-        
+
         slides.forEach((slide, index) => {
           const slideRect = slide.getBoundingClientRect();
           const slideCenter = slideRect.left + slideRect.width / 2;
           const distance = Math.abs(slideCenter - wrapperCenter);
-          
+
           if (distance < closestDistance) {
             closestDistance = distance;
             closestIndex = index;
           }
         });
-        
+
         return closestIndex;
       }
-      
+
       // Initialize
       updateDots(0);
-      
+
       // Fonctionnalité de drag pour faire scroller avec la souris (smooth et fluide)
       let isDragging = false;
       let startX = 0;
@@ -1940,18 +1943,18 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
       let lastX = 0;
       let lastTime = 0;
       let animationFrame = null;
-      
+
       // Fonction pour démarrer le drag
       function startDrag(e) {
         if (!wrapper) return;
-        
+
         // Ne pas démarrer le drag si on clique sur un dot
         if (e.target.closest('.plats-slider-dot')) return;
-        
+
         isDragging = true;
         wrapper.style.cursor = 'grabbing';
         wrapper.style.scrollBehavior = 'auto'; // Désactiver smooth scroll pendant le drag
-        
+
         // Obtenir la position de départ
         const clientX = e.pageX || e.touches?.[0]?.clientX || 0;
         startX = clientX;
@@ -1959,36 +1962,36 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
         lastX = clientX;
         lastTime = Date.now();
         velocity = 0;
-        
+
         // Empêcher la sélection de texte
         e.preventDefault();
       }
-      
+
       // Fonction pour faire le drag avec smooth scrolling
       function doDrag(e) {
         if (!isDragging || !wrapper) return;
-        
+
         e.preventDefault();
         const clientX = e.pageX || e.touches?.[0]?.clientX || 0;
         const currentTime = Date.now();
         const deltaTime = currentTime - lastTime;
-        
+
         if (deltaTime > 0) {
           const deltaX = clientX - lastX;
           velocity = deltaX / deltaTime; // Vitesse en px/ms
         }
-        
+
         // Calculer la distance avec un facteur de résistance pour ralentir
         const walk = (startX - clientX) * 1.2; // Facteur 1.2 pour un mouvement plus contrôlé
         const newScrollLeft = scrollLeftStart + walk;
-        
+
         // Limiter le scroll aux limites
         const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
         wrapper.scrollLeft = Math.max(0, Math.min(newScrollLeft, maxScroll));
-        
+
         lastX = clientX;
         lastTime = currentTime;
-        
+
         // Mettre à jour les dots pendant le drag
         const newIndex = getClosestSlideIndex();
         if (newIndex !== currentIndex && newIndex >= 0 && newIndex < slides.length) {
@@ -1996,25 +1999,25 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
           updateDots(currentIndex);
         }
       }
-      
+
       // Fonction pour arrêter le drag avec momentum scrolling
       function stopDrag(e) {
         if (!isDragging || !wrapper) return;
-        
+
         isDragging = false;
         wrapper.style.cursor = 'grab';
-        
+
         // Momentum scrolling (inertie) - smooth et fluide mais pas trop rapide
         if (Math.abs(velocity) > 0.1) {
           let momentum = velocity * 200; // Facteur de momentum réduit pour ralentir
           let currentScroll = wrapper.scrollLeft;
           const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-          
+
           function animateMomentum() {
             if (Math.abs(momentum) < 0.5) {
               // Arrêter l'animation quand le momentum est trop faible
               wrapper.style.scrollBehavior = 'smooth';
-              
+
               // Mettre à jour les dots et snap à la slide la plus proche
               setTimeout(() => {
                 const newIndex = getClosestSlideIndex();
@@ -2025,21 +2028,21 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
               }, 100);
               return;
             }
-            
+
             currentScroll += momentum;
             currentScroll = Math.max(0, Math.min(currentScroll, maxScroll));
             wrapper.scrollLeft = currentScroll;
-            
+
             // Réduire le momentum progressivement (friction)
             momentum *= 0.92;
-            
+
             animationFrame = requestAnimationFrame(animateMomentum);
           }
-          
+
           animateMomentum();
         } else {
           wrapper.style.scrollBehavior = 'smooth';
-          
+
           // Snap à la slide la plus proche
           setTimeout(() => {
             const newIndex = getClosestSlideIndex();
@@ -2050,20 +2053,20 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
           }, 100);
         }
       }
-      
+
       // Event listeners pour le drag avec la souris
       if (wrapper) {
         wrapper.addEventListener('mousedown', startDrag);
         document.addEventListener('mousemove', doDrag);
         document.addEventListener('mouseup', stopDrag);
         document.addEventListener('mouseleave', stopDrag); // Arrêter si la souris quitte la fenêtre
-        
+
         // Event listeners pour le touch (mobile)
         wrapper.addEventListener('touchstart', startDrag, { passive: false });
         wrapper.addEventListener('touchmove', doDrag, { passive: false });
         wrapper.addEventListener('touchend', stopDrag);
         wrapper.addEventListener('touchcancel', stopDrag);
-        
+
         // Empêcher le drag si on clique sur un dot
         dots.forEach(dot => {
           dot.addEventListener('mousedown', (e) => {
@@ -2071,17 +2074,17 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
           });
         });
       }
-      
+
       // Update dots based on scroll position avec debounce pour performance
       let scrollTimeout;
       if (wrapper) {
         wrapper.addEventListener('scroll', () => {
           if (isScrolling || isDragging) return;
-          
+
           clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(() => {
             const newIndex = getClosestSlideIndex();
-            
+
             if (newIndex !== currentIndex && newIndex >= 0 && newIndex < slides.length) {
               currentIndex = newIndex;
               updateDots(currentIndex);
@@ -2099,7 +2102,7 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
           updateDots(currentIndex);
         }, 150);
       });
-      
+
       // Recalculer lors du redimensionnement
       let resizeTimeout;
       window.addEventListener('resize', () => {
@@ -2114,15 +2117,15 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
       });
     });
   </script>
-  
-  
+
+
   <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
   <script src="https://cdn.tailwindcss.com" async></script>
-  
+
   <!-- GSAP pour animations - chargé en bas de page avec defer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
+
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
@@ -2132,21 +2135,21 @@ lieu paisible et accueillant, propice aux échanges et aux instants partagés.
   <script src="js/scroll-hide-behavior.js" defer></script>
   <!-- Script pour le menu avec toggle header/footer -->
   <script src="js/menu-header-footer-toggle.js" defer></script>
-  
+
   <!-- Bouton de retour -->
   <button id="back-button" class="back-button" aria-label="Retour à la page précédente" title="Retour">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     </svg>
   </button>
-  
+
   <!-- Bouton scroll to top -->
   <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut de la page" title="Haut de page">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
     </svg>
   </button>
-  
+
   <script src="js/navigation-tracker.js" defer></script>
   <link rel="stylesheet" href="css/back-button.css">
   <script src="js/back-button.js" defer></script>

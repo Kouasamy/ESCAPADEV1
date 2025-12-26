@@ -144,21 +144,21 @@
     .suite-grid {
       align-items: start;
     }
-    
+
     .suite-header {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
       gap: 10px;
     }
-    
+
     .suite-details {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
       gap: 15px;
     }
-    
+
     .suite-footer {
       flex-direction: row;
       justify-content: space-between;
@@ -166,20 +166,20 @@
       gap: 15px;
       margin-top: auto;
     }
-    
+
     .suite-price {
       text-align: right;
       order: 2;
     }
-    
+
     .suite-amenities {
       order: 1;
     }
-    
+
     .details-link {
       order: 1;
     }
-    
+
     .btn {
       order: 2;
     }
@@ -191,29 +191,29 @@
       gap: 30px;
       align-items: start;
     }
-    
+
     .suite-image {
       height: 388px;
     }
-    
+
     .suite-title {
         font-size: 22px;
     }
-    
+
     .suite-header {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
       gap: 8px;
     }
-    
+
     .suite-details {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
     }
-    
+
     .suite-footer {
       flex-direction: row;
       justify-content: space-between;
@@ -221,22 +221,22 @@
       gap: 12px;
       margin-top: auto;
     }
-    
+
     .suite-price {
       text-align: right;
       order: 2;
       font-size: 14px;
     }
-    
+
     .suite-amenities {
       order: 1;
     }
-    
+
     .details-link {
       order: 1;
       font-size: 14px;
     }
-    
+
     .btn {
       order: 2;
       padding: 8px 16px;
@@ -244,7 +244,7 @@
     }
   }
 
-  /* Centrer horizontalement le suite-content pour LES SUITES SENIORS AVEC PISCINE et VILLA FAMILIALE */
+  /* Centrer horizontalement le suite-content pour LES SUITES Séniors AVEC PISCINE et VILLA FAMILIALE */
   .suite-card.suite-senior-piscine,
   .suite-card.suite-villa-familiale {
     align-items: center;

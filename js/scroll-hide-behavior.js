@@ -25,6 +25,16 @@
     }
     
     function checkScroll() {
+      // Vérifier si le menu overlay est ouvert (sur mobile/tablette uniquement)
+      const menuContainer = document.querySelector('.menu-container');
+      const isMenuOpen = menuContainer && !menuContainer.classList.contains('is-hidden');
+      const isMobileOrTablet = window.innerWidth <= 1024; // Tablet et mobile
+      
+      // Si le menu est ouvert sur mobile/tablette, ne pas appliquer scroll-hide
+      if (isMenuOpen && isMobileOrTablet) {
+        return;
+      }
+      
       const currentScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
       
       // Toujours afficher si on est en haut de la page (moins de 50px)
@@ -120,6 +130,7 @@
     setTimeout(initScrollHide, 100);
   });
 })();
+
 
 
 

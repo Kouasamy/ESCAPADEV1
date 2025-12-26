@@ -83,6 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (closeButtonIcon) closeButtonIcon.classList.add('is-closing');
       menuContainer.classList.add('is-closing');
       
+      // Retirer la classe du body
+      document.body.classList.remove('menu-overlay-open');
+      
       // Réafficher le header et le footer quand le menu se ferme
       const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
       const headerInner = document.querySelector('.site-header__inner');
@@ -90,16 +93,42 @@ document.addEventListener('DOMContentLoaded', () => {
       const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn');
       const reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
       
-      if (header) header.classList.remove('scroll-hide');
-      if (headerInner) headerInner.classList.remove('scroll-hide');
-      if (footer) footer.classList.remove('scroll-hide');
-      if (contactBtn) contactBtn.classList.remove('scroll-hide');
-      if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+      const isMobileOrTablet = window.innerWidth <= 1024;
+      
+      if (isMobileOrTablet) {
+        if (header) {
+          header.style.display = '';
+          header.classList.remove('scroll-hide');
+        }
+        if (headerInner) {
+          headerInner.style.display = '';
+          headerInner.classList.remove('scroll-hide');
+        }
+        if (footer) {
+          footer.style.display = '';
+          footer.classList.remove('scroll-hide');
+        }
+        if (contactBtn) {
+          contactBtn.style.display = '';
+          contactBtn.classList.remove('scroll-hide');
+        }
+        if (reserveSpaceBtn) {
+          reserveSpaceBtn.style.display = '';
+          reserveSpaceBtn.classList.remove('scroll-hide');
+        }
+      } else {
+        if (header) header.classList.remove('scroll-hide');
+        if (headerInner) headerInner.classList.remove('scroll-hide');
+        if (footer) footer.classList.remove('scroll-hide');
+        if (contactBtn) contactBtn.classList.remove('scroll-hide');
+        if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
+      }
       
       // After animation, fully hide and disable interactions
       setTimeout(() => {
         menuContainer.classList.remove('is-closing');
         menuContainer.classList.add('is-hidden');
+        menuContainer.style.pointerEvents = 'none';
         if (closeButtonIcon) closeButtonIcon.classList.remove('is-closing');
       }, 300);
     };
@@ -112,17 +141,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuButton = document.querySelector('.menu-button');
   if (menuButton && menuContainer) {
     menuButton.addEventListener('click', () => {
+      // Ajouter une classe au body pour indiquer que le menu est ouvert
+      document.body.classList.add('menu-overlay-open');
+      
       const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
       const headerInner = document.querySelector('.site-header__inner');
       const footer = document.querySelector('.hero-footer');
       const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn');
       const reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
       
-      if (header) header.classList.add('scroll-hide');
-      if (headerInner) headerInner.classList.add('scroll-hide');
-      if (footer) footer.classList.add('scroll-hide');
-      if (contactBtn) contactBtn.classList.add('scroll-hide');
-      if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+      const isMobileOrTablet = window.innerWidth <= 1024;
+      
+      if (isMobileOrTablet) {
+        if (header) {
+          header.style.display = 'none';
+          header.classList.add('scroll-hide');
+        }
+        if (headerInner) {
+          headerInner.style.display = 'none';
+          headerInner.classList.add('scroll-hide');
+        }
+        if (footer) {
+          footer.style.display = 'none';
+          footer.classList.add('scroll-hide');
+        }
+        if (contactBtn) {
+          contactBtn.style.display = 'none';
+          contactBtn.classList.add('scroll-hide');
+        }
+        if (reserveSpaceBtn) {
+          reserveSpaceBtn.style.display = 'none';
+          reserveSpaceBtn.classList.add('scroll-hide');
+        }
+      } else {
+        if (header) header.classList.add('scroll-hide');
+        if (headerInner) headerInner.classList.add('scroll-hide');
+        if (footer) footer.classList.add('scroll-hide');
+        if (contactBtn) contactBtn.classList.add('scroll-hide');
+        if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
+      }
     });
   }
 });

@@ -9,12 +9,62 @@
         escapadeLoader: 'L\'ESCAPADE',
         loading: 'Chargement',
         or: 'ou',
+        footerPlaceholderMessage: 'Écrivez votre message',
       },
-      home: {},
+      home: {
+        faqQuestion1: '1. Êtes-vous ouverts tous les jours ?',
+        faqAnswer1:
+          'Oui.<br>L\'Escapade vous accueille tous les jours, y compris les jours fériés.<br>Notre équipe est à votre entière disposition pour vous recevoir et vous faire vivre une expérience unique, que ce soit pour un séjour, un déjeuner ou un moment de détente dans un cadre d\'exception.',
+        faqQuestion2: '2. Quels sont les horaires du lounge ?',
+        faqAnswer2:
+          'Le lounge de L\'Escapade est ouvert du jeudi au dimanche, de 16h à 02h.<br>Vous pourrez y savourer nos cocktails signature, profiter d\'une ambiance musicale soigneusement sélectionnée et vous imprégner de l\'atmosphère unique de L\'Escapade jusqu\'au cœur de la soirée.',
+        faqQuestion3: '3. Combien de personnes peut accueillir la villa familiale ?',
+        faqAnswer3:
+          'La villa familiale peut accueillir jusqu\'à 4 personnes dans des conditions optimales de confort.<br>Pour toute demande spécifique ou pour une capacité supérieure, un devis personnalisé peut être établi sur demande, afin de garantir une expérience adaptée et qualitative.',
+        faqQuestion4: '4. Peut-on accéder à la piscine en déjeunant simplement à l\'hôtel ?',
+        faqAnswer4:
+          'L\'accès à la piscine est prioritairement réservé à nos résidents.<br>Toutefois, les clients non-résidents peuvent y accéder sous réserve d\'une consommation minimale de 20 000 FCFA par personne, selon les disponibilités.<br>Notre équipe se tient à votre disposition pour vous informer sur les modalités d\'accès et les horaires.',
+      },
       restaurant: {},
-      lounge: {},
-      suites: {},
-      events: {},
+      lounge: {
+        loungeHeroTitle: 'LOUNGE',
+        loungeSectionTitle: 'LOUNGE <span class="highlight">L\'ESCAPADE</span>',
+        loungeParagraph1: 'Une ambiance citadine à Assinie. Le lounge de L\'Escapade marie l\'élégance urbaine et la douceur balnéaire : un lieu pensé pour se détendre, se retrouver et profiter d\'instants simples dans un cadre raffiné. Un lounge à l\'abidjanaise. Ici, l\'énergie conviviale de la capitale s\'accorde à la sérénité de la lagune pour offrir une expérience unique.',
+        loungeDrinksTitle: 'Boissons<span class="highlight"> & Cocktails Raffinés</span>',
+        loungeDrinksDescription: 'Le goût des vacances, à savourer sans modération. Cocktails exotiques, jus de fruits frais, vins choisis et spiritueux raffinés composent notre carte, servis avec une attention discrète et chaleureuse.',
+        loungeEveningDescription: 'Le soir venu, les lanternes s\'allument, la musique s\'adoucit, et le lounge se transforme en un lieu paisible et accueillant, propice aux échanges et aux instants partagés.',
+      },
+      suites: {
+        extraMattressInfo: 'Il est possible d\'ajouter un matelas supplémentaire. L\'ajout du matelas entraîne des frais additionnels de 15 000 FCFA.',
+        extraMattressInfoJunior: '*Avec l\'ajout d\'un matelas supplémentaire entraînant des frais additionnels de 15 000 FCFA.',
+        extraMattressInfoSenior: 'Il est possible d\'ajouter un matelas supplémentaire. L\'ajout du matelas entraîne des frais additionnels de 15 000 FCFA.',
+        extraMattressInfoSeniorVip: 'Il est possible d\'ajouter un matelas supplémentaire. L\'ajout du matelas entraîne des frais additionnels de 15 000 FCFA.',
+        extraMattressInfoVillaFamiliale: 'Il est possible d\'ajouter un matelas supplémentaire. L\'ajout du matelas entraîne des frais additionnels de 15 000 FCFA.',
+        extraMattressInfoVilla: 'Il est possible d\'ajouter un matelas supplémentaire. L\'ajout du matelas entraîne des frais additionnels de 15 000 FCFA.',
+        suiteCapacityInfo: 'Capacité maximale : 2 personnes (dont 2 enfants).<br><span style="color: #B78F62;">Possibilité d\'ajouter un matelas supplémentaire pour 15 000 FCFA, augmentant la capacité.</span>',
+        suiteCapacityInfoVilla: 'Capacité par défaut : 4 adultes. <br><span style="color: #B78F62;">Possibilité d\'ajouter des matelas supplémentaires pour 15 000 FCFA chacun, jusqu\'à 8 personnes.</span>',
+        suiteJuniorCapacity: 'Capacité : 2 adultes + 2 enfants*',
+      },
+      events: {
+        eventsListTitle: 'ÉVÈNEMENTS À <span class="highlight">L\'ESCAPADE</span>',
+        eventsListIntro: 'Retour en images sur nos événements récents : des rendez-vous hebdomadaires qui font vibrer la lagune.',
+        eventsSunsetTitle: 'La Boutique Éphémère',
+        eventsSunsetSchedule: 'À venir',
+        eventsSunsetDescription: 'Une alliance inédite entre trois maisons de prestige qui s\'unissent pour créer une expérience lifestyle inédite au cœur de L\'Escapade Hotel. Du 20 décembre au 5 janvier, plongez dans un univers où la Haute Couture, la Maroquinerie d\'art et la Beauté premium se rencontrent pour sublimer vos fêtes de fin d\'année. La Boutique éphémère vous ouvre ses portes de 16 h à 21 h.',
+        eventsSunsetTime: 'Édition du 20 décembre 2025 au 5 janvier 2026',
+        eventsBrunchTitle: 'Pilates Sunset avec <br> Core Fitness',
+        eventsBrunchSchedule: 'À venir',
+        eventsBrunchDescription: 'L\'Escapade proposera une séance exclusive de Pilates Sunset en collaboration avec Core Fitness et le coach Baba. Une expérience bien-être au coucher du soleil, pensée pour allier énergie, détente et cadre inspirant.',
+        eventsBrunchTime: 'Édition du 17 janvier 2026',
+        eventsCorporateTitle: 'Dîners et Déjeuner de Noël',
+        eventsCorporateSchedule: 'À venir',
+        eventsCorporateDescription: 'Les 24 et 25 décembre, L\'Escapade invite ses hôtes à célébrer Noël autour d\'un dîner à l\'assiette puis d\'un déjeuner buffet, tous deux accompagnés d\'un cocktail de bienvenue. Deux moments chaleureux pour vivre la magie des fêtes dans un décor tropical.',
+        eventsCorporateCapacity: 'Édition du 24 & 25 décembre 2025',
+        eventsWeddingTitle: 'Saint-Sylvestre & <br> Brunch du Nouvel An',
+        eventsWeddingSchedule: 'À venir',
+        eventsWeddingDescription: 'L\'Escapade propose des packs exclusifs pour un réveillon tout en élégance, comprenant suite, dîner et champagne. Le 1er janvier, un brunch festif au bord de la lagune marquera l\'entrée en douceur dans la nouvelle année.',
+        eventsWeddingCapacity: 'Édition du 31 décembre 2025 & 1er janvier 2026',
+      },
       about: {},
       reservationStep1: {
         reservationPageTitleStep2: 'Page Réservation - Étape 2',
@@ -36,8 +86,8 @@
         reservationTV: 'TV',
         reservationSuiteJunior: 'SUITES JUNIOR',
         reservationSuiteSenior: 'SUITES SÉNIOR',
-        reservationSuiteSeniorPool: 'SUITES SENIORS AVEC PISCINE',
-        reservationVillaFamiliale: 'VILLA FAMILIALE AVEC PISCINE PRIVEE',
+        reservationSuiteSeniorPool: 'SUITES SÉNIOR AVEC PISCINE',
+        reservationVillaFamiliale: 'VILLA FAMILIALE AVEC PISCINE PRIVÉE',
         arrival: 'Arrivée',
         departure: 'Départ',
         guests: 'Invités',
@@ -71,7 +121,8 @@
       reservationStep5: {
         reservationInstructionsTitle: 'Prochaines étapes importantes',
         reservationStep1: '<span class="text-[#B78F62] font-medium">L\'Escapade vous appellera</span> au numéro de réservation pour confirmer votre réservation et finaliser les détails avec vous. Ensuite, vous pourrez procéder au paiement sur Wave ou Orange Money.',
-        reservationStep2: '<span class="text-[#B78F62] font-medium">Effectuez le dépôt</span> en utilisant l\'un des numéros de paiement ci-dessous pour sécuriser votre réservation.',
+        reservationStep2: 'Pour confirmer définitivement votre réservation, vous devrez verser <span class="text-[#B78F62] font-medium">50&nbsp;% du montant total</span> de votre séjour.',
+        reservationStep3: '<span class="text-[#B78F62] font-medium">Effectuez le dépôt</span> en utilisant l\'un des numéros de paiement ci-dessous pour sécuriser votre réservation.',
         reservationNumberTitle: 'Numéro de réservation',
         paymentNumberTitle: 'Numéro de paiement',
         reservationConfirmed: 'Réservation <span style="color: #B78F62;">Confirmée</span>',
@@ -125,7 +176,7 @@
         welcomeTo: 'Welcome to',
         escapade: 'L’Escapade',
         welcomeText:
-          "Since <strong>May 2025</strong>, L’Escapade Hotel has offered an elegant sanctuary <strong>on the lagoonfront</strong> in <strong>Assinie</strong>. Step into a haven where refinement meets serenity.",
+          "Since <strong>May 2025</strong>, L'Escapade Hotel has offered an elegant sanctuary <strong>on the lagoon front</strong> in <strong>Assinie</strong>. Step into a haven where refinement meets serenity.",
         experienceText:
           'Here, time stretches and the senses awaken. Between soothing nature and understated sophistication, your journey begins where luxury meets calm. Spread across 3.5 hectares, the estate houses 22 junior and senior suites with pure lines, designed for comfort, privacy, and serenity. At L’Escapade, every moment invites you to let go.',
         learnMore: 'Learn more',
@@ -150,16 +201,16 @@
         faqTitle: '<span>Frequently</span> <span class="highlight">Asked Questions</span>',
         faqQuestion1: '1. Are you open every day?',
         faqAnswer1:
-          'Yes, L’Escapade is open daily, including public holidays. Our team is always available to welcome you for a stay, lunch, or a relaxing break.',
+          'Yes. L\'Escapade welcomes you every day, including public holidays. Our team is at your complete disposal to receive you and provide you with a unique experience, whether for a stay, lunch, or a moment of relaxation in an exceptional setting.',
         faqQuestion2: '2. What are the lounge opening hours?',
         faqAnswer2:
-          'The lounge is open from Thursday to Sunday, 4 p.m. to 2 a.m. Enjoy our cocktails, musical ambiance, and the signature atmosphere of L’Escapade late into the evening.',
-        faqQuestion3: '3. How many guests can the family villa accommodate?',
+          'L\'Escapade\'s lounge is open from Thursday to Sunday, 4 p.m. to 2 a.m. You can savor our signature cocktails, enjoy a carefully selected musical ambiance, and immerse yourself in L\'Escapade\'s unique atmosphere until the heart of the evening.',
+        faqQuestion3: '3. How many people can the family villa accommodate?',
         faqAnswer3:
-          'The family villa comfortably accommodates up to 8 guests, including 4 adults and 4 children—ideal for group or family stays.',
-        faqQuestion4: '4. Can we use the pool if we simply come for lunch?',
+          'The family villa can accommodate up to 4 people under optimal comfort conditions. For any specific request or for a higher capacity, a personalized quote can be provided upon request, to ensure an adapted and qualitative experience.',
+        faqQuestion4: '4. Can we access the pool by simply having lunch at the hotel?',
         faqAnswer4:
-          'Pool access is prioritized for our residents. Non-resident guests may use it subject to availability with a minimum spend of 20,000 FCFA per person. Our team can inform you about the conditions and schedule.',
+          'Pool access is primarily reserved for our residents. However, non-resident guests can access it subject to a minimum consumption of 20,000 FCFA per person, depending on availability. Our team is at your disposal to inform you about access conditions and hours.',
       },
       restaurant: {
         restaurantHeroTitle: 'RESTAURANT',
@@ -251,7 +302,8 @@
       reservationStep5: {
         reservationInstructionsTitle: 'Important next steps',
         reservationStep1: '<span class="text-[#B78F62] font-medium">L\'Escapade will call you</span> at the reservation number to confirm your reservation and finalize details with you. Then, you can proceed with payment on Wave or Orange Money.',
-        reservationStep2: '<span class="text-[#B78F62] font-medium">Make the deposit</span> using one of the payment numbers below to secure your reservation.',
+        reservationStep2: 'To definitively confirm your reservation, you will need to pay <span class="text-[#B78F62] font-medium">50% of the total amount</span> of your stay.',
+        reservationStep3: '<span class="text-[#B78F62] font-medium">Make the deposit</span> using one of the payment numbers below to secure your reservation.',
         reservationNumberTitle: 'Reservation number',
         paymentNumberTitle: 'Payment number',
         reservationConfirmed: 'Reservation <span style="color: #B78F62;">Confirmed</span>',
@@ -272,26 +324,28 @@
         suiteJuniorSalonSubtitle: 'The <span class="highlight text-[#B78F62]">junior + living room</span> suite',
         suiteJuniorSalonDescription: 'With its 70 m², the Junior + Living Room Suite combines contemporary design, natural materials and local inspiration. Bright and refined, it reveals authentic luxury in its greatest simplicity. This suite features a spacious living room for added comfort.',
         suiteCapacity: 'Capacity: 2 adults + 2 children',
+        suiteJuniorCapacity: 'Capacity: 2 adults + 2 children*',
         suiteWeekRate: 'Weekly rate: 240,000 FCFA',
         suiteWeekendRate: 'Weekend rate: 300,000 FCFA',
         pool: 'Pool',
         bookNow: 'Book now',
         viewSuite: 'View the suite',
         suiteJuniorTitle: 'JUNIOR SUITE',
-        suiteSeniorTitle: 'SENIOR SUITE',
+        suiteSeniorTitle: 'SÉNIOR SUITE',
         suiteJuniorVipTitle: 'JUNIOR SUITE <span class="text-gold">VIP</span>',
-        suiteSeniorVipTitle: 'SENIOR SUITE <span class="text-gold">VIP</span>',
+        suiteSeniorVipTitle: 'SÉNIOR SUITE <span class="text-gold">VIP</span>',
         suiteVillaFamilialeTitle: 'FAMILY VILLA WITH <span class="highlight text-[#BB996B]">PRIVATE POOL</span>',
         suiteWeekend: 'Weekend',
         suiteWeek: 'Week',
-        suiteIntroText: 'The comfort of a private apartment blending openness and harmony, <br> Our suites ranging from <b>70 m² to 85 m²</b> combine contemporary design,<br> natural materials and local inspiration. Bright and refined <br>, they reveal authentic luxury in its greatest simplicity.',
-        suiteComfortText: 'The comfort of a private apartment blending openness and harmony, creating a restful and elegant setting. Here, every detail celebrates the art of living: wood, light, the softness of fabrics, the serenity of volumes. A perfect balance between nature and elegance.',
+        suiteIntroText: 'The comfort of a private apartment blending openness and harmony, <br> Our suites ranging from <b>45 m² to 70 m²</b> combine contemporary design,<br> natural materials and local inspiration. Bright and refined <br>, they reveal authentic luxury in its greatest simplicity.',
+        suiteComfortText: 'Here, every detail celebrates the art of living: wood, light, the softness of fabrics, the serenity of volumes. A perfect balance between nature and elegance.',
         suiteJuniorSubtitle: 'The <span class="highlight text-[#B78F62]">junior</span> suite',
-        suiteJuniorDescription: 'With its 70 m², the Junior Suite combines contemporary design, natural materials and local inspiration. Bright and refined, it reveals authentic luxury in its greatest simplicity.',
+        suiteJuniorDescription: 'With its 45 m², the Junior Suite combines contemporary design, natural materials and local inspiration. Bright and refined, it reveals authentic luxury in its greatest simplicity.',
+        suiteJuniorCapacity: 'Capacity: 2 adults + 2 children*',
         suiteJuniorWeekRate: 'Weekly rate: 200,000 FCFA',
         suiteJuniorWeekendRate: 'Weekend rate: 250,000 FCFA',
         suiteSeniorSubtitle: 'The <span class="highlight text-[#B78F62]">senior</span> suite',
-        suiteSeniorDescription: 'With an area of 85.91 m², the Senior Suite offers spacious volumes reminiscent of the comfort of a private apartment. Its distinct interiors, blending openness and harmony, create a restful and elegant setting.',
+        suiteSeniorDescription: 'With an area of 70 m², the Senior Suite offers spacious volumes reminiscent of the comfort of a private apartment. Its distinct interiors, blending openness and harmony, create a restful and elegant setting.',
         suiteSeniorCapacity: 'Total capacity (2 Junior VIP Suites): 4 adults + 4 children',
         suiteSeniorWeekRate: 'Weekly rate: 280,000 FCFA',
         suiteSeniorWeekendRate: 'Weekend rate: 350,000 FCFA',
@@ -301,7 +355,7 @@
         suiteJuniorVipWeekRate: 'Weekly rate: 520,000 FCFA (2 Suites)',
         suiteJuniorVipWeekendRate: 'Weekend rate: 650,000 FCFA (2 Suites)',
         suiteSeniorVipSubtitle: 'The <span class="highlight text-[#B78F62]">senior VIP</span> suite',
-        suiteSeniorVipDescription: 'With an area of 85.91 m², the Senior VIP Suite offers spacious volumes reminiscent of the comfort of a private apartment. Its distinct interiors, blending openness and harmony, create a restful and elegant setting. This VIP suite offers exceptional comfort for an unforgettable stay.',
+        suiteSeniorVipDescription: 'With an area of 70 m², the Senior VIP Suite offers spacious volumes reminiscent of the comfort of a private apartment. Its distinct interiors, blending openness and harmony, create a restful and elegant setting. This VIP suite offers exceptional comfort for an unforgettable stay.',
         suiteSeniorVipCapacity: 'Total capacity (2 Junior VIP Suites): 4 adults + 4 children',
         suiteSeniorVipWeekRate: 'Weekly rate: 320,000 FCFA',
         suiteSeniorVipWeekendRate: 'Weekend rate: 400,000 FCFA',
@@ -310,6 +364,14 @@
         suiteVillaFamilialeCapacity: 'Capacity: Family',
         suiteVillaFamilialeRate: 'Rate: On request',
         privatePool: 'Private pool',
+        extraMattressInfo: 'It is possible to add an extra mattress. Adding the mattress incurs additional fees of 15,000 FCFA.',
+        extraMattressInfoJunior: '*With the addition of an extra mattress incurring additional fees of 15,000 FCFA.',
+        extraMattressInfoSenior: 'It is possible to add an extra mattress. Adding the mattress incurs additional fees of 15,000 FCFA.',
+        extraMattressInfoSeniorVip: 'It is possible to add an extra mattress. Adding the mattress incurs additional fees of 15,000 FCFA.',
+        extraMattressInfoVillaFamiliale: 'It is possible to add an extra mattress. Adding the mattress incurs additional fees of 15,000 FCFA.',
+        extraMattressInfoVilla: 'It is possible to add extra mattresses to accommodate more people. Adding each mattress incurs additional fees of 15,000 FCFA.',
+        suiteCapacityInfo: 'Maximum capacity: 2 people (including 2 children). Possibility to add an extra mattress for 15,000 FCFA, increasing the capacity.',
+        suiteCapacityInfoVilla: 'Default capacity: 4 adults. Possibility to add extra mattresses for 15,000 FCFA each, up to 8 people.',
       },
       events: {
         eventsHeroTitle: 'EVENTS',
@@ -323,6 +385,24 @@
         eventsSpace2: '● an outdoor pool for lively evenings,',
         eventsSpace3: '● a refined lounge and restaurant for elegant receptions,',
         eventsSpace4: '● a dedicated room for seminars, team building and professional meetings.',
+        eventsListTitle: 'EVENTS AT <span class="highlight">L\'ESCAPADE</span>',
+        eventsListIntro: 'A look back at our recent events: weekly gatherings that bring the lagoon to life.',
+        eventsSunsetTitle: 'The Pop-up Boutique',
+        eventsSunsetSchedule: 'Coming soon',
+        eventsSunsetDescription: 'An unprecedented alliance between three prestigious houses unites to create a unique lifestyle experience at the heart of L\'Escapade Hotel. From December 20 to January 5, immerse yourself in a world where Haute Couture, Art Leather Goods, and Premium Beauty come together to enhance your year-end celebrations. The Pop-up Boutique opens its doors from 4 PM to 9 PM.',
+        eventsSunsetTime: 'Edition from December 20, 2025 to January 5, 2026',
+        eventsBrunchTitle: 'Sunset Pilates with <br> Core Fitness',
+        eventsBrunchSchedule: 'Coming soon',
+        eventsBrunchDescription: 'L\'Escapade will offer an exclusive Sunset Pilates session in collaboration with Core Fitness and coach Baba. A wellness experience at sunset, designed to combine energy, relaxation, and an inspiring setting.',
+        eventsBrunchTime: 'Edition on January 17, 2026',
+        eventsCorporateTitle: 'Christmas Dinners & Lunch',
+        eventsCorporateSchedule: 'Coming soon',
+        eventsCorporateDescription: 'On December 24 and 25, L\'Escapade invites its guests to celebrate Christmas around a plated dinner followed by a buffet lunch, both accompanied by a welcome cocktail. Two warm moments to experience the magic of the holidays in a tropical setting.',
+        eventsCorporateCapacity: 'Edition on December 24 & 25, 2025',
+        eventsWeddingTitle: 'New Year\'s Eve & <br> New Year\'s Brunch',
+        eventsWeddingSchedule: 'Coming soon',
+        eventsWeddingDescription: 'L\'Escapade offers exclusive packages for an elegant New Year\'s Eve, including suite, dinner, and champagne. On January 1st, a festive brunch by the lagoon will mark a gentle entry into the new year.',
+        eventsWeddingCapacity: 'Edition on December 31, 2025 & January 1, 2026',
       },
       about: {
         aboutHeroTitle: 'About',
@@ -352,7 +432,7 @@
 
   function getPageScope() {
     const page = document.body?.dataset?.page || 'common';
-    
+
     // Mapper les pages de réservation
     if (page === 'reservation-step1' || page === 'reservation-step2') {
       return 'reservationStep1';
@@ -366,7 +446,7 @@
     if (page === 'reservation-step5' || page === 'reservationStep5') {
       return 'reservationStep5';
     }
-    
+
     // Mapper les pages de suites individuelles au scope "suites"
     if (page && (page.startsWith('suite-') || page === 'suite-list')) {
       return 'suites';
@@ -516,7 +596,7 @@
 
     // Synchroniser les lang-switcher
     syncActiveLanguage(lang);
-    
+
     // Déclencher un événement personnalisé pour notifier le changement de langue
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
   }
@@ -526,21 +606,21 @@
     langControls.forEach((control) => {
       const controlLang = control.dataset.lang;
       if (!controlLang) return;
-      
+
       // Vérifier si le contrôle est dans un menu-lang-switcher
       const isMenuLangSwitcher = control.closest('.menu-lang-switcher');
       const isLangSwitcher = control.closest('.lang-switcher');
-      
+
       if (controlLang === lang) {
         // Activer la langue
         control.classList.add('lang-active');
         control.setAttribute('aria-current', 'true');
-        
+
         // Pour menu-lang-switcher, ajouter aussi la classe "active"
         if (isMenuLangSwitcher) {
           control.classList.add('active');
         }
-        
+
         // Pour lang-switcher, ajouter font-medium pour le style visuel
         if (isLangSwitcher) {
           control.classList.add('font-medium');
@@ -566,11 +646,11 @@
       // Empêcher la navigation mais ne pas interférer avec le menu overlay
       event.preventDefault();
       event.stopPropagation();
-      
+
       // Sauvegarder et appliquer la langue instantanément
       persistLanguage(lang);
       applyTranslations(lang);
-      
+
       // Forcer une nouvelle application pour s'assurer que tout est traduit
       requestAnimationFrame(() => {
         applyTranslations(lang);
@@ -580,10 +660,10 @@
 
   // Observer pour détecter les nouveaux éléments ajoutés dynamiquement
   let translationObserver = null;
-  
+
   function setupTranslationObserver() {
     if (!window.MutationObserver) return;
-    
+
     translationObserver = new MutationObserver((mutations) => {
       let shouldReapply = false;
       mutations.forEach((mutation) => {
@@ -600,13 +680,13 @@
           });
         }
       });
-      
+
       if (shouldReapply) {
         const currentLang = getStoredLanguage();
         applyTranslations(currentLang);
       }
     });
-    
+
     // Observer les changements dans le body
     if (document.body) {
       translationObserver.observe(document.body, {
@@ -620,42 +700,42 @@
   function initTranslations() {
     // Charger la langue sauvegardée immédiatement
     const lang = getStoredLanguage();
-    
+
     // Définir la langue sur l'élément html immédiatement
     if (document.documentElement) {
       document.documentElement.lang = lang;
     }
-    
+
     // Fonction pour appliquer les traductions de manière agressive
     const applyNow = () => {
       ensureFrenchBaseline();
       handleSwitcherClicks();
-      
+
       // Appliquer immédiatement
       applyTranslations(lang);
-      
+
       // Réappliquer plusieurs fois pour s'assurer que tout est traduit
       // (certains éléments peuvent être ajoutés dynamiquement)
       setTimeout(() => {
         applyTranslations(lang);
       }, 10);
-      
+
       setTimeout(() => {
         applyTranslations(lang);
       }, 100);
-      
+
       setTimeout(() => {
         applyTranslations(lang);
       }, 300);
-      
+
       setupTranslationObserver();
     };
-    
+
     // Appliquer la langue dès que possible
     if (document.readyState === 'loading') {
       // Si le DOM est encore en cours de chargement, attendre DOMContentLoaded
       document.addEventListener('DOMContentLoaded', applyNow);
-      
+
       // Mais aussi essayer d'appliquer dès que le body est disponible
       if (document.body) {
         applyNow();

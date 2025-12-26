@@ -6,27 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
   <title>Escapade</title>
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/568_819.png">
-  
+
   <!-- Preconnect pour améliorer les performances des CDN -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
+
   <!-- Preload des ressources critiques -->
   <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
   <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
   <link rel="preload" as="image" href="img/12.jpg" fetchpriority="high">
-  
+
   <!-- Prefetch des ressources non critiques qui seront probablement nécessaires -->
   <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
   <link rel="prefetch" as="stylesheet" href="Menu/global.css">
-  
+
   <!-- Chargement des CSS critiques en premier -->
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style1.css">
@@ -34,7 +34,7 @@
   <!-- CSS responsive chargé de manière asynchrone -->
   <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
-  
+
   <!-- Style inline pour cacher le contenu immédiatement pendant le chargement -->
   <style>
     /* Cacher TOUT le contenu sauf le loader pendant le chargement */
@@ -61,19 +61,19 @@
       overflow: hidden !important;
     }
   </style>
-  
+
   <!-- Scripts optimisés -->
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/background-loader.js" defer></script>
   <script src="js/page-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
-  
+
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js" defer></script>
-  
+
   <!-- Script pour supprimer complètement les contrôles vidéo -->
   <script src="js/remove-video-controls.js"></script>
-  
+
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
     (function() {
@@ -244,7 +244,7 @@
     transform: translateY(-8px);
     pointer-events: none;
   }
-  
+
   .menu-container.is-closing {
     opacity: 0;
     transform: translateY(-8px);
@@ -261,7 +261,7 @@
     gap: 0;
     z-index: 10;
   }
-  
+
   /* Sur desktop, positionner le logo dans le header de manière absolue en haut au centre */
   .menu-header .menu-logo {
     position: absolute;
@@ -275,11 +275,11 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
   .menu-header .menu-logo .logo-part {
     transform: scale(0.75);
   }
-  
+
 
   .menu-close-button,
   .menu-lang-switcher {
@@ -302,7 +302,7 @@
     transform: rotate(90deg) scale(0.9);
     opacity: 0.6;
   }
-  
+
   .menu-lang-switcher {
     gap: 11px;
   }
@@ -324,11 +324,11 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
   .menu-logo .logo-part {
     transform: scale(0.75); /* Réduction globale de 25% pour toutes les parties du logo */
   }
-  
+
   @media (max-width: 768px) {
     /* Logo centré horizontalement au responsive */
     .menu-header {
@@ -340,7 +340,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     /* Cacher le menu-logo sur mobile */
     .menu-header .menu-logo,
     .menu-logo {
@@ -353,35 +353,35 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
     }
-    
+
     /* Centrer chaque logo-part horizontalement au responsive (768px) */
     /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
     /* Les logo-part doivent être centrés par rapport au conteneur */
     /* Largeur max du logo = 157.75px, centre à 78.875px depuis la gauche originale */
-    
+
     .menu-header .menu-logo .logo-part {
       position: absolute;
       transform-origin: center;
     }
-    
+
     /* Partie 1: left original = 0px, width = 157.75px */
     /* Centre de la partie = 78.875px depuis la gauche du logo */
     /* On centre par rapport au conteneur: left = 50% - (largeur_scalée / 2) */
@@ -390,7 +390,7 @@
       top: 0.35px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Partie 2: left original = 33.41px, width = 120.47px */
     /* Centre de la partie = 33.41 + 60.235 = 93.645px depuis la gauche du logo */
     /* Décalage depuis le centre du logo (78.875px) = 93.645 - 78.875 = 14.77px */
@@ -399,7 +399,7 @@
       top: 2.35px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Partie 3: left original = 36.8px, width = 108.29px */
     /* Centre de la partie = 36.8 + 54.145 = 90.945px depuis la gauche du logo */
     /* Décalage depuis le centre du logo (78.875px) = 90.945 - 78.875 = 12.07px */
@@ -408,7 +408,7 @@
       top: 46.62px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Logo en dehors du header (si présent) */
     .menu-logo:not(.menu-header .menu-logo) {
       top: 30px;
@@ -419,7 +419,7 @@
       transform: scale(0.6);
     }
   }
-  
+
   .logo-part {
     position: absolute;
   }
@@ -495,7 +495,7 @@
     text-overflow: unset;
     max-width: 100%;
   }
-  
+
   .nav-line {
     position: absolute;
     left: 78px;
@@ -607,7 +607,7 @@
       max-width: 1440px;
       margin: 0 auto;
     }
-    
+
     .image-container {
       width: 800px;
       height: 458px;
@@ -806,7 +806,7 @@
       margin: 0;
       border-radius: 0;
     }
-    
+
     .menu-content {
       grid-template-columns: 1fr;
       padding: 120px 20px 30px;
@@ -815,7 +815,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .menu-header {
       left: 20px;
       right: 20px;
@@ -826,7 +826,7 @@
       position: relative;
       padding: 10px 0;
     }
-    
+
     /* Cacher le menu-logo sur mobile/tablette */
     .menu-header .menu-logo,
     .menu-logo {
@@ -839,26 +839,26 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
       font-size: 14px;
       gap: 10px;
     }
-    
+
     .menu-header .menu-close-button img {
       width: 18px;
       height: 18px;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
@@ -866,12 +866,12 @@
       font-size: 14px;
       gap: 8px;
     }
-    
+
     .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    
+
     /* Menu-nav : réductions de taille */
     .menu-nav {
       padding: 0;
@@ -880,35 +880,35 @@
       justify-content: center;
       width: 100%;
     }
-    
+
     .menu-nav ul {
       align-items: center;
       width: 100%;
       gap: 14px; /* Réduction de l'espacement */
     }
-    
+
     .nav-item {
       justify-content: center;
       height: 44px; /* Réduction de hauteur */
       max-width: 100%;
     }
-    
+
     .nav-text {
       padding-left: 0;
       text-align: center;
       font-size: 22px; /* Réduction de taille de police */
       padding: 8px 16px;
     }
-    
+
     .nav-line {
       display: none;
     }
-    
+
     .nav-bg {
       max-width: 280px;
       margin: 0 auto;
     }
-    
+
     /* Image-showcase : réductions */
     .image-showcase {
       padding: 0;
@@ -917,7 +917,7 @@
       align-items: center;
       width: 100%;
     }
-    
+
     .image-container {
       width: 100%;
       max-width: 600px;
@@ -925,13 +925,13 @@
       aspect-ratio: 658.19 / 429;
       margin-top: 0;
     }
-    
+
     .deco-corner-top {
       top: 120px;
       right: 30px;
       transform: scale(0.75);
     }
-    
+
     .deco-corner-bottom {
       top: auto;
       bottom: 20px;
@@ -939,7 +939,7 @@
       transform: scale(0.75);
     }
   }
-  
+
   /* ============================================
    * OPTIMISATION TRÈS PETIT ÉCRAN < 480px
    * Améliorations spécifiques pour petits écrans
@@ -949,51 +949,51 @@
       padding-top: 100px;
       padding-bottom: 20px;
     }
-    
+
     .menu-header {
       top: 15px;
       left: 15px;
       right: 15px;
     }
-    
+
     .menu-header .menu-close-button {
       font-size: 12px;
       gap: 8px;
     }
-    
+
     .menu-header .menu-close-button img {
       width: 16px;
       height: 16px;
     }
-    
+
     .menu-header .menu-lang-switcher {
       font-size: 12px;
       gap: 6px;
     }
-    
+
     .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    
+
     .nav-text {
       font-size: 20px; /* Encore plus petit sur très petit écran */
       padding: 6px 12px;
     }
-    
+
     .nav-item {
       height: 38px;
     }
-    
+
     .menu-nav ul {
       gap: 12px;
     }
-    
+
     .image-container {
       max-width: 100%;
     }
   }
-  
+
   @media (max-width: 768px) {
     .menu-header {
       left: 20px;
@@ -1003,7 +1003,7 @@
       gap: 0;
     }
   }
-  
+
   @media (max-width: 480px) {
     .menu-header {
       top: 20px;
@@ -1015,7 +1015,7 @@
       position: relative;
       padding: 0;
     }
-    
+
     /* Cacher le menu-logo sur mobile */
     .menu-header .menu-logo,
     .menu-logo {
@@ -1028,19 +1028,19 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
@@ -1092,7 +1092,7 @@
       // DOM déjà chargé, exécuter immédiatement
       setTimeout(initMenu, 0);
     }
-    
+
     function initMenu() {
       const menuButton = document.getElementById('openMenu');
       const menuContainer = document.querySelector('.menu-container');
@@ -1273,13 +1273,13 @@
           const header = document.querySelector('header');
           const contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn');
           if (!header || !contactBtn) return;
-          
+
           let lastScroll = window.scrollY;
 
           // Vérifie si on a scrollé plus de 100px
           function checkScroll() {
             const currentScroll = window.scrollY;
-            
+
             if (currentScroll > lastScroll && currentScroll > 100) {
               // On scroll vers le bas
               header.classList.add('scroll-hide');
@@ -1289,7 +1289,7 @@
               header.classList.remove('scroll-hide');
               contactBtn.classList.remove('scroll-hide');
             }
-            
+
             lastScroll = currentScroll;
           }
 
@@ -1305,7 +1305,7 @@
             }
           });
         }
-        
+
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', initScroll);
         } else {
@@ -1326,10 +1326,10 @@
 
     <!-- CONTENU PRINCIPAL -->
     <div class="relative z-10 flex flex-col items-center justify-center text-center h-full space-y-6">
-      
 
 
-      <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="suiteVillaFamilialeTitle">VILLA FAMILIALE AVEC <br> <span class="highlight text-[#BB996B]">PISCINE PRIVEE</span></h1>
+
+      <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="suiteVillaFamilialeTitle">VILLA FAMILIALE AVEC <br> <span class="highlight text-[#BB996B]">PISCINE PRIVÉE</span></h1>
     </div>
 
     <footer class="hero-footer">
@@ -1354,7 +1354,7 @@
           <h2 class="details-title font-[Big_Caslon] text-[48px] md:text-[58px] leading-[70px]">
             <span data-translate="suiteVillaFamilialeSubtitle">La villa familiale avec <span class="highlight text-[#B78F62]">piscine privée</span></span>
           </h2>
-          
+
           <div class="features flex items-center gap-8 mt-6">
             <div class="feature-item flex items-center gap-2">
               <img src="images/510_20.svg" alt="Area icon" class="feature-icon w-8 h-8" loading="lazy" />
@@ -1402,6 +1402,10 @@
             </li>
           </ul>
 
+          <p class="extra-mattress-info font-[Futura_Md_BT] text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] max-w-md text-[#B78F62] mt-4" data-translate="extraMattressInfoVillaFamiliale">
+            Il est possible d'ajouter un matelas supplémentaire. L'ajout du matelas entraîne des frais additionnels de 15 000 FCFA.
+          </p>
+
           <div class="pt-6">
             <a href="#paiement" class="btn btn-reserve-main inline-block bg-[#B78F62] text-white font-[Futura_Md_BT] text-[19px] px-8 py-3 rounded-[20px_0px] transition hover:bg-[#c9a375]" data-translate="bookNow">
               Réserver maintenant
@@ -1417,7 +1421,7 @@
           <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" loading="lazy" />
 
         </div>
-       
+
       </div>
        <div class="gallery-section mt-28">
           <div class="container mx-auto my-10">
@@ -1551,7 +1555,7 @@
           function initVideoLazy() {
             // Le slider JavaScript est désactivé sur mobile/tablette
             // Le scroll horizontal natif est utilisé à la place
-            
+
             // Lazy load video quand il entre dans la vue
             const video = document.querySelector('video[data-video-lazy]');
             if (video && 'IntersectionObserver' in window) {
@@ -1571,7 +1575,7 @@
               observer.observe(video);
             }
           }
-          
+
           if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initVideoLazy);
           } else {
@@ -1579,14 +1583,14 @@
           }
         })();
     </script>
-  
+
   <!-- Tailwind CSS - chargé en bas de page de manière asynchrone pour ne pas bloquer le rendu -->
   <script src="https://cdn.tailwindcss.com" async></script>
-  
+
   <!-- GSAP pour animations - chargé en bas de page avec defer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
+
   <!-- Scripts GSAP pour animations smooth scroll (chargés en différé) -->
   <script src="js/gsap-animations.js" defer></script>
   <!-- Script pour détecter le header sur fond blanc -->
@@ -1595,21 +1599,21 @@
   <script src="js/scroll-hide-behavior.js" defer></script>
   <!-- Script pour le menu avec toggle header/footer -->
   <script src="js/menu-header-footer-toggle.js" defer></script>
-  
+
   <!-- Bouton de retour -->
   <button id="back-button" class="back-button" aria-label="Retour à la page précédente" title="Retour">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     </svg>
   </button>
-  
+
   <!-- Bouton scroll to top -->
   <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut de la page" title="Haut de page">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
     </svg>
   </button>
-  
+
   <script src="js/navigation-tracker.js" defer></script>
   <link rel="stylesheet" href="css/back-button.css">
   <script src="js/back-button.js" defer></script>

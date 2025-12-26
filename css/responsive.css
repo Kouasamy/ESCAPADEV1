@@ -327,7 +327,17 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: clamp(1.5rem, 4vw, 2.5rem);
-    padding: clamp(4rem, 10vw, 6rem) clamp(1rem, 4vw, 2rem);
+    padding: clamp(2rem, 6vw, 3.5rem) clamp(1rem, 4vw, 2rem) !important;
+    padding-top: clamp(2rem, 6vw, 3.5rem) !important;
+  }
+  /* Cacher les éléments décoratifs sur tablette et mobile */
+  .deco-corner-top,
+  .deco-corner-bottom,
+  .image-showcase .deco-corner-top,
+  .image-showcase .deco-corner-bottom {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
   .menu-nav ul {
     align-items: center;
@@ -385,7 +395,8 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: clamp(1rem, 5vw, 1.5rem);
-    padding: clamp(3.5rem, 18vw, 5.5rem) clamp(0.75rem, 5vw, 1.5rem);
+    padding: clamp(1.5rem, 8vw, 2.5rem) clamp(0.75rem, 5vw, 1.5rem) !important;
+    padding-top: clamp(1.5rem, 8vw, 2.5rem) !important;
   }
   .menu-nav ul {
     gap: clamp(0.75rem, 4vw, 1.2rem);
@@ -417,22 +428,43 @@ footer {
     border-radius: 50px 0 50px 0;
   }
   .deco-corner-top {
-    display: block;
-    position: absolute;
-    top: clamp(-12px, -3vw, -8px);
-    right: clamp(-12px, -3vw, -8px);
-    z-index: 6;
-    width: clamp(30px, 6vw, 45px);
-    height: auto;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
   .deco-corner-bottom {
-    display: block;
-    position: absolute;
-    bottom: clamp(-12px, -3vw, -8px);
-    left: clamp(-12px, -3vw, -8px);
-    z-index: 6;
-    width: clamp(30px, 6vw, 45px);
-    height: auto;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+/* Réduction supplémentaire du padding-top pour très petits téléphones */
+@media (max-width: 480px) {
+  .menu-content {
+    padding-top: clamp(1rem, 6vw, 2rem) !important;
+    padding: clamp(1rem, 6vw, 2rem) clamp(0.75rem, 5vw, 1.5rem) !important;
+  }
+  .deco-corner-top,
+  .deco-corner-bottom {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+/* Cacher le header et hero-footer quand le menu overlay est ouvert sur mobile/tablette */
+@media (max-width: 1024px) {
+  body.menu-overlay-open .site-header,
+  body.menu-overlay-open .hero-header,
+  body.menu-overlay-open .site-header__inner,
+  body.menu-overlay-open .hero-footer,
+  body.menu-overlay-open .contact-btn,
+  body.menu-overlay-open .btn-reserve-space-mobile {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 
@@ -1358,5 +1390,6 @@ img[loading="lazy"] {
     padding: 0 12px !important;
   }
 }
+
 
 

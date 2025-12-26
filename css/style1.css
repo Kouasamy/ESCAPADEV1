@@ -16,6 +16,7 @@ body {
   overflow-x: hidden;
   max-width: 100%;
   width: 100%;
+  margin: 0;
 }
 
 /* Box-sizing global pour tous les éléments */
@@ -245,30 +246,30 @@ p.text-lg {
     max-width: 100%;
     width: 100%;
   }
-  
+
   /* Conteneurs principaux */
   * {
     box-sizing: border-box;
   }
-  
+
   .full-bleed-image {
     object-fit: cover;
     max-width: 100%;
   }
-  
+
   /* Répartition avec image réduite sur desktop */
   .lounge-gallery-section {
     gap: 40px !important; /* Espace augmenté entre l'image et le texte */
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   .lounge-gallery-media {
     width: 63% !important; /* Réduction de la largeur de l'image (de 70% à 63%) */
     max-width: 100%;
     overflow: visible; /* Permet l'affichage des éléments décoratifs */
   }
-  
+
   .lounge-gallery-text {
     width: 30% !important;
     align-items: flex-end; /* Aligner le texte à droite sur desktop */
@@ -277,14 +278,14 @@ p.text-lg {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-  
+
   /* Optimisation des formulaires sur desktop */
   .booking-form {
     max-width: 100%;
     overflow: visible;
     box-sizing: border-box;
   }
-  
+
   /* Assurer que tous les conteneurs ne débordent pas */
   .hero-container,
   .welcome-section,
@@ -296,13 +297,13 @@ p.text-lg {
     overflow-x: hidden;
     box-sizing: border-box;
   }
-  
+
   /* Images et vidéos responsives */
   img, video {
     max-width: 100%;
     height: auto;
   }
-  
+
   /* Prévenir les débordements de texte */
   p, h1, h2, h3, h4, h5, h6, .subtitle, .main-title {
     word-wrap: break-word;
@@ -511,12 +512,12 @@ html, body {
     padding-top: 60px;
     padding-bottom: 30px;
   }
-  
+
   /* Réduction des paragraphes au responsive */
   p {
     font-size: 0.85em !important;
   }
-  
+
   .subtitle {
     font-size: 18px !important;
   }
@@ -711,14 +712,14 @@ html, body {
     position: absolute !important;
     left: -9999px !important;
   }
-  
+
   .menu-header .menu-logo .logo-part,
   .menu-logo .logo-part {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
   }
-  
+
   .hero-main {
     padding: 22px 14px;
     min-height: calc(100vh - 170px);
@@ -742,7 +743,7 @@ html, body {
   .field-label .date-value {
     font-size: 11px; /* Réduit de 12.5px à 11px */
   }
-  
+
   /* Réduction spécifique pour les champs date-field et guest-field */
   .form-field-wrapper.date-field .field-label,
   .form-field-wrapper.date-field .field-label .label-text,
@@ -750,11 +751,11 @@ html, body {
   .form-field-wrapper.guest-field .field-label .label-text {
     font-size: 12px !important;
   }
-  
+
   .form-field-wrapper.date-field .field-label .date-value {
     font-size: 10.5px !important; /* Encore plus réduit pour les dates */
   }
-  
+
   .form-field-wrapper.guest-field .field-label .guest-value {
     font-size: 12px !important;
   }
@@ -825,7 +826,7 @@ html, body {
   .field-label {
     font-size: 12px; /* Réduit de 14px à 12px */
   }
-  
+
   /* Réduction spécifique pour les champs date-field et guest-field */
   .form-field-wrapper.date-field .field-label,
   .form-field-wrapper.date-field .field-label .label-text,
@@ -833,15 +834,15 @@ html, body {
   .form-field-wrapper.guest-field .field-label .label-text {
     font-size: 12px !important;
   }
-  
+
   .form-field-wrapper.date-field .field-label .date-value {
     font-size: 10.5px !important; /* Encore plus réduit pour les dates */
   }
-  
+
   .form-field-wrapper.guest-field .field-label .guest-value {
     font-size: 12px !important;
   }
-  
+
   .guest-stepper img {
     width: 24px;
     height: 24px;
@@ -870,14 +871,14 @@ html, body {
   p {
     font-size: 0.8em !important;
   }
-  
+
   .restaurant-section .restaurant-text p,
   .lounge-text p,
   .lounge-gallery-text p {
     font-size: 11.5px !important; /* Réduction pour mobile */
     line-height: 1.6;
   }
-  
+
   .subtitle {
     font-size: 15px !important;
   }
@@ -931,14 +932,14 @@ html, body {
     position: absolute !important;
     left: -9999px !important;
   }
-  
+
   .menu-header .menu-logo .logo-part,
   .menu-logo .logo-part {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
   }
-  
+
   .hero-main {
     padding: 22px 14px;
     min-height: calc(100vh - 170px);
@@ -950,7 +951,7 @@ html, body {
   .form-field-wrapper {
     padding: 12px 16px;
   }
-  
+
   /* Réduction spécifique pour les champs date-field et guest-field sur petits écrans */
   .form-field-wrapper.date-field .field-label,
   .form-field-wrapper.date-field .field-label .label-text,
@@ -958,15 +959,15 @@ html, body {
   .form-field-wrapper.guest-field .field-label .label-text {
     font-size: 11px !important; /* Encore plus réduit pour très petits écrans */
   }
-  
+
   .form-field-wrapper.date-field .field-label .date-value {
     font-size: 10px !important; /* Encore plus réduit pour les dates */
   }
-  
+
   .form-field-wrapper.guest-field .field-label .guest-value {
     font-size: 11px !important;
   }
-  
+
   .suite-card-image {
     height: 180px;
   }
@@ -994,24 +995,24 @@ html, body {
   .form-field-wrapper.guest-field .field-label .label-text {
     font-size: 10px !important; /* Encore plus réduit pour très petits écrans */
   }
-  
+
   .form-field-wrapper.date-field .field-label .date-value {
     font-size: 9px !important; /* Encore plus réduit pour les dates */
   }
-  
+
   .form-field-wrapper.guest-field .field-label .guest-value {
     font-size: 10px !important;
   }
-  
+
   /* Réduction des paragraphes pour très petits écrans */
   p {
     font-size: 0.7em !important;
   }
-  
+
   .subtitle {
     font-size: 14px !important;
   }
-  
+
   .hero-main {
     min-height: calc(100vh - 150px);
   }
@@ -1033,7 +1034,7 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
   }
-  
+
   .welcome-section,
   .restaurant-section,
   .lounge-section,
@@ -1045,57 +1046,57 @@ html, body {
     padding-left: clamp(48px, 6vw, 96px);
     padding-right: clamp(48px, 6vw, 96px);
   }
-  
+
   /* Formulaire optimisé pour desktop moyen */
   .booking-form {
     gap: 42px;
     max-width: 850px;
   }
-  
+
   .form-field-wrapper {
     width: 210px !important;
     height: 35px;
     padding: 0 15px;
   }
-  
+
   .field-label {
     font-size: 21px;
   }
-  
+
   .field-label .label-text {
     font-size: 21px;
   }
-  
+
   .field-label .date-value {
     font-size: 14px;
   }
-  
+
   .field-label .guest-value {
     font-size: 21px;
   }
-  
+
   .search-button {
     font-size: 21px;
   }
-  
+
   .restaurant-section .restaurant-media,
   .lounge-media {
     max-width: 850px;
   }
-  
+
   .lounge-media #loungeVideo {
     max-height: 720px;
   }
-  
+
   .main-title {
     font-size: 46px;
   }
-  
+
   .subtitle {
     font-size: 21px;
     max-width: 850px;
   }
-  
+
   .restaurant-section .restaurant-text p,
   .lounge-text p,
   .lounge-gallery-text p {
@@ -1110,7 +1111,7 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
   }
-  
+
   /* Conteneurs principaux avec max-width pour éviter les débordements */
   .welcome-section,
   .restaurant-section,
@@ -1123,78 +1124,78 @@ html, body {
     padding-left: clamp(64px, 8vw, 120px);
     padding-right: clamp(64px, 8vw, 120px);
   }
-  
+
   /* Formulaire de réservation optimisé */
   .booking-form {
     gap: 42px;
     max-width: 900px;
   }
-  
+
   .form-field-wrapper {
     width: 220px !important;
     height: 36px;
     padding: 0 16px;
   }
-  
+
   .field-label {
     font-size: 22px;
   }
-  
+
   .field-label .label-text {
     font-size: 22px;
   }
-  
+
   .field-label .date-value {
     font-size: 15px;
   }
-  
+
   .field-label .guest-value {
     font-size: 22px;
   }
-  
+
   .search-button {
     font-size: 22px;
   }
-  
+
   /* Sections média optimisées */
   .restaurant-section .restaurant-media,
   .lounge-media {
     max-width: 900px;
   }
-  
+
   .lounge-media #loungeVideo {
     max-height: 800px;
   }
-  
+
   /* Titres optimisés */
   .main-title {
     font-size: 48px;
   }
-  
+
   .subtitle {
     font-size: 22px;
     max-width: 900px;
   }
-  
+
   /* Paragraphes optimisés */
   p {
     font-size: 1em;
     line-height: 1.6;
   }
-  
+
   .restaurant-section .restaurant-text p,
   .lounge-text p,
   .lounge-gallery-text p {
     font-size: 20px;
     line-height: 1.7;
   }
-  
+
   /* Prévenir les débordements */
   .hero-container {
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   .hero-main {
     max-width: 100%;
   }
@@ -1211,51 +1212,51 @@ html, body {
     padding-left: clamp(80px, 10vw, 160px);
     padding-right: clamp(80px, 10vw, 160px);
   }
-  
+
   .booking-form {
     gap: 48px;
     max-width: 1000px;
   }
-  
+
   .form-field-wrapper {
     width: 240px !important;
     height: 38px;
   }
-  
+
   .field-label {
     font-size: 24px;
   }
-  
+
   .field-label .label-text {
     font-size: 24px;
   }
-  
+
   .field-label .date-value {
     font-size: 16px;
   }
-  
+
   .field-label .guest-value {
     font-size: 24px;
   }
-  
+
   .search-button {
     font-size: 24px;
   }
-  
+
   .restaurant-section .restaurant-media,
   .lounge-media {
     max-width: 1000px;
   }
-  
+
   .main-title {
     font-size: 52px;
   }
-  
+
   .subtitle {
     font-size: 24px;
     max-width: 1000px;
   }
-  
+
   .restaurant-section .restaurant-text p,
   .lounge-text p,
   .lounge-gallery-text p {
@@ -1274,51 +1275,51 @@ html, body {
     padding-left: clamp(120px, 12vw, 200px);
     padding-right: clamp(120px, 12vw, 200px);
   }
-  
+
   .booking-form {
     gap: 54px;
     max-width: 1200px;
   }
-  
+
   .form-field-wrapper {
     width: 260px !important;
     height: 40px;
   }
-  
+
   .field-label {
     font-size: 26px;
   }
-  
+
   .field-label .label-text {
     font-size: 26px;
   }
-  
+
   .field-label .date-value {
     font-size: 18px;
   }
-  
+
   .field-label .guest-value {
     font-size: 26px;
   }
-  
+
   .search-button {
     font-size: 26px;
   }
-  
+
   .restaurant-section .restaurant-media,
   .lounge-media {
     max-width: 1200px;
   }
-  
+
   .main-title {
     font-size: 60px;
   }
-  
+
   .subtitle {
     font-size: 28px;
     max-width: 1200px;
   }
-  
+
   .restaurant-section .restaurant-text p,
   .lounge-text p,
   .lounge-gallery-text p {
@@ -1571,7 +1572,7 @@ video::-webkit-media-controls {
     object-fit: contain;
     border-radius: 28px; /* Arrondi proportionnel */
   }
-  
+
   /* Ajustements responsives pour les sections spécifiques - title-border-flipped - Taille uniforme */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
@@ -1604,7 +1605,7 @@ video::-webkit-media-controls {
     margin-left: 13px; /* Réduit de 15px à 13px - même que mobile */
     line-height: 1.15;
   }
-  
+
   /* Taille pour les main-title dans les decorative borders sur tablette uniquement (pas téléphone) */
   @media (min-width: 768px) {
   #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
@@ -1614,7 +1615,7 @@ video::-webkit-media-controls {
       padding: 0 16px !important;
     }
   }
-  
+
   /* Empêcher le retour à la ligne pour le titre "NOTRE CHEF & SES SPÉCIALITÉS" au responsive tablette uniquement - PRIORITÉ MAXIMALE */
   @media (min-width: 768px) and (max-width: 1024px) {
     /* Exclure le titre du chef de la règle générale pour tablette */
@@ -1630,7 +1631,7 @@ video::-webkit-media-controls {
       width: auto !important;
       max-width: 100% !important;
     }
-    
+
     /* S'assurer que le span highlight ne cause pas de retour à la ligne */
     #chef .title-border-flipped-wrapper .main-title .highlight,
     #chef .title-border-flipped-wrapper h1.main-title .highlight,
@@ -1638,7 +1639,7 @@ video::-webkit-media-controls {
       white-space: nowrap !important;
       display: inline !important;
     }
-    
+
     /* S'assurer que le titre du chef n'hérite pas de la règle générale 32px */
     #chef .title-border-flipped-wrapper .main-title {
       font-size: 16px !important; /* Override la règle générale */
@@ -1655,7 +1656,7 @@ video::-webkit-media-controls {
     margin-left: 13px; /* Réduit de 15px à 13px - même que mobile */
     line-height: 1.15;
   }
-  
+
   #chef .title-border-flipped-wrapper .main-title,
   #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
     margin-right: 20px !important; /* Même que mobile */
@@ -1680,14 +1681,14 @@ video::-webkit-media-controls {
     position: absolute !important;
     left: -9999px !important;
   }
-  
+
   .menu-header .menu-logo .logo-part,
   .menu-logo .logo-part {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
   }
-  
+
   /* Réduction spécifique pour les champs date-field et guest-field */
   .form-field-wrapper.date-field .field-label,
   .form-field-wrapper.date-field .field-label .label-text,
@@ -1695,15 +1696,15 @@ video::-webkit-media-controls {
   .form-field-wrapper.guest-field .field-label .label-text {
     font-size: 11.5px !important;
   }
-  
+
   .form-field-wrapper.date-field .field-label .date-value {
     font-size: 10px !important;
   }
-  
+
   .form-field-wrapper.guest-field .field-label .guest-value {
     font-size: 11.5px !important;
   }
-  
+
   .title-wrapper {
     margin-bottom: 25px;
   }
@@ -1713,26 +1714,26 @@ video::-webkit-media-controls {
     max-width: 260px !important; /* Augmenté de 240px à 260px */
     height: auto !important;
   }
-  
+
   /* Ajustement spécifique pour title-border-events sur mobile/tablette - pousser vers la gauche */
   .title-border-events {
     left: 42% !important; /* Poussé vers la gauche pour mieux encadrer le titre */
     transform: translate(-50%, -50%) !important;
   }
-  
-  /* Ajuster le margin-left du main-title dans la section événementiel sur mobile/tablette */
+
+  /* Ajuster le margin-left du main-title dans la section ÉVÈNEMENTIEL sur mobile/tablette */
   #evenementiel .main-title[style*="margin-left"],
   #evenementiel .title-wrapper .main-title {
     margin-left: 0 !important; /* Réinitialiser le margin-left sur mobile/tablette pour aligner avec la bordure */
   }
-  
+
   /* Ajustements pour tablettes - sections spécifiques - même que mobile */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
     left: 49% !important;
     max-width: 280px !important;
   }
-  
+
   #chef .title-border-flipped-wrapper .main-title,
   #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
     margin-right: 20px !important;
@@ -1743,12 +1744,12 @@ video::-webkit-media-controls {
     margin-left: 13px !important; /* Réduit de 15px à 13px - même que mobile */
     line-height: 1.15 !important;
   }
-  
+
   /* Réduction supplémentaire pour les h2 avec main-title */
   h2.main-title {
     font-size: clamp(1.05rem, 4.2vw, 1.4rem) !important;
   }
-  
+
   /* Réduction spécifique pour les h1 dans les decorative borders au responsive téléphone */
   .title-wrapper .main-title,
   .title-wrapper h1.main-title,
@@ -1768,7 +1769,7 @@ video::-webkit-media-controls {
     line-height: 1.1 !important;
     padding: 0 8px !important;
   }
-  
+
   /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
   .title-border-restaurant-dishes ~ .main-title,
   .title-border-restaurant-dishes + .main-title,
@@ -1791,26 +1792,26 @@ video::-webkit-media-controls {
     max-width: 320px !important; /* Augmenté de 280px à 320px */
     height: auto !important;
   }
-  
+
   /* Ajustement spécifique pour title-border-events sur mobile - pousser vers la gauche */
   .title-border-events {
     left: 38% !important; /* Poussé vers la gauche pour mieux encadrer le titre */
     transform: translate(-50%, -50%) !important;
   }
-  
-  /* Ajuster le margin-left du main-title dans la section événementiel sur mobile */
+
+  /* Ajuster le margin-left du main-title dans la section ÉVÈNEMENTIEL sur mobile */
   #evenementiel .main-title[style*="margin-left"],
   #evenementiel .title-wrapper .main-title {
     margin-left: 0 !important; /* Réinitialiser le margin-left sur mobile pour aligner avec la bordure */
   }
-  
+
     /* Ajustements pour mobile - sections spécifiques */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
     left: 49% !important;
     max-width: 280px !important;
   }
-  
+
   #chef .title-border-flipped-wrapper .main-title,
   #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
     margin-right: 20px !important;
@@ -1821,12 +1822,12 @@ video::-webkit-media-controls {
     margin-left: 13px !important; /* Réduit de 15px à 13px */
     line-height: 1.15 !important;
   }
-  
+
   /* Réduction supplémentaire pour les h2 avec main-title */
   h2.main-title {
     font-size: clamp(0.9rem, 3.8vw, 1.2rem) !important;
   }
-  
+
   /* Réduction spécifique pour les h1 dans les decorative borders au responsive téléphone */
   .title-wrapper .main-title,
   .title-wrapper h1.main-title,
@@ -1846,7 +1847,7 @@ video::-webkit-media-controls {
     line-height: 1.1 !important;
     padding: 0 8px !important;
   }
-  
+
   /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
   .title-border-restaurant-dishes ~ .main-title,
   .title-border-restaurant-dishes + .main-title,
@@ -1867,15 +1868,15 @@ video::-webkit-media-controls {
   .form-field-wrapper.guest-field .field-label .label-text {
     font-size: 10px !important; /* Encore plus réduit pour très petits écrans */
   }
-  
+
   .form-field-wrapper.date-field .field-label .date-value {
     font-size: 9px !important; /* Encore plus réduit pour les dates */
   }
-  
+
   .form-field-wrapper.guest-field .field-label .guest-value {
     font-size: 10px !important;
   }
-  
+
   .title-wrapper {
     margin-bottom: 20px;
   }
@@ -1885,14 +1886,14 @@ video::-webkit-media-controls {
     max-width: 200px !important; /* Réduit de 240px à 200px */
     height: auto !important;
   }
-  
+
   /* Ajustements pour très petits écrans - sections spécifiques */
   #chef .title-border-flipped-wrapper .title-border-flipped,
   #lounge .title-wrapper.title-border-flipped-wrapper .title-border-flipped {
     left: 55% !important;
     max-width: 240px !important;
   }
-  
+
   #chef .title-border-flipped-wrapper .main-title,
   #lounge .title-wrapper.title-border-flipped-wrapper .main-title {
     margin-right: 18px !important;
@@ -1903,7 +1904,7 @@ video::-webkit-media-controls {
     margin-left: 10px !important; /* Réduit de 12px à 10px */
     line-height: 1.1 !important;
   }
-  
+
   /* Réduction spécifique pour les h1 dans les decorative borders sur très petits téléphones */
   .title-wrapper .main-title,
   .title-wrapper h1.main-title,
@@ -1923,7 +1924,7 @@ video::-webkit-media-controls {
     line-height: 1.1 !important;
     padding: 0 8px !important;
   }
-  
+
   /* Titre NOS PLATS dans la section restaurant - Réduit pour correspondre à la page restaurant.html */
   .title-border-restaurant-dishes ~ .main-title,
   .title-border-restaurant-dishes + .main-title,
@@ -2012,7 +2013,7 @@ video::-webkit-media-controls {
   p {
     font-size: 0.85em !important;
   }
-  
+
   /* Centrer hero-content au milieu de experience-section sur tablette - descendre un peu */
   .hero-overlay {
     justify-content: flex-start; /* Start from top */
@@ -2038,7 +2039,7 @@ video::-webkit-media-controls {
   p {
     font-size: 0.8em !important;
   }
-  
+
   .hero-overlay {
     justify-content: flex-start; /* Start from top */
     align-items: center; /* Center horizontally */
@@ -2069,7 +2070,7 @@ video::-webkit-media-controls {
   p {
     font-size: 0.75em !important;
   }
-  
+
   .hero-overlay {
     justify-content: flex-start; /* Start from top */
     align-items: center; /* Center horizontally */
@@ -2087,7 +2088,7 @@ video::-webkit-media-controls {
   .hero-text {
     font-size: 11.5px !important; /* Réduction pour mobile */
   }
-  
+
   .subtitle {
     font-size: 15px !important;
   }
@@ -2183,6 +2184,7 @@ body[data-loading="true"] footer {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
+  font-family: 'Big Caslon', serif !important;
 }
 
 @keyframes loader-spin {
@@ -2395,12 +2397,12 @@ body[data-loading="true"] footer {
     gap: clamp(0.4rem, 1.2vw, 0.85rem);
     color: #ffffff;
   }
-  
+
   .lang-switcher a {
     color: inherit;
     text-decoration: none;
   }
-  
+
   .lang-active {
     font-weight: 500;
   }
@@ -2409,7 +2411,7 @@ body[data-loading="true"] footer {
     display: inline-flex;
     margin: 0 auto;
   }
-  
+
   .header-nav {
     display: inline-flex;
     align-items: center;
@@ -2513,11 +2515,11 @@ body[data-loading="true"] footer {
     align-items: center;
     justify-content: center;
   }
-  
+
   .header-nav .btn-wrapper:first-child {
     min-width: 200px; /* Assez large pour "Réserver une suite" */
   }
-  
+
   /* Ajuster le padding du texte pour qu'il soit bien contenu dans l'image */
   .header-nav .btn-wrapper:first-child .btn-text {
     white-space: nowrap;
@@ -2550,7 +2552,7 @@ body[data-loading="true"] footer {
     height: 36px; /* Réduit de 38px à 36px pour desktop */
     cursor: pointer;
   }
-  
+
   .form-field-wrapper.date-field {
     cursor: pointer;
   }
@@ -2712,7 +2714,7 @@ body[data-loading="true"] footer {
     justify-content: center;
     position: relative;
   }
-  
+
   .contact-btn .btn-bg {
     position: absolute;
     inset: 0;
@@ -2722,7 +2724,7 @@ body[data-loading="true"] footer {
     object-fit: contain;
     pointer-events: none;
   }
-  
+
   .contact-btn .btn-text {
     font-size: 22px;
     letter-spacing: 0.85px;
@@ -2772,7 +2774,7 @@ body[data-loading="true"] footer {
       min-height: 400px;
       width: 100%;
     }
-    
+
     .hero-header, .booking-form, .hero-footer {
       position: static;
     }
@@ -2836,13 +2838,13 @@ body[data-loading="true"] footer {
     }
   }
 
-  
+
   @media (max-width: 1024px) {
     .hero-container {
       height: 80vh;
       min-height: 400px;
     }
-    
+
     /* Le responsive du header est géré par les classes Tailwind */
     .hero-main {
       padding: 22px 14px;
@@ -2960,12 +2962,12 @@ body[data-loading="true"] footer {
       height: 80vh;
       min-height: 400px;
     }
-    
+
     /* Augmentation raisonnable des H1 pour mobile */
     .main-title {
       font-size: 16px !important;
     }
-    
+
     /* Le responsive du header est géré par les classes Tailwind (hidden md:inline-block pour nav) */
     .hero-main {
       display: flex !important;
@@ -3019,18 +3021,18 @@ body[data-loading="true"] footer {
       font-size: 14px;
     }
   }
-  
+
 
   @media (max-width: 320px) {
     /* Réduction des paragraphes pour très petits écrans */
     p {
       font-size: 0.65em !important;
     }
-    
+
     .subtitle {
       font-size: 13px !important;
     }
-    
+
     .hero-container {
       height: 60vh;
       min-height: 350px;
@@ -3084,4 +3086,3 @@ body[data-loading="true"] footer {
       font-size: 12px;
     }
   }
-  

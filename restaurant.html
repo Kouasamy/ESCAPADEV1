@@ -4,28 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Escapade</title>
-  
+
   <!-- Preconnect pour améliorer les performances des CDN -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
+
   <!-- Meta tags pour le cache et les performances -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#ffffff">
-  
+
   <link rel="icon" type="image/png" href="images/568_819.png">
-  
+
   <!-- Preload des ressources critiques -->
   <link rel="preload" as="image" href="images/568_819.svg" fetchpriority="high">
   <link rel="preload" as="image" href="images/568_939.svg" fetchpriority="high">
-  
+
   <!-- Prefetch des ressources non critiques -->
   <link rel="prefetch" as="script" href="https://cdn.tailwindcss.com">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
   <link rel="prefetch" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
-  
+
   <!-- Preload des CSS critiques pour un chargement plus rapide -->
   <link rel="preload" as="style" href="css/style1.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/footer.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -38,7 +38,7 @@
   <!-- CSS responsive chargé de manière asynchrone pour ne pas bloquer le rendu -->
   <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/responsive.css"></noscript>
-  
+
   <!-- Style inline pour cacher le contenu immédiatement pendant le chargement -->
   <style>
     /* Cacher TOUT le contenu sauf le loader pendant le chargement */
@@ -65,20 +65,20 @@
       overflow: hidden !important;
     }
   </style>
-  
+
   <!-- Scripts optimisés -->
   <script src="js/image-optimizer.js" defer></script>
   <script src="js/page-loader.js" defer></script>
   <script src="js/performance-optimizer.js" defer></script>
   <script src="js/performance-enhancer.js" defer></script>
   <script src="js/page-prefetch.js" defer></script>
-  
+
   <!-- Script de traduction chargé tôt pour appliquer la langue rapidement -->
   <script src="js/translations.js" defer></script>
-  
+
   <!-- Script pour supprimer complètement les contrôles vidéo -->
   <script src="js/remove-video-controls.js" defer></script>
-  
+
   <!-- Script inline minimal pour appliquer la langue immédiatement -->
   <script>
     (function() {
@@ -91,7 +91,7 @@
       }
     })();
   </script>
-  
+
     <style>
       /* Reveal animation for plats - support direction and configurable timing via JS */
     .reveal { opacity: 0; transform: scale(0.98); transition: opacity .6s ease, transform .6s ease; }
@@ -102,27 +102,27 @@
     /* Small hover polish for plat images */
     .reveal img { transition: transform .35s ease, opacity .35s ease; }
     .reveal:hover img { transform: translateY(-6px) scale(1.02); }
-    
+
     /* Title border custom height for Restaurant section */
     .title-border-restaurant {
       height: 83px;
     }
-    
+
     .title-border-restaurant-dishes {
       height: 53px;
     }
-    
+
     .restaurant-gallery .max-w-7xl {
       max-width: 100%;
     }
-    
+
     /* Slider des plats - Style similaire à suite-gallery-wrapper */
     .plats-slider-container {
       position: relative;
       width: 100%;
       max-width: 100%;
     }
-    
+
     .plats-slider-wrapper {
       overflow-x: auto;
       overflow-y: hidden;
@@ -138,28 +138,28 @@
       padding: 20px 0;
       margin-bottom: 2rem;
     }
-    
+
     .plats-slider-wrapper:active {
       cursor: grabbing;
     }
-    
+
     .plats-slider-wrapper * {
       user-select: none;
     }
-    
+
     .plats-slider-wrapper::-webkit-scrollbar {
       display: none;
       width: 0;
       height: 0;
     }
-    
+
     .plats-slider-track {
       display: flex;
       gap: 2rem;
       padding: 0 2rem;
       width: max-content;
     }
-    
+
     .plats-slide {
       flex: 0 0 auto;
       scroll-snap-align: start;
@@ -167,7 +167,7 @@
       width: 301px;
       min-width: 301px;
     }
-    
+
     .plats-slide-img {
       width: 301px;
       height: 451px;
@@ -175,20 +175,20 @@
       display: block;
       border-radius: 70px 0;
     }
-    
+
     .plats-slider-controls {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 30px;
     }
-    
+
     .plats-slider-dots {
       display: flex;
       gap: 10px;
       align-items: center;
     }
-    
+
     .plats-slider-dot {
       width: 10px;
       height: 10px;
@@ -199,36 +199,36 @@
       transition: all 0.3s ease;
       padding: 0;
     }
-    
+
     .plats-slider-dot.active {
       background-color: #2A2626;
       width: 14px;
       height: 14px;
     }
-    
+
     /* Desktop : afficher plusieurs cartes avec scroll horizontal */
     @media (min-width: 1024px) {
       .plats-slider-wrapper {
         overflow-x: auto;
       }
-      
+
       .plats-slider-track {
         padding: 0 3rem;
       }
     }
-    
+
     /* Mobile : une carte à la fois avec scroll */
     @media (max-width: 1023px) {
       .plats-slide {
         min-width: 280px;
       }
-      
+
       .plats-slider-track {
         padding: 0 1.5rem;
         gap: 1.5rem;
       }
     }
-    
+
     /* Tablet : ajustement du gap */
     @media (min-width: 640px) and (max-width: 1023px) {
       .plats-slider-track {
@@ -341,14 +341,14 @@
             <a href="page_evenementiel.html" class="nav-item" data-image="Menu/images/0E1A2828.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_564.svg" class="nav-bg" alt="">
-              <span class="nav-text" data-translate="event">ÉVÉNEMENTIEL</span>
+              <span class="nav-text" data-translate="event">ÉVÈNEMENTIEL</span>
             </a>
           </li>
           <li>
             <a href="apropos.html" class="nav-item" data-image="Menu/images/IMG_1837.jpg">
               <img src="Menu/images/542_575.svg" class="nav-line" alt="">
               <img src="Menu/images/542_567.svg" class="nav-bg" alt="">
-              <span class="nav-text" data-translate="about">A PROPOS</span>
+              <span class="nav-text" data-translate="about">À PROPOS</span>
             </a>
           </li>
         </ul>
@@ -401,7 +401,7 @@
     transform: translateY(-8px);
     pointer-events: none;
   }
-  
+
   .menu-container.is-closing {
     opacity: 0;
     transform: translateY(-8px);
@@ -418,7 +418,7 @@
     gap: 0;
     z-index: 10;
   }
-  
+
   /* Sur desktop, positionner le logo dans le header de manière absolue en haut au centre */
   .menu-header .menu-logo {
     position: absolute;
@@ -432,11 +432,11 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
   .menu-header .menu-logo .logo-part {
     transform: scale(0.75);
   }
-  
+
 
   .menu-close-button,
   .menu-lang-switcher {
@@ -459,7 +459,7 @@
     transform: rotate(90deg) scale(0.9);
     opacity: 0.6;
   }
-  
+
   .menu-lang-switcher {
     gap: 11px;
   }
@@ -481,11 +481,11 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
   .menu-logo .logo-part {
     transform: scale(0.75); /* Réduction globale de 25% pour toutes les parties du logo */
   }
-  
+
   @media (max-width: 768px) {
     /* Logo centré horizontalement au responsive */
     .menu-header {
@@ -497,7 +497,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     /* Cacher le menu-logo sur mobile */
     .menu-header .menu-logo,
     .menu-logo {
@@ -510,35 +510,35 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
       margin-left: auto;
     }
-    
+
     /* Centrer chaque logo-part horizontalement au responsive (768px) */
     /* Le conteneur .menu-logo est déjà centré avec left: 50% et transform: translate(-50%, -50%) */
     /* Les logo-part doivent être centrés par rapport au conteneur */
     /* Largeur max du logo = 157.75px, centre à 78.875px depuis la gauche originale */
-    
+
     .menu-header .menu-logo .logo-part {
       position: absolute;
       transform-origin: center;
     }
-    
+
     /* Partie 1: left original = 0px, width = 157.75px */
     /* Centre de la partie = 78.875px depuis la gauche du logo */
     /* On centre par rapport au conteneur: left = 50% - (largeur_scalée / 2) */
@@ -547,7 +547,7 @@
       top: 0.35px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Partie 2: left original = 33.41px, width = 120.47px */
     /* Centre de la partie = 33.41 + 60.235 = 93.645px depuis la gauche du logo */
     /* Décalage depuis le centre du logo (78.875px) = 93.645 - 78.875 = 14.77px */
@@ -556,7 +556,7 @@
       top: 2.35px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Partie 3: left original = 36.8px, width = 108.29px */
     /* Centre de la partie = 36.8 + 54.145 = 90.945px depuis la gauche du logo */
     /* Décalage depuis le centre du logo (78.875px) = 90.945 - 78.875 = 12.07px */
@@ -565,7 +565,7 @@
       top: 46.62px !important;
       transform: scale(0.6) !important;
     }
-    
+
     /* Logo en dehors du header (si présent) */
     .menu-logo:not(.menu-header .menu-logo) {
       top: 30px;
@@ -576,7 +576,7 @@
       transform: scale(0.6);
     }
   }
-  
+
   .logo-part {
     position: absolute;
   }
@@ -652,7 +652,7 @@
     text-overflow: unset;
     max-width: 100%;
   }
-  
+
   .nav-line {
     position: absolute;
     left: 78px;
@@ -742,7 +742,7 @@
   .deco-corner-top {
     position: absolute;
     top: 193px;
-    right: 219px; /* Tout en haut à droite de l'image */
+    right: 61px; /* Tout en haut à droite de l'image */
     z-index: 6;
     transform: rotate(-0.38deg);
   }
@@ -764,7 +764,7 @@
       max-width: 1440px;
       margin: 0 auto;
     }
-    
+
     .image-container {
       width: 800px;
       height: 458px;
@@ -886,7 +886,7 @@
       right: 12px; /* ★ EN DEHORS à droite - espacement de 12px depuis le bord de .image-showcase */
       transform: rotate(-0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
       z-index: 6;
-      opacity: 0.95;
+      opacity: -0.05;
     }
 
     .image-showcase .deco-corner-bottom {
@@ -896,7 +896,7 @@
       left: 12px; /* ★ EN DEHORS à gauche - espacement de 12px depuis le bord de .image-showcase */
       transform: rotate(0.38deg); /* ★ CONSERVE L'ORIENTATION ORIGINALE */
       z-index: 6;
-      opacity: 0.95;
+      opacity: -0.05;
     }
   }
 
@@ -963,16 +963,17 @@
       margin: 0;
       border-radius: 0;
     }
-    
+
     .menu-content {
       grid-template-columns: 1fr;
-      padding: 120px 20px 30px;
+      padding: 80px 20px 30px !important;
+      padding-top: 80px !important;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    
+
     .menu-header {
       left: 20px;
       right: 20px;
@@ -983,7 +984,7 @@
       position: relative;
       padding: 10px 0;
     }
-    
+
     /* Cacher le menu-logo sur mobile/tablette */
     .menu-header .menu-logo,
     .menu-logo {
@@ -996,26 +997,26 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
       font-size: 14px;
       gap: 10px;
     }
-    
+
     .menu-header .menu-close-button img {
       width: 18px;
       height: 18px;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
@@ -1023,12 +1024,12 @@
       font-size: 14px;
       gap: 8px;
     }
-    
+
     .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    
+
     /* Menu-nav : réductions de taille */
     .menu-nav {
       padding: 0;
@@ -1037,30 +1038,30 @@
       justify-content: center;
       width: 100%;
     }
-    
+
     .menu-nav ul {
       align-items: center;
       width: 100%;
       gap: 14px; /* Réduction de l'espacement */
     }
-    
+
     .nav-item {
       justify-content: center;
       height: 44px; /* Réduction de hauteur */
       max-width: 100%;
     }
-    
+
     .nav-text {
       padding-left: 0;
       text-align: center;
       font-size: 22px; /* Réduction de taille de police */
       padding: 8px 16px;
     }
-    
+
     .nav-line {
       display: none;
     }
-    
+
     /* UNIFORMISATION TOTALE DES NAV-BG - TOUTES LA MÊME TAILLE ET LARGEUR */
     .nav-bg,
     .nav-item .nav-bg,
@@ -1091,7 +1092,7 @@
       object-fit: fill !important;
       object-position: center !important;
     }
-    
+
     /* S'assurer que tous les nav-item ont la même largeur */
     .nav-item,
     .menu-nav .nav-item,
@@ -1105,7 +1106,7 @@
       max-width: 280px !important;
       min-width: 280px !important;
     }
-    
+
     /* Image-showcase : réductions */
     .image-showcase {
       padding: 0;
@@ -1114,7 +1115,7 @@
       align-items: center;
       width: 100%;
     }
-    
+
     .image-container {
       width: 100%;
       max-width: 600px;
@@ -1122,62 +1123,63 @@
       aspect-ratio: 658.19 / 429;
       margin-top: 0;
     }
-    
-    .deco-corner-top {
-      top: 120px;
-      right: 30px;
-      transform: scale(0.75);
+
+    .deco-corner-top,
+    .image-showcase .deco-corner-top {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
-    
-    .deco-corner-bottom {
-      top: auto;
-      bottom: 20px;
-      left: 20px;
-      transform: scale(0.75);
+
+    .deco-corner-bottom,
+    .image-showcase .deco-corner-bottom {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
     }
   }
-  
+
   /* ============================================
    * OPTIMISATION TRÈS PETIT ÉCRAN < 480px
    * Améliorations spécifiques pour petits écrans
    * ============================================ */
   @media (max-width: 480px) {
     .menu-content {
-      padding-top: 100px;
-      padding-bottom: 20px;
+      padding-top: 60px !important;
+      padding: 60px 2rem 20px !important;
     }
-    
+
     .menu-header {
       top: 15px;
       left: 15px;
       right: 15px;
     }
-    
+
     .menu-header .menu-close-button {
       font-size: 12px;
       gap: 8px;
     }
-    
+
     .menu-header .menu-close-button img {
       width: 16px;
       height: 16px;
     }
-    
+
     .menu-header .menu-lang-switcher {
       font-size: 12px;
       gap: 6px;
     }
-    
+
     .menu-header .menu-lang-switcher img {
       width: 10px;
       height: 10px;
     }
-    
+
     .nav-text {
       font-size: 20px; /* Encore plus petit sur très petit écran */
       padding: 6px 12px;
     }
-    
+
     /* UNIFORMISATION TOTALE DES NAV-BG SUR TRÈS PETIT ÉCRAN - TOUTES LA MÊME TAILLE ET LARGEUR */
     .nav-bg,
     .nav-item .nav-bg,
@@ -1208,7 +1210,7 @@
       object-fit: fill !important;
       object-position: center !important;
     }
-    
+
     /* S'assurer que tous les nav-item ont la même largeur sur très petit écran */
     .nav-item,
     .menu-nav .nav-item,
@@ -1223,16 +1225,16 @@
       max-width: 260px !important;
       min-width: 260px !important;
     }
-    
+
     .menu-nav ul {
       gap: 12px;
     }
-    
+
     .image-container {
       max-width: 100%;
     }
   }
-  
+
   @media (max-width: 768px) {
     .menu-header {
       left: 20px;
@@ -1242,7 +1244,7 @@
       gap: 0;
     }
   }
-  
+
   @media (max-width: 480px) {
     .menu-header {
       top: 20px;
@@ -1254,7 +1256,7 @@
       position: relative;
       padding: 0;
     }
-    
+
     /* Cacher le menu-logo sur mobile */
     .menu-header .menu-logo,
     .menu-logo {
@@ -1267,19 +1269,19 @@
       position: absolute !important;
       left: -9999px !important;
     }
-    
+
     .menu-header .menu-logo .logo-part,
     .menu-logo .logo-part {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
     }
-    
+
     .menu-header .menu-close-button {
       flex: 0 0 auto;
       justify-content: flex-start;
     }
-    
+
     .menu-header .menu-lang-switcher {
       flex: 0 0 auto;
       justify-content: flex-end;
@@ -1302,7 +1304,8 @@
       height: 10px;
     }
     .menu-content {
-      padding-top: 220px;
+      padding-top: 100px !important;
+      padding: 100px 2.5rem 20px !important;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1327,7 +1330,7 @@
     const menuButton = document.getElementById('openMenu') || document.querySelector('.menu-button');
     const menuContainer = document.querySelector('.menu-container');
     const closeButton = document.querySelector('.menu-close-button');
-    
+
     // Éléments à cacher quand le menu est ouvert
     const header = document.querySelector('.hero-header') || document.querySelector('.site-header');
     const headerInner = document.querySelector('.site-header__inner');
@@ -1373,7 +1376,7 @@
         }, 300);
       });
     }
-    
+
     // Écouter aussi les clics sur l'icône de fermeture dans Menu/global.js
     // Pour être sûr que ça fonctionne même si global.js se charge après
     const closeButtonIcon = closeButton ? closeButton.querySelector('img') : null;
@@ -1416,7 +1419,7 @@
     pointer-events: none !important;
     transform: translateY(100%) !important;
   }
-  
+
   /* S'assurer que les transitions fonctionnent sur mobile et desktop */
   .hero-header,
   .site-header,
@@ -1427,12 +1430,12 @@
     transition: opacity 0.3s ease, transform 0.3s ease !important;
     will-change: opacity, transform;
   }
-  
+
   /* Cacher le bouton "Réserver un espace" sur desktop */
   .btn-reserve-space-mobile {
     display: none !important;
   }
-  
+
   /* Afficher les deux boutons de part et d'autre sur mobile uniquement */
   @media (max-width: 768px) {
     .hero-footer {
@@ -1447,7 +1450,7 @@
       left: 0 !important;
       right: 0 !important;
     }
-    
+
     .btn-reserve-space-mobile {
       display: inline-flex !important;
       position: relative !important;
@@ -1459,7 +1462,7 @@
       height: 35px !important;
       margin-left: auto !important;
     }
-    
+
     .hero-footer .contact-btn {
       width: auto !important;
       min-width: 140px !important;
@@ -1467,7 +1470,7 @@
       height: 35px !important;
       margin-right: auto !important;
     }
-    
+
     .hero-footer .contact-btn .btn-text,
     .hero-footer .btn-reserve-space-mobile .btn-text {
       font-size: 12px !important;
@@ -1475,7 +1478,7 @@
       white-space: nowrap !important;
     }
   }
-  
+
   /* S'assurer que le header reste visible sur toute la page */
   .hero-header,
   .site-header {
@@ -1485,13 +1488,13 @@
     width: 100% !important;
     z-index: 9999 !important;
   }
-  
+
   /* S'assurer que le site-header__inner est visible */
   .site-header__inner {
     position: relative !important;
     z-index: 1 !important;
   }
-  
+
   /* Cacher le header et footer pendant le chargement initial */
   body[data-loading="true"] .hero-header,
   body[data-loading="true"] .site-header,
@@ -1509,7 +1512,7 @@
     visibility: hidden !important;
     pointer-events: none !important;
   }
-  
+
   /* S'assurer que le footer reste visible sur toute la page (desktop) */
   @media (min-width: 769px) {
     .hero-footer {
@@ -1520,7 +1523,7 @@
       width: auto !important;
     }
   }
-  
+
   @media (max-width: 768px) {
     .hero-header,
     .site-header,
@@ -1531,7 +1534,7 @@
       -webkit-transform: translateZ(0); /* Force l'accélération GPU sur iOS */
       transform: translateZ(0);
     }
-    
+
     /* S'assurer que le footer reste visible sur toute la page (mobile) */
     .hero-footer {
       position: fixed !important;
@@ -1549,16 +1552,16 @@
       gap: 0 !important;
       padding: 10px 20px !important;
     }
-    
+
     /* Positionner les boutons de part et d'autre */
     .hero-footer .contact-btn {
       margin-right: auto !important;
     }
-    
+
     .hero-footer .btn-reserve-space-mobile {
       margin-left: auto !important;
     }
-    
+
     /* S'assurer que le header reste fixe et visible */
     .hero-header,
     .site-header {
@@ -1582,7 +1585,7 @@
   <script>
     (function() {
       'use strict';
-      
+
       let lastScroll = 0;
       let ticking = false;
       let header = null;
@@ -1590,7 +1593,7 @@
       let footer = null;
       let contactBtn = null;
       let reserveSpaceBtn = null;
-      
+
       function initScrollHide() {
         // Sélectionner les éléments - chercher sur toute la page
         header = document.querySelector('.hero-header') || document.querySelector('.site-header');
@@ -1598,16 +1601,16 @@
         footer = document.querySelector('.hero-footer');
         contactBtn = document.querySelector('.hero-footer .contact-btn') || document.querySelector('.btn-wrapper.contact-btn') || document.getElementById('contactFab');
         reserveSpaceBtn = document.querySelector('.btn-wrapper.btn-reserve-space-mobile');
-        
+
         // Si les éléments n'existent pas, réessayer après un court délai
         if (!header && !footer && !contactBtn) {
           setTimeout(initScrollHide, 100);
           return;
         }
-        
+
         function checkScroll() {
           const currentScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-          
+
           // Toujours afficher si on est en haut de la page (moins de 50px)
           if (currentScroll < 50) {
             if (header) header.classList.remove('scroll-hide');
@@ -1618,15 +1621,15 @@
             lastScroll = currentScroll;
             return;
           }
-          
+
           // Calculer la différence de scroll
           const scrollDifference = Math.abs(currentScroll - lastScroll);
-          
+
           // Seulement agir si le scroll est significatif (évite les micro-mouvements)
           if (scrollDifference < 3) {
             return;
           }
-          
+
           // Si on scroll vers le bas ET qu'on a dépassé 100px, cacher
           if (currentScroll > lastScroll && currentScroll > 100) {
             if (header) header.classList.add('scroll-hide');
@@ -1634,7 +1637,7 @@
             if (footer) footer.classList.add('scroll-hide');
             if (contactBtn) contactBtn.classList.add('scroll-hide');
             if (reserveSpaceBtn) reserveSpaceBtn.classList.add('scroll-hide');
-          } 
+          }
           // Si on scroll vers le haut, afficher immédiatement (PEU IMPORTE OÙ ON EST SUR LA PAGE)
           else if (currentScroll < lastScroll) {
             if (header) header.classList.remove('scroll-hide');
@@ -1643,16 +1646,16 @@
             if (contactBtn) contactBtn.classList.remove('scroll-hide');
             if (reserveSpaceBtn) reserveSpaceBtn.classList.remove('scroll-hide');
           }
-          
+
           lastScroll = currentScroll;
         }
-        
+
         // Initialiser lastScroll
         lastScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-        
+
         // Vérifier immédiatement au chargement
         checkScroll();
-        
+
         // Écouter le scroll avec throttling et passive pour de meilleures performances
         // Utiliser window pour capturer le scroll sur toute la page
         window.addEventListener('scroll', function() {
@@ -1664,7 +1667,7 @@
             ticking = true;
           }
         }, { passive: true });
-        
+
         // Écouter aussi le touchmove pour mobile
         window.addEventListener('touchmove', function() {
           if (!ticking) {
@@ -1675,7 +1678,7 @@
             ticking = true;
           }
         }, { passive: true });
-        
+
         // Écouter aussi wheel pour certains navigateurs
         window.addEventListener('wheel', function() {
           if (!ticking) {
@@ -1687,7 +1690,7 @@
           }
         }, { passive: true });
       }
-      
+
       // Initialiser dès que possible
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initScrollHide);
@@ -1695,7 +1698,7 @@
         // Si le DOM est déjà chargé, attendre un peu pour être sûr que tout est prêt
         setTimeout(initScrollHide, 50);
       }
-      
+
       // Réinitialiser après le chargement complet de la page
       window.addEventListener('load', function() {
         setTimeout(initScrollHide, 100);
@@ -1715,7 +1718,7 @@
 
     <!-- CONTENU PRINCIPAL -->
     <div class="relative z-10 flex flex-col items-center justify-center text-center h-full space-y-6">
-      
+
 
 
       <h1 class="text-7xl text-white font-[Big_Caslon]" data-translate="restaurantHeroTitle">RESTAURANT</h1>
@@ -1725,7 +1728,7 @@
       <!--merged image - Bouton Nous contactez -->
       <a href="#contact" class="btn-wrapper contact-btn">
         <img src="images/568_840.svg" alt="" class="btn-bg" loading="lazy">
-        <span class="btn-text" data-translate="contactUs">Nous Contactez</span>
+        <span class="btn-text" data-translate="contactUs">Nous Contacter</span>
       </a>
       <!--merged image - Bouton Réserver une suite (visible uniquement sur mobile) -->
       <a href="page_reservation1.html" class="btn-wrapper btn-reserve-space-mobile">
@@ -1747,11 +1750,11 @@
       <div class="title-wrapper ">
         <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-restaurant">
         <h1 class="main-title" data-translate="restaurantSectionTitle">
-         RESTAURANT <span class="highlight "> L' ESCAPADE</span>
+         RESTAURANT <span class="highlight "> L'Escapade</span>
         </h1>
       </div>
     </div>
-   
+
 
     <!-- Section haute : Texte + image -->
     <div class="flex flex-col md:flex-row items-center gap-12">
@@ -1759,7 +1762,7 @@
       <!-- Texte à gauche -->
       <div class="w-full md:w-1/2 text-right md:text-right space-y-6">
         <p class="font-[Futura_Md_BT] text-[20px] md:text-[24px] leading-[30px] md:leading-[34px] text-[#000000]" data-translate="restaurantIntroHours">
-          Ouvert de <strong>7h30 à 22h30</strong>, le restaurant L’Escapade accueille ses hôtes tout au long de la journée.
+          Ouvert de <strong>7h30 à 22h30</strong>, le restaurant de L’Escapade accueille ses hôtes tout au long de la journée.
           La carte invite à un voyage savoureux entre <strong>Méditerranée</strong> et <strong>Côte d’Ivoire</strong>.
           Chaque plat incarne un brassage culturel raffiné, mêlant recettes ancestrales ivoiriennes et
           techniques contemporaines du monde.
@@ -1807,7 +1810,7 @@
 
     <div class="title-wrapper title-border-flipped-wrapper relative right-0 lg:right-[-200px]">
         <img src="images/574_538.png" alt="Decorative border" class="title-border title-border-flipped">
-        <h1 class="main-title" data-translate="restaurantChefTitle"> 
+        <h1 class="main-title" data-translate="restaurantChefTitle">
          NOTRE CHEF & <span class="highlight "> SES SPÉCIALITÉS</span>
         </h1>
       </div>
@@ -1828,9 +1831,6 @@
           Le chef sublime les produits locaux par un savoir-faire d’exception, entre tradition ivoirienne
           et gastronomie internationale.
         </p>
-        <p class="text-[#78552A] font-[Futura_Md_BT] text-[14px] uppercase tracking-[0.04em]" data-translate="restaurantChefName">
-          Le nom du Chef...
-        </p>
       </div>
     </div>
 
@@ -1841,7 +1841,7 @@
         <video class="w-full h-[700px] object-cover rounded-[70px_0] shadow-[0_8px_30px_rgba(0,0,0,0.1)]" autoplay muted loop playsinline preload="none" controls="false" loading="lazy" controlslist="nodownload nofullscreen noremoteplayback">
           <source src="video/CHEF.mp4" type="video/mp4" />
         </video>
-      
+
       </div>
 
       <!-- Texte -->
@@ -1854,7 +1854,7 @@
           <img src="media/510_6.svg" alt="Decorative element" class="deco-element deco-1 absolute -top-10 -right-10 w-20 h-24" />
           <img src="media/510_8.svg" alt="Decorative element" class="deco-element deco-2 absolute -bottom-10 -left-10 w-20 h-20" />
         </p>
-   
+
       </div>
     </div>
   </div>
@@ -1873,7 +1873,7 @@
          NOS <span class="highlight "> PLATS</span>
         </h1>
       </div>
-      
+
     </div>
 
     <!-- Slider des plats -->
@@ -1916,7 +1916,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="flex justify-center mt-6">
         <img src="images/Group 2.png" alt="Indicateur de la galerie" class="max-w-full h-auto">
       </div>
@@ -1925,7 +1925,7 @@
   </div>
 
   <!-- Décor vectoriel -->
-  
+
 </section>
 
 
@@ -1945,7 +1945,7 @@
               </div>
               <nav>
                 <ul>
-                  <li><a href="page_suite.html" data-translate="footerMenuRooms">Chambre & Suites</a></li>
+                  <li><a href="page_suite.html" data-translate="footerMenuRooms">Chambres & Suites</a></li>
                   <li><a href="restaurant.html" data-translate="footerMenuRestaurant">Restaurant</a></li>
                   <li><a href="lounge.html" data-translate="footerMenuLounge">Lounge</a></li>
                   <li><a href="page_evenementiel.html" data-translate="footerMenuEvents">Évènementiel</a></li>
@@ -1964,7 +1964,7 @@
                 <div class="form-group"><input type="text" placeholder="Prénom" data-translate="footerPlaceholderFirstName" data-translate-attr="placeholder"></div>
                 <div class="form-group"><input type="email" placeholder="Adresse e-mail" data-translate="footerPlaceholderEmail" data-translate-attr="placeholder"></div>
                 <div class="form-group"><input type="tel" placeholder="Numéro de téléphone" data-translate="footerPlaceholderPhone" data-translate-attr="placeholder"></div>
-                <div class="form-group"><textarea placeholder="Ecrivez votre message" rows="3" data-translate="footerPlaceholderMessage" data-translate-attr="placeholder"></textarea></div>
+                <div class="form-group"><textarea placeholder="Écrivez votre message" rows="3" data-translate="footerPlaceholderMessage" data-translate-attr="placeholder"></textarea></div>
                 <button type="submit" class="btn-submit" data-translate="footerSubmit">Envoyer</button>
               </form>
             </div>
@@ -1999,7 +1999,7 @@
         <hr class="footer-divider">
         <div class="footer-bottom">
           <a href="#" data-translate="footerTerms">Termes & Conditions</a>
-          <span data-translate="footerRights">©2025 – Tout droit réserver par l'Escapade.</span>
+          <span data-translate="footerRights">©2025 – Tous droits réservés par l'Escapade.</span>
           <a href="#" data-translate="footerPrivacy">Politique de confidentialité</a>
         </div>
       </div>
@@ -2041,29 +2041,29 @@
        reveals.forEach(r => io.observe(r));
      });
    </script>
-  
+
   <script>
     // Slider simplifié pour les plats - scroll horizontal uniquement
     document.addEventListener('DOMContentLoaded', () => {
       const wrapper = document.querySelector('.plats-slider-wrapper');
       const track = document.querySelector('#plats-slider-track');
       const slides = Array.from(document.querySelectorAll('.plats-slide'));
-      
+
       if (!wrapper || !track || !slides.length) return;
-      
+
       // Le slider fonctionne avec le scroll horizontal natif
       // Pas besoin de dots, l'image Group 2.png sert d'indicateur visuel
     });
   </script>
-  
-  
+
+
   <!-- Tailwind CSS - chargé en bas de page de manière asynchrone -->
   <script src="https://cdn.tailwindcss.com" async></script>
-  
+
   <!-- GSAP pour animations - chargé en bas de page avec defer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
+
   <!-- Scripts GSAP pour animations smooth scroll -->
   <script src="js/gsap-animations.js" defer></script>
   <script src="js/background-loader.js" defer></script>
@@ -2073,21 +2073,21 @@
   <script src="js/scroll-hide-behavior.js" defer></script>
   <!-- Script pour le menu avec toggle header/footer -->
   <script src="js/menu-header-footer-toggle.js" defer></script>
-  
+
   <!-- Bouton de retour -->
   <button id="back-button" class="back-button" aria-label="Retour à la page précédente" title="Retour">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
     </svg>
   </button>
-  
+
   <!-- Bouton scroll to top -->
   <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut de la page" title="Haut de page">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
     </svg>
   </button>
-  
+
   <script src="js/navigation-tracker.js" defer></script>
   <link rel="stylesheet" href="css/back-button.css">
   <script src="js/back-button.js" defer></script>
